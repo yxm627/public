@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCP Registry: Find & Publish MCP Servers Guide (2026)</title>
+  <meta name="description" content="The official MCP Registry hosts nearly 2,000 servers in 2026. Learn how to discover, publish, and use sub-registries like Qveris for 10,000+ capabilities.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Wang Linfang">
+  <meta property="og:title" content="MCP Registry: Find & Publish MCP Servers Guide (2026)">
+  <meta property="og:description" content="The official MCP Registry hosts nearly 2,000 servers in 2026. Learn how to discover, publish, and use sub-registries like Qveris for 10,000+ capabilities.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://qveris.ai/mcp-registry">
+  <meta property="og:image" content="https://qveris.ai/og/mcp-registry.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MCP Registry: Find & Publish MCP Servers Guide (2026)">
+  <meta name="twitter:description" content="The official MCP Registry hosts nearly 2,000 servers in 2026. Learn how to discover, publish, and use sub-registries like Qveris for 10,000+ capabilities.">
+  <meta name="twitter:image" content="https://qveris.ai/og/mcp-registry.png">
+  <meta name="theme-color" content="#0A0E1A">
+  <link rel="canonical" href="https://qveris.ai/mcp-registry">
+  <link rel="icon" type="image/svg+xml" href="https://qveris.ai/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://qveris.ai/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://qveris.ai/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"QVeris AI","url":"https://qveris.ai","logo":"https://qveris.ai/logo.png","sameAs":["https://twitter.com/qveris_ai","https://github.com/qveris","https://www.linkedin.com/company/qveris"]}
+  </script>
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://qveris.ai/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://qveris.ai/resources"},{"@type":"ListItem","position":3,"name":"MCP Registry","item":"https://qveris.ai/mcp-registry"}]}
+  </script>
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"MCP Registry: How to Discover and Publish MCP Servers in 2026","datePublished":"2026-05-18","dateModified":"2026-05-18","author":{"@type":"Person","name":"Wang Linfang","url":"https://qveris.ai/authors/wang-linfang","jobTitle":"CEO & Founder, QVeris AI","sameAs":["https://www.linkedin.com/in/wanglinfang"]},"publisher":{"@type":"Organization","name":"QVeris AI","logo":{"@type":"ImageObject","url":"https://qveris.ai/logo.png"}},"image":"https://qveris.ai/og/mcp-registry.png"}
+  </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the MCP registry?","acceptedAnswer":{"@type":"Answer","text":"The MCP Registry is the official metadata repository for publicly accessible Model Context Protocol servers. Launched in preview in September 2025, it provides a centralized directory where developers can discover, publish, and share MCP servers that extend AI model capabilities."}},{"@type":"Question","name":"How do I publish an MCP server?","acceptedAnswer":{"@type":"Answer","text":"To publish an MCP server, you need a server.json manifest file defining your server's name, version, capabilities, and tool definitions. Submit via the official registry at registry.modelcontextprotocol.io or through CLI tools. Your server becomes discoverable once approved by trusted reviewers."}},{"@type":"Question","name":"What is the difference between MCP registry and MCP server directory?","acceptedAnswer":{"@type":"Answer","text":"The MCP Registry is the official metadata repository maintained by the Linux Foundation's Agentic AI Foundation. MCP server directories are broader tools that index and categorize servers from the registry plus additional sources. Sub-registries like QVeris add capability routing on top of registry data."}},{"@type":"Question","name":"How does the official MCP Registry compare to community directories?","acceptedAnswer":{"@type":"Answer","text":"The official MCP Registry offers authoritative metadata, trusted review, and direct CLI integration. Community directories like Smithery and Glama provide better discovery UX, search filters, and user reviews. Sub-registries like QVeris add capability routing for AI agent integration."}},{"@type":"Question","name":"When should I use a sub-registry instead of the official MCP Registry?","acceptedAnswer":{"@type":"Answer","text":"Use the official registry when you want to browse available servers, understand metadata, or publish your own server. Use a sub-registry like QVeris when you want AI agents to automatically discover and connect to the right tools—sub-registries handle capability routing so agents don't need manual schema inspection."}}]}
+  </script>
+
+  <!-- SoftwareApplication Schema for QVeris -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"QVeris","description":"AI-Agent native capability routing network with 10,000+ MCP capabilities","applicationCategory":"BusinessApplication","operatingSystem":"Web, Python","url":"https://qveris.ai","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock"}}
+  </script>
+
+  <style>
+    .skip-link{position:absolute;left:-9999px;top:0;background:#7C9BFF;color:#0A0E1A;padding:10px 16px;border-radius:0 0 8px 0;font-weight:600;z-index:100}
+    .skip-link:focus{left:0}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,-apple-system,sans-serif;color:rgba(255,255,255,0.82);background:#0A0E1A;font-size:16.5px;line-height:1.75}
+    a{color:#7C9BFF;text-decoration:none}
+    .nav{position:sticky;top:0;z-index:50;background:rgba(10,14,26,0.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.06);padding:14px 0}
+    .nav-inner{max-width:1024px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .nav-logo-mark{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,#7C9BFF,#3D5FE0);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#0A0E1A}
+    .nav-logo span{font-size:16px;font-weight:600;color:rgba(255,255,255,0.97)}
+    .nav-links{display:flex;align-items:center;gap:22px;font-size:14px}
+    .nav-links a{color:rgba(255,255,255,0.55)}
+    .nav-cta{background:linear-gradient(135deg,#B5C6FF,#7C9BFF);color:#0A0E1A;padding:7px 18px;border-radius:20px;font-size:13px;font-weight:600}
+    .wrap{max-width:1024px;margin:0 auto;padding:48px 24px}
+    h1{font-size:2.4rem;font-weight:500;margin-bottom:16px;color:rgba(255,255,255,0.97)}
+    h2{font-size:1.22rem;font-weight:600;margin:40px 0 16px;color:rgba(255,255,255,0.92);border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:10px}
+    h3{font-size:1.1rem;font-weight:600;margin:28px 0 12px;color:rgba(255,255,255,0.85)}
+    p{margin:0 0 18px;color:rgba(255,255,255,0.62)}
+    strong{color:rgba(255,255,255,0.92)}
+    ul,ol{margin:12px 0 14px 24px}
+    li{margin:6px 0;color:rgba(255,255,255,0.62)}
+    .meta-desc{font-size:1.05rem;color:rgba(255,255,255,0.5);margin-bottom:28px}
+    .breadcrumb{font-size:13px;color:rgba(255,255,255,0.35);margin-bottom:20px}
+    .breadcrumb a{color:#7C9BFF}
+    .breadcrumb span{margin:0 6px}
+    .badge{display:inline-block;font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;margin-right:8px;margin-bottom:14px}
+    .badge-client{background:rgba(124,155,255,0.18);color:#B5C6FF;border:1px solid rgba(124,155,255,0.25)}
+    .badge-cat{background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.55)}
+    .author-meta{display:flex;align-items:center;gap:14px;padding:16px 0;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);flex-wrap:wrap}
+    .author-meta img{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7C9BFF,#3D5FE0)}
+    .author-info{flex:1}
+    .author-info a{font-weight:600;color:rgba(255,255,255,0.92)}
+    .author-bio{font-size:13px;color:rgba(255,255,255,0.45);margin:2px 0 0}
+    .dates{font-size:12px;color:rgba(255,255,255,0.4);text-align:right}
+    .toc{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;margin:0 0 32px}
+    .toc-label{font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+    .toc ul{margin:0;padding-left:18px;font-size:14.5px}
+    .toc a{color:rgba(255,255,255,0.7)}
+    .tldr{background:rgba(124,155,255,0.05);border-left:3px solid #7C9BFF;border-radius:0 10px 10px 0;padding:16px 20px;margin:0 0 28px}
+    .tldr-label{font-size:12px;font-weight:600;color:#B5C6FF;margin-bottom:8px;text-transform:uppercase;letter-spacing:1.5px}
+    .tldr ul{margin:0;padding-left:18px;font-size:14.5px}
+    .tldr li{color:rgba(255,255,255,0.7);margin:4px 0}
+    .snippet-answer{background:rgba(255,255,255,0.02);border-left:3px solid #B5C6FF;padding:14px 18px;border-radius:0 8px 8px 0;font-size:15.5px;color:rgba(255,255,255,0.85)}
+    .snippet-extended{margin-top:16px;padding:14px 18px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:8px;font-size:14.5px;color:rgba(255,255,255,0.6)}
+    .ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0 8px}
+    .ba-card{padding:18px;border-radius:10px}
+    .ba-before{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.18)}
+    .ba-after{background:rgba(124,155,255,0.06);border:1px solid rgba(124,155,255,0.2)}
+    .ba-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+    .ba-before .ba-label{color:#f87171}
+    .ba-after .ba-label{color:#B5C6FF}
+    .ba-text{font-size:14.5px;color:rgba(255,255,255,0.6);line-height:1.65}
+    .compare-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14.5px}
+    .compare-table th,.compare-table td{padding:12px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06)}
+    .compare-table thead th{background:rgba(255,255,255,0.03);color:rgba(255,255,255,0.85);font-weight:600;font-size:13px;text-transform:uppercase}
+    .compare-table tbody th{background:transparent;color:rgba(255,255,255,0.85);font-weight:500;text-transform:none;font-size:14.5px}
+    .compare-table td{color:rgba(255,255,255,0.65)}
+    .compare-table .highlight{color:#B5C6FF;font-weight:600}
+    .step-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:18px;margin:12px 0}
+    .step-num{display:inline-flex;width:26px;height:26px;background:linear-gradient(135deg,#7C9BFF,#3D5FE0);color:#0A0E1A;border-radius:50%;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-right:10px}
+    .step-box strong{display:inline}
+    .viz{margin:32px 0;padding:28px 32px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px}
+    .viz svg{width:100%;height:auto;display:block}
+    .viz-caption{margin-top:12px;font-size:13px;color:#8a8a9a;text-align:center;font-style:italic}
+    .cta-box{background:linear-gradient(135deg,rgba(124,155,255,0.1),rgba(61,95,224,0.08));border:1px solid rgba(124,155,255,0.2);text-align:center;padding:36px;border-radius:14px;margin:44px 0}
+    .cta-box h3{color:rgba(255,255,255,0.95);margin:0 0 8px;font-size:20px;font-weight:600}
+    .cta-box p{color:rgba(255,255,255,0.55);margin:0 0 20px}
+    .cta-btn{display:inline-block;background:linear-gradient(135deg,#B5C6FF,#7C9BFF);color:#0A0E1A;padding:12px 32px;border-radius:24px;font-weight:600;font-size:15px}
+    .faq{border-top:1px solid rgba(255,255,255,0.06)}
+    .faq-item{border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:24px 28px;margin-bottom:14px;background:rgba(255,255,255,0.01);transition:background 0.2s}
+    .faq-item:hover{background:rgba(255,255,255,0.03);border-color:rgba(124,155,255,0.15)}
+    .faq-q{font-weight:600;font-size:16px;color:rgba(255,255,255,0.9);display:flex;align-items:flex-start;gap:12px}
+    .faq-q::before{content:"Q";display:inline-flex;width:24px;height:24px;background:rgba(124,155,255,0.15);color:#B5C6FF;border-radius:50%;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:3px}
+    .faq-a{display:flex;align-items:flex-start;gap:12px;margin-top:12px;color:rgba(255,255,255,0.55);font-size:14.5px;line-height:1.75}
+    .faq-a::before{content:"A";display:inline-flex;width:24px;height:24px;background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.45);border-radius:50%;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;margin-top:4px}
+    .bottom-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:40px 0}
+    .methodology{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:24px 28px;font-size:14px;color:rgba(255,255,255,0.55);height:100%}
+    .methodology h2{font-size:14px;border:none;padding:0;margin:0 0 14px;color:rgba(255,255,255,0.85);text-transform:uppercase;letter-spacing:1px}
+    .methodology p{margin:8px 0;font-size:13.5px;line-height:1.7}
+    .related{display:grid;grid-template-columns:1fr;gap:10px;margin:16px 0}
+    .related a{display:flex;align-items:center;gap:12px;padding:16px 20px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;color:#B5C6FF;font-size:14px;font-weight:500;line-height:1.5;transition:background 0.2s,border-color 0.2s}
+    .related a:hover{background:rgba(124,155,255,0.08);border-color:rgba(124,155,255,0.3)}
+    .related a::after{content:"→";margin-left:auto;color:rgba(255,255,255,0.3);font-size:13px;flex-shrink:0}
+    .footer{background:#060912;border-top:1px solid rgba(255,255,255,0.04);padding:48px 24px}
+    .footer-inner{max-width:1024px;margin:0 auto}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:32px}
+    .footer .footer-title{display:block;font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+    .footer-links{display:flex;flex-direction:column;gap:10px;font-size:14px}
+    .footer-links a{color:rgba(255,255,255,0.35)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.04);padding-top:24px;display:flex;justify-content:space-between;font-size:13px;color:rgba(255,255,255,0.28)}
+    .code-block{background:#080b14;border:1px solid rgba(124,155,255,0.15);border-radius:10px;padding:20px;margin:20px 0;overflow-x:auto}
+    .code-block pre{margin:0;padding:0;background:transparent;border:none}
+    .code-block code{background:none;border:none;padding:0;font-size:13px;line-height:1.65;color:#c9d1d9;font-family:'SF Mono','Fira Code','JetBrains Mono',monospace}
+    .code-block .comment{color:#6a737d}
+    .code-block .keyword{color:#ff7b72}
+    .code-block .string{color:#a5d6ff}
+    .code-block .property{color:#79c0ff}
+    .timeline{margin:20px 0;padding:20px;background:rgba(255,255,255,0.02);border-radius:10px}
+    .timeline-item{display:flex;gap:16px;margin-bottom:16px}
+    .timeline-item:last-child{margin-bottom:0}
+    .timeline-date{min-width:100px;font-weight:600;color:#B5C6FF;font-size:14px}
+    .timeline-content{color:rgba(255,255,255,0.62)}
+    @media(max-width:720px){.ba-grid,.related{grid-template-columns:1fr};h1{font-size:1.75rem};.footer-grid{grid-template-columns:1fr 1fr};.nav-links a:not(.nav-cta){display:none};.author-meta{flex-direction:column};.code-block{padding:12px};.bottom-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="https://qveris.ai" class="nav-logo">
+        <span class="nav-logo-mark">Q</span>
+        <span>QVeris</span>
+      </a>
+      <div class="nav-links">
+        <a href="https://qveris.ai">Product</a>
+        <a href="https://qveris.ai/pricing">Pricing</a>
+        <a href="https://qveris.ai/docs">Docs</a>
+        <a href="https://qveris.ai" class="nav-cta">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <article>
+      <div class="wrap">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a><span>›</span><a href="/resources">Resources</a><span>›</span>MCP Registry
+        </nav>
+
+        <header>
+          <div><span class="badge badge-client">QVeris</span><span class="badge badge-cat">Guide</span></div>
+          <h1>MCP Registry: How to Discover and Publish MCP Servers in 2026</h1>
+          <p class="meta-desc">The official MCP Registry hosts nearly 2,000 servers in 2026. Learn how to discover, publish, and use sub-registries like QVeris for 10,000+ capabilities.</p>
+
+          <div class="author-meta">
+            <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%237C9BFF'/%3E%3Cstop offset='100%25' stop-color='%233D5FE0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='44' height='44' rx='22' fill='url(%23g)'/%3E%3Ctext x='22' y='28' font-family='Inter,sans-serif' font-size='18' font-weight='600' fill='%230A0E1A' text-anchor='middle'%3ELW%3C/text%3E%3C/svg%3E" alt="Linfang Wang, Founder &amp; CEO of QVeris AI" width="44" height="44" loading="lazy" decoding="async">
+            <div class="author-info">
+              <a href="https://qveris.ai/authors/wang-linfang" rel="author">Linfang Wang</a> · CEO &amp; Founder
+              <a href="https://www.linkedin.com/in/wanglinfang" rel="noopener" target="_blank" style="margin-left:8px;font-size:12px;color:#7C9BFF;">LinkedIn</a>
+              <p class="author-bio">MS from Tsinghua University. Former engineer at Microsoft (Bing), Opera News, JD.com AI Lab. 2023: CTO at Liblib AI. 2025: Founded QVeris AI to build action infrastructure for AI Agents.</p>
+            </div>
+            <div class="dates">
+              <time datetime="2026-05-18" itemprop="datePublished">Published: May 18, 2026</time><br>
+              <time datetime="2026-05-18" itemprop="dateModified">Updated: May 18, 2026</time>
+            </div>
+          </div>
+        </header>
+
+        <nav class="toc" aria-label="Table of Contents">
+          <div class="toc-label">Contents</div>
+          <ul>
+            <li><a href="#what-is">What Is the MCP Registry?</a></li>
+            <li><a href="#how-works">How the MCP Server Directory Works</a></li>
+            <li><a href="#how-use">How to Use the MCP Registry: Discover and Publish</a></li>
+            <li><a href="#vs-sub">MCP Registry vs Sub-Registries: When to Use Which</a></li>
+            <li><a href="#compare">Top MCP Server Directories Compared</a></li>
+          </ul>
+        </nav>
+
+        <section class="tldr">
+          <div class="tldr-label">TL;DR</div>
+          <ul>
+            <li><strong>What:</strong> The MCP Registry is the official metadata repository for Model Context Protocol servers, launched in preview September 2025 and now hosting nearly 2,000 servers.</li>
+            <li><strong>Use:</strong> Discover publicly available MCP servers to extend your AI models, or publish your own server to share tools with the community.</li>
+            <li><strong>Scale:</strong> Sub-registries like QVeris add capability routing on top of the registry, enabling AI agents to automatically find and connect to the right tools across 10,000+ capabilities.</li>
+          </ul>
+        </section>
+
+        <section id="what-is">
+          <h2>What Is the MCP Registry?</h2>
+          <p class="snippet-answer"><strong>The MCP Registry is the official metadata repository for publicly accessible Model Context Protocol servers. It provides a centralized directory where developers can discover, publish, and share MCP servers that extend AI model capabilities through standardized tool definitions and function calling interfaces.</strong></p>
+          <div class="snippet-extended">
+            <strong>The MCP Registry serves two primary purposes:</strong> First, it enables <strong>discovery</strong> — developers searching for tools can browse the directory, filter by capability, and find servers that match their needs. Second, it enables <strong>publication</strong> — developers can publish their own servers to share tools with the AI agent community. The registry acts as the source of truth for MCP server metadata, maintained under Linux Foundation governance since December 2025.
+          </div>
+          <p>The MCP Registry addresses a fundamental problem in AI agent development: finding and integrating external tools. Without a registry, developers must manually search GitHub, read documentation, and write custom integration code for each tool they want to use. The MCP Registry standardizes this process through the Model Context Protocol, making tools discoverable and interoperable across different AI frameworks.</p>
+          <p>Think of the MCP Registry as the npm registry for AI agent tools — just as npm hosts JavaScript packages that developers can install with a single command, the MCP Registry hosts tool servers that AI agents can discover and connect to through standardized interfaces. This analogy extends to governance: npm is maintained by the JavaScript ecosystem, while the MCP Registry is maintained by the Agentic AI Foundation under the Linux Foundation umbrella.</p>
+          <p>The distinction between the official MCP Registry and broader MCP server directories matters. The registry provides authoritative metadata — server names, versions, capability descriptions — but doesn't solve the discovery problem entirely. Finding "which server handles stock price lookups" requires scanning through descriptions. Sub-registries like QVeris layer capability routing on top, enabling semantic search and automatic tool selection.</p>
+        </section>
+
+        <section id="how-works">
+          <h2>How the MCP Server Directory Works</h2>
+          <p>The MCP Registry operates through a combination of governance structure, metadata schema, and trusted reviewer workflow. Understanding these components helps you navigate the registry effectively and publish compliant servers.</p>
+
+          <h3>Governance: From Anthropic to Linux Foundation</h3>
+          <p>The Model Context Protocol was originally developed by Anthropic and open-sourced in late 2024. In September 2025, the registry launched in preview with Anthropic, GitHub, and Microsoft as founding trusted contributors. In December 2025, the <a href="https://www.linuxfoundation.org/projects/" rel="noopener nofollow" target="_blank">Linux Foundation's Agentic AI Foundation</a> took over governance, ensuring the protocol remains vendor-neutral and community-driven. Anthropic documented the donation in their official announcement, providing transparency on the transition.</p>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">Sep 2024</div>
+              <div class="timeline-content">Anthropic open-sources the Model Context Protocol specification</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">Sep 2025</div>
+              <div class="timeline-content">MCP Registry launches in preview with trusted contributor program (Anthropic, GitHub, Microsoft)</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">Dec 2025</div>
+              <div class="timeline-content">Linux Foundation's Agentic AI Foundation assumes governance; registry grows to ~2,000 servers</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2026</div>
+              <div class="timeline-content">Community directories and sub-registries emerge, adding discovery UX and capability routing</div>
+            </div>
+          </div>
+
+          <h3>The server.json Schema</h3>
+          <p>Every MCP server published to the registry requires a <code>server.json</code> manifest file that defines the server's metadata, capabilities, and tool interface. This schema is the contract between servers and clients.</p>
+
+          <div class="code-block">
+            <pre><code><span class="comment">// server.json - MCP Server Manifest Example</span>
+{
+  <span class="property">"name"</span>: <span class="string">"stock-price-lookup"</span>,
+  <span class="property">"version"</span>: <span class="string">"1.0.0"</span>,
+  <span class="property">"description"</span>: <span class="string">"Real-time stock price and market data lookup"</span>,
+  <span class="property">"capabilities"</span>: {
+    <span class="property">"tools"</span>: [
+      {
+        <span class="property">"name"</span>: <span class="string">"get_stock_price"</span>,
+        <span class="property">"description"</span>: <span class="string">"Get current stock price for a given symbol"</span>,
+        <span class="property">"inputSchema"</span>: {
+          <span class="property">"type"</span>: <span class="string">"object"</span>,
+          <span class="property">"properties"</span>: {
+            <span class="property">"symbol"</span>: {
+              <span class="property">"type"</span>: <span class="string">"string"</span>,
+              <span class="property">"description"</span>: <span class="string">"Stock ticker symbol (e.g., AAPL, GOOGL)"</span>
+            }
+          },
+          <span class="property">"required"</span>: [<span class="string">"symbol"</span>]
+        }
+      }
+    ],
+    <span class="property">"resources"</span>: [
+      {
+        <span class="property">"uri"</span>: <span class="string">"market://indices"</span>,
+        <span class="property">"description"</span>: <span class="string">"Market indices summary"</span>
+      }
+    ]
+  },
+  <span class="property">"auth"</span>: {
+    <span class="property">"type"</span>: <span class="string">"api_key"</span>,
+    <span class="property">"required"</span>: <span class="keyword">true</span>
+  },
+  <span class="property">"maintainer"</span>: {
+    <span class="property">"name"</span>: <span class="string">"DataCorp Inc"</span>,
+    <span class="property">"url"</span>: <span class="string">"https://datacorp.example"</span>
+  }
+}</code></pre>
+          </div>
+
+          <p>The schema defines three core capability types: <strong>tools</strong> (executable functions the agent can call), <strong>resources</strong> (structured data the agent can read), and <strong>prompts</strong> (pre-defined prompt templates). Each tool includes an inputSchema that describes required and optional parameters — this is what enables type-safe function calling across different frameworks.</p>
+
+          <h3>Trusted Reviewer Workflow</h3>
+          <p>To maintain quality, servers submitted to the official MCP Registry undergo review by trusted contributors. Reviewers verify that the server.json schema is valid, the server actually implements the declared capabilities, and the server doesn't exhibit malicious behavior. This gatekeeping prevents the registry from becoming a malware distribution vector.</p>
+          <p>Community directories like Smithery and Glama operate with looser standards — they index servers from the registry plus additional GitHub-sourced servers, trading strict review for broader coverage. Sub-registries like QVeris add their own curation layer, testing servers for reliability before including them in the capability routing index.</p>
+        </section>
+
+        <section id="how-use">
+          <h2>How to Use the MCP Registry: Discover and Publish</h2>
+          <p>The MCP Registry supports two workflows: discovering existing servers for your AI agent, and publishing your own servers to share with the community. Here's how to do both.</p>
+
+          <h3>Discovering MCP Servers</h3>
+          <p>There are three paths for discovering MCP servers, each suited to different needs:</p>
+
+          <h4>Path 1: Official Registry Browser</h4>
+          <p>Visit <a href="https://registry.modelcontextprotocol.io" rel="noopener nofollow" target="_blank">registry.modelcontextprotocol.io</a> to browse the official directory. You can search by keyword, filter by capability category, and view detailed server pages with metadata, tool definitions, and maintainer information. MCP servers expose tool calling interfaces that AI agents use to execute functions — each server.json schema documents these interfaces for framework integration.</p>
+
+          <h4>Path 2: Community Directories</h4>
+          <p>Community directories like <a href="https://smithery.ai" rel="noopener nofollow" target="_blank">Smithery.ai</a> and <a href="https://glama.ai" rel="noopener nofollow" target="_blank">Glama.ai</a> offer better discovery UX — advanced search filters, user reviews, popularity metrics, and GitHub star counts. These directories index servers from the official registry plus additional sources, providing broader coverage at the cost of lower curation standards.</p>
+
+          <h4>Path 3: QVeris CLI (30-Second Setup)</h4>
+          <p>For AI agent integration, use the QVeris CLI to discover and install capabilities directly. Once you find a relevant MCP server, your agent calls its tools through standardized tool calling interfaces — the same pattern used across all MCP-compatible clients. QVeris maintains a curated index of 10,000+ capabilities across the MCP ecosystem:</p>
+
+          <div class="code-block">
+            <pre><code><span class="comment"># Install QVeris CLI</span>
+<span class="keyword">npm</span> install -g qveris-cli
+
+<span class="comment"># Discover available capabilities</span>
+qveris discover --query "stock price financial data"
+<span class="comment"># Output:</span>
+<span class="comment"># Found 3 matching capabilities:</span>
+<span class="comment">#   1. stock-price-lookup (QVeris native)</span>
+<span class="comment">#   2. market-data-api (MCP Registry)</span>
+<span class="comment">#   3. crypto-prices (MCP Registry)</span>
+
+<span class="comment"># Install a capability</span>
+qveris install stock-price-lookup
+
+<span class="comment"># Use in your agent</span>
+<span class="keyword">import</span> { QVerisClient } <span class="keyword">from</span> <span class="string">'qveris-sdk'</span>;
+<span class="keyword">const</span> client = <span class="keyword">new</span> QVerisClient();
+<span class="keyword">await</span> client.connect(<span class="string">'stock-price-lookup'</span>);
+<span class="keyword">const</span> price = <span class="keyword">await</span> client.call(<span class="string">'get_stock_price'</span>, { symbol: <span class="string">'AAPL'</span> });</code></pre>
+          </div>
+
+          <p>The QVeris approach differs from manual registry browsing because it handles capability routing — instead of reading server schemas manually, you describe what you want to accomplish, and QVeris finds the right tools automatically. This scales across thousands of capabilities without exploding the number of manual integrations.</p>
+
+          <h3>How to Publish Your MCP Server: Step-by-Step</h3>
+          <p>How to publish your MCP server to the official registry involves creating a compliant manifest, implementing your server, and submitting for trusted reviewer approval. Here's the complete process:</p>
+
+          <div class="step-box">
+            <span class="step-num">1</span>
+            <strong>Create your server.json manifest</strong>
+            <p>Define your server's metadata, name, version, capabilities, and tool definitions following the official schema. Ensure every tool has a valid inputSchema — this is required for the registry.</p>
+          </div>
+
+          <div class="step-box">
+            <span class="step-num">2</span>
+            <strong>Implement your MCP server</strong>
+            <p>Build your server using an MCP SDK (available for Python, TypeScript, Go). Implement the tool handlers that your server.json declares. Test locally with the MCP inspector tool.</p>
+          </div>
+
+          <div class="step-box">
+            <span class="step-num">3</span>
+            <strong>Submit for review</strong>
+            <p>Submit your server via the registry's CLI tool or web interface. Trusted reviewers (Anthropic, GitHub, Microsoft, or community reviewers) verify schema validity and capability implementation.</p>
+          </div>
+
+          <div class="step-box">
+            <span class="step-num">4</span>
+            <strong>Publish and maintain</strong>
+            <p>Once approved, your server appears in the registry. Keep your server.json updated with new versions, and monitor for user feedback on community directories.</p>
+          </div>
+
+          <p>The publish workflow is more involved than simply uploading code — the schema validation and reviewer process ensure that registry users encounter reliable, well-documented servers. Expect 1-3 days for initial review, longer for complex servers with extensive tool definitions.</p>
+        </section>
+
+        <section class="viz">
+          <svg viewBox="0 0 800 460" role="img" aria-labelledby="mcp-architecture-title mcp-architecture-desc">
+            <title id="mcp-architecture-title">MCP Registry Architecture: Official Registry, Sub-Registries, and Capability Routing</title>
+            <desc id="mcp-architecture-desc">Architecture diagram showing the layered MCP ecosystem: official MCP Registry stores metadata, community directories provide discovery UX, sub-registries like QVeris add capability routing, and AI agents consume tools through standardized interfaces</desc>
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#7C9BFF"/></marker>
+            </defs>
+            <rect width="800" height="460" fill="#0f1420" rx="12"/>
+
+            <!-- Official Registry Layer -->
+            <text x="400" y="32" text-anchor="middle" fill="#c8d0e8" font-size="15" font-weight="600">Official MCP Registry</text>
+            <rect x="200" y="48" width="400" height="95" rx="8" fill="#1a2035" stroke="#7C9BFF" stroke-width="1"/>
+            <text x="400" y="75" text-anchor="middle" fill="#e8ecf5" font-size="13" font-weight="500">Metadata Repository</text>
+            <text x="400" y="100" text-anchor="middle" fill="#a0aec0" font-size="12">server.json schemas  |  ~2,000 servers  |  Trusted review</text>
+            <text x="400" y="126" text-anchor="middle" fill="#6b7280" font-size="11">registry.modelcontextprotocol.io</text>
+
+            <!-- Arrows down -->
+            <path d="M320,143 L320,175" stroke="#7C9BFF" stroke-width="2" marker-end="url(#arrow)"/>
+            <path d="M480,143 L480,175" stroke="#7C9BFF" stroke-width="2" marker-end="url(#arrow)"/>
+            <path d="M320,143 L480,143" stroke="#4a5a9a" stroke-width="1.5" fill="none"/>
+
+            <!-- Directory Layer -->
+            <text x="400" y="210" text-anchor="middle" fill="#c8d0e8" font-size="15" font-weight="600">Community Directories</text>
+            <rect x="90" y="230" width="195" height="55" rx="6" fill="#141824" stroke="#3a4a7a" stroke-width="1"/>
+            <text x="187" y="263" text-anchor="middle" fill="#a0aec0" font-size="12">Smithery.ai</text>
+            <rect x="305" y="230" width="190" height="55" rx="6" fill="#141824" stroke="#3a4a7a" stroke-width="1"/>
+            <text x="400" y="263" text-anchor="middle" fill="#a0aec0" font-size="12">Glama.ai</text>
+            <rect x="515" y="230" width="195" height="55" rx="6" fill="#1e2440" stroke="#B5C6FF" stroke-width="2"/>
+            <text x="612" y="263" text-anchor="middle" fill="#d0d8f0" font-size="12" font-weight="600">QVeris Sub-Registry</text>
+
+            <!-- Arrows down -->
+            <path d="M612,285 L612,320" stroke="#B5C6FF" stroke-width="2" marker-end="url(#arrow)"/>
+
+            <!-- Sub-Registry Layer -->
+            <rect x="420" y="315" width="230" height="85" rx="6" fill="rgba(181,198,255,0.08)" stroke="#B5C6FF" stroke-width="1" stroke-dasharray="4,3"/>
+            <text x="535" y="345" text-anchor="middle" fill="#B5C6FF" font-size="14" font-weight="600">+ Capability Routing</text>
+            <text x="535" y="370" text-anchor="middle" fill="#8a9ab0" font-size="11">10,000+ capabilities</text>
+            <text x="535" y="388" text-anchor="middle" fill="#8a9ab0" font-size="11">AI agent integration</text>
+
+            <!-- Labels -->
+            <text x="187" y="310" text-anchor="middle" fill="#6b7280" font-size="10">Discovery UX</text>
+            <text x="535" y="420" text-anchor="middle" fill="#6b7280" font-size="10">Agent-native capability routing</text>
+          </svg>
+          <div class="viz-caption">Figure: MCP Registry architecture showing layered ecosystem from official registry to community directories to sub-registries with capability routing</div>
+        </section>
+
+        <section id="vs-sub">
+          <h2>MCP Registry vs Sub-Registries: When to Use Which</h2>
+          <p>The MCP Registry and sub-registries serve different purposes in the AI agent tool ecosystem. Understanding the distinction helps you choose the right approach for your use case.</p>
+
+          <div class="ba-grid">
+            <div class="ba-card ba-after">
+              <div class="ba-label">Use Official Registry When</div>
+              <div class="ba-text">
+                <p>You want authoritative metadata from primary source</p>
+                <p>You're manually browsing available servers</p>
+                <p>You're publishing your own server</p>
+                <p>You need to verify server provenance and trust level</p>
+                <p>You're building registry integration tooling</p>
+              </div>
+            </div>
+            <div class="ba-card ba-before">
+              <div class="ba-label">Use Sub-Registries When</div>
+              <div class="ba-text">
+                <p>You want AI agents to auto-discover tools</p>
+                <p>You need semantic search across 10,000+ capabilities</p>
+                <p>You want curated, tested servers</p>
+                <p>You're building agentic workflows</p>
+                <p>Manual registry browsing is too slow</p>
+              </div>
+            </div>
+          </div>
+
+          <h3>The Architecture Distinction</h3>
+          <p>The official MCP Registry is a <strong>metadata repository</strong> — it stores server manifests (server.json files) and makes them discoverable. When you browse the registry, you see: server names, descriptions, capability lists, and maintainer information. This is analogous to an npm package index.</p>
+          <p>Sub-registries like QVeris are <strong>capability routing layers</strong> — they ingest registry metadata, enrich it with additional testing and documentation, and provide interfaces that AI agents can query directly. Instead of "which servers exist?" you can ask "which server handles my specific task?" and get an answer without reading through dozens of schema files.</p>
+          <p>Think of it as the difference between a phone book and a personal assistant. A phone book (registry) lists every phone number in town. A personal assistant (sub-registry) knows which number to call for any situation. For human-scale browsing, the phone book suffices. For AI agent-scale tool selection across thousands of capabilities, you need capability routing.</p>
+
+          <h3>Which Should You Use?</h3>
+          <p>Use the official registry if you're evaluating MCP as a technology, publishing a server, or doing one-time integrations. Use a sub-registry like QVeris if you're building AI agent applications that need to discover and integrate tools dynamically at runtime.</p>
+          <p>For many teams, the answer is both: use the registry for initial discovery and validation, then integrate via QVeris for production agent workflows. This gives you the best of both worlds — authoritative source of truth plus production-grade capability routing.</p>
+        </section>
+
+        <section id="compare">
+          <h2>Top MCP Server Directories Compared</h2>
+          <p>Several tools help you discover and integrate MCP servers. Here's how the main options stack up:</p>
+
+          <table class="compare-table">
+            <caption>MCP server directory comparison: Official Registry, Smithery, Glama, and QVeris</caption>
+            <thead>
+              <tr><th scope="col">Feature</th><th scope="col">Official Registry</th><th scope="col">Smithery.ai</th><th scope="col">Glama.ai</th><th scope="col">QVeris</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Source</th><td>Official (Linux Foundation)</td><td>Registry + GitHub</td><td>Registry + GitHub</td><td>Registry + curated</td></tr>
+              <tr><th scope="row">Server Count</th><td>~2,000</td><td>~3,000</td><td>~2,500</td><td class="highlight">10,000+</td></tr>
+              <tr><th scope="row">Curation</th><td class="highlight">Trusted reviewers</td><td>Community</td><td>Community</td><td>Tested + verified</td></tr>
+              <tr><th scope="row">Discovery UX</th><td>Basic</td><td class="highlight">Advanced filters</td><td class="highlight">Reviews + metrics</td><td class="highlight">Semantic search</td></tr>
+              <tr><th scope="row">Agent Integration</th><td>Manual</td><td>SDK required</td><td>SDK required</td><td class="highlight">Native (CLI + SDK)</td></tr>
+              <tr><th scope="row">Capability Routing</th><td>No</td><td>No</td><td>No</td><td class="highlight">Yes</td></tr>
+              <tr><th scope="row">Publishing Support</th><td class="highlight">Yes</td><td>Limited</td><td>Limited</td><td>Via registry</td></tr>
+            </tbody>
+          </table>
+
+          <p>Choose the official registry for publishing your servers or when you need authoritative metadata. Choose Smithery or Glama for better discovery UX when browsing available tools. Choose QVeris when you need AI agents to discover and integrate tools automatically without manual schema inspection.</p>
+
+          <h3>How We Evaluated These Directories</h3>
+          <p>We evaluated these MCP server directories across six dimensions based on production requirements. <strong>Source authority</strong>: We verified whether directories source from the official registry, GitHub, or other sources — authoritative sources reduce the risk of including unverified or malicious servers. <strong>Server count</strong>: We counted unique, actively maintained servers as of Q2 2026, excluding deprecated or duplicate entries. <strong>Curation standards</strong>: We reviewed the submission and review process for each directory, distinguishing between trusted-reviewer-gated registries and open community submissions. <strong>Discovery UX</strong>: We tested search relevance, filter accuracy, and metadata completeness for common queries like "financial data" and "web search." <strong>Agent integration</strong>: We implemented a simple agent workflow (discover → install → call a tool) with each directory's SDK to measure integration friction. <strong>Capability routing</strong>: We tested whether directories support semantic search — querying by task description rather than exact tool name — which is essential for agents discovering tools without prior knowledge.</p>
+          <p>The comparison reflects our experience integrating these directories as of May 2026. The MCP ecosystem evolves rapidly; server counts, curation standards, and feature availability change monthly. We recommend testing the specific capabilities you need directly rather than relying solely on aggregate metrics.</p>
+
+          <h3>Production Evaluation: Three Questions to Ask</h3>
+          <p>When evaluating MCP servers for production use, experienced teams ask three key questions. First: <strong>Does the server expose stable tool calling interfaces?</strong> Check the server.json inputSchema for completeness — servers with missing parameter documentation often require more integration debugging. Second: <strong>Does the maintainer provide SLA commitments?</strong> Community servers may disappear or break without notice; servers with active maintainers and versioned releases are safer for production. Third: <strong>Can the server handle concurrent requests?</strong> Some MCP servers aren't designed for high-throughput scenarios — if your agent makes 100 tool calls per minute, test for rate limit errors before committing.</p>
+          <p>For teams evaluating MCP as infrastructure, the evaluation framework matters more than the specific server count. A small registry of well-documented, actively maintained servers outperforms a large registry of stale or broken implementations. QVeris applies these criteria internally, testing servers before including them in the capability routing index — this curation layer adds friction to publishing but reduces production incidents.</p>
+        </section>
+
+        <section class="cta-box">
+          <h3>Discover MCP Capabilities with QVeris</h3>
+          <p>QVeris provides AI-agent native capability routing across 10,000+ MCP capabilities. No manual schema inspection — just describe what you need and QVeris finds the right tools.</p>
+          <a href="https://qveris.ai/playground" class="cta-btn">Start Discovering →</a>
+        </section>
+
+        <!-- ====== OPTIMIZED BOTTOM SECTION ====== -->
+        <section>
+          <h2>FAQ: MCP Registry</h2>
+          <div class="faq">
+            <div class="faq-item">
+              <div class="faq-q">What is the MCP registry?</div>
+              <div class="faq-a">The MCP Registry is the official metadata repository for publicly accessible Model Context Protocol servers. Launched in preview in September 2025, it provides a centralized directory where developers can discover, publish, and share MCP servers that extend AI model capabilities.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">How do I publish an MCP server?</div>
+              <div class="faq-a">To publish an MCP server, you need a server.json manifest file defining your server's name, version, capabilities, and tool definitions. Submit via the official registry at registry.modelcontextprotocol.io or through CLI tools. Your server becomes discoverable once approved by trusted reviewers.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">What is the difference between MCP registry and MCP server directory?</div>
+              <div class="faq-a">The MCP Registry is the official metadata repository maintained by the Linux Foundation's Agentic AI Foundation. MCP server directories are broader tools that index and categorize servers from the registry plus additional sources. Sub-registries like QVeris add capability routing on top of registry data.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">How does the official MCP Registry compare to community directories?</div>
+              <div class="faq-a">The official MCP Registry offers authoritative metadata, trusted review, and direct CLI integration. Community directories like Smithery and Glama provide better discovery UX, search filters, and user reviews. Sub-registries like QVeris add capability routing for AI agent integration.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">When should I use a sub-registry instead of the official MCP Registry?</div>
+              <div class="faq-a">Use the official registry when you want to browse available servers, understand metadata, or publish your own server. Use a sub-registry like QVeris when you want AI agents to automatically discover and connect to the right tools—sub-registries handle capability routing so agents don't need manual schema inspection.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Two-column bottom grid: Methodology + Related Guides -->
+        <div class="bottom-grid">
+          <aside class="methodology">
+            <h2>About This Guide</h2>
+            <p><strong>Last Updated:</strong> <time datetime="2026-05-18">May 18, 2026</time></p>
+            <p><strong>Methodology:</strong> This guide synthesizes official MCP Registry documentation, Linux Foundation governance announcements, and QVeris experience building MCP integrations. Server counts reflect WorkOS 2026 data and QVeris internal indexing.</p>
+            <p><strong>Conflict of Interest:</strong> QVeris provides MCP capability routing as part of its AI agent platform. This guide aims for objectivity: the official registry wins for publishing and authoritative metadata, community directories win for discovery UX, QVeris wins for AI agent integration.</p>
+            <p><strong>Update Frequency:</strong> Reviewed every 60 days. MCP Registry is in active development — verify the latest spec at modelcontextprotocol.io before architectural decisions.</p>
+          </aside>
+
+          <section>
+            <h2 style="border:none;padding:0;margin:0 0 16px;">Related Guides</h2>
+            <div class="related">
+              <a href="https://qveris.ai/docs/cli">QVeris CLI Documentation</a>
+              <a href="https://qveris.ai/docs/getting-started">Getting Started with QVeris</a>
+              <a href="https://qveris.ai/concepts/what-is-ai-agent-orchestration">What is AI Agent Orchestration?</a>
+              <a href="https://qveris.ai/integrations">All Integrations</a>
+              <a href="https://qveris.ai/use-cases/multi-agent-workflows">Multi-Agent Workflow Patterns</a>
+            </div>
+          </section>
+        </div>
+
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div style="font-size:18px;font-weight:600;color:rgba(255,255,255,0.9);margin-bottom:12px">QVeris AI</div>
+          <p style="font-size:14px;color:rgba(255,255,255,0.35);max-width:300px;margin-bottom:16px">AI-Agent native capability routing network. Unified protocol accessing 10,000+ MCP capabilities for AI agents.</p>
+          <a href="https://qveris.ai" class="cta-btn" style="padding:8px 20px;font-size:13px">Get Started →</a>
+        </div>
+        <div>
+          <span class="footer-title">Product</span>
+          <div class="footer-links">
+            <a href="https://qveris.ai/product">Features</a>
+            <a href="https://qveris.ai/pricing">Pricing</a>
+            <a href="https://qveris.ai/integrations">Integrations</a>
+            <a href="https://qveris.ai/enterprise">Enterprise</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-title">Resources</span>
+          <div class="footer-links">
+            <a href="https://qveris.ai/docs">Documentation</a>
+            <a href="https://qveris.ai/docs/api-reference">API Reference</a>
+            <a href="https://qveris.ai/changelog">Changelog</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-title">Company</span>
+          <div class="footer-links">
+            <a href="https://qveris.ai/about">About</a>
+            <a href="https://qveris.ai/blog">Blog</a>
+            <a href="https://qveris.ai/contact">Contact</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 QVeris AI. All rights reserved.</span>
+        <span>AI-Agent Native • MCP Registry • Pay-Per-Call</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

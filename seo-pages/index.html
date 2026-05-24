@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AI-Agent Capability Router for Finance | QVeris Guides</title>
+  <meta name="description" content="Explore QVeris's library of guides on LLM gateways, MCP servers for finance, stock APIs, and AI-agent data infrastructure — from free tiers to enterprise pricing comparisons.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Linfang Wang">
+
+  <meta property="og:title" content="AI-Agent Capability Router for Finance | QVeris Guides">
+  <meta property="og:description" content="Explore QVeris's library of guides on LLM gateways, MCP servers for finance, stock APIs, and AI-agent data infrastructure for 2026.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://try.qveris.ai/">
+  <meta property="og:image" content="https://qveris.ai/img/qveris-og-2026.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://try.qveris.ai/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;color:#C5CAD8;background:#0A0E1A;font-size:16.5px;line-height:1.75;-webkit-font-smoothing:antialiased;min-height:100vh}
+    ::selection{background:rgba(124,155,255,0.3);color:#fff}
+    a{color:#7C9BFF;text-decoration:none}
+    a:hover{color:#B5C6FF}
+
+    .nav{position:sticky;top:0;z-index:50;background:rgba(10,14,26,0.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(124,155,255,0.12);padding:14px 0}
+    .nav-inner{max-width:1024px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .nav-logo-mark{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#7C9BFF 0%,#5B7FFF 50%,#3D5FE0 100%);color:#0A0E1A;font-weight:800;font-size:14px}
+    .nav-logo span:last-child{font-size:18px;font-weight:800;color:#fff;letter-spacing:-0.02em}
+    .nav-links{display:flex;align-items:center;gap:22px;font-size:14px}
+    .nav-links a{color:#8B92A5;transition:color 0.15s}
+    .nav-links a:hover{color:#fff}
+    .nav-cta{background:#7C9BFF;color:#0A0E1A !important;padding:7px 18px;border-radius:20px;font-size:13px;font-weight:700;text-decoration:none;transition:all 0.2s}
+    .nav-cta:hover{background:#B5C6FF;color:#0A0E1A !important}
+
+    .wrap{max-width:1024px;margin:0 auto;padding:48px 24px}
+
+    .hero{text-align:center;padding:32px 0 48px}
+    .hero h1{font-size:2.6rem;font-weight:700;line-height:1.15;color:#fff;letter-spacing:-0.02em;margin-bottom:16px}
+    .hero h1 .accent{background:linear-gradient(135deg,#7C9BFF 0%,#B5C6FF 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero p{font-size:1.1rem;color:#8B92A5;max-width:680px;margin:0 auto 28px;line-height:1.6}
+    .hero-cta{display:inline-block;background:#7C9BFF;color:#0A0E1A;padding:14px 36px;border-radius:24px;font-weight:700;font-size:15px;transition:all 0.2s}
+    .hero-cta:hover{background:#B5C6FF;color:#0A0E1A;transform:translateY(-1px)}
+
+    .section-label{font-size:12px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:20px;text-align:center}
+
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:0 0 48px}
+    .card{background:rgba(124,155,255,0.04);border:1px solid rgba(124,155,255,0.12);border-radius:12px;padding:24px;transition:all 0.2s;display:flex;flex-direction:column}
+    .card:hover{background:rgba(124,155,255,0.08);border-color:rgba(124,155,255,0.3);transform:translateY(-2px)}
+    .card-badge{display:inline-block;font-size:10px;font-weight:700;padding:3px 10px;border-radius:12px;margin-bottom:10px;width:fit-content}
+    .card-badge-guide{background:rgba(124,155,255,0.12);color:#7C9BFF}
+    .card-badge-compare{background:rgba(167,139,250,0.12);color:#a78bfa}
+    .card-badge-list{background:rgba(74,222,128,0.12);color:#4ade80}
+    .card h3{font-size:17px;font-weight:700;color:#fff;margin-bottom:6px;letter-spacing:-0.01em}
+    .card p{font-size:13.5px;color:#8B92A5;line-height:1.55;margin:0 0 auto}
+    .card-link{display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:600;color:#7C9BFF;margin-top:14px;transition:gap 0.2s}
+    .card:hover .card-link{gap:8px}
+
+    .cta-box{background:linear-gradient(135deg,rgba(124,155,255,0.12),rgba(124,155,255,0.04));border:1px solid rgba(124,155,255,0.25);text-align:center;padding:48px 36px;border-radius:14px;margin:0 0 48px}
+    .cta-box h2{color:#fff;margin:0 0 8px;font-size:22px;font-weight:700}
+    .cta-box p{color:#8B92A5;margin:0 0 24px;font-size:15px}
+    .cta-btn{display:inline-block;background:#7C9BFF;color:#0A0E1A;padding:14px 36px;border-radius:24px;font-weight:700;font-size:15px;transition:all 0.2s}
+    .cta-btn:hover{background:#B5C6FF;color:#0A0E1A;transform:translateY(-1px)}
+
+    .footer{background:#060912;border-top:1px solid rgba(124,155,255,0.08);padding:48px 24px}
+    .footer-inner{max-width:1024px;margin:0 auto}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:32px}
+    .footer h4{font-size:12px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+    .footer-links{display:flex;flex-direction:column;gap:10px;font-size:14px}
+    .footer-links a{color:#8B92A5;transition:color 0.15s}
+    .footer-links a:hover{color:#fff}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:24px;display:flex;justify-content:space-between;font-size:13px;color:#6B7280}
+    .footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+    .footer-brand-mark{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#7C9BFF 0%,#5B7FFF 50%,#3D5FE0 100%);color:#0A0E1A;font-weight:800;font-size:14px}
+    .footer-brand span:last-child{font-size:18px;font-weight:800;color:#fff}
+    .footer-tagline{font-size:14px;color:#6B7280;max-width:320px;margin-bottom:16px;line-height:1.6}
+
+    @media(max-width:720px){
+      .grid{grid-template-columns:1fr}
+      .hero h1{font-size:1.75rem}
+      .footer-grid{grid-template-columns:1fr 1fr}
+      .nav-links a:not(.nav-cta){display:none}
+      .wrap{padding:32px 20px}
+      .footer-bottom{flex-direction:column;gap:8px;text-align:center}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="https://qveris.ai" class="nav-logo">
+        <span class="nav-logo-mark">Q</span>
+        <span>QVeris</span>
+      </a>
+      <div class="nav-links">
+        <a href="https://qveris.ai">Product</a>
+        <a href="https://qveris.ai/pricing">Pricing</a>
+        <a href="https://qveris.ai/docs">Docs</a>
+        <a href="https://qveris.ai" class="nav-cta">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+
+    <!-- HERO -->
+    <div class="hero">
+      <h1>AI-Agent Capability Router<br><span class="accent">Guides &amp; Comparisons</span></h1>
+      <p>QVeris is the AI-Agent Capability Router for finance — one endpoint, 10,000+ tools across stocks, options, crypto, macro data, and KYC. Explore our guides on LLM gateways, MCP servers, stock APIs, and pricing comparisons to find the right infrastructure for your AI agents.</p>
+      <a href="https://qveris.ai" class="hero-cta">Try QVeris &rarr;</a>
+    </div>
+
+    <!-- CARD GRID -->
+    <div class="section-label">Explore Our 15 Guides</div>
+    <div class="grid">
+
+      <a href="./litellm-alternative-comparison/index.html" class="card">
+        <span class="card-badge card-badge-compare">Comparison</span>
+        <h3>LiteLLM Alternative</h3>
+        <p>Compare Portkey, Helicone, OpenRouter, Eden AI, Vellum, and self-host options — the 5 best LLM gateway alternatives for AI routing and cost tracking in 2026.</p>
+        <span class="card-link">Learn more &rarr;</span>
+      </a>
+
+      <a href="./mcp-server-list-finance/index.html" class="card">
+        <span class="card-badge card-badge-list">List</span>
+        <h3>MCP Server List for Finance</h3>
+        <p>Curated MCP server list covering 10,000+ financial capabilities — stocks, options, crypto, macro data, and KYC. Browse the best MCP servers for AI agents.</p>
+        <span class="card-link">Learn more &rarr;</span>
+      </a>
+
+      <a href="./polygon-pricing-optimized/index.html" class="card">
+        <span class="card-badge card-badge-compare">Comparison</span>
+        <h3>Polygon Pricing vs QVeris</h3>
+        <p>Polygon.io pricing starts at $99/mo. QVeris offers free Discover &amp; Inspect plus pay-per-call across 10,000+ capabilities — compare AI-Agent API costs side-by-side.</p>
+        <span class="card-link">Learn more &rarr;</span>
+      </a>
+
+      <a href="./stock-api-free-comparison/index.html" class="card">
+        <span class="card-badge card-badge-compare">Comparison</span>
+        <h3>Stock API Free: 8 Best Options</h3>
+        <p>Compare every free stock API in 2026: Alpha Vantage, Finnhub, Marketstack, Alpaca, Twelve Data, FMP, Polygon, and Databento — real tier limits and upgrade paths.</p>
+        <span class="card-link">Learn more &rarr;</span>
+      </a>
+
+      <a href="./alpha-vantage-pricing-alternative/index.html" class="card">
+        <span class="card-badge card-badge-compare">Comparison</span>
+        <h3>Alpha Vantage Pricing vs QVeris</h3>
+        <p>Alpha Vantage pricing starts at $49.99/mo (free tier: 5 req/min, 25/day). Compare all 6 paid plans against QVeris pay-per-call across 10,000+ AI-Agent capabilities.</p>
+        <span class="card-link">Learn more &rarr;</span>
+      </a>
+
+      <a href="./function-calling/index.html" class="card">
+        <span class="card-badge card-badge-guide">Guide</span>
+        <h3>Function Calling: 3 LLM Providers</h3>
+        <p>Compare function calling across OpenAI, Anthropic & Google. API schemas, code examples, reliability benchmarks & how MCP standardizes the pattern.</p>
+        <span class="card-link">Learn more &rarr;</span>
+      </a>
+
+      <a href="./mcp-server/index.html" class="card">
+        <span class="card-badge card-badge-list">List</span>
+        <h3>MCP Server: 8 Best Options</h3>
+        <p>An MCP server exposes tools and data to AI agents via Model Context Protocol. Compare 8 popular servers — GitHub, Figma, Linear, Notion & more.</p>
+        <span class="card-link">Learn more &rarr;</span>
+      </a>
+
+      <a href="./mcp-tools/index.html" class="card">
+        <span class="card-badge card-badge-guide">Guide</span>
+        <h3>MCP Tools: Discovery & Token Cost</h3>
+        <p>MCP tools are the model-controlled protocol primitive. Learn how tools/list discovery works, why 50+ tools cost 10,000+ tokens, and how to fix it.</p>
+        <span class="card-link">Learn more &rarr;</span>
+      </a>
+
+      <a href="./mcp-client/index.html" class="card">
+        <span class="card-badge card-badge-list">List</span>
+        <h3>MCP Client: 9 Best Options</h3>
+        <p>An MCP client connects AI hosts like Claude Desktop or Cursor to tools via MCP. Compare 9 production clients with detailed feature matrix.</p>
+        <span class="card-link">Learn more &rarr;</span>
+      </a>
+
+      <a href="./mcp-integration/index.html" class="card">
+        <span class="card-badge card-badge-guide">Guide</span>
+        <h3>MCP Integration Developer Guide</h3>
+        <p>A developer guide to MCP integration — connect Claude, Cursor, and AI agents to your tools through Model Context Protocol with step-by-step setup.</p>
+        <span class="card-link">Learn more &rarr;</span>
+      </a>
+
+      <a href="./mcp-registry/index.html" class="card">
+        <span class="card-badge card-badge-guide">Guide</span>
+        <h3>MCP Registry: Find & Publish</h3>
+        <p>The official MCP Registry hosts nearly 2,000 servers in 2026. Learn how to discover, publish, and use sub-registries like QVeris for AI agents.</p>
+        <span class="card-link">Learn more &rarr;</span>
+      </a>
+
+      <a href="./what-is-ai-agent-orchestration/index.html" class="card">
+        <span class="card-badge card-badge-guide">Guide</span>
+        <h3>What is AI Agent Orchestration?</h3>
+        <p>AI agent orchestration coordinates multiple agents to complete complex tasks. Learn how orchestration frameworks work and which to choose for production.</p>
+        <span class="card-link">Learn more &rarr;</span>
+      </a>
+
+      <a href="./cryptocurrency-price-api-for-ai-agents/index.html" class="card">
+        <span class="card-badge card-badge-compare">Comparison</span>
+        <h3>Crypto Price API: 7 Providers</h3>
+        <p>Compare 7 cryptocurrency price APIs — CoinGecko, CoinMarketCap, Coinpaprika & more. Plus how AI agents access crypto data through unified routing.</p>
+        <span class="card-link">Learn more &rarr;</span>
+      </a>
+
+      <a href="./real-time-stock-price-api-for-ai-agents/index.html" class="card">
+        <span class="card-badge card-badge-compare">Comparison</span>
+        <h3>Real-Time Stock API: 6 Best</h3>
+        <p>Compare 6 best stock market APIs — Polygon, Alpha Vantage, Finnhub & more. Plus how AI agents access them through one unified capability routing layer.</p>
+        <span class="card-link">Learn more &rarr;</span>
+      </a>
+
+      <a href="./financial-news-api-for-ai-agents/index.html" class="card">
+        <span class="card-badge card-badge-compare">Comparison</span>
+        <h3>Financial News API: 6 Providers</h3>
+        <p>Compare 6 financial news APIs — Benzinga, Marketaux, Finnhub & more. Plus how AI agents access sentiment-scored news through one unified layer.</p>
+        <span class="card-link">Learn more &rarr;</span>
+      </a>
+
+
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-box">
+      <h2>Ready to ship AI agents that actually work?</h2>
+      <p>One endpoint, 10,000+ AI-Agent capabilities. Discover &amp; Inspect are free — pay only for calls. Built for finance, ready for any agent stack.</p>
+      <a href="https://qveris.ai" class="cta-btn">Try QVeris &rarr;</a>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <span class="footer-brand-mark">Q</span>
+            <span>QVeris</span>
+          </div>
+          <p class="footer-tagline">The AI-Agent Capability Router for finance. One endpoint, 10,000+ tools across stocks, options, crypto, macro data, and KYC.</p>
+          <a href="https://qveris.ai" class="hero-cta" style="padding:8px 20px;font-size:13px">Get Started &rarr;</a>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <div class="footer-links">
+            <a href="https://qveris.ai">Platform</a>
+            <a href="https://qveris.ai/pricing">Pricing</a>
+            <a href="https://qveris.ai/enterprise">Enterprise</a>
+            <a href="https://qveris.ai/playground">Playground</a>
+          </div>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <div class="footer-links">
+            <a href="https://qveris.ai/docs">Docs</a>
+            <a href="https://qveris.ai/blog">Blog</a>
+            <a href="https://qveris.ai/changelog">Changelog</a>
+            <a href="https://qveris.ai/integrations">Integrations</a>
+          </div>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <div class="footer-links">
+            <a href="https://qveris.ai/about">About</a>
+            <a href="https://qveris.ai/contact">Contact</a>
+            <a href="https://qveris.ai/cases">Case Studies</a>
+            <a href="https://qveris.ai/privacy">Privacy</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 QVeris AI. All rights reserved.</span>
+        <span>AI-Agent Capability Router &mdash; Built for finance.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

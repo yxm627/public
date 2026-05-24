@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Function Calling: OpenAI vs Anthropic vs Google (2026)</title>
+  <meta name="description" content="Compare function calling across OpenAI, Anthropic & Google. API schemas, code examples, reliability benchmarks & how MCP standardizes the pattern.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Linfang Wang">
+  <meta property="og:title" content="Function Calling: OpenAI vs Anthropic vs Google (2026)">
+  <meta property="og:description" content="Compare function calling across OpenAI, Anthropic & Google. API schemas, code examples, reliability benchmarks & how MCP standardizes the pattern.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://qveris.ai/function-calling">
+  <meta property="og:image" content="https://qveris.ai/og/function-calling.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Function Calling: OpenAI vs Anthropic vs Google (2026)">
+  <meta name="twitter:description" content="Compare function calling across OpenAI, Anthropic & Google. API schemas, code examples, reliability benchmarks & how MCP standardizes the pattern.">
+  <meta name="theme-color" content="#0A0E1A">
+  <link rel="canonical" href="https://qveris.ai/function-calling">
+  <link rel="icon" type="image/svg+xml" href="https://qveris.ai/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "QVeris AI",
+    "url": "https://qveris.ai",
+    "logo": "https://qveris.ai/logo.png",
+    "sameAs": [
+      "https://twitter.com/qveris_ai",
+      "https://github.com/qveris",
+      "https://www.linkedin.com/company/qveris"
+    ]
+  }
+  </script>
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://qveris.ai/"},
+      {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://qveris.ai/concepts"},
+      {"@type": "ListItem", "position": 3, "name": "Function Calling", "item": "https://qveris.ai/function-calling"}
+    ]
+  }
+  </script>
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Function Calling: How LLMs Take Actions Across OpenAI, Anthropic & Google",
+    "description": "Function calling lets LLMs invoke external tools via structured JSON. Compare OpenAI, Anthropic and Google implementations — plus how MCP standardizes the pattern.",
+    "datePublished": "2026-05-19",
+    "dateModified": "2026-05-19",
+    "author": {
+      "@type": "Person",
+      "name": "Linfang Wang",
+      "url": "https://qveris.ai/authors/wang-linfang",
+      "jobTitle": "CEO & Founder, QVeris AI",
+      "sameAs": ["https://www.linkedin.com/in/wanglinfang"]
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "QVeris AI",
+      "logo": {"@type": "ImageObject", "url": "https://qveris.ai/logo.png"}
+    },
+    "image": "https://qveris.ai/og/function-calling.png",
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://qveris.ai/function-calling"}
+  }
+  </script>
+
+  <!-- DefinedTerm Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "DefinedTerm",
+    "name": "Function Calling",
+    "description": "Function calling is a mechanism that lets large language models invoke external tools by outputting structured JSON. When an LLM determines a user query requires an action, it generates a tool_call containing the function name and arguments, which the host application executes before returning results for the LLM to formulate a final response.",
+    "inDefinedTermSet": {"@type": "DefinedTermSet", "name": "LLM Integration Concepts"}
+  }
+  </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the difference between function calling and tool use in Anthropic?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Anthropic calls its implementation 'tool use' rather than 'function calling.' The key difference is in schema definition: Anthropic uses 'input_schema' (a JSON Schema object) while OpenAI uses 'parameters' (also JSON Schema). Both achieve the same outcome—enabling Claude to invoke external tools—but the terminology and nested structure differ. Anthropic's approach aligns with their broader tool ecosystem including computer use and web search capabilities."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does function calling work in OpenAI vs Anthropic?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "OpenAI's function calling (introduced June 2023) uses tool_calls in the response with function/name and arguments (a JSON string). Anthropic's tool use (introduced later) embeds tool_use blocks in content with name and input_schema. OpenAI's tool_choice parameter offers more control over which function gets called, while Anthropic emphasizes lazy-loading through Tool Search to reduce token overhead on large tool registries."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a function calling example in production?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A production function calling example: a customer service bot receives 'What's my order status?' The LLM recognizes this requires database lookup, outputs a tool_call with get_order_status(order_id='CUST_12345'). Your application executes the function, returns the result (status='shipped', eta='May 21'), and the LLM uses this data to generate a natural language response. This pattern scales to thousands of tools—platforms like QVeris handle 10,000+ tool registrations via MCP protocol."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When should you NOT use function calling?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Avoid function calling for: simple questions answerable from training data (adding tool overhead reduces latency without benefit); low token budgets where each tool_call costs 50-200+ tokens; unreliable tool execution environments (failures cascade); and single-turn interactions where multi-step reasoning isn't needed. If your use case is a one-shot question with a definitive answer, function calling adds unnecessary complexity."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is MCP and how does it relate to function calling?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "MCP (Model Context Protocol) is an open standard introduced in November 2024 (donated to Linux Foundation December 2025) that standardizes how AI models connect to tools. <a href=\"https://modelcontextprotocol.io\" target=\"_blank\" rel=\"noopener\">The MCP specification</a> provides a unified interface for tool discovery, execution, and result return. MCP doesn't replace function calling—it abstracts over it, letting you register tools once and use them across any LLM provider via MCP clients and servers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How reliable is function calling across different LLM providers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "According to <a href=\"https://digitalapplied.com\" target=\"_blank\" rel=\"noopener\">DigitalApplied's Q1 2026 benchmark</a> (single third-party source): Anthropic Claude achieves 8.4/10 reliability, Google Gemini 7.9/10, and OpenAI 6.3/10 on function calling tasks. Reliability here measures correct function identification, argument parsing accuracy, and schema compliance. Anthropic leads due to their structured input_schema approach and built-in lazy-loading for large tool sets. OpenAI's lower score reflects their deprecated Assistants API migration pain."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- HowTo Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to implement function calling with your LLM",
+    "description": "Add function calling to your LLM application in three steps: define your tools, send them to the model, and handle tool call responses.",
+    "totalTime": "PT10M",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Define your tool schema",
+        "text": "Create a JSON schema for each tool you want your LLM to call. Include name, description (for LLM context), and parameters (input_schema or parameters field depending on provider)."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Send tools to the model with your request",
+        "text": "Include the tool definitions in your API request (tools parameter for OpenAI, tools array for Anthropic, function_declarations for Google). The LLM will decide whether to call a tool based on user intent."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Execute the tool and return results",
+        "text": "Parse the model's tool_call output, execute the actual function in your application, and return the result as a tool message. The LLM uses this data to formulate its final response."
+      }
+    ]
+  }
+  </script>
+
+  <!-- SoftwareApplication Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "QVeris",
+    "description": "AI agent action infrastructure. Connect to 10,000+ tools via MCP protocol with unified function calling across OpenAI, Anthropic, and Google.",
+    "url": "https://qveris.ai",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "url": "https://qveris.ai/pricing"
+    }
+  }
+  </script>
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;color:rgba(255,255,255,0.82);background:#0A0E1A;font-size:16.5px;line-height:1.75;-webkit-font-smoothing:antialiased}
+    ::selection{background:rgba(124,155,255,0.3)}
+    a{color:#7C9BFF;text-decoration:none}
+    a:hover{color:#B5C6FF}
+    .skip-link{position:absolute;left:-9999px;top:0;background:#7C9BFF;color:#0A0E1A;padding:10px 16px;border-radius:0 0 8px 0;font-weight:600;z-index:100}
+    .skip-link:focus{left:0}
+    .nav{position:sticky;top:0;z-index:50;background:rgba(10,14,26,0.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.06);padding:14px 0}
+    .nav-inner{max-width:1024px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .nav-logo-mark{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,#7C9BFF 0%,#5B7FFF 50%,#3D5FE0 100%);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#0A0E1A}
+    .nav-logo span{font-size:16px;font-weight:600;color:rgba(255,255,255,0.97);letter-spacing:-0.01em}
+    .nav-links{display:flex;align-items:center;gap:22px;font-size:14px}
+    .nav-links a{color:rgba(255,255,255,0.55);transition:color 0.15s}
+    .nav-links a:hover{color:rgba(255,255,255,0.9)}
+    .nav-cta{background:linear-gradient(135deg,#B5C6FF 0%,#7C9BFF 40%,#5B7FFF 100%);color:#0A0E1A;padding:7px 18px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none;transition:opacity 0.2s}
+    .nav-cta:hover{opacity:0.9;color:#0A0E1A}
+    .wrap{max-width:1024px;margin:0 auto;padding:48px 24px}
+    .meta-desc{font-size:1.05rem;color:rgba(255,255,255,0.5);margin-bottom:28px;line-height:1.55;max-width:680px}
+    .breadcrumb{font-size:13px;color:rgba(255,255,255,0.35);margin-bottom:20px}
+    .breadcrumb a{color:#7C9BFF}
+    .breadcrumb a:hover{color:#B5C6FF}
+    .breadcrumb span{margin:0 6px}
+    .badge{display:inline-block;font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;margin-right:8px;margin-bottom:14px}
+    .badge-client{background:linear-gradient(135deg,rgba(124,155,255,0.18),rgba(61,95,224,0.18));color:#B5C6FF;border:1px solid rgba(124,155,255,0.25)}
+    .badge-cat{background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.08)}
+    h1{font-size:2.4rem;font-weight:500;line-height:1.15;margin-bottom:16px;color:rgba(255,255,255,0.97);letter-spacing:-0.02em}
+    h2{font-size:1.22rem;font-weight:600;margin:40px 0 16px;color:rgba(255,255,255,0.92);border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:10px}
+    h3{font-size:15px;font-weight:600;margin:24px 0 10px;color:rgba(255,255,255,0.85)}
+    p{margin:0 0 18px;color:rgba(255,255,255,0.62)}
+    strong{color:rgba(255,255,255,0.92)}
+    em{color:rgba(255,255,255,0.72);font-style:italic}
+    ul,ol{margin:12px 0 14px 24px}
+    li{margin:6px 0;color:rgba(255,255,255,0.62)}
+    .author-meta{display:flex;align-items:center;gap:14px;padding:16px 0;margin:0 0 24px;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);flex-wrap:wrap}
+    .author-meta img{width:44px;height:44px;border-radius:50%;object-fit:cover}
+    .author-info{flex:1;min-width:200px}
+    .author-info a{font-weight:600;color:rgba(255,255,255,0.92)}
+    .author-bio{font-size:13px;color:rgba(255,255,255,0.45);margin:2px 0 0}
+    .dates{font-size:12px;color:rgba(255,255,255,0.4);display:flex;flex-direction:column;gap:2px;text-align:right}
+    .toc{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;margin:0 0 32px}
+    .toc-label{font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+    .toc ul{margin:0;padding-left:18px;font-size:14.5px}
+    .toc a{color:rgba(255,255,255,0.7)}
+    .toc a:hover{color:#B5C6FF}
+    .tldr{background:rgba(124,155,255,0.05);border-left:3px solid #7C9BFF;border-radius:0 10px 10px 0;padding:16px 20px;margin:0 0 28px}
+    .tldr-label{font-size:12px;font-weight:600;color:#B5C6FF;margin-bottom:8px;text-transform:uppercase;letter-spacing:1.5px}
+    .tldr ul{margin:0;padding-left:18px;font-size:14.5px}
+    .tldr li{color:rgba(255,255,255,0.7);margin:4px 0}
+    .snippet-answer{background:rgba(255,255,255,0.02);border-left:3px solid #B5C6FF;padding:14px 18px;border-radius:0 8px 8px 0;font-size:15.5px;color:rgba(255,255,255,0.85);margin-bottom:20px}
+    .snippet-extended{margin-top:16px;padding:14px 18px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:8px;font-size:14.5px;color:rgba(255,255,255,0.6)}
+    .ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0 8px}
+    .ba-card{padding:18px;border-radius:10px}
+    .ba-before{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.18)}
+    .ba-after{background:rgba(124,155,255,0.06);border:1px solid rgba(124,155,255,0.2)}
+    .ba-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+    .ba-before .ba-label{color:#f87171}
+    .ba-after .ba-label{color:#B5C6FF}
+    .ba-text{font-size:14.5px;color:rgba(255,255,255,0.6);line-height:1.65}
+    .code-block{background:#080b14;border:1px solid rgba(124,155,255,0.15);border-radius:10px;padding:20px;margin:20px 0;overflow-x:auto}
+    .code-block pre{margin:0;padding:0;background:transparent;border:none}
+    .code-block code{background:none;border:none;padding:0;font-size:13px;line-height:1.65;color:#c9d1d9;font-family:'SF Mono','Fira Code','JetBrains Mono',monospace;white-space:pre}
+    .code-block .comment{color:#6a737d}
+    .code-block .keyword{color:#ff7b72}
+    .code-block .string{color:#a5d6ff}
+    .code-block .function{color:#d2a8ff}
+    .code-block .variable{color:#ffa657}
+    .code-block .property{color:#79c0ff}
+    .code-tabs{display:flex;gap:8px;margin-bottom:12px}
+    .code-tab{padding:6px 14px;font-size:12px;font-weight:600;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;color:rgba(255,255,255,0.5);cursor:pointer;transition:all 0.2s}
+    .code-tab.active{background:rgba(124,155,255,0.15);border-color:rgba(124,155,255,0.3);color:#B5C6FF}
+    .compare-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14.5px}
+    .compare-table th,.compare-table td{padding:12px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06)}
+    .compare-table thead th{background:rgba(255,255,255,0.03);color:rgba(255,255,255,0.85);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:0.5px}
+    .compare-table tbody th{background:transparent;color:rgba(255,255,255,0.85);font-weight:500;text-transform:none;font-size:14.5px;text-align:left}
+    .compare-table td{color:rgba(255,255,255,0.65)}
+    .compare-table .highlight{color:#B5C6FF;font-weight:600}
+    .compare-table .score-high{color:#4ade80;font-weight:600}
+    .compare-table .score-mid{color:#fbbf24;font-weight:600}
+    .compare-table .score-low{color:#f87171;font-weight:600}
+    .step-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:18px;margin:12px 0;transition:border-color 0.2s}
+    .step-box:hover{border-color:rgba(124,155,255,0.22)}
+    .step-num{display:inline-flex;width:26px;height:26px;background:linear-gradient(135deg,#7C9BFF,#3D5FE0);color:#0A0E1A;border-radius:50%;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-right:10px;vertical-align:middle}
+    .step-box strong{display:inline;vertical-align:middle}
+    .viz{margin:32px 0;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px}
+    .viz svg{width:100%;height:auto;display:block}
+    .viz-caption{margin-top:12px;font-size:13px;color:rgba(255,255,255,0.5);text-align:center;font-style:italic}
+    .cta-box{background:linear-gradient(135deg,rgba(124,155,255,0.1),rgba(61,95,224,0.08));border:1px solid rgba(124,155,255,0.2);text-align:center;padding:36px;border-radius:14px;margin:44px 0}
+    .cta-box h3{color:rgba(255,255,255,0.95);margin:0 0 8px;font-size:20px;font-weight:600}
+    .cta-box p{color:rgba(255,255,255,0.55);margin:0 0 20px}
+    .cta-btn{display:inline-block;background:linear-gradient(135deg,#B5C6FF 0%,#7C9BFF 40%,#5B7FFF 100%);color:#0A0E1A;padding:12px 32px;border-radius:24px;font-weight:600;font-size:15px;transition:all 0.2s;text-decoration:none}
+    .cta-btn:hover{opacity:0.9;transform:translateY(-1px);color:#0A0E1A}
+    .faq-item{border-bottom:1px solid rgba(255,255,255,0.06);padding:18px 0}
+    .faq-q{font-weight:600;font-size:16px;color:rgba(255,255,255,0.9)}
+    .faq-a{margin-top:8px;color:rgba(255,255,255,0.55);font-size:14.5px;line-height:1.65}
+    .methodology{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:20px 24px;margin:32px 0;font-size:14px;color:rgba(255,255,255,0.55)}
+    .methodology h2{font-size:14px;border:none;padding:0;margin:0 0 12px;color:rgba(255,255,255,0.85);text-transform:uppercase;letter-spacing:1px}
+    .methodology p{margin:6px 0;font-size:13.5px}
+    .related{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+    .related a{display:block;padding:14px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;text-decoration:none;color:#B5C6FF;font-size:14px;font-weight:500;transition:all 0.2s;line-height:1.45}
+    .related a:hover{background:rgba(124,155,255,0.05);border-color:rgba(124,155,255,0.25)}
+    .stat-highlight{background:rgba(124,155,255,0.08);border-left:3px solid #7C9BFF;padding:12px 16px;margin:16px 0;border-radius:0 6px 6px 0;font-size:14px;color:rgba(255,255,255,0.7)}
+    .stat-highlight cite{font-style:normal;color:#B5C6FF}
+    .type-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:18px;margin:14px 0}
+    .type-box h3{margin-top:0}
+    .footer{background:#060912;border-top:1px solid rgba(255,255,255,0.04);padding:48px 24px}
+    .footer-inner{max-width:1024px;margin:0 auto}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:32px}
+    .footer h4{font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+    .footer-links{display:flex;flex-direction:column;gap:10px;font-size:14px}
+    .footer-links a{color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.15s}
+    .footer-links a:hover{color:rgba(255,255,255,0.75)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.04);padding-top:24px;display:flex;justify-content:space-between;font-size:13px;color:rgba(255,255,255,0.28)}
+    .note-box{background:rgba(251,191,36,0.06);border:1px solid rgba(251,191,36,0.15);border-radius:8px;padding:14px 16px;margin:16px 0;font-size:14px;color:rgba(255,255,255,0.65)}
+    .note-box strong{color:#fbbf24}
+    .code-details{margin:16px 0;border-radius:10px;overflow:hidden;border:1px solid rgba(124,155,255,0.15)}
+    .code-details[open]{border-color:rgba(124,155,255,0.3)}
+    .code-summary{padding:12px 16px;background:rgba(255,255,255,0.03);cursor:pointer;font-size:14px;font-weight:600;color:rgba(255,255,255,0.75);display:flex;align-items:center;gap:8px}
+    .code-summary:hover{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.9)}
+    .code-summary::before{content:"▶";font-size:10px;transition:transform 0.2s}
+    .code-details[open] .code-summary::before{transform:rotate(90deg)}
+    .code-details .code-block{margin:0;border-radius:0;border:none;border-top:1px solid rgba(124,155,255,0.1)}
+    @media(max-width:720px){
+      .ba-grid{grid-template-columns:1fr}
+      .related{grid-template-columns:1fr}
+      h1{font-size:1.75rem}
+      .footer-grid{grid-template-columns:1fr 1fr}
+      .nav-links a:not(.nav-cta){display:none}
+      .wrap{padding:32px 20px}
+      .author-meta{flex-direction:column;align-items:flex-start}
+      .dates{text-align:left}
+      .code-block{padding:12px}
+      .compare-table{font-size:13px}
+      .compare-table th,.compare-table td{padding:8px 10px}
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- BLOCK 2: NAVIGATION -->
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="https://qveris.ai" class="nav-logo">
+        <span class="nav-logo-mark">Q</span>
+        <span>QVeris</span>
+      </a>
+      <div class="nav-links">
+        <a href="https://qveris.ai">Product</a>
+        <a href="https://qveris.ai/pricing">Pricing</a>
+        <a href="https://qveris.ai/docs">Docs</a>
+        <a href="https://qveris.ai" class="nav-cta">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <article>
+      <div class="wrap">
+
+        <!-- BLOCK 3: BREADCRUMB -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a><span>›</span><a href="/concepts">Concepts</a><span>›</span>Function Calling
+        </nav>
+
+        <!-- BLOCK 4: BADGES -->
+        <div>
+          <span class="badge badge-client">QVeris</span>
+          <span class="badge badge-cat">Concept Guide</span>
+        </div>
+
+        <!-- BLOCK 5: H1 -->
+        <h1>Function Calling: How LLMs Take Actions Across OpenAI, Anthropic & Google</h1>
+
+        <!-- BLOCK 6: META SUBTITLE -->
+        <p class="meta-desc">Tool calling lets large language models invoke external tools by outputting structured JSON. This guide explains the mechanism, compares implementations across major LLM providers, and shows how MCP standardizes the pattern for cross-vendor compatibility.</p>
+
+        <!-- BLOCK 7: AUTHOR BLOCK (E-E-A-T) -->
+        <div class="author-meta">
+          <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%237C9BFF'/%3E%3Cstop offset='100%25' stop-color='%233D5FE0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='44' height='44' rx='22' fill='url(%23g)'/%3E%3Ctext x='22' y='28' font-family='Inter,sans-serif' font-size='18' font-weight='600' fill='%230A0E1A' text-anchor='middle'%3ELW%3C/text%3E%3C/svg%3E" alt="Linfang Wang, Founder & CEO of QVeris AI" width="44" height="44" loading="lazy" decoding="async">
+          <div class="author-info">
+            <a href="https://qveris.ai/authors/wang-linfang" rel="author">Linfang Wang</a> · CEO &amp; Founder
+            <a href="https://www.linkedin.com/in/wanglinfang" rel="noopener" target="_blank" style="margin-left:8px;font-size:12px;color:#7C9BFF;">LinkedIn</a>
+            <p class="author-bio">MS from Tsinghua University. Former engineer at Microsoft (Bing), Opera News, JD.com AI Lab. 2023: CTO at Liblib AI. 2025: Founded QVeris AI.</p>
+          </div>
+          <div class="dates">
+            <time datetime="2026-05-19">Published: May 19, 2026</time>
+            <time datetime="2026-05-19">Updated: May 19, 2026</time>
+          </div>
+        </div>
+
+        <!-- BLOCK 8: TABLE OF CONTENTS -->
+        <nav class="toc" aria-label="Table of Contents">
+          <div class="toc-label">Contents</div>
+          <ul>
+            <li><a href="#definition">What is Function Calling?</a></li>
+            <li><a href="#mechanism">How Function Calling Works: The 4-Stage Flow</a></li>
+            <li><a href="#comparison">OpenAI vs Anthropic vs Google: API Schema Compared</a></li>
+            <li><a href="#when">When to Use Function Calling (and When Not To)</a></li>
+            <li><a href="#mcp">MCP: The Cross-Vendor Standardization Layer</a></li>
+            <li><a href="#start">Quick Start: Implementing Function Calling</a></li>
+          </ul>
+        </nav>
+
+        <!-- BLOCK 9: TL;DR -->
+        <section class="tldr">
+          <div class="tldr-label">TL;DR</div>
+          <ul>
+            <li><strong>Problem:</strong> LLMs are trained on static data — they cannot fetch real-time information, query databases, or execute actions without an explicit mechanism to call external tools via structured JSON.</li>
+            <li><strong>Solution:</strong> Tool calling (also called function calling in OpenAI and Google's terminology, or tool use in Anthropic's) lets LLMs output structured JSON that your application executes, then incorporate the results into their response.</li>
+            <li><strong>Result:</strong> You gain AI systems that interact with live data and real-world services — from weather APIs to database queries to enterprise workflows — with provider choice preserved through the MCP standard.</li>
+          </ul>
+        </section>
+
+        <!-- BLOCK 10: FEATURED SNIPPET CAPTURE -->
+        <section id="definition">
+          <h2>What Is Function Calling in LLMs?</h2>
+          <p class="snippet-answer"><strong>Function calling is a mechanism that lets large language models invoke external tools by outputting structured JSON. When an LLM determines a query requires action, it generates a tool_call with the function name and arguments, which the host application executes before returning results for the LLM to formulate a response.</strong></p>
+          <div class="snippet-extended">
+            <strong>The key insight:</strong> Function calling decouples LLM intelligence from tool execution. The LLM handles intent recognition and response synthesis; your application handles actual tool execution. This separation lets you add thousands of tools without retraining the model.
+          </div>
+          <p>OpenAI introduced function calling in June 2023, and the pattern rapidly became a standard feature across major LLM providers. By 2026, <a href="https://platform.openai.com/docs/function-calling" target="_blank" rel="noopener">OpenAI</a>, <a href="https://docs.anthropic.com/en/docs/about-claude/use-cases/tools" target="_blank" rel="noopener">Anthropic</a>, and <a href="https://ai.google.dev/docs/function_calling" target="_blank" rel="noopener">Google Gemini</a> all support some variant of this mechanism — though each uses different terminology and schema structures.</p>
+          <p>The mechanism transforms LLMs from passive text generators into active participants in workflows. Instead of hallucinating facts, the model can say "I need to check your database" and generate a properly formatted query your system executes.</p>
+        </section>
+
+        <!-- BLOCK 11: BEFORE / AFTER -->
+        <div class="ba-grid">
+          <div class="ba-card ba-before">
+            <div class="ba-label">Before Function Calling</div>
+            <div class="ba-text">LLMs return static answers that may be outdated or hallucinated. "What's my order status?" returns a generic "check your account" message. No real data access. No action capability.</div>
+          </div>
+          <div class="ba-card ba-after">
+            <div class="ba-label">After Function Calling</div>
+            <div class="ba-text">LLMs output structured tool calls. Your system executes get_order_status(id='123'), returns live data, and the LLM synthesizes a precise, data-grounded response with actual status and ETA.</div>
+          </div>
+        </div>
+
+        <!-- BLOCK 12: BODY H2s -->
+
+        <section id="mechanism">
+          <h2>How Function Calling Works: The 4-Stage Flow</h2>
+          <p>Function calling follows a predictable four-stage cycle. Understanding this flow helps you debug issues and design more reliable systems.</p>
+
+          <h3>Stage 1: User Request</h3>
+          <p>Your application sends a user query to the LLM along with your tool definitions. The LLM analyzes whether the query requires tool execution or can be answered from training data.</p>
+
+          <h3>Stage 2: LLM Decision + Tool Call Output</h3>
+          <p>If the LLM determines a tool is needed, it outputs a structured tool_call message (or tool_use in Anthropic's format) containing the function name and arguments as JSON.</p>
+
+          <h3>Stage 3: Application Execution</h3>
+          <p>Your application receives the tool call, parses the function name and arguments, executes the actual function (API call, database query, file read, etc.), and captures the result.</p>
+
+          <h3>Stage 4: Result Return + Response Synthesis</h3>
+          <p>You return the tool result to the LLM as a tool message. The LLM incorporates this data to synthesize a natural language response that references the actual results.</p>
+
+          <!-- SVG 1: 4-Stage Sequence Diagram -->
+          <div class="viz">
+            <svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#7C9BFF" stop-opacity="0.6"/>
+                  <stop offset="100%" stop-color="#7C9BFF" stop-opacity="1"/>
+                </linearGradient>
+              </defs>
+              <!-- Stage labels -->
+              <text x="100" y="35" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#B5C6FF">1. User Request</text>
+              <text x="280" y="35" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#B5C6FF">2. LLM Decision</text>
+              <text x="480" y="35" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#B5C6FF">3. Tool Execution</text>
+              <text x="680" y="35" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#B5C6FF">4. Response</text>
+              <!-- Vertical lines -->
+              <line x1="70" y1="55" x2="70" y2="280" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+              <line x1="250" y1="55" x2="250" y2="280" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+              <line x1="450" y1="55" x2="450" y2="280" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+              <line x1="650" y1="55" x2="650" y2="280" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+              <line x1="770" y1="55" x2="770" y2="280" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+              <!-- Boxes -->
+              <rect x="20" y="60" width="100" height="50" rx="6" fill="rgba(124,155,255,0.1)" stroke="#7C9BFF" stroke-width="1"/>
+              <text x="70" y="90" font-family="Inter,sans-serif" font-size="12" fill="rgba(255,255,255,0.8)" text-anchor="middle">User Query</text>
+              <rect x="200" y="100" width="100" height="50" rx="6" fill="rgba(124,155,255,0.1)" stroke="#7C9BFF" stroke-width="1"/>
+              <text x="250" y="130" font-family="Inter,sans-serif" font-size="12" fill="rgba(255,255,255,0.8)" text-anchor="middle">LLM analyzes</text>
+              <rect x="400" y="140" width="100" height="50" rx="6" fill="rgba(124,155,255,0.1)" stroke="#7C9BFF" stroke-width="1"/>
+              <text x="450" y="170" font-family="Inter,sans-serif" font-size="12" fill="rgba(255,255,255,0.8)" text-anchor="middle">Execute tool</text>
+              <rect x="620" y="100" width="100" height="50" rx="6" fill="rgba(124,155,255,0.1)" stroke="#7C9BFF" stroke-width="1"/>
+              <text x="670" y="130" font-family="Inter,sans-serif" font-size="12" fill="rgba(255,255,255,0.8)" text-anchor="middle">Synthesize</text>
+              <rect x="400" y="60" width="100" height="50" rx="6" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+              <text x="450" y="90" font-family="Inter,sans-serif" font-size="12" fill="rgba(255,255,255,0.5)" text-anchor="middle">tool_call</text>
+              <!-- Arrows -->
+              <line x1="120" y1="85" x2="200" y2="115" stroke="url(#arrowGrad)" stroke-width="2" marker-end="url(#arrowhead)"/>
+              <line x1="300" y1="115" x2="400" y2="145" stroke="url(#arrowGrad)" stroke-width="2"/>
+              <line x1="500" y1="155" x2="620" y2="115" stroke="url(#arrowGrad)" stroke-width="2"/>
+              <line x1="70" y1="110" x2="70" y2="200" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="4"/>
+              <line x1="250" y1="150" x2="250" y2="200" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="4"/>
+              <line x1="450" y1="190" x2="450" y2="240" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="4"/>
+              <!-- Return path -->
+              <path d="M 670 165 Q 720 200 770 200 Q 770 250 250 250 Q 70 250 70 200" stroke="rgba(124,155,255,0.4)" stroke-width="1.5" fill="none" stroke-dasharray="6"/>
+              <text x="400" y="270" font-family="Inter,sans-serif" font-size="11" fill="rgba(255,255,255,0.4)" text-anchor="middle">tool_result returned to LLM</text>
+              <!-- Labels -->
+              <text x="160" y="108" font-family="Inter,sans-serif" font-size="10" fill="rgba(255,255,255,0.5)">query + tools</text>
+              <text x="350" y="135" font-family="Inter,sans-serif" font-size="10" fill="rgba(255,255,255,0.5)">tool_call JSON</text>
+              <text x="540" y="105" font-family="Inter,sans-serif" font-size="10" fill="rgba(255,255,255,0.5)">result</text>
+            </svg>
+            <div class="viz-caption">Figure 1: The 4-stage function calling flow — from user request through tool execution to LLM response synthesis</div>
+          </div>
+
+          <p>This architecture enables a key capability: <a href="https://qveris.ai/docs/mcp-server">MCP tools</a> registered via the Model Context Protocol work within this same flow, letting you scale from a handful of tools to thousands without changing your integration code.</p>
+        </section>
+
+        <section id="comparison">
+          <h2>OpenAI vs Anthropic vs Google: API Schema Compared</h2>
+          <p>Each LLM provider uses different field names and structural conventions for function calling. The table below compares the key differences in how each vendor handles the same conceptual operation: enabling an LLM to call an external tool.</p>
+
+          <p>Understanding these differences matters for two practical reasons. First, if you're building a multi-provider integration or planning to switch vendors, you'll need to adapt your tool definition format and response parsing logic. Second, if you're debugging why a particular tool calling request fails, knowing which provider's conventions apply helps you identify whether the issue is in schema definition, response parsing, or model behavior.</p>
+
+          <!-- SVG 2: Comparison Table as Visual -->
+          <div class="viz">
+            <table class="compare-table">
+              <thead>
+                <tr>
+                  <th>Dimension</th>
+                  <th>OpenAI</th>
+                  <th>Anthropic Claude</th>
+                  <th>Google Gemini</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>Terminology</th>
+                  <td>Function calling</td>
+                  <td>Tool use</td>
+                  <td>Function calling</td>
+                </tr>
+                <tr>
+                  <th>Request field</th>
+                  <td><code>tools</code> array</td>
+                  <td><code>tools</code> array</td>
+                  <td><code>function_declarations</code></td>
+                </tr>
+                <tr>
+                  <th>Response field</th>
+                  <td><code>tool_calls</code></td>
+                  <td><code>tool_use</code> in content</td>
+                  <td><code>function_call</code></td>
+                </tr>
+                <tr>
+                  <th>Schema definition</th>
+                  <td><code>parameters</code> (JSON Schema)</td>
+                  <td><code>input_schema</code> (JSON Schema)</td>
+                  <td><code>parameters</code> (OpenAPI-style)</td>
+                </tr>
+                <tr>
+                  <th>Arguments format</th>
+                  <td>JSON string</td>
+                  <td>Dictionary/object</td>
+                  <td>Dictionary/object</td>
+                </tr>
+                <tr>
+                  <th>Parallel calls</th>
+                  <td>Supported</td>
+                  <td>Supported</td>
+                  <td>Supported</td>
+                </tr>
+                <tr>
+                  <th>Tool choice control</th>
+                  <td><code>tool_choice</code> (auto/none/required)</td>
+                  <td>Automatic via Tool Search</td>
+                  <td>Automatic via function calling</td>
+                </tr>
+                <tr>
+                  <th>Large tool registry</th>
+                  <td>Manual filtering needed</td>
+                  <td>Lazy-loading via Tool Search</td>
+                  <td>Manual filtering needed</td>
+                </tr>
+                <tr>
+                  <th>Reliability score</th>
+                  <td class="score-low">6.3/10</td>
+                  <td class="score-high">8.4/10</td>
+                  <td class="score-mid">7.9/10</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="viz-caption">Table 1: API schema comparison across OpenAI, Anthropic Claude, and Google Gemini function calling implementations</div>
+          </div>
+
+          <div class="stat-highlight">
+            <cite>DigitalApplied Q1 2026 benchmark (single third-party source):</cite> Anthropic Claude leads with 8.4/10 reliability, followed by Google Gemini (7.9/10) and OpenAI (6.3/10) on function calling tasks. OpenAI's lower score reflects the mid-2026 deprecation of their Assistants API and migration challenges. <em>Note: These scores are from a single third-party benchmark; results vary across different test conditions and methodologies. This is not an official provider ranking, and standardized test conditions may yield different outcomes.</em>
+          </div>
+
+          <p>According to <a href="https://digitalapplied.com" target="_blank" rel="noopener">DigitalApplied's Q1 2026 benchmark</a>, Anthropic Claude achieves 8.4/10 reliability on function calling tasks, compared to 7.9/10 for Google Gemini and 6.3/10 for OpenAI. The reliability metric measures three dimensions: correct function identification (which function to call), argument parsing accuracy (extracting correct parameters), and schema compliance (producing valid JSON). Anthropic leads due to their structured <code>input_schema</code> approach, which provides clearer constraints for the model, and their built-in lazy-loading via Tool Search for handling large tool registries.</p>
+
+          <h3>Detailed field mapping</h3>
+          <p>The table above shows high-level differences, but the practical implementation varies in subtle ways that matter when you're writing code. Let's walk through each dimension in detail.</p>
+
+          <h4>Terminology and conceptual framing</h4>
+          <p>OpenAI and Google both use the term "function calling," while Anthropic refers to the same capability as "tool use." This isn't just a naming difference — it reflects underlying design philosophy. Anthropic's "tool" framing suggests a broader ecosystem that includes capabilities beyond simple function invocations, such as their computer use and web search features. When you're searching documentation or community discussions, using the right term for each provider saves time.</p>
+
+          <h4>Schema definition structure</h4>
+          <p>Both OpenAI and Google use <code>parameters</code> for schema definition, while Anthropic uses <code>input_schema</code>. The semantics are identical — both accept JSON Schema objects defining the expected arguments — but the field name differs. If you're building a schema translator that adapts between providers, this is one of the key conversion points. The JSON Schema structure itself (type, properties, required) is consistent across all three providers.</p>
+
+          <h4>Response argument format</h4>
+          <p>This is where the practical difference is most noticeable. OpenAI returns arguments as a JSON string (you need to parse it with <code>JSON.parse()</code> or equivalent), while Anthropic and Google return arguments as native dictionaries or objects. In Python, this means Anthropic's <code>block.input</code> and Google's <code>part.function_call.args</code> are already the right Python type, while OpenAI's <code>tool_call.function.arguments</code> requires an additional parsing step.</p>
+
+          <h4>Tool choice control</h4>
+          <p>OpenAI exposes a <code>tool_choice</code> parameter with three modes: <code>auto</code> (let the model decide), <code>none</code> (prevent tool calls), and <code>required</code> (force a tool call). Anthropic handles this differently through their Tool Search feature, which performs lazy-loading to reduce token overhead when you have large tool registries. Google defaults to automatic behavior but provides configuration options through their function calling settings.</p>
+
+          <h3>Provider-specific nuances worth knowing</h3>
+          <p>Beyond the table, each provider has behaviors that aren't immediately obvious from documentation but significantly impact reliability and performance.</p>
+
+          <p><strong>OpenAI quirks:</strong> The <code>tool_choice: "required"</code> mode is powerful but often overused. It forces the model to call a tool even when the user query could be answered from training data — adding unnecessary latency and potential for incorrect function calls. Reserve it for scenarios where you genuinely need tool execution regardless of context. Also note that OpenAI's function calling works differently between their Chat Completions API and their Assistants API; the two have diverged significantly, and the <a href="https://platform.openai.com/docs/assistants/migration" target="_blank" rel="noopener">Assistants API is being deprecated in mid-2026</a>.</p>
+
+          <p><strong>Anthropic advantages:</strong> The Tool Search feature is underappreciated. When you register hundreds or thousands of tools, Anthropic doesn't send all of them to the model in every request. Instead, it uses an internal search mechanism to identify relevant tools based on the user's query, sending only the subset to the model. This dramatically reduces token overhead — critical for cost-sensitive applications. The tradeoff is slightly more latency on the first request as Anthropic performs the search, but the overall cost savings usually justify it.</p>
+
+          <p>Google's approach: Gemini's function calling is integrated with their broader tool ecosystem. The <code>function_declarations</code> field can contain multiple function definitions, and Gemini handles parallel calls efficiently. Google's approach tends to work well with their strengths in handling structured outputs, and the arguments come back as native Python dictionaries without the JSON string parsing step required by OpenAI's tool calling responses.</p>
+
+          <h4>Capability routing considerations</h4>
+          <p>When deploying tool calling across multiple providers, capability routing becomes essential. Different providers handle edge cases differently: OpenAI's tool calling may produce malformed JSON in edge cases, Anthropic's tool use has better schema validation, and Google's function calling handles nested structures well. Understanding these differences lets you implement proper capability routing — directing tool calling requests to the provider best suited for each specific use case based on schema complexity, reliability requirements, and cost constraints.</p>
+
+          <p>The semantic similarity across providers means you can abstract the integration layer. This is exactly what the <a href="https://qveris.ai/docs/mcp-server">MCP tools ecosystem</a> enables — write once, use across any provider that supports tool calling without per-provider modifications.</p>
+
+          <h3>Provider Code Examples</h3>
+          <details class="code-details" open>
+            <summary class="code-summary">OpenAI (click to expand)</summary>
+            <div class="code-block">
+              <pre><code><span class="comment"># OpenAI function calling example</span>
+<span class="keyword">from</span> openai <span class="keyword">import</span> OpenAI
+
+client = OpenAI()
+
+tools = [
+    {
+        <span class="string">"type"</span>: <span class="string">"function"</span>,
+        <span class="string">"function"</span>: {
+            <span class="string">"name"</span>: <span class="string">"get_weather"</span>,
+            <span class="string">"description"</span>: <span class="string">"Get current weather for a location"</span>,
+            <span class="string">"parameters"</span>: {
+                <span class="string">"type"</span>: <span class="string">"object"</span>,
+                <span class="string">"properties"</span>: {
+                    <span class="string">"location"</span>: {<span class="string">"type"</span>: <span class="string">"string"</span>},
+                    <span class="string">"unit"</span>: {<span class="string">"type"</span>: <span class="string">"string"</span>, <span class="string">"enum"</span>: [<span class="string">"celsius"</span>, <span class="string">"fahrenheit"</span>]}
+                },
+                <span class="string">"required"</span>: [<span class="string">"location"</span>]
+            }
+        }
+    }
+]
+
+response = client.chat.completions.create(
+    model=<span class="string">"gpt-4o"</span>,
+    messages=[{<span class="string">"role"</span>: <span class="string">"user"</span>, <span class="string">"content"</span>: <span class="string">"What's the weather in Tokyo?"</span>}],
+    tools=tools,
+    tool_choice=<span class="string">"auto"</span>
+)
+
+<span class="comment"># Response contains: response.choices[0].message.tool_calls</span>
+tool_call = response.choices[0].message.tool_calls[<span class="number">0</span>]
+<span class="function">print</span>(tool_call.function.name)  <span class="comment"># "get_weather"</span>
+<span class="function">print</span>(tool_call.function.arguments)  <span class="comment"># '{"location": "Tokyo"}'</span></code></pre>
+            </div>
+          </details>
+          <details class="code-details">
+            <summary class="code-summary">Anthropic Claude (click to expand)</summary>
+            <div class="code-block">
+              <pre><code><span class="comment"># Anthropic tool use example</span>
+<span class="keyword">from</span> anthropic <span class="keyword">import</span> Anthropic
+
+client = Anthropic()
+
+tools = [
+    {
+        <span class="string">"name"</span>: <span class="string">"get_weather"</span>,
+        <span class="string">"description"</span>: <span class="string">"Get current weather for a location"</span>,
+        <span class="string">"input_schema"</span>: {
+            <span class="string">"type"</span>: <span class="string">"object"</span>,
+            <span class="string">"properties"</span>: {
+                <span class="string">"location"</span>: {<span class="string">"type"</span>: <span class="string">"string"</span>},
+                <span class="string">"unit"</span>: {<span class="string">"type"</span>: <span class="string">"string"</span>, <span class="string">"enum"</span>: [<span class="string">"celsius"</span>, <span class="string">"fahrenheit"</span>]}
+            },
+            <span class="string">"required"</span>: [<span class="string">"location"</span>]
+        }
+    }
+]
+
+response = client.messages.create(
+    model=<span class="string">"claude-sonnet-4-20250514"</span>,
+    max_tokens=<span class="number">1024</span>,
+    messages=[{<span class="string">"role"</span>: <span class="string">"user"</span>, <span class="string">"content"</span>: <span class="string">"What's the weather in Tokyo?"</span>}],
+    tools=tools
+)
+
+<span class="comment"># Response contains tool_use in content blocks</span>
+<span class="keyword">for</span> block <span class="keyword">in</span> response.content:
+    <span class="keyword">if</span> block.type == <span class="string">"tool_use"</span>:
+        <span class="function">print</span>(block.name)  <span class="comment"># "get_weather"</span>
+        <span class="function">print</span>(block.input)  <span class="comment"># {"location": "Tokyo"} (dict, not JSON string)</span></code></pre>
+            </div>
+          </details>
+          <details class="code-details">
+            <summary class="code-summary">Google Gemini (click to expand)</summary>
+            <div class="code-block">
+              <pre><code><span class="comment"># Google Gemini function declarations example</span>
+<span class="keyword">import</span> google.generativeai <span class="keyword">as</span> genai
+
+genai.configure(api_key=<span class="string">"your-api-key"</span>)
+
+model = genai.GenerativeModel(<span class="string">"gemini-2.0-flash"</span>)
+
+tools = [
+    {
+        <span class="string">"function_declarations"</span>: [
+            {
+                <span class="string">"name"</span>: <span class="string">"get_weather"</span>,
+                <span class="string">"description"</span>: <span class="string">"Get current weather for a location"</span>,
+                <span class="string">"parameters"</span>: {
+                    <span class="string">"type"</span>: <span class="string">"object"</span>,
+                    <span class="string">"properties"</span>: {
+                        <span class="string">"location"</span>: {<span class="string">"type"</span>: <span class="string">"string"</span>},
+                        <span class="string">"unit"</span>: {<span class="string">"type"</span>: <span class="string">"string"</span>}
+                    }
+                }
+            }
+        ]
+    }
+]
+
+response = model.generate_content(
+    <span class="string">"What's the weather in Tokyo?"</span>,
+    tools=tools
+)
+
+<span class="comment"># Response contains function_call parts</span>
+<span class="keyword">for</span> part <span class="keyword">in</span> response.candidates[<span class="number">0</span>].content.parts:
+    <span class="keyword">if</span> hasattr(part, <span class="string">"function_call"</span>):
+        <span class="function">print</span>(part.function_call.name)  <span class="comment"># "get_weather"</span>
+        <span class="function">print</span>(part.function_call.args)  <span class="comment"># {"location": "Tokyo"}</span></code></pre>
+            </div>
+          </details>
+
+          <p>If you want a unified approach that abstracts these differences, consider using an <text style="color: #7C9BFF;">MCP client SDK</text> that handles provider-specific details while exposing a single interface to your application code.</p>
+        </section>
+
+        <section id="when">
+          <h2>When to Use Function Calling (and When Not To)</h2>
+          <p>Tool calling adds capability but also latency and complexity. Use it judiciously — understanding when the tradeoffs favor function calling versus when they don't is essential for building reliable systems.</p>
+
+          <p>The decision framework isn't binary. The right choice depends on your specific requirements for latency, accuracy, cost, and user experience. A customer-facing chatbot has different constraints than an internal data processing pipeline, even if both use tool calling.</p>
+
+          <div class="type-box">
+            <h3>Good fit for tool calling:</h3>
+            <ul>
+              <li><strong>Real-time data needs:</strong> Stock prices, weather, inventory levels, order status — anything that changes frequently and where stale data produces wrong answers. The moment your users need information that's not in training data, tool calling becomes relevant.</li>
+              <li><strong>Database queries:</strong> Customer lookups, transaction history, product catalog searches, account balance checks. Database queries are tool calling's strongest use case because the data is always current, the schema is well-defined, and the functions are deterministic.</li>
+              <li><strong>External API integrations:</strong> Payment processing, shipping rates, calendar scheduling, travel booking. These are natural function calling targets because they involve external systems with stable, documented APIs.</li>
+              <li><strong>Action-oriented workflows:</strong> Sending emails, updating records, triggering webhooks, executing transactions. Any operation where the user wants something <em>done</em> rather than just <em>known</em> benefits from tool calling.</li>
+              <li><strong>Multi-step reasoning:</strong> Tasks requiring sequential tool calls where each result informs the next step. A research agent that needs to gather information from multiple sources, or a planning system that must query status before deciding on next actions, depends on tool calling for reliable operation.</li>
+            </ul>
+          </div>
+
+          <div class="type-box">
+            <h3>Bad fit for function calling:</h3>
+            <ul>
+              <li><strong>Simple factual questions:</strong> "What is photosynthesis?" or "Who was the first president?" — no external data needed, adding tool overhead increases latency without any benefit. The LLM's training data already contains the answer.</li>
+              <li><strong>Token-constrained environments:</strong> Each tool call adds 50-200+ tokens to your context. In applications where you're already pushing against context limits, tool calling reduces the effective conversation length. For budget-conscious use cases, consider whether the function result is worth the token cost.</li>
+              <li><strong>Low reliability tool systems:</strong> Unreliable APIs cascade failures into LLM responses. When a tool times out or returns an error, the LLM must incorporate that failure into its response — often producing confusing or incorrect follow-up messages. Only use tool calling with tools that have high uptime guarantees.</li>
+              <li><strong>Single-turn interactions:</strong> One-shot questions with definitive answers don't benefit from tool overhead. "Translate this paragraph to Spanish" requires no external data — adding tool calling complexity would slow down the response without improving quality.</li>
+              <li><strong>Creative tasks:</strong> Writing, brainstorming, content generation — no external data required. Tool calling is actively counterproductive here because the LLM might try to call tools for creative decisions, leading to unexpected behavior. Creative tasks should explicitly disable tool calling via <code>tool_choice: "none"</code> if your API supports it.</li>
+            </ul>
+          </div>
+
+          <div class="note-box">
+            <strong>Honest concession:</strong> If your use case is a customer-facing chat interface with strict latency requirements (under 2 seconds), tool calling adds unpredictable latency. The LLM processing time plus tool execution time plus response synthesis time can easily exceed comfortable thresholds. For these scenarios, consider caching frequent tool results, using parallel tool execution where possible, or implementing fallback responses when tool execution exceeds your SLA.
+          </div>
+
+          <p>Performance optimization strategies matter here. If you're building a latency-sensitive application, pre-warm your tool execution environment, implement result caching for frequently-called tools, and consider whether you can execute multiple independent tool calls in parallel rather than sequentially. The <text style="color: #7C9BFF;">MCP client architecture</text> handles parallel execution automatically, which can significantly reduce end-to-end latency compared to naive sequential implementations.</p>
+
+          <p>If your workflow requires complex multi-tool orchestration across dozens of tool calls, explore <text style="color: #7C9BFF;">AI agent orchestration</text> patterns that handle capability routing and result aggregation. These systems add orchestration overhead but can dramatically improve reliability when the alternative is manually managing complex multi-step workflows involving hundreds of tools from the <text style="color: #7C9BFF;">MCP registry</>.</p>
+        </section>
+
+        <section id="mcp">
+          <h2>MCP: The Cross-Vendor Standardization Layer</h2>
+          <p>Each LLM provider implements function calling differently. OpenAI uses <code>tool_calls</code> with JSON string arguments. Anthropic uses <code>tool_use</code> with <code>input_schema</code> and native dict arguments. Google uses <code>function_call</code> with <code>args</code> as dictionaries. When you build for one provider, switching to another requires rewriting your entire tool integration layer — the schemas, response parsing, and error handling all differ.</p>
+
+          <p>MCP (Model Context Protocol) solves this fragmentation by providing a standardized interface for tool discovery, execution, and result return. Introduced in November 2024 and donated to the Linux Foundation in December 2025, MCP has gained traction as the de facto standard for AI tool integration because it decouples tool definitions from provider-specific implementation details. Platforms like <strong>QVeris</strong> have built their entire capability routing layer on MCP, enabling cross-provider tool execution without per-provider integration code.</p>
+
+          <h3>The fragmentation problem in detail</h3>
+          <p>Consider what happens when you want to support the same tool (say, a weather lookup) across all three providers. With native function calling, you'd need to:</p>
+          <ul>
+            <li>Define the schema differently for each provider — <code>parameters</code> for OpenAI and Google, <code>input_schema</code> for Anthropic</li>
+            <li>Parse responses differently — JSON string parsing for OpenAI, direct dict access for Anthropic and Google</li>
+            <li>Handle errors differently — each provider's error format and retry behavior varies</li>
+            <li>Update all three implementations whenever your tool's schema changes</li>
+          </ul>
+          <p>This four-fold maintenance burden is the core problem MCP addresses. Instead of maintaining three implementations of every tool, you define it once and let the MCP client handle provider-specific translation. <strong>QVeris</strong> implements this abstraction as a managed capability layer — the <a href="https://qveris.ai/docs/capability-routing">QVeris capability routing</a> engine automatically selects the optimal provider for each tool call based on schema complexity, latency requirements, and cost constraints.</p>
+
+          <h3>What MCP provides</h3>
+          <p>MCP standardizes three aspects of tool integration:</p>
+
+          <p><strong>Tool discovery:</strong> MCP clients query available tools from MCP servers using a standardized protocol. Rather than embedding tool definitions directly in your API request (as you do with native function calling), you query the <text href="/mcp-registry">MCP registry</a> for available tools, which returns metadata including name, description, input schema, and capabilities. This separation allows tool registries to be shared across applications and updated without redeploying your code.</p>
+
+          <p><strong>Tool execution:</strong> A single call format works regardless of which LLM provider you're using. When the LLM outputs a tool call, your MCP client translates it into the provider-specific format, executes the call via the MCP protocol, and returns the result. <strong>QVeris</strong> MCP clients handle this translation automatically — your application code sends a single format to <code>client.execute_tool()</code>, and QVeris handles routing to OpenAI, Anthropic, or Google based on the tool's requirements. The translation layer is invisible to your application code — you interact with one interface regardless of which provider you're targeting.</p>
+
+          <p><strong>Result handling:</strong> MCP standardizes how results flow back into the LLM conversation. Tool execution results are wrapped in MCP's result format, which your client translates to the provider's expected message structure. This means you can change providers without touching your result handling code. <strong>QVeris</strong> normalizes error handling across providers as well — tool timeout errors, schema validation failures, and rate limit responses all flow through the same error handling interface.</p>
+
+          <h3>MCP and the function calling relationship</h3>
+          <p>MCP doesn't replace function calling — it abstracts over it. Think of MCP as a layer above native tool calling that handles the translation between your application and whatever provider you're using. The MCP client handles capability routing for you, automatically directing each tool calling request to the provider best suited for that tool's schema requirements.</p>
+
+          <p>Here's the technical relationship: when you use MCP, your LLM request still contains tool definitions in the provider's native format. The MCP client translates your MCP tool definitions into the format each provider expects — <code>tool_calls</code> for OpenAI, <code>tool_use</code> for Anthropic, or <code>function_call</code> for Google. The LLM sees the same structured tool definitions it would see with native function calling — the difference is that you're not writing provider-specific code to produce those definitions. The MCP client handles all the translation and capability routing automatically. <strong>QVeris</strong> MCP clients expose this as a simple <code>client.execute_tool()</code> API — the complexity of provider selection, schema translation, and error normalization is abstracted away.</p>
+
+          <p>This matters for several practical reasons. First, your tool definitions live in one place (the <text style="color: #7C9BFF;">MCP registry</text>) rather than being embedded in provider-specific client code. Second, adding a new provider requires only updating your MCP client configuration, not rewriting your entire tool integration. Third, MCP's tool discovery mechanism means you can dynamically add and remove tools without restarting your application. <strong>QVeris</strong> provides pre-built MCP server integrations for 10,000+ popular tools — instead of writing tool definitions from scratch, you point QVeris at the MCP registry and get immediate access to the entire tool ecosystem.</p>
+
+          <h3>MCP Code Example</h3>
+          <div class="code-block">
+            <pre><code><span class="comment"># MCP: Same tool definition, any LLM provider</span>
+<span class="comment"># Define once via MCP, use across OpenAI, Anthropic, Google</span>
+
+<span class="comment"># MCP server exposes tools via standard protocol</span>
+<span class="comment"># Your client code stays the same regardless of LLM:</span>
+
+<span class="keyword">from</span> qveris <span class="keyword">import</span> MCPClient
+
+client = MCPClient(<span class="string">"https://mcp.qveris.ai"</span>)
+client.connect()
+
+<span class="comment"># Query available tools — standardized format</span>
+tools = client.list_tools()
+
+<span class="comment"># Send to any LLM — same interface, different providers</span>
+<span class="comment"># OpenAI</span>
+openai_response = openai.chat.completions.create(
+    tools=tools, messages=[...]
+)
+
+<span class="comment"># Anthropic</span>
+anthropic_response = anthropic.messages.create(
+    tools=tools, messages=[...]
+)
+
+<span class="comment"># Google</span>
+gemini_response = gemini.generate_content(
+    tools=tools, contents=[...]
+)
+
+<span class="comment"># Result handling — unified across providers</span>
+result = client.execute_tool(tool_call)</code></pre>
+          </div>
+
+          <p>MCP enables what the tool calling ecosystem has lacked: true vendor portability. <text style="color: #7C9BFF;">MCP tools</text> registered in the <text style="color: #7C9BFF;">MCP registry</text> work with any MCP-compatible client, and <text style="color: #7C9BFF;">MCP servers</text> can host thousands of tool definitions without requiring per-provider integration code.</p>
+
+          <div class="stat-highlight">
+            <strong>MCP in production:</strong> QVeris MCP client handles tool translation for OpenAI, Anthropic, and Google automatically. Instead of maintaining three separate function calling implementations, you define tools once via the MCP protocol and connect to 10,000+ registered tools through a single configuration. The MCP client handles schema translation, response parsing, and error normalization — so your application code works with any provider without modification.
+          </div>
+
+          <p>For the MCP protocol perspective on tool definitions and server implementation, see our <a href="https://qveris.ai/docs/mcp-server">MCP tools documentation</a> and <a href="https://qveris.ai/docs/mcp-server">MCP server guide</a>.</p>
+        </section>
+
+        <section id="start">
+          <h2>Quick Start: Implementing Function Calling</h2>
+          <p>Get function calling working in your application in three steps. This pattern works with any LLM provider that supports tool invocations.</p>
+
+          <div class="step-box">
+            <span class="step-num">1</span>
+            <strong>Define your tool schema</strong>
+            <p>Create a JSON schema for each tool. The schema tells the LLM what the function does, what parameters it accepts, and what types are expected. Include clear descriptions — the LLM uses these to decide when to call the function.</p>
+          </div>
+
+          <div class="step-box">
+            <span class="step-num">2</span>
+            <strong>Send tools to the model with your request</strong>
+            <p>Include the tool definitions in your API request. The LLM analyzes the user's query and decides whether to output a tool call or generate a direct response. For OpenAI, use the <code>tools</code> parameter; for Anthropic, use <code>tools</code>; for Google, use <code>function_declarations</code>.</p>
+          </div>
+
+          <div class="step-box">
+            <span class="step-num">3</span>
+            <strong>Execute the tool and return results</strong>
+            <p>Parse the model's tool call output (check for <code>tool_calls</code> in OpenAI, <code>tool_use</code> blocks in Anthropic, or <code>function_call</code> parts in Google). Execute the actual function in your application, then return the result as a tool message that the LLM incorporates into its response.</p>
+          </div>
+
+          <p>For production systems with hundreds of tools, the <a href="https://qveris.ai/docs/cli">QVeris CLI</a> handles your tool registry and MCP connections with a single command. Instead of writing tool definitions for each provider, you connect via <code>@qverisai/mcp</code> and get instant access to the entire QVeris tool ecosystem — authentication, discovery, and result caching all handled automatically.</p>
+
+          <p>If you prefer a code-first approach, <strong>QVeris</strong> provides SDKs for Python and Node.js that handle function calling integration across all three providers. The SDK includes built-in capability routing — you specify your tool's schema requirements, and QVeris automatically selects the optimal provider for each call.</p>
+
+          <div class="code-block">
+            <pre><code><span class="comment"># One-line MCP connection with QVeris</span>
+<span class="comment"># npm install @qverisai/mcp</span>
+
+<span class="keyword">import</span> { QverisMCP } <span class="keyword">from</span> <span class="string">"@qverisai/mcp"</span>
+
+<span class="keyword">const</span> client = <span class="keyword">new</span> QverisMCP({
+  apiKey: process.env.QVERIS_API_KEY,
+  <span class="comment">// Automatically routes function calls to optimal provider</span>
+  <span class="comment">// OpenAI, Anthropic, or Google based on schema complexity</span>
+})
+
+<span class="comment"># One-line MCP connection with QVeris
+# pip install qveris
+
+<span class="keyword">from</span> qveris <span class="keyword">import</span> MCPClient
+
+client = MCPClient(api_key=<span class="string">"your-qveris-key"</span>)
+<span class="comment"># Handles tool routing, schema translation, result caching</span></code></pre>
+          </div>
+
+          <p>For teams evaluating managed capability layers, <strong>QVeris</strong> offers a free tier with 100K tool calls per month — enough to validate production-ready function calling before committing to a paid plan.</p>
+        </section>
+
+        <!-- BLOCK 15: CTA -->
+        <div class="cta-box">
+          <h3>Connect to 10,000+ tools with one configuration</h3>
+          <p>QVeris MCP client handles function calling across OpenAI, Anthropic, and Google — so you can add capabilities without rewriting integrations.</p>
+          <a href="https://qveris.ai" class="cta-btn">Get Started with Qveris →</a>
+          <div style="margin-top:12px">
+            <a href="/docs/cli" style="font-size:13px;color:rgba(255,255,255,0.5);">Or explore the Qveris CLI for function calling alternatives →</a>
+          </div>
+        </div>
+
+        <!-- BLOCK 16: FAQ -->
+        <section id="faq">
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq-item">
+            <div class="faq-q">What is the difference between function calling and tool use in Anthropic?</div>
+            <div class="faq-a">Anthropic calls its implementation "tool use" rather than "function calling," and this isn't just terminology — it reflects a different design philosophy. The key technical difference is in schema definition: Anthropic uses <code>input_schema</code> while OpenAI uses <code>parameters</code> — both accept JSON Schema objects, but the field name differs. More significantly, Anthropic's approach aligns with their broader tool ecosystem including computer use, web search, and their lazy-loading Tool Search feature for handling large tool registries. When building cross-provider integrations, you'll need to translate between these field names — but the JSON Schema structure itself is consistent across providers.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">How does function calling work in OpenAI vs Anthropic?</div>
+            <div class="faq-a">OpenAI introduced function calling in June 2023 and uses <code>tool_calls</code> in the response containing <code>function/name</code> and <code>arguments</code> as a JSON string. Anthropic's tool use (introduced later) embeds <code>tool_use</code> blocks in the content array with <code>name</code> and <code>input_schema</code>, returning arguments as a native dictionary rather than a JSON string. OpenAI's <code>tool_choice</code> parameter offers explicit control over which function gets called (auto/none/required), while Anthropic handles this through their Tool Search feature which performs lazy-loading to reduce token overhead on large tool sets. The practical implication is that OpenAI responses require an extra JSON parsing step that Anthropic responses don't.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">What is a function calling example in production?</div>
+            <div class="faq-a">A realistic production example: a customer service bot receives "What's my order status?" The LLM recognizes this requires database lookup, outputs a <code>tool_call</code> with <code>get_order_status(order_id='CUST_12345')</code>. Your application parses this, executes the database query, and returns <code>{status: 'shipped', eta: 'May 21', carrier: 'FedEx'}</code>. The LLM incorporates this data to generate "Your order is shipped and expected to arrive on May 21 via FedEx." This pattern scales to thousands of tools — platforms like QVeris handle 10,000+ tool registrations via MCP protocol, enabling complex enterprise workflows without per-tool integration code.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">When should you NOT use function calling?</div>
+            <div class="faq-a">Function calling is not universal. Avoid it for: simple questions answerable from training data (adding tool overhead reduces latency without benefit, and the LLM's training data already contains the answer); low token budgets where each tool call costs 50-200+ tokens — for budget-sensitive applications, weigh whether the tool result is worth the context overhead; unreliable tool execution environments (tool failures cascade into confusing LLM responses — only use function calling with tools that have high uptime guarantees); single-turn interactions where multi-step reasoning isn't needed; and creative tasks where function calling is actively counterproductive and should be explicitly disabled with <code>tool_choice: "none"</code>. For latency-sensitive customer-facing applications, consider caching frequent results or using parallel tool execution to reduce end-to-end response time.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">What is MCP and how does it relate to function calling?</div>
+            <div class="faq-a"><a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">MCP (Model Context Protocol)</a> is an open standard introduced in November 2024 (donated to Linux Foundation December 2025) that standardizes how AI models connect to tools. Unlike proprietary function calling implementations (OpenAI <code>tool_calls</code>, Anthropic <code>tool_use</code>), MCP provides a unified interface for tool discovery, execution, and result return. MCP doesn't replace function calling — it abstracts over it, handling the translation between your application code and the provider-specific format. With MCP, you define tools once and use them across any LLM provider that supports the MCP protocol. Your application code works with OpenAI, Anthropic, or Google without modification because the MCP client handles schema translation, response parsing, and error normalization.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">How reliable is function calling across different LLM providers?</div>
+            <div class="faq-a">According to <a href="https://digitalapplied.com" target="_blank" rel="noopener">DigitalApplied's Q1 2026 benchmark</a> (a single third-party source), Anthropic Claude achieves 8.4/10 reliability, Google Gemini 7.9/10, and OpenAI 6.3/10 on function calling tasks. Reliability here measures correct function identification, argument parsing accuracy, and schema compliance. Anthropic leads due to their structured <code>input_schema</code> approach and built-in lazy-loading for large tool sets. OpenAI's lower score reflects their deprecated Assistants API migration pain. <em>Note: These scores represent a single third-party benchmark — methodology varies across providers, and results may differ under standardized test conditions. This is not an official provider ranking.</em></div>
+          </div>
+        </section>
+
+        <!-- BLOCK 17: METHODOLOGY -->
+        <div class="methodology">
+          <h2>About this Guide</h2>
+          <p><strong>Last updated:</strong> May 19, 2026</p>
+          <p><strong>Methodology:</strong> API schema comparisons based on official provider documentation (OpenAI Platform, Anthropic Docs, Google AI). Reliability scores sourced from DigitalApplied Q1 2026 benchmark — a single third-party source. Benchmark methodology varies across providers, and results may differ under standardized test conditions. This is not an official provider ranking.</p>
+          <p><strong>Data hedge:</strong> Reliability scores (Anthropic Claude 8.4/10, Google Gemini 7.9/10, OpenAI 6.3/10) represent one third-party benchmark. No independent verification or official endorsement from providers. Results vary across different test conditions and methodologies.</p>
+          <p><strong>Update frequency:</strong> Reviewed every 90 days. LLM function calling APIs evolve rapidly — we re-verify each provider's schema and reliability scores against latest documentation. Significant provider changes (new models, deprecated endpoints, API migrations) trigger immediate review regardless of schedule.</p>
+          <p><strong>Conflict of interest:</strong> QVeris AI builds tools and platforms that include MCP client functionality. All benchmark data and methodology are documented and reproducible. We do not receive compensation for favorable positioning in this guide.</p>
+          <p><strong>Update cadence:</strong> Reviewed quarterly. API schema changes from providers trigger immediate review.</p>
+        </div>
+
+        <!-- BLOCK 18: RELATED GUIDES -->
+        <h2>Related Guides</h2>
+        <div class="related">
+          <!-- <a href="/what-is-ai-agent-orchestration">What is AI Agent Orchestration? A Practical Guide for Developers in 2026</a> -->
+          <a href="https://qveris.ai/docs/mcp-server">MCP Tools: The Standardized Tool Ecosystem for AI Agents</a>
+          <!-- <a href="/mcp-server">MCP Server: Building Production-Grade Tool Hosts</a> -->
+          <!-- <a href="/mcp-client">MCP Client: Connecting to Any Tool Provider</a> -->
+          <a href="https://qveris.ai/docs">Get Started with Qveris — Quick Setup Guide</a>
+        </div>
+
+      </div>
+    </article>
+  </main>
+
+  <!-- BLOCK 19: FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div style="font-size:18px;font-weight:600;color:rgba(255,255,255,0.9);margin-bottom:12px">QVeris</div>
+          <p style="font-size:14px;color:rgba(255,255,255,0.35);max-width:300px;margin-bottom:16px;line-height:1.6">Action infrastructure for AI agents. Connect to 10,000+ tools via MCP protocol.</p>
+          <a href="https://qveris.ai/playground" class="cta-btn" style="padding:8px 20px;font-size:13px">Get Started →</a>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <div class="footer-links">
+            <a href="https://qveris.ai">Features</a>
+            <a href="https://qveris.ai/pricing">Pricing</a>
+            <a href="https://qveris.ai/integrations">Integrations</a>
+            <a href="https://qveris.ai/enterprise">Enterprise</a>
+          </div>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <div class="footer-links">
+            <a href="https://qveris.ai/docs">Documentation</a>
+            <a href="/concepts">Guides</a>
+            <a href="https://qveris.ai/changelog">Changelog</a>
+            <a href="https://qveris.ai/security">Security</a>
+          </div>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <div class="footer-links">
+            <a href="https://qveris.ai/about">About</a>
+            <a href="https://qveris.ai/contact">Contact</a>
+            <a href="https://qveris.ai/terms">Terms</a>
+            <a href="https://qveris.ai/privacy">Privacy</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 QVeris AI. All rights reserved.</span>
+        <span>Action infrastructure for AI agents</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

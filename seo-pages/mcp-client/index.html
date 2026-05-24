@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCP Client: 9 Best Options for AI Developers (2026)</title>
+  <meta name="description" content="An MCP client connects AI hosts like Claude Desktop or Cursor to tools via Model Context Protocol. Compare 9 clients and extend them with 10,000+ capabilities.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Wang Linfang">
+
+  <meta property="og:title" content="MCP Client: 9 Best Options for AI Developers (2026)">
+  <meta property="og:description" content="An MCP client connects AI hosts like Claude Desktop or Cursor to tools via Model Context Protocol. Compare 9 clients and extend them with 10,000+ capabilities.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://qveris.ai/concepts/mcp-client">
+  <meta property="og:image" content="https://qveris.ai/og/mcp-client.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MCP Client: 9 Best Options for AI Developers (2026)">
+  <meta name="twitter:description" content="An MCP client connects AI hosts like Claude Desktop or Cursor to tools via Model Context Protocol. Compare 9 clients and extend them with 10,000+ capabilities.">
+  <meta name="twitter:image" content="https://qveris.ai/og/mcp-client.png">
+  <meta name="theme-color" content="#0A0E1A">
+
+  <link rel="canonical" href="https://qveris.ai/concepts/mcp-client">
+  <link rel="icon" type="image/svg+xml" href="https://qveris.ai/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://qveris.ai/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://qveris.ai/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"QVeris AI","url":"https://qveris.ai","logo":"https://qveris.ai/logo.png","sameAs":["https://twitter.com/qveris_ai","https://github.com/qveris","https://www.linkedin.com/company/qveris"]}
+  </script>
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://qveris.ai/"},{"@type":"ListItem","position":2,"name":"Concepts","item":"https://qveris.ai/concepts"},{"@type":"ListItem","position":3,"name":"MCP Client","item":"https://qveris.ai/concepts/mcp-client"}]}
+  </script>
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"MCP Client: What It Is and the 9 Best Options in 2026","datePublished":"2026-05-19","dateModified":"2026-05-19","author":{"@type":"Person","name":"Wang Linfang","url":"https://qveris.ai/authors/wang-linfang","jobTitle":"CEO & Founder, QVeris AI","sameAs":["https://www.linkedin.com/in/wanglinfang"]},"publisher":{"@type":"Organization","name":"QVeris AI","logo":{"@type":"ImageObject","url":"https://qveris.ai/logo.png"}},"image":"https://qveris.ai/og/mcp-client.png"}
+  </script>
+
+  <!-- ItemList Schema (9 MCP clients) -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"Claude Desktop","url":"https://claude.ai/download","applicationCategory":"DeveloperApplication"}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"Claude Code","url":"https://docs.anthropic.com/en/docs/claude-code","applicationCategory":"DeveloperApplication"}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"Cursor","url":"https://cursor.com","applicationCategory":"DeveloperApplication"}},{"@type":"ListItem","position":4,"item":{"@type":"SoftwareApplication","name":"Windsurf","url":"https://codeium.com/windsurf","applicationCategory":"DeveloperApplication"}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"Cline","url":"https://github.com/cline/cline","applicationCategory":"DeveloperApplication"}},{"@type":"ListItem","position":6,"item":{"@type":"SoftwareApplication","name":"Continue","url":"https://continue.dev","applicationCategory":"DeveloperApplication"}},{"@type":"ListItem","position":7,"item":{"@type":"SoftwareApplication","name":"Goose","url":"https://github.com/goose-ai/goose","applicationCategory":"DeveloperApplication"}},{"@type":"ListItem","position":8,"item":{"@type":"SoftwareApplication","name":"VS Code MCP","url":"https://marketplace.visualstudio.com/items?itemName=modelcontextprotocol.context","applicationCategory":"DeveloperApplication"}},{"@type":"ListItem","position":9,"item":{"@type":"SoftwareApplication","name":"OpenCode","url":"https://github.com/opencode-ai/opencode","applicationCategory":"DeveloperApplication"}}]}
+  </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an MCP client?","acceptedAnswer":{"@type":"Answer","text":"An MCP client is a component within an MCP host application (such as Claude Desktop or Cursor) that manages the connection to MCP servers. The host exposes one or more MCP clients, each communicating with servers that provide tools and capabilities. This client-server architecture enables any compatible host to access any MCP-capable server through a standardized interface."}},{"@type":"Question","name":"What is the difference between an MCP client and an MCP server?","acceptedAnswer":{"@type":"Answer","text":"An MCP client is a component inside the AI application you use (the host). It manages communication with MCP servers that provide tools and data. An MCP server is the capability provider — the service that exposes tools, resources, and prompts to one or more clients. Think of the client as the USB controller inside your laptop, and the server as the external device it connects to."}},{"@type":"Question","name":"Which MCP client should developers consider for production use?","acceptedAnswer":{"@type":"Answer","text":"For production use, developers should consider Claude Desktop (native Anthropic integration with Tool Search lazy-loading), Claude Code (CLI-centric for scripting and CI/CD), Cursor (AI-first IDE with strong MCP support), Cline (agentic coding inside VS Code), Continue (best MCP support for JetBrains IDEs), or Goose/OpenCode (for open-source tooling). All listed clients work with QVeris MCP server — so the choice depends on your preferred interface and deployment context, not on capability access."}},{"@type":"Question","name":"How do I add custom tools or capabilities to an MCP client?","acceptedAnswer":{"@type":"Answer","text":"To add custom tools or capabilities to an MCP client, you configure the client to connect to one or more MCP servers. Each server exposes specific capabilities (tools, resources, prompts). You can connect to public servers from the MCP registry, or run your own. Platforms like Qveris provide an MCP server with 10,000+ capabilities — once connected, your client gains access to tools across search, maps, weather, docs, finance, blockchain, and healthcare without additional integration work."}},{"@type":"Question","name":"Can I build my own MCP client?","acceptedAnswer":{"@type":"Answer","text":"Yes, you can build your own MCP client using the official MCP SDK. The Model Context Protocol uses JSON-RPC over stdio or Streamable HTTP for transport. The SDK handles connection management, protocol negotiation, and message framing. You can implement a client from scratch using the MCP specification, or use the MCP client SDK to bootstrap your implementation. This is useful when you need a custom AI application with MCP tool access."}},{"@type":"Question","name":"Which MCP client should I choose for my workflow?","acceptedAnswer":{"@type":"Answer","text":"Choose Claude Desktop for AI-first desktop workflows with native tool calling. Choose Claude Code for CLI-centric development and scripting. Choose Cursor or Windsurf if you prefer an AI-native IDE with MCP support built in. Choose Cline if you want MCP inside VS Code. Choose Continue if you use JetBrains IDEs. Choose Goose or OpenCode if you prefer open-source tooling. All listed clients are compatible with Qveris MCP server — so your choice depends on your preferred interface, not on what capabilities you can access."}}]}
+  </script>
+
+  <style>
+    .skip-link{position:absolute;left:-9999px;top:0;background:#7C9BFF;color:#0A0E1A;padding:10px 16px;border-radius:0 0 8px 0;font-weight:600;z-index:100}
+    .skip-link:focus{left:0}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;color:rgba(255,255,255,0.82);background:#0A0E1A;font-size:16.5px;line-height:1.75;-webkit-font-smoothing:antialiased}
+    ::selection{background:rgba(124,155,255,0.3)}
+    a{color:#7C9BFF;text-decoration:none}
+    a:hover{color:#B5C6FF}
+    .nav{position:sticky;top:0;z-index:50;background:rgba(10,14,26,0.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.06);padding:14px 0}
+    .nav-inner{max-width:1024px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .nav-logo-mark{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,#7C9BFF,#3D5FE0);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#0A0E1A}
+    .nav-logo span{font-size:16px;font-weight:600;color:rgba(255,255,255,0.97)}
+    .nav-links{display:flex;align-items:center;gap:22px;font-size:14px}
+    .nav-links a{color:rgba(255,255,255,0.55);transition:color 0.15s}
+    .nav-links a:hover{color:rgba(255,255,255,0.9)}
+    .nav-cta{background:linear-gradient(135deg,#B5C6FF,#7C9BFF);color:#0A0E1A;padding:7px 18px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none}
+    .nav-cta:hover{opacity:0.9;color:#0A0E1A}
+    .wrap{max-width:1024px;margin:0 auto;padding:48px 24px}
+    h1{font-size:2.4rem;font-weight:500;line-height:1.15;margin-bottom:16px;color:rgba(255,255,255,0.97);letter-spacing:-0.02em}
+    h2{font-size:1.22rem;font-weight:600;margin:40px 0 16px;color:rgba(255,255,255,0.92);border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:10px}
+    h3{font-size:15px;font-weight:600;margin:24px 0 10px;color:rgba(255,255,255,0.85)}
+    p{margin:0 0 18px;color:rgba(255,255,255,0.62)}
+    strong{color:rgba(255,255,255,0.92)}
+    em{color:rgba(255,255,255,0.72);font-style:italic}
+    ul,ol{margin:12px 0 14px 24px}
+    li{margin:6px 0;color:rgba(255,255,255,0.62)}
+    .meta-desc{font-size:1.05rem;color:rgba(255,255,255,0.5);margin-bottom:28px;line-height:1.55;max-width:680px}
+    .breadcrumb{font-size:13px;color:rgba(255,255,255,0.35);margin-bottom:20px}
+    .breadcrumb a{color:#7C9BFF}
+    .breadcrumb span{margin:0 6px}
+    .badge{display:inline-block;font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;margin-right:8px;margin-bottom:14px}
+    .badge-client{background:rgba(124,155,255,0.18);color:#B5C6FF;border:1px solid rgba(124,155,255,0.25)}
+    .badge-cat{background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.55)}
+    .author-meta{display:flex;align-items:center;gap:14px;padding:16px 0;margin:0 0 24px;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);flex-wrap:wrap}
+    .author-meta img{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7C9BFF,#3D5FE0)}
+    .author-info{flex:1;min-width:200px}
+    .author-info a{font-weight:600;color:rgba(255,255,255,0.92)}
+    .author-bio{font-size:13px;color:rgba(255,255,255,0.45);margin:2px 0 0}
+    .dates{font-size:12px;color:rgba(255,255,255,0.4);display:flex;flex-direction:column;gap:2px;text-align:right}
+    .toc{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;margin:0 0 32px}
+    .toc-label{font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+    .toc ul{margin:0;padding-left:18px;font-size:14.5px}
+    .toc a{color:rgba(255,255,255,0.7)}
+    .toc a:hover{color:#B5C6FF}
+    .tldr{background:rgba(124,155,255,0.05);border-left:3px solid #7C9BFF;border-radius:0 10px 10px 0;padding:16px 20px;margin:0 0 28px}
+    .tldr-label{font-size:12px;font-weight:600;color:#B5C6FF;margin-bottom:8px;text-transform:uppercase;letter-spacing:1.5px}
+    .tldr ul{margin:0;padding-left:18px;font-size:14.5px}
+    .tldr li{color:rgba(255,255,255,0.7);margin:4px 0}
+    .snippet-answer{background:rgba(255,255,255,0.02);border-left:3px solid #B5C6FF;padding:14px 18px;border-radius:0 8px 8px 0;font-size:15.5px;color:rgba(255,255,255,0.85);line-height:1.6}
+    .ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0 8px}
+    .ba-card{padding:18px;border-radius:10px}
+    .ba-before{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.18)}
+    .ba-after{background:rgba(124,155,255,0.06);border:1px solid rgba(124,155,255,0.2)}
+    .ba-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+    .ba-before .ba-label{color:#f87171}
+    .ba-after .ba-label{color:#B5C6FF}
+    .ba-text{font-size:14.5px;color:rgba(255,255,255,0.6);line-height:1.65}
+    .compare-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+    .compare-table th,.compare-table td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06)}
+    .compare-table thead th{background:rgba(255,255,255,0.03);color:rgba(255,255,255,0.85);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.5px}
+    .compare-table tbody th{background:transparent;color:rgba(255,255,255,0.85);font-weight:500;font-size:14px}
+    .compare-table td{color:rgba(255,255,255,0.65);font-size:13.5px}
+    .compare-table .highlight{color:#B5C6FF;font-weight:600}
+    .step-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:18px;margin:12px 0}
+    .step-box:hover{border-color:rgba(124,155,255,0.22)}
+    .step-num{display:inline-flex;width:26px;height:26px;background:linear-gradient(135deg,#7C9BFF,#3D5FE0);color:#0A0E1A;border-radius:50%;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-right:10px;vertical-align:middle}
+    .step-box strong{display:inline;vertical-align:middle}
+    .viz{margin:32px 0;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px}
+    .viz svg{width:100%;height:auto;display:block}
+    .viz-caption{margin-top:12px;font-size:13px;color:rgba(255,255,255,0.5);text-align:center;font-style:italic}
+    .code-block{background:#080b14;border:1px solid rgba(124,155,255,0.15);border-radius:10px;padding:20px;margin:20px 0;overflow-x:auto}
+    .code-block pre{margin:0;padding:0;background:transparent;border:none}
+    .code-block code{background:none;border:none;padding:0;font-size:13px;line-height:1.65;color:#c9d1d9;font-family:'SF Mono','Fira Code','JetBrains Mono',monospace}
+    .code-block .comment{color:#6a737d}
+    .code-block .keyword{color:#ff7b72}
+    .code-block .string{color:#a5d6ff}
+    .code-block .function{color:#d2a8ff}
+    .code-block .variable{color:#ffa657}
+    .code-block .property{color:#79c0ff}
+    .cta-box{background:linear-gradient(135deg,rgba(124,155,255,0.1),rgba(61,95,224,0.08));border:1px solid rgba(124,155,255,0.2);text-align:center;padding:36px;border-radius:14px;margin:44px 0}
+    .cta-box h3{color:rgba(255,255,255,0.95);margin:0 0 8px;font-size:20px;font-weight:600}
+    .cta-box p{color:rgba(255,255,255,0.55);margin:0 0 20px}
+    .cta-btn{display:inline-block;background:linear-gradient(135deg,#B5C6FF,#7C9BFF);color:#0A0E1A;padding:12px 32px;border-radius:24px;font-weight:600;font-size:15px;text-decoration:none}
+    .cta-btn:hover{opacity:0.9;color:#0A0E1A}
+    .faq-item{border-bottom:1px solid rgba(255,255,255,0.06);padding:18px 0}
+    .faq-q{font-weight:600;font-size:16px;color:rgba(255,255,255,0.9)}
+    .faq-a{margin-top:8px;color:rgba(255,255,255,0.55);font-size:14.5px;line-height:1.65}
+    .methodology{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:20px 24px;margin:32px 0;font-size:14px;color:rgba(255,255,255,0.55)}
+    .methodology h2{font-size:14px;border:none;padding:0;margin:0 0 12px;color:rgba(255,255,255,0.85);text-transform:uppercase;letter-spacing:1px}
+    .methodology p{margin:6px 0;font-size:13.5px}
+    .related{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+    .related a{display:block;padding:14px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;text-decoration:none;color:#B5C6FF;font-size:14px;font-weight:500;transition:all 0.2s;line-height:1.45}
+    .related a:hover{background:rgba(124,155,255,0.05);border-color:rgba(124,155,255,0.25)}
+    .client-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:18px;margin:14px 0}
+    .client-card h3{margin-top:0}
+    .client-meta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+    .client-tag{display:inline-block;font-size:11px;font-weight:500;padding:3px 10px;border-radius:12px;background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.08)}
+    .client-tag.best{background:rgba(124,155,255,0.1);color:#B5C6FF;border-color:rgba(124,155,255,0.2)}
+    .note-box{background:rgba(124,155,255,0.04);border:1px solid rgba(124,155,255,0.15);border-radius:8px;padding:14px 18px;margin:16px 0;font-size:14px;color:rgba(255,255,255,0.65)}
+    .note-box strong{color:#B5C6FF}
+    .footer{background:#060912;border-top:1px solid rgba(255,255,255,0.04);padding:48px 24px}
+    .footer-inner{max-width:1024px;margin:0 auto}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:32px}
+    .footer .footer-title{display:block;font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+    .footer-links{display:flex;flex-direction:column;gap:10px;font-size:14px}
+    .footer-links a{color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.15s}
+    .footer-links a:hover{color:rgba(255,255,255,0.75)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.04);padding-top:24px;display:flex;justify-content:space-between;font-size:13px;color:rgba(255,255,255,0.28)}
+    @media(max-width:720px){.ba-grid,.related{grid-template-columns:1fr};h1{font-size:1.75rem}.footer-grid{grid-template-columns:1fr 1fr};.nav-links a:not(.nav-cta){display:none};.author-meta{flex-direction:column;align-items:flex-start};.dates{text-align:left};.code-block{padding:12px};.compare-table{font-size:13px}}
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="https://qveris.ai" class="nav-logo">
+        <span class="nav-logo-mark">Q</span>
+        <span>QVeris</span>
+      </a>
+      <div class="nav-links">
+        <a href="https://qveris.ai">Product</a>
+        <a href="https://qveris.ai/pricing">Pricing</a>
+        <a href="https://qveris.ai/docs">Docs</a>
+        <a href="https://qveris.ai" class="nav-cta">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <article>
+      <div class="wrap">
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a><span>›</span><a href="/concepts">Concepts</a><span>›</span>MCP Client
+        </nav>
+
+        <header>
+          <div><span class="badge badge-client">QVeris</span><span class="badge badge-cat">Guide</span></div>
+          <h1>MCP Client: What It Is and the 9 Best Options in 2026</h1>
+          <p class="meta-desc">A practical guide for AI developers comparing the 9 best MCP clients. Covers Claude Desktop, Cursor, Cline, and 6 more — plus how to extend any client with 10,000+ capabilities via QVeris MCP server.</p>
+
+          <div class="author-meta">
+            <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%237C9BFF'/%3E%3Cstop offset='100%25' stop-color='%233D5FE0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='44' height='44' rx='22' fill='url(%23g)'/%3E%3Ctext x='22' y='28' font-family='Inter,sans-serif' font-size='18' font-weight='600' fill='%230A0E1A' text-anchor='middle'%3ELW%3C/text%3E%3C/svg%3E" alt="Linfang Wang, Founder &amp; CEO of QVeris AI" width="44" height="44" loading="lazy" decoding="async">
+            <div class="author-info">
+              <a href="https://qveris.ai/authors/wang-linfang" rel="author">Linfang Wang</a> · CEO &amp; Founder
+              <a href="https://www.linkedin.com/in/wanglinfang" rel="noopener" target="_blank" style="margin-left:8px;font-size:12px;color:#7C9BFF;">LinkedIn</a>
+              <p class="author-bio">MS from Tsinghua University. Former engineer at Microsoft (Bing), Opera News, JD.com AI Lab. 2023: CTO at Liblib AI. 2025: Founded QVeris AI to build action infrastructure for AI Agents.</p>
+            </div>
+            <div class="dates">
+              <span>Published: May 19, 2026</span><br>
+              <span>Last Updated: May 19, 2026</span>
+            </div>
+          </div>
+        </header>
+
+        <nav class="toc" aria-label="Table of Contents">
+          <div class="toc-label">Contents</div>
+          <ul>
+            <li><a href="#what-is">What Is an MCP Client?</a></li>
+            <li><a href="#architecture">MCP Client vs MCP Server: The Architecture</a></li>
+            <li><a href="#clients">The 9 Best MCP Clients in 2026</a></li>
+            <li><a href="#build">How to Build Your Own MCP Client</a></li>
+            <li><a href="#extend">Extending Any MCP Client with 10,000+ Capabilities</a></li>
+            <li><a href="#choose">Choosing the Right MCP Client: Decision Framework</a></li>
+          </ul>
+        </nav>
+
+        <section class="tldr">
+          <div class="tldr-label">TL;DR</div>
+          <ul>
+            <li><strong>Problem:</strong> AI assistants like Claude Desktop and Cursor are limited to their built-in tools without MCP server connections.</li>
+            <li><strong>Solution:</strong> The Model Context Protocol (MCP) provides a standardized client-server architecture so any MCP client can connect to any MCP server for extended capabilities.</li>
+            <li><strong>Result:</strong> Whether you choose Claude Desktop, Cursor, Cline, or any of the 9 clients below, connecting a QVeris MCP server gives your AI assistant instant access to 10,000+ tools across search, maps, docs, finance, and more.</li>
+          </ul>
+        </section>
+
+        <section id="what-is">
+          <h2>What Is an MCP Client?</h2>
+          <p class="snippet-answer"><strong>An MCP client is a component within an MCP host application (such as Claude Desktop or Cursor) that manages the connection to MCP servers. The host exposes one or more MCP clients, each communicating with servers that provide tools and capabilities.</strong></p>
+
+          <p>This client-server architecture enables any compatible host to access any MCP-capable server through a standardized interface — similar to how a USB controller inside your laptop connects to external devices.</p>
+
+          <p>Anthropic introduced the Model Context Protocol in November 2024, describing it as a "USB-C for AI" — a universal standard that replaces the need for custom integrations between AI assistants and tools. <a href="https://modelcontextprotocol.io" rel="noopener nofollow" target="_blank">The MCP specification</a> defines how hosts, clients, and servers communicate so that tools built for one MCP-compatible application work across all of them.</p>
+
+          <p>The MCP client is the critical interface layer inside your AI application. When you ask Claude to look up a product price or generate a map route, the MCP client inside Claude Desktop manages the connection to the MCP server that provides that tool. It handles protocol negotiation, message framing, and data exchange — keeping the AI assistant focused on reasoning while the client manages connectivity.</p>
+
+          <p>For developers building AI-powered workflows, an MCP client is the entry point. You don't need to choose between Claude Desktop for its strong reasoning or Cursor for its IDE integration — any MCP client can connect to the same MCP servers, giving you the same extended capabilities regardless of which AI application you use.</p>
+        </section>
+
+        <section id="architecture">
+          <h2>MCP Client vs MCP Server: The Architecture</h2>
+
+          <div class="note-box">
+            <strong>A note on terminology:</strong> This guide uses "MCP client" in its common industry sense — meaning the AI application you interact with (Claude Desktop, Cursor, etc.). Technically, those applications are MCP hosts that internally contain MCP client components. We follow the colloquial usage because that's how developers search for and discuss these tools. The official MCP specification uses "host" and "client" precisely to enable this interoperability.
+          </div>
+
+          <p>Throughout this guide we use "MCP client" in its common industry sense — meaning the AI application a user interacts with (Claude Desktop, Cursor, etc.). Technically, those applications are MCP <em>hosts</em> that contain MCP <em>client</em> components. We follow the colloquial usage because that's how developers search and talk about these tools in practice.</p>
+
+          <p>The Model Context Protocol follows a three-layer architecture: the Host application, the Client component, and the Server provider. Understanding this separation is key to grasping how MCP enables interoperability between AI tools and capability sources.</p>
+
+          <div class="viz">
+            <svg viewBox="0 0 800 380" role="img" aria-labelledby="mcp-architecture-title mcp-architecture-desc">
+              <title id="mcp-architecture-title">MCP Architecture: Host, Client, and Server layers with Transport Protocol Stack</title>
+              <desc id="mcp-architecture-desc">Three-layer diagram showing MCP host (AI application), MCP client (internal component managing server connections), and MCP server (capability provider). Transport protocol stack shows stdio, Streamable HTTP, and deprecated SSE. Arrows show bidirectional communication between layers.</desc>
+              <rect width="800" height="380" fill="#0f1420" rx="12"/>
+
+              <!-- Host Application Layer -->
+              <rect x="30" y="30" width="740" height="80" rx="10" fill="#12192a" stroke="#7C9BFF" stroke-width="1.5"/>
+              <text x="400" y="55" text-anchor="middle" fill="#B5C6FF" font-size="12" font-weight="600" letter-spacing="1.5">HOST APPLICATION</text>
+              <text x="100" y="80" text-anchor="middle" fill="#c8d0e8" font-size="12">Claude Desktop</text>
+              <text x="270" y="80" text-anchor="middle" fill="#c8d0e8" font-size="12">Claude Code</text>
+              <text x="440" y="80" text-anchor="middle" fill="#c8d0e8" font-size="12">Cursor</text>
+              <text x="600" y="80" text-anchor="middle" fill="#c8d0e8" font-size="12">Cline</text>
+              <text x="710" y="80" text-anchor="middle" fill="#c8d0e8" font-size="12">...</text>
+
+              <!-- Client Layer -->
+              <rect x="30" y="140" width="740" height="60" rx="10" fill="#0f1625" stroke="#B5C6FF" stroke-width="1.5"/>
+              <text x="400" y="163" text-anchor="middle" fill="#B5C6FF" font-size="12" font-weight="600" letter-spacing="1.5">MCP CLIENT (component within host)</text>
+              <text x="200" y="188" text-anchor="middle" fill="#8a9ab0" font-size="11">Client A →</text>
+              <text x="400" y="188" text-anchor="middle" fill="#8a9ab0" font-size="11">Client B →</text>
+              <text x="600" y="188" text-anchor="middle" fill="#8a9ab0" font-size="11">Client N →</text>
+
+              <!-- Transport Layer -->
+              <rect x="30" y="220" width="740" height="50" rx="8" fill="#0a0f1a" stroke="#4a5a9a" stroke-width="1"/>
+              <text x="400" y="243" text-anchor="middle" fill="#6b7280" font-size="11" letter-spacing="1">TRANSPORT LAYER</text>
+
+              <!-- Transport protocol boxes -->
+              <rect x="90" y="225" width="140" height="40" rx="6" fill="#141b2d" stroke="#4a5a9a" stroke-width="1"/>
+              <text x="160" y="250" text-anchor="middle" fill="#9ca3af" font-size="11">stdio</text>
+              <text x="160" y="263" text-anchor="middle" fill="#4a5568" font-size="9">(current)</text>
+
+              <rect x="280" y="225" width="140" height="40" rx="6" fill="#141b2d" stroke="#4a5a9a" stroke-width="1"/>
+              <text x="350" y="250" text-anchor="middle" fill="#9ca3af" font-size="11">Streamable HTTP</text>
+              <text x="350" y="263" text-anchor="middle" fill="#4a5568" font-size="9">(current)</text>
+
+              <rect x="470" y="225" width="120" height="40" rx="6" fill="#141b2d" stroke="#2d3548" stroke-width="1"/>
+              <text x="530" y="250" text-anchor="middle" fill="#4a5568" font-size="11">SSE</text>
+              <text x="530" y="263" text-anchor="middle" fill="#374151" font-size="9">(deprecated)</text>
+
+              <!-- Server Layer -->
+              <rect x="30" y="290" width="740" height="70" rx="10" fill="#0f1420" stroke="#3D5FE0" stroke-width="1.5"/>
+              <text x="400" y="313" text-anchor="middle" fill="#3D5FE0" font-size="12" font-weight="600" letter-spacing="1.5">MCP SERVER (capability provider)</text>
+              <text x="120" y="340" text-anchor="middle" fill="#8a9ab0" font-size="11">QVeris</text>
+              <text x="120" y="353" text-anchor="middle" fill="#4a5568" font-size="9">10,000+ tools</text>
+              <text x="280" y="340" text-anchor="middle" fill="#8a9ab0" font-size="11">Search</text>
+              <text x="440" y="340" text-anchor="middle" fill="#8a9ab0" font-size="11">Maps / Weather</text>
+              <text x="600" y="340" text-anchor="middle" fill="#8a9ab0" font-size="11">Custom</text>
+              <text x="730" y="340" text-anchor="middle" fill="#4a5568" font-size="10">...</text>
+
+              <!-- Connecting arrows -->
+              <path d="M200,110 L200,140" stroke="#7C9BFF" stroke-width="1.5" marker-end="url(#arrow)"/>
+              <path d="M600,110 L600,140" stroke="#7C9BFF" stroke-width="1.5"/>
+              <path d="M200,200 L200,220" stroke="#B5C6FF" stroke-width="1.5"/>
+              <path d="M600,200 L600,220" stroke="#B5C6FF" stroke-width="1.5"/>
+              <path d="M200,270 L200,290" stroke="#7C9BFF" stroke-width="1.5"/>
+              <path d="M600,270 L600,290" stroke="#7C9BFF" stroke-width="1.5"/>
+
+              <!-- Annotation arrows and labels -->
+              <path d="M660,175 L720,175" stroke="#B5C6FF" stroke-width="1" marker-end="url(#arrow)"/>
+              <text x="665" y="170" fill="#B5C6FF" font-size="9">manages connection</text>
+
+              <path d="M660,255 L720,255" stroke="#4a5a9a" stroke-width="1" marker-end="url(#arrow)"/>
+              <text x="665" y="250" fill="#6b7280" font-size="9">JSON-RPC over</text>
+              <text x="665" y="262" fill="#6b7280" font-size="9">stdio / HTTP</text>
+            </svg>
+            <div class="viz-caption">Figure: MCP three-layer architecture — Host contains Client components, which communicate with Servers via transport protocols</div>
+          </div>
+
+          <h3>The Three Layers</h3>
+          <ul>
+            <li><strong>Host:</strong> The AI application you interact with — Claude Desktop, Cursor, Claude Code, Cline, or any MCP-compatible tool. The host exposes the user interface and coordinates the AI's reasoning.</li>
+            <li><strong>Client:</strong> A component inside the host that manages communication with MCP servers. Each client maintains a connection to one or more servers, handling protocol negotiation, tool discovery, and message exchange. A single host can run multiple clients simultaneously.</li>
+            <li><strong>Server:</strong> The capability provider — a service that exposes tools, resources, and prompts to clients. Servers can be public (like the QVeris MCP server with 10,000+ capabilities) or custom-built for specific integrations.</li>
+          </ul>
+
+          <h3>Transport Protocols</h3>
+          <p>MCP uses JSON-RPC as its messaging format over two active transport options, enabling bidirectional tool calling between clients and servers:</p>
+          <ul>
+            <li><strong>stdio:</strong> The most widely supported transport. Communication happens over standard input/output — ideal for local integrations and CLI-based MCP clients like Claude Code.</li>
+            <li><strong>Streamable HTTP:</strong> The newer standard, replacing the deprecated SSE transport. Supports bidirectional streaming over HTTP, better suited for cloud deployments and remote MCP servers.</li>
+            <li><strong>SSE (deprecated):</strong> Server-Sent Events was an earlier transport option. Current implementations should use Streamable HTTP instead.</li>
+          </ul>
+
+          <p>Early adopters including Block, Apollo, Zed, Replit, and Sourcegraph have integrated MCP into their development environments since the protocol's announcement. This client-server architecture means their MCP clients can connect to any MCP server that implements the protocol — enabling a growing ecosystem of capability providers.</p>
+        </section>
+
+        <section id="clients">
+          <h2>The 9 Best MCP Clients in 2026</h2>
+          <p>These nine MCP clients represent the strongest options for AI developers in 2026, spanning desktop applications, CLI tools, IDE extensions, and open-source projects. Each targets a distinct workflow — choose based on where and how you work.</p>
+
+          <table class="compare-table">
+            <caption>Comparison of 9 best MCP clients for AI developers</caption>
+            <thead>
+              <tr><th scope="col">Client</th><th scope="col">Type</th><th scope="col">Interface</th><th scope="col">Best For</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row"><a href="https://claude.ai/download" rel="noopener" target="_blank">Claude Desktop</a></th><td>Desktop app</td><td>GUI</td><td>General AI workflows, tool orchestration</td></tr>
+              <tr><th scope="row"><a href="https://docs.anthropic.com/en/docs/claude-code" rel="noopener" target="_blank">Claude Code</a></th><td>CLI</td><td>Terminal</td><td>Scripting, CI/CD integration</td></tr>
+              <tr><th scope="row"><a href="https://cursor.com" rel="noopener" target="_blank">Cursor</a></th><td>AI IDE</td><td>GUI</td><td>AI-first coding workflows</td></tr>
+              <tr><th scope="row"><a href="https://codeium.com/windsurf" rel="noopener" target="_blank">Windsurf</a></th><td>AI IDE</td><td>GUI</td><td>Codeium users, AI-native development</td></tr>
+              <tr><th scope="row"><a href="https://github.com/cline/cline" rel="noopener" target="_blank">Cline</a></th><td>VS Code extension</td><td>GUI</td><td>VS Code users, agentic coding</td></tr>
+              <tr><th scope="row"><a href="https://continue.dev" rel="noopener" target="_blank">Continue</a></th><td>IDE extension</td><td>GUI</td><td>JetBrains and VS Code users</td></tr>
+              <tr><th scope="row"><a href="https://github.com/goose-ai/" rel="noopener" target="_blank">Goose</a></th><td>Open-source agent</td><td>CLI/GUI</td><td>Open-source tooling, custom deployment</td></tr>
+              <tr><th scope="row"><a href="https://marketplace.visualstudio.com/" rel="noopener" target="_blank">VS Code MCP</a></th><td>VS Code extension</td><td>GUI</td><td>Official MCP support in VS Code</td></tr>
+              <tr><th scope="row"><a href="https://github.com/opencode-ai/opencode" rel="noopener" target="_blank">OpenCode</a></th><td>Open-source IDE</td><td>GUI</td><td>Open-source-first developers</td></tr>
+            </tbody>
+          </table>
+
+          <h3>1. Claude Desktop</h3>
+          <div class="client-card">
+            <div class="client-meta">
+              <span class="client-tag">Type: Desktop App</span>
+              <span class="client-tag best">Recommended</span>
+              <span class="client-tag">Interface: GUI</span>
+            </div>
+            <p>Claude Desktop is Anthropic's official desktop application with native MCP support. It provides an AI-first interface for conversation, file exploration, and tool calling orchestration. As the originating application for the Model Context Protocol, Claude Desktop has the deepest MCP integration — including 2026's new Tool Search feature with lazy-loading for discovering MCP capabilities dynamically.</p>
+            <p><strong>Works with Qveris:</strong> Yes — connect the Qveris MCP server to Claude Desktop to add 10,000+ tools for research, data retrieval, maps, weather, and more directly into your desktop AI workflow. <a href="https://qveris.ai/docs/mcp-server" rel="noopener" target="_blank">See setup guide →</a></p>
+          </div>
+
+          <h3>2. Claude Code</h3>
+          <div class="client-card">
+            <div class="client-meta">
+              <span class="client-tag">Type: CLI</span>
+              <span class="client-tag">Interface: Terminal</span>
+            </div>
+            <p>Claude Code is Anthropic's CLI tool for AI-augmented development directly in your terminal. It uses MCP over stdio, making it ideal for scripting, automated workflows, and CI/CD integration. Claude Code's MCP support enables it to connect to any MCP server while you work entirely from the command line — with native tool calling and capability routing built in.</p>
+            <p><strong>Works with Qveris:</strong> Yes — configure the Qveris MCP server via stdio to give Claude Code instant access to 10,000+ tools for API calls, data fetching, and workflow automation without leaving your terminal.</p>
+          </div>
+
+          <h3>3. Cursor</h3>
+          <div class="client-card">
+            <div class="client-meta">
+              <span class="client-tag">Type: AI IDE</span>
+              <span class="client-tag best">Recommended</span>
+              <span class="client-tag">Interface: GUI</span>
+            </div>
+            <p>Cursor is an AI-first IDE built around large language model integration. MCP support lets Cursor connect to external capability providers beyond its built-in tools. Its codebase-aware AI features combined with MCP make it a strong choice for developers who want IDE comfort with extended tool access — and the flexibility of custom capability routing to third-party tools.</p>
+            <p><strong>Works with Qveris:</strong> Yes — add Qveris MCP server to Cursor and every project gains instant access to 10,000+ tools without project-level configuration. <a href="https://qveris.ai/docs" rel="noopener" target="_blank">See setup guide →</a></p>
+          </div>
+
+          <h3>4. Windsurf</h3>
+          <div class="client-card">
+            <div class="client-meta">
+              <span class="client-tag">Type: AI IDE</span>
+              <span class="client-tag">Interface: GUI</span>
+            </div>
+            <p>Windsurf is Codeium's AI coding assistant, positioned as a "copilot++" IDE. It integrates MCP to connect to external tool providers, complementing Codeium's existing code completion capabilities with broader tool access through the protocol — enabling dynamic capability routing across multiple tool sources.</p>
+            <p><strong>Works with Qveris:</strong> Yes — connect the Qveris MCP server to Windsurf for extended research and data retrieval capabilities beyond code completion, adding 10,000+ tools to your AI-native coding workflow.</p>
+          </div>
+
+          <h3>5. Cline</h3>
+          <div class="client-card">
+            <div class="client-meta">
+              <span class="client-tag">Type: VS Code Extension</span>
+              <span class="client-tag best">Recommended</span>
+              <span class="client-tag">Interface: GUI</span>
+            </div>
+            <p>Cline is an autonomous AI coding agent that runs inside VS Code as an extension. It uses MCP to connect to external tools, enabling agentic workflows where the AI can research, plan, execute, and verify code changes with tool calling beyond VS Code's native offerings — with dynamic capability routing to external providers.</p>
+            <p><strong>Works with Qveris:</strong> Yes — adding the Qveris MCP server to Cline brings research and data retrieval capabilities into Cline's agentic coding workflows, extending what your autonomous agent can accomplish without manual tool integration.</p>
+          </div>
+
+          <h3>6. Continue</h3>
+          <div class="client-card">
+            <div class="client-meta">
+              <span class="client-tag">Type: IDE Extension</span>
+              <span class="client-tag">Interface: GUI</span>
+            </div>
+            <p>Continue is an open-source IDE extension supporting both VS Code and JetBrains IDEs. It provides an MCP-native interface for connecting AI assistants to external tools, with a focus on developer configurability and open-source tooling — and native capability routing to any MCP-compatible server.</p>
+            <p><strong>Works with Qveris:</strong> Yes — JetBrains users (IntelliJ, PyCharm, WebStorm) can connect the Qveris MCP server to Continue for extended MCP capability access across the full Qveris tool network without leaving their preferred IDE.</p>
+          </div>
+
+          <h3>7. Goose</h3>
+          <div class="client-card">
+            <div class="client-meta">
+              <span class="client-tag">Type: Open-source Agent</span>
+              <span class="client-tag">Interface: CLI/GUI</span>
+            </div>
+            <p>Goose is an open-source AI agent framework developed by Highlight (formerly Block). It emphasizes extensibility and local execution, making it popular for developers who want full control over their AI agent infrastructure with MCP as the primary capability extension mechanism — including native capability routing to external MCP servers.</p>
+            <p><strong>Works with Qveris:</strong> Yes — teams deploying Goose as their agent runtime can connect the Qveris MCP server for access to the full Qveris capability network, adding 10,000+ tools to their self-hosted AI agent infrastructure.</p>
+          </div>
+
+          <h3>8. VS Code MCP</h3>
+          <div class="client-card">
+            <div class="client-meta">
+              <span class="client-tag">Type: VS Code Extension</span>
+              <span class="client-tag">Interface: GUI</span>
+            </div>
+            <p>The official MCP extension for Visual Studio Code, published by the Model Context Protocol organization. It provides first-class MCP support directly in VS Code, allowing developers to configure MCP servers and connect any compatible capability provider without switching tools — with native tool calling for every configured server.</p>
+            <p><strong>Works with Qveris:</strong> Yes — configure the Qveris MCP server via the official MCP extension settings panel in VS Code to add 10,000+ tools to your VS Code workflow with one configuration.</p>
+          </div>
+
+          <h3>9. OpenCode</h3>
+          <div class="client-card">
+            <div class="client-meta">
+              <span class="client-tag">Type: Open-source IDE</span>
+              <span class="client-tag">Interface: GUI</span>
+            </div>
+            <p>OpenCode is an open-source AI IDE with native MCP support, built by the opencode-ai community. It targets developers who prefer open-source tooling and want MCP compatibility without proprietary dependencies. <a href="https://qveris.ai/docs/opencode-setup" rel="noopener" target="_blank">QVeris provides an OpenCode setup guide →</a></p>
+            <p><strong>Works with Qveris:</strong> Yes — Qveris provides native MCP integration for OpenCode, making it the most open-source-native path to accessing the full Qveris capability network without any proprietary tooling requirements.</p>
+          </div>
+        </section>
+
+        <section id="build">
+          <h2>How to Build Your Own MCP Client</h2>
+          <p>If the existing MCP clients don't fit your workflow, you can build your own using the official MCP SDK. Learning how to build an MCP client from scratch helps you understand the protocol and customize tool calling and capability routing for specific use cases.</p>
+
+          <p>The MCP client SDK handles the protocol complexity — connection management, JSON-RPC message framing, tool discovery, and resource streaming. You focus on integrating the client into your application and defining how to present tools to your users.</p>
+
+          <div class="code-block">
+            <pre><code><span class="comment">// MCP Client SDK example — minimal client connecting to a server</span>
+<span class="comment">// Source: MCP SDK documentation, modelcontextprotocol.io</span>
+
+<span class="keyword">import</span> { Client } <span class="keyword">from</span> <span class="string">"@modelcontextprotocol/sdk/client"</span>;
+<span class="keyword">import</span> { StdioClientTransport } <span class="keyword">from</span> <span class="string">"@modelcontextprotocol/sdk/client/stdio"</span>;
+
+<span class="keyword">async function</span> <span class="function">createMCPClient</span>() {
+  <span class="comment">// Configure stdio transport — connects via stdin/stdout to MCP server</span>
+  <span class="keyword">const</span> transport = <span class="keyword">new</span> StdioClientTransport({
+    command: <span class="string">"npx"</span>,
+    args: [<span class="string">"-y"</span>, <span class="string">"@qverisai/mcp-server"</span>],
+    env: {
+      QVERIS_API_KEY: process.env.QVERIS_API_KEY,
+    },
+  });
+
+  <span class="comment">// Initialize the MCP client</span>
+  <span class="keyword">const</span> client = <span class="keyword">new</span> Client({
+    name: <span class="string">"my-mcp-client"</span>,
+    version: <span class="string">"1.0.0"</span>,
+  });
+
+  <span class="comment">// Connect and discover available tools from the server</span>
+  <span class="keyword">await</span> client.connect(transport);
+  <span class="keyword">const</span> tools = <span class="keyword">await</span> client.listTools();
+
+  console.log(<span class="string">`Connected. Available tools: ${tools.length}`</span>);
+  <span class="comment">// tools[0].name, tools[0].description, tools[0].inputSchema</span>
+
+  <span class="comment">// Call a tool</span>
+  <span class="keyword">const</span> result = <span class="keyword">await</span> client.callTool({
+    name: <span class="string">"web_search"</span>,
+    arguments: { query: <span class="string">"MCP protocol status 2026"</span> },
+  });
+
+  <span class="keyword">return</span> result;
+}
+
+createMCPClient().catch(console.error);</code></pre>
+          </div>
+
+          <p>The SDK also supports Streamable HTTP transport for connecting to remote MCP servers:</p>
+
+          <div class="code-block">
+            <pre><code><span class="comment">// Streamable HTTP transport for remote MCP server connections</span>
+<span class="keyword">import</span> { Client } <span class="keyword">from</span> <span class="string">"@modelcontextprotocol/sdk/client"</span>;
+<span class="keyword">import</span> { HTTPClientTransport } <span class="keyword">from</span> <span class="string">"@modelcontextprotocol/sdk/client/http"</span>;
+
+<span class="keyword">const</span> transport = <span class="keyword">new</span> HTTPClientTransport({
+  url: <span class="string">"https://mcp.qveris.ai/stream"</span>,
+  headers: { Authorization: <span class="string">`Bearer <span class="variable">${process.env.QVERIS_API_KEY}</span>`</span> },
+});
+
+<span class="keyword">const</span> client = <span class="keyword">new</span> Client({ name: <span class="string">"remote-client"</span>, version: <span class="string">"1.0.0"</span> });
+<span class="keyword">await</span> client.connect(transport);</code></pre>
+          </div>
+
+          <p>Building your own MCP client makes sense when you need a custom AI application — a chatbot for internal documentation, an AI assistant embedded in a product, or a specialized workflow tool — with MCP tool access. The SDK abstracts the protocol complexity so you focus on the application logic rather than implementing JSON-RPC framing.</p>
+        </section>
+
+        <section id="extend">
+          <h2>Extending Any MCP Client with 10,000+ Capabilities</h2>
+
+          <div class="note-box">
+            <strong>Important framing:</strong> Qveris is an <strong>MCP server</strong>, not an MCP client. Qveris provides capability providers that MCP clients connect to. Whether you use Claude Desktop, Cursor, Cline, or any other client, Qveris gives that client access to 10,000+ tools — it doesn't compete with these clients, it extends them.
+          </div>
+
+          <p>Every MCP client listed above can connect to the Qveris MCP server, gaining instant access to a unified capability routing network spanning search, maps, weather, document stores, financial data, blockchain, and healthcare systems — without custom integrations per capability. This is the power of MCP: the same tool calling interface works across every client, so your choice of client determines your workflow, not your capabilities.</p>
+
+          <h3>Connect QVeris to Claude Desktop</h3>
+          <div class="code-block">
+            <pre><code><span class="comment">// Claude Desktop MCP config — ~/.claude/Desktop/mcp.json</span>
+<span class="comment">// Add QVeris MCP server to Claude Desktop's configuration</span>
+
+{
+  <span class="property">"mcpServers"</span>: {
+    <span class="property">"qveris"</span>: {
+      <span class="property">"command"</span>: <span class="string">"npx"</span>,
+      <span class="property">"args"</span>: [<span class="string">"-y"</span>, <span class="string">"@qverisai/mcp-server"</span>],
+      <span class="property">"env"</span>: {
+        <span class="property">"QVERIS_API_KEY"</span>: <span class="string">"<span class="variable">YOUR_API_KEY</span>"</span>
+      }
+    }
+  }
+}</code></pre>
+          </div>
+
+          <h3>Connect QVeris to Cursor</h3>
+          <div class="code-block">
+            <pre><code><span class="comment">// Cursor MCP settings — .cursor/mcp.json (project root or ~/.cursor/)</span>
+<span class="comment">// Works across Cursor projects — configure once, use everywhere</span>
+
+{
+  <span class="property">"mcpServers"</span>: {
+    <span class="property">"qveris"</span>: {
+      <span class="property">"command"</span>: <span class="string">"npx"</span>,
+      <span class="property">"args"</span>: [<span class="string">"-y"</span>, <span class="string">"@qverisai/mcp-server"</span>],
+      <span class="property">"env"</span>: {
+        <span class="property">"QVERIS_API_KEY"</span>: <span class="string">"<span class="variable">YOUR_API_KEY</span>"</span>
+      }
+    }
+  }
+}</code></pre>
+          </div>
+
+          <p>The same configuration pattern works across all MCP clients: install the Qveris MCP server package via npx, provide your API key via environment variable, and the client discovers and connects to all 10,000+ capabilities automatically. Through <strong>QVeris</strong>'s unified capability routing, every tool call your AI assistant makes — whether for search, maps, or financial data — routes through one server configuration. QVeris handles schema translation, provider selection, and error normalization automatically, so your MCP client gets consistent results regardless of which underlying tool is called.</p>
+
+          <p><strong>QVeris</strong> also maintains a global MCP registry that indexes 10,000+ tools across multiple providers. When you connect your MCP client to QVeris, the capability routing engine queries this registry to find the optimal tool for each request — and handles the provider-specific translation so your client code stays clean.</p>
+
+          <p>This is the key insight: the choice of MCP client is about your preferred interface (desktop GUI, CLI, IDE extension), while the <strong>QVeris MCP server</strong> handles the capability routing that determines what your client can actually do. QVeris's capability routing automatically selects the optimal tool provider based on schema complexity, latency requirements, and cost constraints — so you get the best tool for each task without manual routing logic. Pick the client that fits how you work, then extend it with QVeris for unlimited tool access.</p>
+        </section>
+
+        <section id="choose">
+          <h2>Choosing the Right MCP Client: Decision Framework</h2>
+          <p>The best MCP client depends on your workflow, preferred interface, and deployment context. Use this framework to match your situation to the right tool.</p>
+
+          <table class="compare-table">
+            <caption>Decision framework: choosing the right MCP client for your use case</caption>
+            <thead>
+              <tr><th scope="col">If you need...</th><th scope="col">Choose</th><th scope="col">Why</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">General AI workflows with strong reasoning</th><td class="highlight">Claude Desktop</td><td>Native Anthropic integration, Tool Search lazy-loading (2026), deep MCP support</td></tr>
+              <tr><th scope="row">CLI scripting and CI/CD integration</th><td class="highlight">Claude Code</td><td>Terminal-native, stdio transport, scriptable, version-controllable</td></tr>
+              <tr><th scope="row">AI-first coding with IDE comfort</th><td class="highlight">Cursor</td><td>Built for AI-assisted development, MCP integration, AI-native UX</td></tr>
+              <tr><th scope="row">VS Code extension workflow</th><td class="highlight">Cline or VS Code MCP</td><td>Cline for agentic coding; VS Code MCP extension for lightweight MCP support</td></tr>
+              <tr><th scope="row">JetBrains IDE (IntelliJ, PyCharm)</th><td class="highlight">Continue</td><td>Best MCP support for JetBrains IDEs</td></tr>
+              <tr><th scope="row">Open-source tooling, self-hosted</th><td class="highlight">Goose or OpenCode</td><td>Fully open-source, local execution, self-controlled infrastructure</td></tr>
+              <tr><th scope="row">Maximum capability access regardless of client</th><td class="highlight">Any + QVeris</td><td>QVeris MCP server works with all clients above — capability breadth is independent of client choice</td></tr>
+            </tbody>
+          </table>
+
+          <p>If you're building a custom AI application, the MCP Client SDK gives you full control — implement your own client, connect it to QVeris for the full capability network, and focus on your application logic.</p>
+        </section>
+
+        <section class="cta-box">
+          <h3>Extend Any MCP Client with 10,000+ Capabilities</h3>
+          <p>Qveris provides an MCP server that works with Claude Desktop, Cursor, Cline, Continue, Claude Code, Goose, OpenCode, and any other MCP-compatible client — adding 10,000+ tools to your AI assistant through unified capability routing across search, maps, weather, docs, finance, blockchain, and healthcare.</p>
+          <a href="https://qveris.ai/docs" class="cta-btn">View Docs →</a>
+        </section>
+
+        <section>
+          <h2>FAQ: MCP Clients</h2>
+
+          <div class="faq-item">
+            <div class="faq-q">What is an MCP client?</div>
+            <div class="faq-a">An MCP client is a component within an MCP host application (such as Claude Desktop or Cursor) that manages the connection to MCP servers. The host application exposes one or more MCP clients, each communicating with servers that provide tools and capabilities. This client-server architecture enables any compatible host to access any MCP-capable server through a standardized interface.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">What is the difference between an MCP client and an MCP server?</div>
+            <div class="faq-a">An MCP client is a component inside the AI application you use (the host). It manages communication with MCP servers that provide tools and data. An MCP server is the capability provider — the service that exposes tools, resources, and prompts to clients. Think of the client as the USB controller inside your laptop, and the server as the external device it connects to.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">Which MCP client should developers consider for production use?</div>
+            <div class="faq-a">The best MCP clients for AI developers include Claude Desktop (native Anthropic integration), Claude Code (CLI-first), Cursor (AI-first IDE), Windsurf (Codeium's AI IDE), Cline (VS Code extension), Continue (JetBrains/VS Code), Goose (open-source agent), VS Code MCP (official extension), and OpenCode (open-source IDE with native MCP support). Each targets a different workflow: desktop GUI, CLI, IDE extension, or open-source.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">How do I add custom tools or capabilities to an MCP client?</div>
+            <div class="faq-a">To add custom tools or capabilities to an MCP client, you configure the client to connect to one or more MCP servers. Each server exposes specific capabilities (tools, resources, prompts). You can connect to public servers from the MCP registry, or run your own. Platforms like QVeris provide an MCP server with 10,000+ capabilities — once connected, your client gains access to tools across search, maps, weather, docs, finance, blockchain, and healthcare without additional integration work.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">Can I build my own MCP client?</div>
+            <div class="faq-a">Yes, you can build your own MCP client using the official MCP SDK. The Model Context Protocol uses JSON-RPC over stdio or Streamable HTTP for transport. The SDK handles connection management, protocol negotiation, and message framing. You can implement a client from scratch using the MCP specification, or use the MCP client SDK to bootstrap your implementation. This is useful when you need a custom AI application with MCP tool access.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">Which MCP client should I choose for my workflow?</div>
+            <div class="faq-a">Choose Claude Desktop for AI-first desktop workflows with native tool calling. Choose Claude Code for CLI-centric development and scripting. Choose Cursor or Windsurf if you prefer an AI-native IDE with MCP support built in. Choose Cline if you want MCP inside VS Code. Choose Continue if you use JetBrains IDEs. Choose Goose or OpenCode if you prefer open-source tooling. All listed clients are compatible with QVeris MCP server — so your choice depends on your preferred interface, not on what capabilities you can access.</div>
+          </div>
+        </section>
+
+        <aside class="methodology">
+          <h2>About This Guide</h2>
+          <p><strong>Last updated:</strong> May 19, 2026</p>
+          <p><strong>Methodology:</strong> This guide covers MCP clients documented in the official MCP specification and verified as MCP-compatible as of Q2 2026. Client descriptions reflect documented capabilities. All clients listed were verified to support MCP connections to external servers (including QVeris MCP server).</p>
+          <p><strong>Conflict of Interest:</strong> QVeris provides an MCP server. This guide aims for objectivity: we recommend clients based on documented capabilities, not on QVeris compatibility (which applies to all listed clients). The QVeris integration is included because it represents the most capability-dense MCP server available — not as a product placement.</p>
+          <p><strong>Update Frequency:</strong> Reviewed monthly. MCP client releases (Claude Desktop, Cursor, etc.) push updates frequently — we re-test QVeris MCP server compatibility after each major client release and update version information accordingly.</p>
+          <p><strong>Author:</strong> Linfang Wang, CEO &amp; Founder, QVeris AI.</p>
+        </aside>
+
+        <section>
+          <h2>Related Guides</h2>
+          <div class="related">
+            <!-- <a href="https://qveris.ai/concepts/what-is-ai-agent-orchestration">What is AI Agent Orchestration? A Practical Guide</a> -->
+            <!-- <a href="https://qveris.ai/concepts/mcp-registry">MCP Registry: Finding and Using MCP Servers</a> -->
+            <a href="https://qveris.ai/docs/getting-started">Getting Started with QVeris MCP Server</a>
+            <a href="https://qveris.ai/docs/opencode-setup">OpenCode MCP Setup Guide</a>
+            <a href="https://qveris.ai/docs/mcp-server">QVeris MCP Server Documentation</a>
+          </div>
+        </section>
+
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div style="font-size:18px;font-weight:600;color:rgba(255,255,255,0.9);margin-bottom:12px">QVeris AI</div>
+          <p style="font-size:14px;color:rgba(255,255,255,0.35);max-width:300px;margin-bottom:16px;line-height:1.6">AI-Agent native capability routing network. Unified protocol accessing 10,000+ capabilities across search, maps, docs, finance, blockchain, healthcare and more.</p>
+          <a href="https://qveris.ai" class="cta-btn" style="padding:8px 20px;font-size:13px">Get Started →</a>
+        </div>
+        <div>
+          <span class="footer-title">Product</span>
+          <div class="footer-links">
+            <a href="https://qveris.ai/product">Features</a>
+            <a href="https://qveris.ai/pricing">Pricing</a>
+            <a href="https://qveris.ai/integrations">Integrations</a>
+            <a href="https://qveris.ai/enterprise">Enterprise</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-title">Resources</span>
+          <div class="footer-links">
+            <a href="https://qveris.ai/docs">Documentation</a>
+            <a href="https://qveris.ai/docs/api-reference">API Reference</a>
+            <a href="https://qveris.ai/concepts/mcp-registry">MCP Registry</a>
+            <a href="https://qveris.ai/changelog">Changelog</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-title">Company</span>
+          <div class="footer-links">
+            <a href="https://qveris.ai/about">About</a>
+            <a href="https://qveris.ai/blog">Blog</a>
+            <a href="https://qveris.ai/contact">Contact</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 QVeris AI. All rights reserved.</span>
+        <span>AI-Agent Native • Capability Routing Network • Pay-Per-Call</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

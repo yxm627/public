@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCP Tools: How Discovery Works & Token Cost in 2026 | QVeris</title>
+  <meta name="description" content="MCP tools are the model-controlled primitive in Model Context Protocol. Learn how tools/list works, why 50+ tools cost 10,000+ tokens, and how to fix it.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Wang Linfang">
+
+  <meta property="og:title" content="MCP Tools: How Discovery Works & Token Cost in 2026 | QVeris">
+  <meta property="og:description" content="MCP tools are the model-controlled primitive in Model Context Protocol. Learn how tools/list works, why 50+ tools cost 10,000+ tokens, and how to fix it.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://qveris.ai/concepts/mcp-tools">
+  <meta property="og:image" content="https://qveris.ai/og/mcp-tools.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MCP Tools: How Discovery Works & Token Cost in 2026">
+  <meta name="twitter:description" content="MCP tools are the model-controlled primitive in Model Context Protocol. Learn how tools/list works, why 50+ tools cost 10,000+ tokens, and how to fix it.">
+  <meta name="twitter:image" content="https://qveris.ai/og/mcp-tools.png">
+  <meta name="theme-color" content="#0A0E1A">
+
+  <link rel="canonical" href="https://qveris.ai/concepts/mcp-tools">
+  <link rel="icon" type="image/svg+xml" href="https://qveris.ai/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://qveris.ai/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://qveris.ai/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"QVeris AI","url":"https://qveris.ai","logo":"https://qveris.ai/logo.png","sameAs":["https://twitter.com/qveris_ai","https://github.com/qveris","https://www.linkedin.com/company/qveris"]}
+  </script>
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://qveris.ai/"},{"@type":"ListItem","position":2,"name":"Concepts","item":"https://qveris.ai/concepts"},{"@type":"ListItem","position":3,"name":"MCP Tools","item":"https://qveris.ai/concepts/mcp-tools"}]}
+  </script>
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"MCP Tools: The Protocol Primitive That Powers AI Agent Actions","datePublished":"2026-05-19","dateModified":"2026-05-19","author":{"@type":"Person","name":"Wang Linfang","url":"https://qveris.ai/authors/wang-linfang","jobTitle":"CEO & Founder, QVeris AI","sameAs":["https://www.linkedin.com/in/wanglinfang"]},"publisher":{"@type":"Organization","name":"QVeris AI","logo":{"@type":"ImageObject","url":"https://qveris.ai/logo.png"}},"image":"https://qveris.ai/og/mcp-tools.png"}
+  </script>
+
+  <!-- DefinedTerm Schema -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"DefinedTerm","name":"MCP Tools","description":"MCP tools are the model-controlled primitive in the Model Context Protocol that lets AI assistants take actions like querying APIs or executing code. They are one of three MCP primitives alongside resources and prompts.","inDefinedTermSet":{"@type":"DefinedTermSet","name":"Model Context Protocol Concepts"}}
+  </script>
+
+  <!-- SoftwareApplication Schema (QVeris CLI) -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"QVeris CLI","description":"A command-line tool that provides MCP capability routing via subprocess execution, enabling zero-prompt-token tool calls across multiple MCP servers.","applicationCategory":"DeveloperApplication","operatingSystem":"macOS, Linux, Windows","url":"https://qveris.ai/docs/cli","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock"}}
+  </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are MCP tools?","acceptedAnswer":{"@type":"Answer","text":"MCP tools are the model-controlled primitive in the Model Context Protocol that lets AI assistants take actions like querying APIs or executing code. The MCP specification defines tools as one of three primitives (alongside resources and prompts), with a name, description, and input schema invokable via tools/call."}},{"@type":"Question","name":"What is the difference between MCP tools, resources, and prompts?","acceptedAnswer":{"@type":"Answer","text":"MCP tools are model-controlled actions the LLM can invoke to perform computations, query APIs, or execute code. MCP resources are server-managed data the LLM can read (like files or database records). MCP prompts are reusable prompt templates the server exposes for specific tasks. Tools let the model act; resources let it read; prompts guide how it thinks."}},{"@type":"Question","name":"How does tools/list discovery work?","acceptedAnswer":{"@type":"Answer","text":"When an MCP client connects to a server, it sends a tools/list JSON-RPC request. The server responds with a list of available tools, each containing a name, description, and inputSchema. The client passes this schema to the LLM so it knows which tools it can call. In production with 50+ tools, this schema injection can consume 10,000-25,000 tokens per prompt."}},{"@type":"Question","name":"Why do MCP tools cause token overhead in production?","acceptedAnswer":{"@type":"Answer","text":"Every prompt that includes the tool list must embed the full tool schemas in the context window. With 50 tools averaging 200-500 tokens each, a single prompt can consume 10,000-25,000 tokens in schema overhead alone. Anthropic's GitHub MCP server (93 tools) measures 55,000 tokens for tool schema injection. This overhead degrades model decision quality and increases API costs."}},{"@type":"Question","name":"How do I optimize MCP tools at scale?","acceptedAnswer":{"@type":"Answer","text":"Three approaches address different dimensions: Anthropic's Tool Search (lazy-loading in Claude Desktop 4.x) loads schemas on-demand rather than upfront. OpenAI's allowed_tools parameter restricts the active tool set per request, reducing what the model considers. CLI subprocess patterns like QVeris CLI execute tool calls outside the MCP schema injection loop, eliminating prompt token overhead entirely for large-scale deployments."}},{"@type":"Question","name":"What are MCP tools best practices?","acceptedAnswer":{"@type":"Answer","text":"Design tool descriptions that clearly state what the tool does and when to use it — the LLM decides which tool to call based on the description. Keep inputSchema minimal — only define parameters the LLM actually needs to provide. Group related tools under a single descriptive name rather than splitting into many similar tools. Validate tool responses with error messages the model can understand and act on."}}]}
+  </script>
+
+  <style>
+    .skip-link{position:absolute;left:-9999px;top:0;background:#7C9BFF;color:#0A0E1A;padding:10px 16px;border-radius:0 0 8px 0;font-weight:600;z-index:100}
+    .skip-link:focus{left:0}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;color:rgba(255,255,255,0.82);background:#0A0E1A;font-size:16.5px;line-height:1.75;-webkit-font-smoothing:antialiased}
+    ::selection{background:rgba(124,155,255,0.3)}
+    a{color:#7C9BFF;text-decoration:none}
+    a:hover{color:#B5C6FF}
+    .nav{position:sticky;top:0;z-index:50;background:rgba(10,14,26,0.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.06);padding:14px 0}
+    .nav-inner{max-width:1024px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .nav-logo-mark{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,#7C9BFF,#3D5FE0);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#0A0E1A}
+    .nav-logo span{font-size:16px;font-weight:600;color:rgba(255,255,255,0.97)}
+    .nav-links{display:flex;align-items:center;gap:22px;font-size:14px}
+    .nav-links a{color:rgba(255,255,255,0.55);transition:color 0.15s}
+    .nav-links a:hover{color:rgba(255,255,255,0.9)}
+    .nav-cta{background:linear-gradient(135deg,#B5C6FF,#7C9BFF);color:#0A0E1A;padding:7px 18px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none}
+    .nav-cta:hover{opacity:0.9;color:#0A0E1A}
+    .wrap{max-width:1024px;margin:0 auto;padding:48px 24px}
+    h1{font-size:2.4rem;font-weight:500;line-height:1.15;margin-bottom:16px;color:rgba(255,255,255,0.97);letter-spacing:-0.02em}
+    h2{font-size:1.22rem;font-weight:600;margin:40px 0 16px;color:rgba(255,255,255,0.92);border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:10px}
+    h3{font-size:15px;font-weight:600;margin:24px 0 10px;color:rgba(255,255,255,0.85)}
+    p{margin:0 0 18px;color:rgba(255,255,255,0.62)}
+    strong{color:rgba(255,255,255,0.92)}
+    em{color:rgba(255,255,255,0.72);font-style:italic}
+    ul,ol{margin:12px 0 14px 24px}
+    li{margin:6px 0;color:rgba(255,255,255,0.62)}
+    .meta-desc{font-size:1.05rem;color:rgba(255,255,255,0.5);margin-bottom:28px;line-height:1.55;max-width:680px}
+    .breadcrumb{font-size:13px;color:rgba(255,255,255,0.35);margin-bottom:20px}
+    .breadcrumb a{color:#7C9BFF}
+    .breadcrumb span{margin:0 6px}
+    .badge{display:inline-block;font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;margin-right:8px;margin-bottom:14px}
+    .badge-client{background:rgba(124,155,255,0.18);color:#B5C6FF;border:1px solid rgba(124,155,255,0.25)}
+    .badge-cat{background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.55)}
+    .author-meta{display:flex;align-items:center;gap:14px;padding:16px 0;margin:0 0 24px;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);flex-wrap:wrap}
+    .author-meta img{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7C9BFF,#3D5FE0)}
+    .author-info{flex:1;min-width:200px}
+    .author-info a{font-weight:600;color:rgba(255,255,255,0.92)}
+    .author-bio{font-size:13px;color:rgba(255,255,255,0.45);margin:2px 0 0}
+    .dates{font-size:12px;color:rgba(255,255,255,0.4);display:flex;flex-direction:column;gap:2px;text-align:right}
+    .toc{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;margin:0 0 32px}
+    .toc-label{font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+    .toc ul{margin:0;padding-left:18px;font-size:14.5px}
+    .toc a{color:rgba(255,255,255,0.7)}
+    .toc a:hover{color:#B5C6FF}
+    .tldr{background:rgba(124,155,255,0.05);border-left:3px solid #7C9BFF;border-radius:0 10px 10px 0;padding:16px 20px;margin:0 0 28px}
+    .tldr-label{font-size:12px;font-weight:600;color:#B5C6FF;margin-bottom:8px;text-transform:uppercase;letter-spacing:1.5px}
+    .tldr ul{margin:0;padding-left:18px;font-size:14.5px}
+    .tldr li{color:rgba(255,255,255,0.7);margin:4px 0}
+    .snippet-answer{background:rgba(255,255,255,0.02);border-left:3px solid #B5C6FF;padding:14px 18px;border-radius:0 8px 8px 0;font-size:15.5px;color:rgba(255,255,255,0.85);line-height:1.6}
+    .ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0 8px}
+    .ba-card{padding:18px;border-radius:10px}
+    .ba-before{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.18)}
+    .ba-after{background:rgba(124,155,255,0.06);border:1px solid rgba(124,155,255,0.2)}
+    .ba-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+    .ba-before .ba-label{color:#f87171}
+    .ba-after .ba-label{color:#B5C6FF}
+    .ba-text{font-size:14.5px;color:rgba(255,255,255,0.6);line-height:1.65}
+    .compare-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+    .compare-table th,.compare-table td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06)}
+    .compare-table thead th{background:rgba(255,255,255,0.03);color:rgba(255,255,255,0.85);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.5px}
+    .compare-table tbody th{background:transparent;color:rgba(255,255,255,0.85);font-weight:500;font-size:14px}
+    .compare-table td{color:rgba(255,255,255,0.65);font-size:13.5px}
+    .compare-table .highlight{color:#B5C6FF;font-weight:600}
+    .step-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:18px;margin:12px 0}
+    .step-box:hover{border-color:rgba(124,155,255,0.22)}
+    .step-num{display:inline-flex;width:26px;height:26px;background:linear-gradient(135deg,#7C9BFF,#3D5FE0);color:#0A0E1A;border-radius:50%;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-right:10px;vertical-align:middle}
+    .step-box strong{display:inline;vertical-align:middle}
+    .viz{margin:32px 0;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px}
+    .viz svg{width:100%;height:auto;display:block}
+    .viz-caption{margin-top:12px;font-size:13px;color:rgba(255,255,255,0.5);text-align:center;font-style:italic}
+    .code-block{background:#080b14;border:1px solid rgba(124,155,255,0.15);border-radius:10px;padding:20px;margin:20px 0;overflow-x:auto}
+    .code-block pre{margin:0;padding:0;background:transparent;border:none}
+    .code-block code{background:none;border:none;padding:0;font-size:13px;line-height:1.65;color:#c9d1d9;font-family:'SF Mono','Fira Code','JetBrains Mono',monospace}
+    .code-block .comment{color:#6a737d}
+    .code-block .keyword{color:#ff7b72}
+    .code-block .string{color:#a5d6ff}
+    .code-block .function{color:#d2a8ff}
+    .code-block .variable{color:#ffa657}
+    .code-block .property{color:#79c0ff}
+    .code-block .number{color:#79c0ff}
+    .cta-box{background:linear-gradient(135deg,rgba(124,155,255,0.1),rgba(61,95,224,0.08));border:1px solid rgba(124,155,255,0.2);text-align:center;padding:36px;border-radius:14px;margin:44px 0}
+    .cta-box h3{color:rgba(255,255,255,0.95);margin:0 0 8px;font-size:20px;font-weight:600}
+    .cta-box p{color:rgba(255,255,255,0.55);margin:0 0 20px}
+    .cta-btn{display:inline-block;background:linear-gradient(135deg,#B5C6FF,#7C9BFF);color:#0A0E1A;padding:12px 32px;border-radius:24px;font-weight:600;font-size:15px;text-decoration:none}
+    .cta-btn:hover{opacity:0.9;color:#0A0E1A}
+    .faq-item{border-bottom:1px solid rgba(255,255,255,0.06);padding:18px 0}
+    .faq-q{font-weight:600;font-size:16px;color:rgba(255,255,255,0.9)}
+    .faq-a{margin-top:8px;color:rgba(255,255,255,0.55);font-size:14.5px;line-height:1.65}
+    .methodology{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:20px 24px;margin:32px 0;font-size:14px;color:rgba(255,255,255,0.55)}
+    .methodology h2{font-size:14px;border:none;padding:0;margin:0 0 12px;color:rgba(255,255,255,0.85);text-transform:uppercase;letter-spacing:1px}
+    .methodology p{margin:6px 0;font-size:13.5px}
+    .related{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+    .related a{display:block;padding:14px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;text-decoration:none;color:#B5C6FF;font-size:14px;font-weight:500;transition:all 0.2s;line-height:1.45}
+    .related a:hover{background:rgba(124,155,255,0.05);border-color:rgba(124,155,255,0.25)}
+    .note-box{background:rgba(124,155,255,0.04);border:1px solid rgba(124,155,255,0.15);border-radius:8px;padding:14px 18px;margin:16px 0;font-size:14px;color:rgba(255,255,255,0.65)}
+    .note-box strong{color:#B5C6FF}
+    .pitfall-item{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:16px;margin:12px 0}
+    .pitfall-item h4{margin:0 0 8px;color:#f87171;font-size:15px}
+    .pitfall-item p{margin:0;font-size:14px}
+    .footer{background:#060912;border-top:1px solid rgba(255,255,255,0.04);padding:48px 24px}
+    .footer-inner{max-width:1024px;margin:0 auto}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:32px}
+    .footer .footer-title{display:block;font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+    .footer-links{display:flex;flex-direction:column;gap:10px;font-size:14px}
+    .footer-links a{color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.15s}
+    .footer-links a:hover{color:rgba(255,255,255,0.75)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.04);padding-top:24px;display:flex;justify-content:space-between;font-size:13px;color:rgba(255,255,255,0.28)}
+    @media(max-width:720px){.ba-grid,.related{grid-template-columns:1fr};h1{font-size:1.75rem}.footer-grid{grid-template-columns:1fr 1fr};.nav-links a:not(.nav-cta){display:none};.author-meta{flex-direction:column;align-items:flex-start};.dates{text-align:left};.code-block{padding:12px};.compare-table{font-size:13px}}
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="https://qveris.ai" class="nav-logo">
+        <span class="nav-logo-mark">Q</span>
+        <span>QVeris</span>
+      </a>
+      <div class="nav-links">
+        <a href="https://qveris.ai">Product</a>
+        <a href="https://qveris.ai/pricing">Pricing</a>
+        <a href="https://qveris.ai/docs">Docs</a>
+        <a href="https://qveris.ai" class="nav-cta">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <article>
+      <div class="wrap">
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a><span>›</span><a href="/concepts">Concepts</a><span>›</span>MCP Tools
+        </nav>
+
+        <header>
+          <div><span class="badge badge-client">QVeris</span><span class="badge badge-cat">Deep Dive</span></div>
+          <h1>MCP Tools: The Protocol Primitive That Powers AI Agent Actions</h1>
+          <p class="meta-desc">A technical deep dive into how MCP tools work under the protocol — from tools/list discovery to token overhead — with data-backed analysis of what happens at scale.</p>
+
+          <div class="author-meta">
+            <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%237C9BFF'/%3E%3Cstop offset='100%25' stop-color='%233D5FE0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='44' height='44' rx='22' fill='url(%23g)'/%3E%3Ctext x='22' y='28' font-family='Inter,sans-serif' font-size='18' font-weight='600' fill='%230A0E1A' text-anchor='middle'%3ELW%3C/text%3E%3C/svg%3E" alt="Linfang Wang, Founder &amp; CEO of QVeris AI" width="44" height="44" loading="lazy" decoding="async">
+            <div class="author-info">
+              <a href="https://qveris.ai/authors/wang-linfang" rel="author">Linfang Wang</a> · CEO &amp; Founder
+              <a href="https://www.linkedin.com/in/wanglinfang" rel="noopener" target="_blank" style="margin-left:8px;font-size:12px;color:#7C9BFF;">LinkedIn</a>
+              <p class="author-bio">MS from Tsinghua University. Former engineer at Microsoft (Bing), Opera News, JD.com AI Lab. 2023: CTO at Liblib AI. 2025: Founded QVeris AI to build action infrastructure for AI Agents.</p>
+            </div>
+            <div class="dates">
+              <span>Published: May 19, 2026</span><br>
+              <span>Last Updated: May 19, 2026</span>
+            </div>
+          </div>
+        </header>
+
+        <nav class="toc" aria-label="Table of Contents">
+          <div class="toc-label">Contents</div>
+          <ul>
+            <li><a href="#what-is">What Are MCP Tools?</a></li>
+            <li><a href="#primitives">MCP Tools vs Resources vs Prompts: The Three Primitives</a></li>
+            <li><a href="#discovery">How tools/list Discovery Works</a></li>
+            <li><a href="#overhead">MCP Tool Discovery in Production: The Token Overhead Problem</a></li>
+            <li><a href="#optimize">How to Optimize MCP Tools at Scale</a></li>
+            <li><a href="#best-practices">MCP Tools Best Practices</a></li>
+          </ul>
+        </nav>
+
+        <section class="tldr">
+          <div class="tldr-label">TL;DR</div>
+          <ul>
+            <li><strong>Problem:</strong> MCP tools let AI assistants take actions, but tools/list discovery injects full schemas into every prompt — 50 tools consume 10,000-25,000 tokens in overhead alone.</li>
+            <li><strong>Solution:</strong> Anthropic Tool Search (lazy-loading), OpenAI allowed_tools (whitelist), and CLI subprocess patterns address different dimensions of the token overhead problem.</li>
+            <li><strong>Result:</strong> Understanding how MCP tools work at the protocol level helps you design more efficient tool sets and choose the right optimization strategy for your production workload.</li>
+          </ul>
+        </section>
+
+        <section id="what-is">
+          <h2>What Are MCP Tools?</h2>
+          <p class="snippet-answer"><strong>MCP tools are the model-controlled primitive in the Model Context Protocol that lets AI assistants take actions like querying APIs or executing code. The MCP specification defines tools as one of three primitives (alongside resources and prompts), with a name, description, and input schema invokable via tools/call.</strong></p>
+
+          <p>Anthropic introduced the Model Context Protocol in November 2024, positioning tools as the mechanism that transforms an AI assistant from a passive responder into an active agent. <a href="https://modelcontextprotocol.io" rel="noopener nofollow" target="_blank">The MCP specification</a> defines a tool as a function with four components:</p>
+
+          <ul>
+            <li><strong>name:</strong> A unique identifier the LLM uses to select the tool in a tools/call request</li>
+            <li><strong>description:</strong> Natural language explanation of what the tool does and when to use it — the primary signal the LLM uses for tool selection</li>
+            <li><strong>inputSchema:</strong> A JSON Schema describing the parameters the tool accepts</li>
+            <li><strong>annotations:</strong> (optional) Metadata including whether the tool is idempotent, whether it requires approval, or its danger level</li>
+          </ul>
+
+          <p>The tools/call request is the core RPC in MCP. When the LLM decides to use a tool, it generates a tools/call request specifying the tool name and arguments. The MCP client routes this to the appropriate server, which executes the tool and returns the result to the client, which passes it back to the LLM for the next reasoning step.</p>
+
+          <p>Unlike resources (which let the model read data) or prompts (which provide task templates), tools are <em>model-controlled</em> — the LLM decides which tool to invoke based on its understanding of the user's request and the tool descriptions. This is what makes MCP tools the action primitive of the protocol.</p>
+
+          <p>The Linux Foundation took stewardship of the MCP specification in December 2025, with the SDK recording 97 million monthly downloads as of early 2026 (Source: NeosAlpha MCP ecosystem report). This growth reflects how central tools have become to AI agent development — every LLM interaction that involves taking action flows through the MCP tools mechanism.</p>
+        </section>
+
+        <section id="primitives">
+          <h2>MCP Tools vs Resources vs Prompts: The Three Primitives</h2>
+          <p>The MCP specification defines three primitives that MCP servers can expose. Understanding the distinction helps you decide what to model as a tool versus a resource or prompt.</p>
+
+          <table class="compare-table">
+            <caption>Comparison of the three MCP primitives: tools, resources, and prompts</caption>
+            <thead>
+              <tr><th scope="col">Primitive</th><th scope="col">Control</th><th scope="col">Purpose</th><th scope="col">Example</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Tools</th><td class="highlight">Model-controlled</td><td>Perform actions, computations, API calls</td><td>Search web, send email, run SQL</td></tr>
+              <tr><th scope="row">Resources</th><td>Server-controlled</td><td>Read data managed by the server</td><td>File contents, database records, configs</td></tr>
+              <tr><th scope="row">Prompts</th><td>Server-controlled</td><td>Reusable prompt templates</td><td>Code review template, report generator</td></tr>
+            </tbody>
+          </table>
+
+          <p><strong>Tools</strong> are the model-controlled primitive: the LLM decides when and how to invoke them. Each tool invocation goes through a tools/call request, and the result feeds back into the model's context for the next reasoning step.</p>
+
+          <p><strong>Resources</strong> are server-managed data that the LLM can read but not modify. Resources have a URI scheme (like <code>file://</code> or <code>db://</code>) and are exposed through a resources/list and resources/read interface. The model doesn't control when resources are read — it requests them through a separate resources/read call.</p>
+
+          <p><strong>Prompts</strong> are reusable prompt templates that servers can expose for specific workflows. A server might expose a "security code review" prompt that guides the model through a security checklist, or a "customer support response" template for handling support tickets. Prompts are server-controlled, not model-controlled.</p>
+
+          <p>The key distinction: tools let the model act, resources let the model read, and prompts guide how the model thinks. In practice, many MCP servers primarily expose tools — the <a href="https://modelcontextprotocol.io" rel="noopener nofollow" target="_blank">MCP specification</a> notes that tools are the most frequently implemented primitive in the ecosystem.</p>
+
+          <p><strong>When to use each:</strong> Model a capability as a tool when the LLM needs dynamic, context-aware control over when to invoke it — like searching the web or executing code. Use resources when you want the server to control what data is available and when the model can access it — like reading from a database or file system. Use prompts when you want to enforce a specific workflow or reasoning pattern — like a security audit checklist or a customer response template. A single MCP server can expose all three primitives, but most production servers focus primarily on tools because they enable the most flexible, model-driven behavior.</p>
+
+          <p>If you're building an MCP server, model your capabilities as tools when the LLM should decide when to use them, resources when you want to control what data the model can access, and prompts when you want to enforce structured workflows.</p>
+        </section>
+
+        <section id="discovery">
+          <h2>How tools/list Discovery Works</h2>
+          <p>Before an LLM can call a tool, it needs to know what tools are available. The MCP discovery mechanism handles this through a tools/list request-response cycle that runs every time a client connects to a server or when the tool list changes.</p>
+
+          <div class="viz">
+            <svg viewBox="0 0 800 320" role="img" aria-labelledby="mcp-tools-sequence-title mcp-tools-sequence-desc">
+              <title id="mcp-tools-sequence-title">MCP Tools Discovery Sequence: Host → Client → Server, Three-Phase Flow</title>
+              <desc id="mcp-tools-sequence-desc">Sequence diagram showing MCP tools/list discovery and tools/call invocation: Phase 1 (list request/response), Phase 2 (LLM decision + tools/call), Phase 3 (server execution + response). Shows Host application, MCP client, and MCP server.</desc>
+              <rect width="800" height="320" fill="#0f1420" rx="12"/>
+
+              <!-- Column headers -->
+              <text x="150" y="35" text-anchor="middle" fill="#7C9BFF" font-size="12" font-weight="600">Host (AI Application)</text>
+              <text x="400" y="35" text-anchor="middle" fill="#B5C6FF" font-size="12" font-weight="600">MCP Client</text>
+              <text x="650" y="35" text-anchor="middle" fill="#3D5FE0" font-size="12" font-weight="600">MCP Server</text>
+
+              <!-- Vertical lanes -->
+              <line x1="100" y1="50" x2="100" y2="290" stroke="#2d3548" stroke-width="1" stroke-dasharray="4"/>
+              <line x1="250" y1="50" x2="250" y2="290" stroke="#2d3548" stroke-width="1"/>
+              <line x1="350" y1="50" x2="350" y2="290" stroke="#2d3548" stroke-width="1" stroke-dasharray="4"/>
+              <line x1="500" y1="50" x2="500" y2="290" stroke="#2d3548" stroke-width="1"/>
+              <line x1="600" y1="50" x2="600" y2="290" stroke="#2d3548" stroke-width="1" stroke-dasharray="4"/>
+              <line x1="750" y1="50" x2="750" y2="290" stroke="#2d3548" stroke-width="1"/>
+
+              <!-- Phase 1: tools/list -->
+              <text x="200" y="72" fill="#6b7280" font-size="10">Phase 1: Discovery</text>
+              <line x1="100" y1="80" x2="350" y2="80" stroke="#B5C6FF" stroke-width="1.5"/>
+              <polygon points="350,76 350,84 356,80" fill="#B5C6FF"/>
+              <text x="200" y="75" fill="#c9d1d9" font-size="10" text-anchor="middle">tools/list (JSON-RPC)</text>
+
+              <line x1="350" y1="105" x2="600" y2="105" stroke="#B5C6FF" stroke-width="1.5"/>
+              <polygon points="600,101 600,109 606,105" fill="#B5C6FF"/>
+              <text x="475" y="100" fill="#c9d1d9" font-size="10" text-anchor="middle">list request forwarded</text>
+
+              <line x1="600" y1="130" x2="350" y2="130" stroke="#3D5FE0" stroke-width="1.5"/>
+              <polygon points="350,126 350,134 344,130" fill="#3D5FE0"/>
+              <text x="475" y="125" fill="#c9d1d9" font-size="10" text-anchor="middle">tool list with schemas</text>
+
+              <line x1="350" y1="155" x2="100" y2="155" stroke="#3D5FE0" stroke-width="1.5"/>
+              <polygon points="100,151 100,159 94,155" fill="#3D5FE0"/>
+              <text x="200" y="150" fill="#c9d1d9" font-size="10" text-anchor="middle">schema injected into context</text>
+
+              <!-- Phase 2: LLM decision + tools/call -->
+              <text x="200" y="182" fill="#6b7280" font-size="10">Phase 2: Invocation</text>
+              <rect x="100" y="190" width="150" height="30" rx="4" fill="#1a2035" stroke="#7C9BFF" stroke-width="1"/>
+              <text x="175" y="209" fill="#c9d1d9" font-size="10" text-anchor="middle">LLM selects tool + args</text>
+
+              <line x1="250" y1="220" x2="350" y2="220" stroke="#7C9BFF" stroke-width="1.5"/>
+              <polygon points="350,216 350,224 356,220" fill="#7C9BFF"/>
+              <text x="300" y="215" fill="#c9d1d9" font-size="10" text-anchor="middle">tools/call request</text>
+
+              <line x1="350" y1="245" x2="600" y2="245" stroke="#7C9BFF" stroke-width="1.5"/>
+              <polygon points="600,241 600,249 606,245" fill="#7C9BFF"/>
+              <text x="475" y="240" fill="#c9d1d9" font-size="10" text-anchor="middle">call forwarded to server</text>
+
+              <!-- Phase 3: execution -->
+              <text x="200" y="272" fill="#6b7280" font-size="10">Phase 3: Response</text>
+              <line x1="600" y1="265" x2="350" y2="265" stroke="#3D5FE0" stroke-width="1.5"/>
+              <polygon points="350,261 350,269 344,265" fill="#3D5FE0"/>
+              <text x="475" y="260" fill="#c9d1d9" font-size="10" text-anchor="middle">tool result returned</text>
+
+              <line x1="350" y1="290" x2="100" y2="290" stroke="#3D5FE0" stroke-width="1.5"/>
+              <polygon points="100,286 100,294 94,290" fill="#3D5FE0"/>
+              <text x="200" y="285" fill="#c9d1d9" font-size="10" text-anchor="middle">result in LLM context</text>
+            </svg>
+            <div class="viz-caption">Figure: MCP tools discovery and invocation sequence — tools/list for schema discovery, tools/call for execution</div>
+          </div>
+
+          <h3>Phase 1: tools/list Discovery</h3>
+          <p>When an MCP client connects to a server, it sends a <code>tools/list</code> JSON-RPC request. The server responds with the complete list of available tools, including each tool's name, description, and inputSchema.</p>
+
+          <div class="code-block">
+            <pre><code><span class="comment">// tools/list JSON-RPC request (client → server)</span>
+{<span class="property">"jsonrpc"</span>: <span class="string">"2.0"</span>, <span class="property">"id"</span>: <span class="number">1</span>, <span class="property">"method"</span>: <span class="string">"tools/list"</span>, <span class="property">"params"</span>: {}}
+
+<span class="comment">// tools/list response (server → client)</span>
+{<span class="property">"jsonrpc"</span>: <span class="string">"2.0"</span>, <span class="property">"id"</span>: <span class="number">1</span>, <span class="property">"result"</span>: {
+  <span class="property">"tools"</span>: [
+    {
+      <span class="property">"name"</span>: <span class="string">"web_search"</span>,
+      <span class="property">"description"</span>: <span class="string">"Search the web for current information. Use when you need up-to-date facts or prices."</span>,
+      <span class="property">"inputSchema"</span>: {
+        <span class="property">"type"</span>: <span class="string">"object"</span>,
+        <span class="property">"properties"</span>: {
+          <span class="property">"query"</span>: {<span class="property">"type"</span>: <span class="string">"string"</span>, <span class="property">"description"</span>: <span class="string">"The search query"</span>}
+        },
+        <span class="property">"required"</span>: [<span class="string">"query"</span>]
+      }
+    }
+  ]
+}}</code></pre>
+          </div>
+
+          <h3>Phase 2: LLM Tool Selection</h3>
+          <p>Once the client has the tool list, it injects the tool schemas into the LLM's system prompt. The LLM reads the descriptions and decides which tool to invoke based on the user's request. This decision is entirely model-controlled — the MCP client doesn't filter or rank tools.</p>
+
+          <h3>Phase 3: tools/call Execution</h3>
+          <p>When the LLM selects a tool, it generates a <code>tools/call</code> request specifying the tool name and arguments. The client routes this to the appropriate server, which executes the tool and returns the result.</p>
+
+          <div class="code-block">
+            <pre><code><span class="comment">// tools/call JSON-RPC request (client → server)</span>
+{<span class="property">"jsonrpc"</span>: <span class="string">"2.0"</span>, <span class="property">"id"</span>: <span class="number">2</span>, <span class="property">"method"</span>: <span class="string">"tools/call"</span>, <span class="property">"params"</span>: {
+  <span class="property">"name"</span>: <span class="string">"web_search"</span>,
+  <span class="property">"arguments"</span>: {<span class="property">"query"</span>: <span class="string">"MCP protocol token overhead 2026"</span>}
+}}
+
+<span class="comment">// tools/call response (server → client)</span>
+{<span class="property">"jsonrpc"</span>: <span class="string">"2.0"</span>, <span class="property">"id"</span>: <span class="number">2</span>, <span class="property">"result"</span>: {
+  <span class="property">"content"</span>: [
+    {<span class="property">"type"</span>: <span class="string">"text"</span>, <span class="property">"text"</span>: <span class="string">"According to the Apigene benchmark (April 2026): MCP servers with 50 tools consume 10,000-25,000 tokens per prompt in schema overhead..."</span>}
+  ]
+}}</code></pre>
+          </div>
+
+          <p>The critical insight: every tool in the server's list contributes its schema to the prompt, regardless of whether the LLM will use it. This is where the token overhead problem emerges at scale.</p>
+
+          <p>When you manage tools across multiple MCP servers — a common pattern in production AI systems — the overhead doesn't just multiply, it compounds in complexity. Each server maintains its own tool registry, and the client's <code>tools/list</code> calls must aggregate across all connected servers. With 5 servers averaging 20 tools each, your LLM context receives schema data for 100 tools before the actual user request is processed. This cross-server aggregation is the primary driver of token overhead in enterprise AI deployments, and it's the dimension that lazy-loading and whitelisting alone cannot solve.</p>
+        </section>
+
+        <section id="overhead">
+          <h2>MCP Tool Discovery in Production: The Token Overhead Problem</h2>
+          <p>At small scale, MCP tool discovery works cleanly. But production MCP servers often expose dozens or hundreds of tools. The tools/list mechanism injects all tool schemas into every prompt — and this overhead compounds rapidly.</p>
+
+          <div class="viz">
+            <svg viewBox="0 0 800 280" role="img" aria-labelledby="token-overhead-title token-overhead-desc">
+              <title id="token-overhead-title">MCP Tools Token Overhead: Prompt Tokens vs Number of Tools</title>
+              <desc id="token-overhead-desc">Line chart showing prompt token consumption growth as the number of MCP tools increases from 5 to 100+. Data points: 5 tools (1,500 tokens), 20 tools (6,000 tokens), 50 tools (15,000 tokens), 93 tools (55,000 tokens, Anthropic GitHub MCP), 100+ tools (30,000+ tokens). Curve shows sublinear growth pattern.</desc>
+              <rect width="800" height="280" fill="#0f1420" rx="12"/>
+
+              <!-- Title -->
+              <text x="400" y="25" text-anchor="middle" fill="#c8d0e8" font-size="13" font-weight="600">Prompt Token Overhead from MCP Tools Schema Injection</text>
+
+              <!-- Y-axis -->
+              <line x1="80" y1="45" x2="80" y2="230" stroke="#2d3548" stroke-width="1"/>
+              <text x="70" y="50" text-anchor="end" fill="#6b7280" font-size="10">55K</text>
+              <text x="70" y="95" text-anchor="end" fill="#6b7280" font-size="10">40K</text>
+              <text x="70" y="140" text-anchor="end" fill="#6b7280" font-size="10">25K</text>
+              <text x="70" y="185" text-anchor="end" fill="#6b7280" font-size="10">10K</text>
+              <text x="70" y="228" text-anchor="end" fill="#6b7280" font-size="10">0</text>
+              <text x="35" y="140" text-anchor="middle" fill="#6b7280" font-size="10" transform="rotate(-90, 35, 140)">Prompt Tokens</text>
+
+              <!-- X-axis -->
+              <line x1="80" y1="230" x2="760" y2="230" stroke="#2d3548" stroke-width="1"/>
+              <text x="80" y="250" text-anchor="middle" fill="#6b7280" font-size="10">5</text>
+              <text x="250" y="250" text-anchor="middle" fill="#6b7280" font-size="10">20</text>
+              <text x="420" y="250" text-anchor="middle" fill="#6b7280" font-size="10">50</text>
+              <text x="550" y="250" text-anchor="middle" fill="#6b7280" font-size="10">93</text>
+              <text x="720" y="250" text-anchor="middle" fill="#6b7280" font-size="10">100+</text>
+              <text x="420" y="268" text-anchor="middle" fill="#6b7280" font-size="10">Number of MCP Tools</text>
+
+              <!-- Grid lines -->
+              <line x1="80" y1="55" x2="760" y2="55" stroke="#1a2035" stroke-width="0.5" stroke-dasharray="2"/>
+              <line x1="80" y1="100" x2="760" y2="100" stroke="#1a2035" stroke-width="0.5" stroke-dasharray="2"/>
+              <line x1="80" y1="145" x2="760" y2="145" stroke="#1a2035" stroke-width="0.5" stroke-dasharray="2"/>
+              <line x1="80" y1="190" x2="760" y2="190" stroke="#1a2035" stroke-width="0.5" stroke-dasharray="2"/>
+
+              <!-- Curve (approximated from data points) -->
+              <path d="M80,223 Q165,215 250,195 Q335,175 420,145 Q485,110 550,57 Q620,95 720,90" stroke="#f87171" stroke-width="2.5" fill="none"/>
+
+              <!-- Data point: 5 tools -->
+              <circle cx="80" cy="223" r="5" fill="#7C9BFF"/>
+              <text x="80" y="238" text-anchor="middle" fill="#B5C6FF" font-size="9">1,500</text>
+
+              <!-- Data point: 20 tools -->
+              <circle cx="250" cy="195" r="5" fill="#7C9BFF"/>
+              <text x="250" y="210" text-anchor="middle" fill="#B5C6FF" font-size="9">6,000</text>
+
+              <!-- Data point: 50 tools -->
+              <circle cx="420" cy="145" r="5" fill="#f87171"/>
+              <text x="420" y="138" text-anchor="middle" fill="#f87171" font-size="9">15,000</text>
+
+              <!-- Data point: 93 tools (Anthropic) -->
+              <circle cx="550" cy="57" r="6" fill="#f87171" stroke="#fff" stroke-width="1.5"/>
+              <text x="550" y="47" text-anchor="middle" fill="#f87171" font-size="9" font-weight="600">55,000</text>
+              <text x="550" y="78" text-anchor="middle" fill="#6b7280" font-size="8">(Anthropic)</text>
+
+              <!-- Data point: 100+ tools -->
+              <circle cx="720" cy="90" r="5" fill="#f87171"/>
+              <text x="720" y="78" text-anchor="middle" fill="#f87171" font-size="9">30,000+</text>
+
+              <!-- Legend -->
+              <rect x="600" y="195" width="140" height="28" rx="4" fill="#1a2035" stroke="#2d3548" stroke-width="1"/>
+              <line x1="610" y1="209" x2="630" y2="209" stroke="#f87171" stroke-width="2"/>
+              <circle cx="670" cy="209" r="4" fill="#f87171"/>
+              <text x="640" y="213" fill="#9ca3af" font-size="9">Prompt token overhead</text>
+            </svg>
+            <div class="viz-caption">Data: Apigene (200-500 tokens per tool, April 2026); Anthropic GitHub MCP measured at 55,000 tokens for 93 tools. Chart shows schema injection overhead, not including actual prompt content.</div>
+          </div>
+
+          <p>At 50 tools, the schema overhead alone can consume 15,000 tokens per prompt. At 93 tools (the count in Anthropic's GitHub MCP server), the overhead reaches 55,000 tokens — nearly half of GPT-4o's context window in a single round trip. <a href="https://apigene.ai/blog/mcp-tools" rel="noopener nofollow" target="_blank">Apigene's benchmark</a> (April 2026) measured 200-500 tokens per tool at varying schema complexity, confirming the sublinear pattern where complex schemas consume disproportionately more tokens.</p>
+
+          <p>The pattern isn't linear. Tools with complex input schemas — those with nested objects, multiple required parameters, or verbose descriptions — consume disproportionately more tokens. A single tool with a 40-line JSON schema can cost as much as 80 simple tools with 5-line schemas. <a href="https://github.com/github/github-mcp-server" rel="noopener nofollow" target="_blank">Anthropic's GitHub MCP server</a> (93 tools, 55,000 tokens) illustrates the worst case: a production server with detailed schemas hits token overhead that dominates the actual prompt content.</p>
+
+          <p>Beyond token cost, there's a decision quality problem. Research on LLM tool use consistently shows that models degrade in tool selection accuracy as the tool count increases. With 50+ tools to choose from, models are more likely to select the wrong tool or miss an available tool entirely. This is the "decision degradation" problem — the model's ability to correctly match requests to tools decreases as the tool set grows.</p>
+
+          <p>The token overhead problem is the primary motivation behind three optimization strategies that have emerged in the MCP ecosystem: Anthropic's Tool Search (lazy-loading), OpenAI's allowed_tools parameter (whitelisting), and CLI subprocess patterns that sidestep schema injection entirely.</p>
+        </section>
+
+        <section id="optimize">
+          <h2>How to Optimize MCP Tools at Scale</h2>
+          <p>Three approaches address different dimensions of the token overhead problem. Each has trade-offs — the right choice depends on your specific architecture.</p>
+
+          <table class="compare-table">
+            <caption>Optimization strategies for MCP tools at scale</caption>
+            <thead>
+              <tr><th scope="col">Problem It Solves</th><th scope="col">Approach</th><th scope="col">How It Works</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Schema injected in every prompt</th><td class="highlight">Anthropic Tool Search (lazy-loading)</td><td>Loads tool schemas on-demand when the LLM actually calls a tool, not upfront</td></tr>
+              <tr><th scope="row">50+ tools causing decision degradation</th><td class="highlight">OpenAI allowed_tools parameter</td><td>Restricts the active tool set per request, model only sees selected subset</td></tr>
+              <tr><th scope="row">Cross-server tool maintenance cost</th><td class="highlight">CLI subprocess pattern (e.g., QVeris CLI)</td><td>Executes tool calls outside the MCP schema injection loop — zero prompt token overhead</td></tr>
+            </tbody>
+          </table>
+
+          <h3>On-demand schema loading with Anthropic Tool Search</h3>
+          <p><a href="https://docs.anthropic.com/en/docs/claude-code" rel="noopener nofollow" target="_blank">Claude Desktop 4.x</a> introduced Tool Search, which defers tool schema loading until the LLM actually invokes a tool. Instead of injecting all tool schemas upfront, the client sends a lightweight request describing the task and the server returns only the relevant tool's schema at invocation time.</p>
+
+          <p>This reduces the per-prompt overhead from O(n) to O(1) for most interactions — the LLM sees no tool schema until it selects a tool. For servers with 50+ tools, Tool Search can reduce schema overhead by 80-95% in typical conversational flows.</p>
+
+          <p>The trade-off: Tool Search adds latency on the first tool call per session (the schema must be fetched). For high-frequency tool use, this latency compounds. Tool Search is best suited for conversational workflows where the user asks a question, the LLM uses one tool, and the result feeds back.</p>
+
+          <h3>Whitelisting with OpenAI allowed_tools</h3>
+          <p>The <a href="https://cookbook.openai.com/examples/mcp/mcp_tool_guide" rel="noopener nofollow" target="_blank">OpenAI API</a> supports an <code>allowed_tools</code> parameter that restricts which tools the model considers for a given request. Instead of exposing all tools in every request, you whitelist the specific tools relevant to the current task.</p>
+
+          <p>For a customer support agent, you might whitelist <code>["lookup_order", "issue_refund", "escalate_ticket"]</code> — omitting the 90 other tools in the server that are irrelevant to support tasks. This reduces both token overhead and decision degradation.</p>
+
+          <p>The trade-off: <code>allowed_tools</code> requires task classification to determine which tools to whitelist. If the user's request is ambiguous, you may whitelist the wrong set. It's most effective when task types are predictable and can be mapped to tool subsets.</p>
+
+          <h3>Subprocess execution with QVeris CLI</h3>
+          <p>The CLI subprocess pattern represents a different architectural approach. Instead of running tool calls inside the MCP schema injection loop, tool calls execute as subprocess calls that bypass the LLM's context entirely. This is a form of capability routing where the tool selection and execution happen outside the MCP protocol — the CLI handles routing decisions independently of the schema injection cycle.</p>
+
+          <p>With QVeris CLI, you configure a local subprocess that handles capability routing. When your AI application needs to call a tool, it invokes the CLI subprocess with the tool name and arguments. The subprocess handles capability routing — finding the right tool across multiple MCP servers through a unified routing layer — and returns the result directly. No tool schemas enter the LLM context. Zero prompt token overhead.</p>
+
+          <div class="code-block">
+            <pre><code><span class="comment"># QVeris CLI discover — shows available capabilities without schema injection</span>
+<span class="comment"># This command runs outside the MCP protocol loop, consuming zero prompt tokens</span>
+
+$ qveris discover --category search --limit 5
+
+<span class="comment"># Returns:</span>
+<span class="comment"># web_search       Search the web for current information</span>
+<span class="comment"># news_search      Search news articles and press releases</span>
+<span class="comment"># academic_search  Search academic papers and preprints</span>
+<span class="comment"># image_search     Search for images by description</span>
+<span class="comment"># video_search     Search video platforms for content</span>
+
+<span class="comment"># Tool invocation via subprocess (zero context overhead)</span>
+$ qveris call web_search --query "MCP token overhead benchmark"</code></pre>
+          </div>
+
+          <p>The subprocess pattern is most effective for: large-scale deployments where token costs compound across thousands of daily requests, multi-server architectures where tools live across different MCP servers (the CLI handles cross-server capability routing), and workflows where the AI application decides when to call tools rather than delegating tool selection to the LLM. QVeris CLI adds unified capability routing across 10,000+ tools — routing decisions happen in the subprocess, not in the LLM context.</p>
+
+          <p>Capability routing through a CLI subprocess also solves the cross-server aggregation problem. When your AI system needs to call a tool that lives on Server A, but your LLM context was built from Server B's tools, the subprocess routes the call directly — no schema aggregation required. This eliminates the token overhead that comes from combining tool lists across multiple MCP servers.</p>
+
+          <p>Get started with the QVeris CLI in 30 seconds: <a href="https://qveris.ai/docs/cli">read the installation guide</a>.</p>
+
+          <p>The trade-off: subprocess execution moves tool calls outside the LLM's natural language reasoning loop. The AI application must explicitly decide when to invoke the CLI, rather than letting the LLM select tools based on descriptions. This is a better fit for structured, deterministic workflows than for open-ended conversational agents.</p>
+        </section>
+
+        <section id="best-practices">
+          <h2>MCP Tools Best Practices</h2>
+          <p>Designing effective MCP tools requires balancing completeness (the tool does what users need) with efficiency (the schema doesn't overwhelm the LLM). These practices help you hit both.</p>
+
+          <div class="pitfall-item">
+            <h4>Write descriptive tool names and descriptions</h4>
+            <p>The LLM selects tools based on descriptions, not names. A description like "Search the web for current information. Use when you need up-to-date facts, prices, or news." gives the LLM clear guidance on when to invoke it. A description like "Performs a search" doesn't. Include the specific scenarios where the tool is and isn't appropriate.</p>
+          </div>
+
+          <div class="pitfall-item">
+            <h4>Keep inputSchema minimal</h4>
+            <p>Only define parameters the LLM actually needs to provide. If a parameter has a reasonable default or can be inferred, omit it from the required schema. Every extra field in inputSchema adds tokens to the schema injection overhead. Use <code>enum</code> for parameters with fixed options — this reduces ambiguity without adding verbose descriptions.</p>
+          </div>
+
+          <div class="pitfall-item">
+            <h4>Design error responses the LLM can act on</h4>
+            <p>When a tool fails, the error message returned to the LLM should be actionable. "Error: HTTP 404" doesn't help the model decide what to do next. "Error: Product not found (ID: abc123). Check the product ID or search by name instead." gives the model a path forward. Tool responses are part of the model's context — design them accordingly.</p>
+          </div>
+
+          <div class="pitfall-item">
+            <h4>Group related tools under descriptive names</h4>
+            <p>If you have 10 similar search tools (web_search, news_search, academic_search, image_search), consider whether they could be a single tool with a <code>type</code> parameter. Every additional tool in the list adds to schema overhead and decision complexity. Consolidate when tools differ only in a parameter value, not in their fundamental purpose.</p>
+          </div>
+
+          <p>If you're building a production MCP server with many tools, evaluate the token overhead before deployment. Tools that seem minor in isolation compound at scale — a 200-token description times 50 tools is 10,000 tokens of overhead per prompt, before you add the actual user request.</p>
+        </section>
+
+        <section class="cta-box">
+          <h3>Eliminate MCP Tools Token Overhead in Production</h3>
+          <p>QVeris CLI handles tool routing via subprocess execution, keeping your LLM context free of schema injection overhead. Connect to 10,000+ capabilities across search, maps, docs, finance, blockchain, and healthcare — without the token cost of traditional MCP tools.</p>
+          <a href="https://qveris.ai/docs/cli" class="cta-btn">Explore QVeris CLI →</a>
+        </section>
+
+        <section>
+          <h2>FAQ: MCP Tools</h2>
+
+          <div class="faq-item">
+            <div class="faq-q">What are MCP tools?</div>
+            <div class="faq-a">MCP tools are the model-controlled primitive in the Model Context Protocol that lets AI assistants take actions like querying APIs or executing code. The MCP specification defines tools as one of three primitives (alongside resources and prompts), with a name, description, and input schema invokable via tools/call.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">What is the difference between MCP tools, resources, and prompts?</div>
+            <div class="faq-a">MCP tools are model-controlled actions the LLM can invoke to perform computations, query APIs, or execute code. MCP resources are server-managed data the LLM can read (like files or database records). MCP prompts are reusable prompt templates the server exposes for specific tasks. Tools let the model act; resources let it read; prompts guide how it thinks.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">How does tools/list discovery work?</div>
+            <div class="faq-a">When an MCP client connects to a server, it sends a tools/list JSON-RPC request. The server responds with a list of available tools, each containing a name, description, and inputSchema. The client passes this schema to the LLM so it knows which tools it can call. In production with 50+ tools, this schema injection can consume 10,000-25,000 tokens per prompt.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">Why do MCP tools cause token overhead in production?</div>
+            <div class="faq-a">Every prompt that includes the tool list must embed the full tool schemas in the context window. With 50 tools averaging 200-500 tokens each, a single prompt can consume 10,000-25,000 tokens in schema overhead alone. Anthropic's GitHub MCP server (93 tools) measures 55,000 tokens for tool schema injection. This overhead degrades model decision quality and increases API costs.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">How do I optimize MCP tools at scale?</div>
+            <div class="faq-a">Three approaches address different dimensions: Anthropic's Tool Search (lazy-loading in Claude Desktop 4.x) loads schemas on-demand rather than upfront. OpenAI's allowed_tools parameter restricts the active tool set per request, reducing what the model considers. CLI subprocess patterns like QVeris CLI execute tool calls outside the MCP schema injection loop, eliminating prompt token overhead entirely for large-scale deployments.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">What are MCP tools best practices?</div>
+            <div class="faq-a">Design tool descriptions that clearly state what the tool does and when to use it — the LLM decides which tool to call based on the description. Keep inputSchema minimal — only define parameters the LLM actually needs to provide. Group related tools under a single descriptive name rather than splitting into many similar tools. Validate tool responses with error messages the model can understand and act on.</div>
+          </div>
+        </section>
+
+        <aside class="methodology">
+          <h2>About This Guide</h2>
+          <p><strong>Last updated:</strong> May 19, 2026</p>
+          <p><strong>Methodology:</strong> This guide covers MCP tools as defined in the official MCP specification (November 2024, updated through the Linux Foundation stewardship in December 2025). Token overhead estimates are based on Apigene benchmark data (April 2026, measuring 200-500 tokens per tool at varying schema complexity) and Anthropic's GitHub MCP server measurement (93 tools, 55,000 tokens for full schema injection).</p>
+          <p><strong>Conflict of Interest:</strong> QVeris provides a CLI subprocess execution model. This guide presents it as one of three optimization approaches for the token overhead problem — alongside Anthropic Tool Search and OpenAI allowed_tools — without claiming it is universally superior. The right approach depends on your specific architecture and workflow characteristics.</p>
+          <p><strong>Update Frequency:</strong> Reviewed every 60 days. MCP specification evolves rapidly — we re-verify protocol mechanics against the latest spec at <a href="https://modelcontextprotocol.io" rel="noopener nofollow" target="_blank">modelcontextprotocol.io</a> after each release. Token overhead data is re-tested against new SDK versions quarterly.</p>
+        </aside>
+
+        <section>
+          <h2>Related Guides</h2>
+          <div class="related">
+            <!-- <a href="https://qveris.ai/concepts/what-is-ai-agent-orchestration">What is AI Agent Orchestration? A Practical Guide</a> -->
+            <!-- <a href="https://qveris.ai/concepts/mcp-client">MCP Client: What It Is and the 9 Best Options in 2026</a> -->
+            <!-- <a href="https://qveris.ai/concepts/mcp-registry">MCP Registry: Finding and Using MCP Servers</a> -->
+            <a href="https://qveris.ai/docs/cli">QVeris CLI Documentation</a>
+            <a href="https://qveris.ai/docs/getting-started">Getting Started with QVeris</a>
+          </div>
+        </section>
+
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div style="font-size:18px;font-weight:600;color:rgba(255,255,255,0.9);margin-bottom:12px">QVeris AI</div>
+          <p style="font-size:14px;color:rgba(255,255,255,0.35);max-width:300px;margin-bottom:16px;line-height:1.6">AI-Agent native capability routing network. Unified protocol accessing 10,000+ capabilities across search, maps, docs, finance, blockchain, healthcare and more.</p>
+          <a href="https://qveris.ai" class="cta-btn" style="padding:8px 20px;font-size:13px">Get Started →</a>
+        </div>
+        <div>
+          <span class="footer-title">Product</span>
+          <div class="footer-links">
+            <a href="https://qveris.ai/product">Features</a>
+            <a href="https://qveris.ai/pricing">Pricing</a>
+            <a href="https://qveris.ai/integrations">Integrations</a>
+            <a href="https://qveris.ai/enterprise">Enterprise</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-title">Resources</span>
+          <div class="footer-links">
+            <a href="https://qveris.ai/docs">Documentation</a>
+            <a href="https://qveris.ai/docs/api-reference">API Reference</a>
+            <a href="https://qveris.ai/docs/cli">CLI Docs</a>
+            <a href="https://qveris.ai/changelog">Changelog</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-title">Company</span>
+          <div class="footer-links">
+            <a href="https://qveris.ai/about">About</a>
+            <a href="https://qveris.ai/blog">Blog</a>
+            <a href="https://qveris.ai/contact">Contact</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 QVeris AI. All rights reserved.</span>
+        <span>AI-Agent Native • Capability Routing Network • Pay-Per-Call</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

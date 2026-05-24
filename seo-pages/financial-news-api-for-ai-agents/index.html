@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial News API: 6 Providers for AI Agents (2026)</title>
+  <meta name="description" content="Compare 6 financial news APIs — Benzinga, Marketaux, Finnhub & more. Plus how AI agents access sentiment-scored news through one unified layer.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Wang Linfang">
+
+  <meta property="og:title" content="Financial News API: 6 Providers for AI Agents (2026)">
+  <meta property="og:description" content="Compare 6 financial news APIs — Benzinga, Marketaux, Finnhub & more. Plus how AI agents access sentiment-scored news through one unified layer.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://qveris.ai/concepts/financial-news-api-for-ai-agents">
+  <meta property="og:image" content="https://qveris.ai/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Financial News API: 6 Providers Compared for AI Agents">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Financial News API: 6 Providers for AI Agents (2026)">
+  <meta name="twitter:description" content="Compare 6 financial news APIs — Benzinga, Marketaux, Finnhub & more. Plus how AI agents access sentiment-scored news.">
+  <meta name="twitter:image" content="https://qveris.ai/og.png">
+  <meta name="theme-color" content="#0A0E1A">
+
+  <link rel="canonical" href="https://qveris.ai/concepts/financial-news-api-for-ai-agents">
+  <link rel="icon" type="image/svg+xml" href="https://qveris.ai/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://qveris.ai/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://qveris.ai/apple-touch-icon.png">
+
+  <link rel="dns-prefetch" href="https://qveris.ai">
+  <link rel="preconnect" href="https://qveris.ai">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Schema #1: Organization -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"QVeris AI","url":"https://qveris.ai","logo":"https://qveris.ai/logo.png","sameAs":["https://twitter.com/qveris_ai","https://github.com/qveris","https://www.linkedin.com/company/qveris"]}
+  </script>
+
+  <!-- Schema #2: SoftwareApplication (QVeris CLI) -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"QVeris CLI","description":"A command-line tool providing unified capability routing for AI agents, connecting to 10,000+ capabilities across finance, search, maps, docs, blockchain, and healthcare.","applicationCategory":"DeveloperApplication","operatingSystem":"macOS, Linux, Windows","url":"https://qveris.ai/docs/cli","featureList":["Discover 10,000+ capabilities across multiple providers","Unified API interface for multi-provider data access","Automatic connection management and fallback","Rate limit handling and provider switching","Response format normalization","Subprocess-based tool execution for zero context overhead","Support for finance, search, maps, docs, blockchain, and healthcare domains"],"offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock"}}
+  </script>
+
+  <!-- Schema #3: BreadcrumbList -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://qveris.ai/"},{"@type":"ListItem","position":2,"name":"Concepts","item":"https://qveris.ai/concepts"},{"@type":"ListItem","position":3,"name":"Financial News API for AI Agents","item":"https://qveris.ai/concepts/financial-news-api-for-ai-agents"}]}
+  </script>
+
+  <!-- Schema #4: Article -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Financial News API: 6 Providers Compared and How to Use Them in AI Agents","description":"Compare 6 financial news APIs — Benzinga, Marketaux, Finnhub & more. Plus how AI agents access sentiment-scored news through one unified layer.","image":["https://qveris.ai/og.png"],"author":{"@type":"Person","name":"Wang Linfang","url":"https://qveris.ai/authors/wang-linfang","jobTitle":"CEO & Founder, QVeris AI","sameAs":["https://www.linkedin.com/in/wanglinfang"]},"datePublished":"2026-05-20","publisher":{"@type":"Organization","name":"QVeris AI","logo":{"@type":"ImageObject","url":"https://qveris.ai/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://qveris.ai/concepts/financial-news-api-for-ai-agents"}}
+  </script>
+
+  <!-- Schema #5: FAQPage -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which financial news API is best?","acceptedAnswer":{"@type":"Answer","text":"The best financial news API depends on your use case. For AI agent integration with sentiment scoring, Marketaux and Finnhub lead on free-tier accessibility and ticker tagging. For enterprise-grade coverage without free options, Nexis Data+ provides institutional depth. Benzinga suits developers needing AWS Marketplace integration. No single provider covers all dimensions — the right choice hinges on your sentiment analysis needs, language requirements, and whether you need real-time or near-real-time data."}},{"@type":"Question","name":"How much does a financial news API cost?","acceptedAnswer":{"@type":"Answer","text":"Pricing spans a wide range. Marketaux offers a free tier of 100 requests per day with sentiment scoring across 30+ languages. Benzinga provides institutional-grade headlines via AWS Marketplace with a free tier. Alpha Vantage bundles news sentiment within its main API (free tier: 25 requests/day). Finnhub News allows 60 calls/minute free with sentiment scores and ticker marking. NewsData.io offers global news with financial vertical filtering at various tiers. Nexis Data+ (LexisNexis) is enterprise-only, typically $1,000+/month with no free tier."}},{"@type":"Question","name":"Can I use multiple financial news APIs together?","acceptedAnswer":{"@type":"Answer","text":"Yes, but it introduces three significant challenges: deduplication (the same news event appears across providers with different IDs and timestamps), sentiment score normalization (each provider uses a different scoring scale and algorithm), and rate limit management (each provider has different throttling windows). Teams typically address these by building a normalization layer that handles response format differences and deduplication logic across providers."}},{"@type":"Question","name":"How do sentiment analysis approaches differ across financial news APIs?","acceptedAnswer":{"@type":"Answer","text":"Providers use different methodologies for sentiment scoring. Finnhub assigns a normalized score from -1 (most negative) to +1 (most positive) per article, with ticker-level tagging. Marketaux provides sentiment scores with confidence intervals and supports multilingual articles. Alpha Vantage integrates news sentiment with its topic/ticker filtering within the broader API. Benzinga delivers headline + teaser content with institutional-grade metadata. NewsData.io focuses on raw news breadth across geographies. Nexis Data+ uses LexisNexis's proprietary NLP pipeline for enterprise financial analysis. No industry-standard benchmark exists for sentiment accuracy — each approach has trade-offs in speed, depth, and coverage."}},{"@type":"Question","name":"When should I NOT use a financial news API?","acceptedAnswer":{"@type":"Answer","text":"Avoid relying solely on a financial news API for real-time trading signals. News APIs have latency ranging from minutes to hours — they are not suitable for high-frequency trading or time-sensitive market intelligence generation where milliseconds matter. Also avoid single-source dependency for mission-critical monitoring: news APIs can have outages, rate limit hits, or tier changes that break your agent's news access. Build in fallback logic to switch providers automatically when issues occur."}},{"@type":"Question","name":"What are the options for integrating multiple financial news APIs in one application?","acceptedAnswer":{"@type":"Answer","text":"Three main approaches exist for multi-API integration. First, build a custom adapter layer: write separate integrations for each provider and a normalization layer to handle response format differences and sentiment scale variations. Second, use a routing proxy: deploy a middleware that sits between your application and providers, handling deduplication, format conversion, and provider fallback. Third, use a capability routing CLI: tools like QVeris CLI provide unified access to multiple news providers through a single interface, handling multi-provider routing, deduplication, and response normalization behind the scenes. Each approach trades off development time, maintenance burden, and flexibility."}}]}
+  </script>
+
+  <!-- Schema #6: HowTo -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"HowTo","name":"How to Give an AI Agent Access to Financial News","description":"A practical guide for AI agent developers to integrate financial news data with sentiment scoring using a unified capability routing layer.","totalTime":"PT15M","step":[{"@type":"HowToStep","position":1,"name":"Install QVeris CLI","text":"Install QVeris CLI via npm (npm install -g qveris) or download the binary for your OS from qveris.ai/docs/cli. Authenticate with qveris login."},{"@type":"HowToStep","position":2,"name":"Discover available financial news capabilities","text":"Run qveris discover \"financial news\" to see all available news API capabilities, including those with sentiment scoring, ticker filtering, and multilingual support. Each capability entry shows the provider, rate limits, and data format."},{"@type":"HowToStep","position":3,"name":"Query financial news with sentiment scoring","text":"Call qveris call <capability-name> --query \"AAPL earnings\" --format json to retrieve news articles with sentiment scores, ticker tags, and source metadata. The CLI handles multi-provider fallback if the primary source hits a rate limit."},{"@type":"HowToStep","position":4,"name":"Integrate into your AI agent workflow","text":"Wire the CLI call into your agent's function-calling loop. Pass the news data as context to your LLM prompt. Use sentiment scores to trigger downstream actions (e.g., send an alert when a company's news sentiment drops below -0.5)."},{"@type":"HowToStep","position":5,"name":"Add fallback logic","text":"Configure your agent to fall back to a secondary provider when the primary hits a rate limit. Define multiple providers in your routing profile so the system can switch automatically when issues occur. Monitor your daily request counts to stay within free-tier limits."}]}
+  </script>
+
+  <style>
+    .skip-link{position:absolute;left:-9999px;top:0;background:#7C9BFF;color:#0A0E1A;padding:10px 16px;border-radius:0 0 8px 0;font-weight:600;z-index:100}
+    .skip-link:focus{left:0}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;color:rgba(255,255,255,0.82);background:#0A0E1A;font-size:16.5px;line-height:1.75;-webkit-font-smoothing:antialiased}
+    ::selection{background:rgba(124,155,255,0.3)}
+    a{color:#7C9BFF;text-decoration:none}
+    a:hover{color:#B5C6FF}
+    .nav{position:sticky;top:0;z-index:50;background:rgba(10,14,26,0.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.06);padding:14px 0}
+    .nav-inner{max-width:1024px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .nav-logo-mark{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,#7C9BFF,#3D5FE0);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#0A0E1A}
+    .nav-logo span{font-size:16px;font-weight:600;color:rgba(255,255,255,0.97)}
+    .nav-links{display:flex;align-items:center;gap:22px;font-size:14px}
+    .nav-links a{color:rgba(255,255,255,0.55);transition:color 0.15s}
+    .nav-links a:hover{color:rgba(255,255,255,0.9)}
+    .nav-cta{background:linear-gradient(135deg,#B5C6FF,#7C9BFF);color:#0A0E1A;padding:7px 18px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none}
+    .nav-cta:hover{opacity:0.9;color:#0A0E1A}
+    .wrap{max-width:1024px;margin:0 auto;padding:48px 24px}
+    h1{font-size:2.4rem;font-weight:500;line-height:1.15;margin-bottom:16px;color:rgba(255,255,255,0.97);letter-spacing:-0.02em}
+    h2{font-size:1.22rem;font-weight:600;margin:40px 0 16px;color:rgba(255,255,255,0.92);border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:10px}
+    h3{font-size:15px;font-weight:600;margin:24px 0 10px;color:rgba(255,255,255,0.85)}
+    h4{font-size:15px;font-weight:600;color:rgba(255,255,255,0.85);margin:0 0 8px}
+    .pitfall-item h4{color:#B5C6FF}
+    p{margin:0 0 18px;color:rgba(255,255,255,0.62)}
+    strong{color:rgba(255,255,255,0.92)}
+    em{color:rgba(255,255,255,0.72);font-style:italic}
+    ul,ol{margin:12px 0 14px 24px}
+    li{margin:6px 0;color:rgba(255,255,255,0.62)}
+    .meta-desc{font-size:1.05rem;color:rgba(255,255,255,0.5);margin-bottom:28px;line-height:1.55;max-width:680px}
+    .breadcrumb{font-size:13px;color:rgba(255,255,255,0.35);margin-bottom:20px}
+    .breadcrumb a{color:#7C9BFF}
+    .breadcrumb span{margin:0 6px}
+    .badge{display:inline-block;font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;margin-right:8px;margin-bottom:14px}
+    .badge-client{background:rgba(124,155,255,0.18);color:#B5C6FF;border:1px solid rgba(124,155,255,0.25)}
+    .badge-cat{background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.55)}
+    .author-meta{display:flex;align-items:center;gap:14px;padding:16px 0;margin:0 0 24px;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);flex-wrap:wrap}
+    .author-meta img{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7C9BFF,#3D5FE0)}
+    .author-info{flex:1;min-width:200px}
+    .author-info a{font-weight:600;color:rgba(255,255,255,0.92)}
+    .author-bio{font-size:13px;color:rgba(255,255,255,0.45);margin:2px 0 0}
+    .dates{font-size:12px;color:rgba(255,255,255,0.4);display:flex;flex-direction:column;gap:2px;text-align:right}
+    .toc{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;margin:0 0 32px}
+    .toc-label{font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+    .toc ul{margin:0;padding-left:18px;font-size:14.5px}
+    .toc a{color:rgba(255,255,255,0.7)}
+    .toc a:hover{color:#B5C6FF}
+    .tldr{background:rgba(124,155,255,0.05);border-left:3px solid #7C9BFF;border-radius:0 10px 10px 0;padding:16px 20px;margin:0 0 28px}
+    .tldr-label{font-size:12px;font-weight:600;color:#B5C6FF;margin-bottom:8px;text-transform:uppercase;letter-spacing:1.5px}
+    .tldr ul{margin:0;padding-left:18px;font-size:14.5px}
+    .tldr li{color:rgba(255,255,255,0.7);margin:4px 0}
+    .snippet-answer{background:rgba(255,255,255,0.02);border-left:3px solid #B5C6FF;padding:14px 18px;border-radius:0 8px 8px 0;font-size:15.5px;color:rgba(255,255,255,0.85);line-height:1.6}
+    .ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0 8px}
+    .ba-card{padding:18px;border-radius:10px}
+    .ba-before{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.18)}
+    .ba-after{background:rgba(124,155,255,0.06);border:1px solid rgba(124,155,255,0.2)}
+    .ba-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+    .ba-before .ba-label{color:#f87171}
+    .ba-after .ba-label{color:#B5C6FF}
+    .ba-text{font-size:14.5px;color:rgba(255,255,255,0.6);line-height:1.65}
+    .compare-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px;overflow-x:auto;display:block}
+    .compare-table th,.compare-table td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06);white-space:nowrap}
+    .compare-table thead th{background:rgba(255,255,255,0.03);color:rgba(255,255,255,0.85);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.5px}
+    .compare-table tbody th{background:transparent;color:rgba(255,255,255,0.85);font-weight:500;font-size:14px}
+    .compare-table td{color:rgba(255,255,255,0.65);font-size:13.5px}
+    .compare-table .highlight{color:#B5C6FF;font-weight:600}
+    .compare-table .check{color:#86efac}
+    .compare-table .cross{color:#f87171}
+    .step-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:18px;margin:12px 0}
+    .step-box:hover{border-color:rgba(124,155,255,0.22)}
+    .step-num{display:inline-flex;width:26px;height:26px;background:linear-gradient(135deg,#7C9BFF,#3D5FE0);color:#0A0E1A;border-radius:50%;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-right:10px;vertical-align:middle}
+    .step-box strong{display:inline;vertical-align:middle}
+    .viz{margin:32px 0;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;overflow-x:auto}
+    .viz svg{width:100%;height:auto;display:block}
+    .viz-caption{margin-top:12px;font-size:13px;color:rgba(255,255,255,0.5);text-align:center;font-style:italic}
+    .code-block{background:#080b14;border:1px solid rgba(124,155,255,0.15);border-radius:10px;padding:20px;margin:20px 0;overflow-x:auto}
+    .code-block pre{margin:0;padding:0;background:transparent;border:none}
+    .code-block code{background:none;border:none;padding:0;font-size:13px;line-height:1.65;color:#c9d1d9;font-family:'SF Mono','Fira Code','JetBrains Mono',monospace}
+    .code-block .comment{color:#6a737d}
+    .code-block .keyword{color:#ff7b72}
+    .code-block .string{color:#a5d6ff}
+    .code-block .function{color:#d2a8ff}
+    .code-block .variable{color:#ffa657}
+    .code-block .property{color:#79c0ff}
+    .code-block .number{color:#79c0ff}
+    .cta-box{background:linear-gradient(135deg,rgba(124,155,255,0.1),rgba(61,95,224,0.08));border:1px solid rgba(124,155,255,0.2);text-align:center;padding:36px;border-radius:14px;margin:44px 0}
+    .cta-box h3{color:rgba(255,255,255,0.95);margin:0 0 8px;font-size:20px;font-weight:600}
+    .cta-box p{color:rgba(255,255,255,0.55);margin:0 0 20px}
+    .cta-btn{display:inline-block;background:linear-gradient(135deg,#B5C6FF,#7C9BFF);color:#0A0E1A;padding:12px 32px;border-radius:24px;font-weight:600;font-size:15px;text-decoration:none}
+    .cta-btn:hover{opacity:0.9;color:#0A0E1A}
+    .faq-item{border-bottom:1px solid rgba(255,255,255,0.06);padding:18px 0}
+    .faq-q{font-weight:600;font-size:16px;color:rgba(255,255,255,0.9)}
+    .faq-a{margin-top:8px;color:rgba(255,255,255,0.55);font-size:14.5px;line-height:1.65}
+    .methodology{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:20px 24px;margin:32px 0;font-size:14px;color:rgba(255,255,255,0.55)}
+    .methodology h2{font-size:14px;border:none;padding:0;margin:0 0 12px;color:rgba(255,255,255,0.85);text-transform:uppercase;letter-spacing:1px}
+    .methodology p{margin:6px 0;font-size:13.5px}
+    .methodology strong{color:#B5C6FF}
+    .related{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+    .related a{display:block;padding:14px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;text-decoration:none;color:#B5C6FF;font-size:14px;font-weight:500;transition:all 0.2s;line-height:1.45}
+    .related a:hover{background:rgba(124,155,255,0.05);border-color:rgba(124,155,255,0.25)}
+    .note-box{background:rgba(124,155,255,0.04);border:1px solid rgba(124,155,255,0.15);border-radius:8px;padding:14px 18px;margin:16px 0;font-size:14px;color:rgba(255,255,255,0.65)}
+    .note-box strong{color:#B5C6FF}
+    .footer{background:#060912;border-top:1px solid rgba(255,255,255,0.04);padding:48px 24px}
+    .footer-inner{max-width:1024px;margin:0 auto}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:32px}
+    .footer-title{display:block;font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+    .footer-links{display:flex;flex-direction:column;gap:10px;font-size:14px}
+    .footer-links a{color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.15s}
+    .footer-links a:hover{color:rgba(255,255,255,0.75)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.04);padding-top:24px;display:flex;justify-content:space-between;font-size:13px;color:rgba(255,255,255,0.28)}
+    @media(max-width:720px){.ba-grid,.related{grid-template-columns:1fr};h1{font-size:1.75rem}.footer-grid{grid-template-columns:1fr 1fr};.nav-links a:not(.nav-cta){display:none};.author-meta{flex-direction:column;align-items:flex-start};.dates{text-align:left};.code-block{padding:12px};.compare-table{font-size:13px}}
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="https://qveris.ai" class="nav-logo">
+        <span class="nav-logo-mark">Q</span>
+        <span>QVeris</span>
+      </a>
+      <div class="nav-links">
+        <a href="https://qveris.ai">Product</a>
+        <a href="https://qveris.ai/pricing">Pricing</a>
+        <a href="https://qveris.ai/docs">Docs</a>
+        <a href="https://qveris.ai" class="nav-cta">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <article>
+      <div class="wrap">
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a><span>›</span><a href="/concepts">Concepts</a><span>›</span>Financial News API for AI Agents
+        </nav>
+
+        <header>
+          <div><span class="badge badge-client">QVeris</span><span class="badge badge-cat">Provider Comparison</span></div>
+          <h1>Financial News API: 6 Providers Compared and How to Use Them in AI Agents</h1>
+          <p class="meta-desc">A technical comparison of 6 financial news APIs — Benzinga, Marketaux, Finnhub, Alpha Vantage, NewsData.io, and Nexis Data+ — with a focus on sentiment scoring, AI agent integration patterns, and a unified routing approach.</p>
+
+          <div class="author-meta">
+            <img src="https://qveris.ai/avatars/wang-linfang.png" alt="Linfang Wang, Founder &amp; CEO of QVeris AI" width="44" height="44" loading="eager" decoding="async" onerror='this.src="data:image/svg+xml;utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 44 44%27%3E%3Cdefs%3E%3ClinearGradient id=%27g%27 x1=%270%25%27 y1=%270%25%27 x2=%27100%25%27 y2=%27100%25%27%3E%3Cstop offset=%270%25%27 stop-color=%27%237C9BFF%27/%3E%3Cstop offset=%27100%25%27 stop-color=%27%233D5FE0%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%2744%27 height=%2744%27 rx=%2722%27 fill=%27url(%23g)%27/%3E%3Ctext x=%2722%27 y=%2728%27 font-family=%27Inter,sans-serif%27 font-size=%2718%27 font-weight=%27600%27 fill=%27%230A0E1A%27 text-anchor=%27middle%27%3ELW%3C/text%3E%3C/svg%3E"'>
+            <div class="author-info">
+              <a href="https://qveris.ai/authors/wang-linfang" rel="author">Linfang Wang</a> · CEO &amp; Founder
+              <a href="https://www.linkedin.com/in/wanglinfang" rel="noopener" target="_blank" style="margin-left:8px;font-size:12px;color:#7C9BFF;">LinkedIn</a>
+              <p class="author-bio">MS from Tsinghua University. Former engineer at Microsoft (Bing), Opera News, JD.com AI Lab. 2023: CTO at Liblib AI. 2025: Founded QVeris AI to build action infrastructure for AI Agents.</p>
+            </div>
+            <div class="dates">
+              <span>Published: May 20, 2026</span><br>
+              <span>Last Updated: May 20, 2026</span>
+            </div>
+          </div>
+        </header>
+
+        <nav class="toc" aria-label="Table of Contents">
+          <div class="toc-label">Contents</div>
+          <ul>
+            <li><a href="#what-is">What is a Financial News API?</a></li>
+            <li><a href="#compared">6 Financial News APIs Compared</a></li>
+            <li><a href="#use-cases">AI Agent Use Cases for Financial News</a></li>
+            <li><a href="#multi-provider">The Multi-Provider Problem</a></li>
+            <li><a href="#unified">Unified Access Through Capability Routing</a></li>
+            <li><a href="#checklist">Getting Started Checklist</a></li>
+          </ul>
+        </nav>
+
+        <section class="tldr">
+          <div class="tldr-label">TL;DR</div>
+          <ul>
+            <li><strong>Problem:</strong> Six financial news APIs compete on sentiment scoring, language coverage, and ticker tagging — but no single provider covers all dimensions, and managing multiple providers introduces deduplication, normalization, and rate-limit complexity for AI agents.</li>
+            <li><strong>Solution:</strong> Compare Benzinga, Marketaux, Finnhub, Alpha Vantage, NewsData.io, and Nexis Data+ on objective criteria; then use a capability routing layer to abstract multi-provider complexity behind a unified interface.</li>
+            <li><strong>Result:</strong> Your AI agent gets real-time sentiment-scored financial news without writing provider-specific integration code or managing fallback logic for rate limits and format differences.</li>
+          </ul>
+        </section>
+
+        <section id="what-is">
+          <h2>What is a Financial News API?</h2>
+          <p class="snippet-answer"><strong>A financial news API is a programmatic interface that delivers market-relevant news content — headlines, articles, and sentiment scores — to software systems. For AI agents, the key value is real-time access to sentiment-scored news with ticker symbols, enabling your agent to monitor market events and trigger downstream actions without manual data gathering.</strong></p>
+
+          <p>The core capability: your AI agent sends a query (a company ticker, sector keyword, or topic), and the API returns structured news data. The critical differentiator for AI agent use cases is <strong>sentiment scoring</strong> — an algorithmic assessment of whether the article tone is positive, negative, or neutral, typically ranging from -1.0 to +1.0.</p>
+
+          <p>Financial news APIs serve two distinct populations:</p>
+          <ul>
+            <li><strong>Human-facing dashboards</strong> — traders and analysts reading news summaries</li>
+            <li><strong>AI agent pipelines</strong> — autonomous systems that consume structured data, evaluate sentiment, and execute actions</li>
+          </ul>
+          <p>This comparison focuses on the AI agent use case. For that workload, the four most important dimensions are: <strong>sentiment score availability</strong>, <strong>ticker symbol tagging</strong>, <strong>update latency</strong>, and <strong>ease of integration</strong>.</p>
+
+          <p>The "AI agent + financial news" pairing is one of the most active LLM use cases in 2026. The pattern is straightforward: news event → sentiment analysis → agent decision → action. Whether the action is drafting a market brief, alerting a portfolio manager, or triggering a rebalancing workflow, the <a href="https://qveris.ai/concepts/what-is-ai-agent-orchestration">AI agent orchestration</a> layer needs structured, machine-readable news data — not a human-readable news feed.</p>
+
+          <div class="note-box">
+            <strong>Sentiment scoring disclaimer:</strong> Sentiment scores reflect algorithmic analysis of article tone. They are not data analysis outputs or market intelligence recommendations. AI agents using these scores should combine them with other signals before triggering any action.
+          </div>
+        </section>
+
+        <section id="compared">
+          <h2>6 Financial News APIs Compared</h2>
+          <p>The six providers below cover the range from developer-friendly free tiers to enterprise-grade institutional data. The comparison focuses on dimensions that matter for AI agent integration.</p>
+
+          <div class="viz">
+            <table class="compare-table">
+              <caption>Financial News API Comparison — Free Tier, Sentiment Scoring, Language Coverage, Ticker Tagging, and Pricing</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Provider</th>
+                  <th scope="col">Free Tier</th>
+                  <th scope="col">Sentiment Scoring</th>
+                  <th scope="col">Language Coverage</th>
+                  <th scope="col">Ticker Tagging</th>
+                  <th scope="col">Starting Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row"><a href="https://benzinga.com/apis/" target="_blank" rel="noopener">Benzinga</a></th>
+                  <td class="highlight">AWS Marketplace free tier (institutional-grade headlines + teaser + link)</td>
+                  <td class="cross">No native sentiment</td>
+                  <td>English</td>
+                  <td>Partial</td>
+                  <td>Free on AWS Marketplace; paid tiers on direct</td>
+                </tr>
+                <tr>
+                  <th scope="row"><a href="https://marketaux.com/" target="_blank" rel="noopener">Marketaux</a></th>
+                  <td class="highlight">100 requests/day</td>
+                  <td class="check">Yes — with confidence intervals</td>
+                  <td class="highlight">30+ languages</td>
+                  <td class="check">Yes</td>
+                  <td>$0 (free tier); paid from ~$50/month</td>
+                </tr>
+                <tr>
+                  <th scope="row"><a href="https://finnhub.io/docs/api/company-news" target="_blank" rel="noopener">Finnhub News</a></th>
+                  <td class="highlight">60 calls/minute</td>
+                  <td class="check">Yes — normalized -1 to +1</td>
+                  <td>English</td>
+                  <td class="check">Yes — ticker-level</td>
+                  <td>$0 (free tier, rate-limited); paid from $50/month</td>
+                </tr>
+                <tr>
+                  <th scope="row"><a href="https://www.alphavantage.co/documentation/#news-sentiment" target="_blank" rel="noopener">Alpha Vantage News</a></th>
+                  <td>25 requests/minute, 5 requests/day (free)</td>
+                  <td class="check">Yes — integrated in main API</td>
+                  <td>English</td>
+                  <td class="check">Yes — topic + ticker filtering</td>
+                  <td>$0 (free tier); paid from $49.99/month</td>
+                </tr>
+                <tr>
+                  <th scope="row"><a href="https://newsdata.io/" target="_blank" rel="noopener">NewsData.io</a></th>
+                  <td>200 requests/day (free)</td>
+                  <td class="cross">No native sentiment</td>
+                  <td class="highlight">Global (40+ languages)</td>
+                  <td>Partial (via category filtering)</td>
+                  <td>$0 (free tier); paid from $25/month</td>
+                </tr>
+                <tr>
+                  <th scope="row"><a href="https://www.lexisnexis.com/en-gb/products/nexis-daas/financial-news-api" target="_blank" rel="noopener">Nexis Data+</a></th>
+                  <td class="cross">No free tier</td>
+                  <td class="check">Yes — LexisNexis NLP pipeline</td>
+                  <td class="highlight">Global + specialized financial coverage</td>
+                  <td class="check">Yes — comprehensive</td>
+                  <td class="cross">Enterprise — typically $1,000+/month</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="viz-caption">Data sourced from each provider's official documentation as of May 2026. Pricing is subject to change — verify current tiers before integrating.</div>
+          </div>
+
+          <p>The comparison table reveals a clear segmentation: <strong>Marketaux</strong> and <strong>Finnhub</strong> lead on the dimensions that matter most for AI agents — sentiment scoring with free-tier access. <strong>NewsData.io</strong> wins on language breadth but lacks native sentiment. <strong>Benzinga</strong> provides institutional-grade content depth via <text style="color: #7C9BFF;">AWS Marketplace</text> but no out-of-the-box sentiment. Benzinga's Basic News API is also available with a free tier through AWS Marketplace, making it accessible for developers already embedded in the AWS ecosystem. <strong>Alpha Vantage</strong> integrates news sentiment into its broader financial data API, which suits teams already on that platform. <strong>Nexis Data+</strong> is in a separate enterprise tier — no free access, but unmatched in coverage depth for institutional workloads.</p>
+
+          <p>If your AI agent needs sentiment scoring on a budget, <strong>Finnhub</strong> (60 calls/min free) and <strong>Marketaux</strong> (100 req/day free, 30+ languages) are the two to start with. If you're building a multilingual agent monitoring global markets, <strong>Marketaux</strong> wins on language coverage. If you need institutional-grade breadth and have a budget, <strong>Nexis Data+</strong> covers more financial sources than any other provider.</p>
+
+          <p><strong>AI Agent compatibility by provider:</strong> For AI agents requiring sentiment scoring with ticker tagging, <strong>Marketaux</strong> and <strong>Finnhub</strong> are the strongest candidates. Marketaux adds confidence intervals and 30+ language support for multilingual agents. <strong>Nexis Data+</strong> excels for enterprise agents needing institutional-depth coverage. <strong>NewsData.io</strong> is ideal for agents prioritizing global news breadth over native sentiment. <strong>Alpha Vantage</strong> suits teams already integrated with its financial data API. <strong>Benzinga</strong> works for agents in the AWS ecosystem requiring institutional-grade content.</p>
+        </section>
+
+        <section id="use-cases">
+          <h2>AI Agent Use Cases for Financial News</h2>
+          <p>This is where the comparison diverges from other "best news API" pages. The "news API + AI agent" combination is a distinct LLM use case that has no meaningful competition yet — no major SEO page addresses it. Here are four patterns that production AI agent teams are actually building:</p>
+
+          <div class="pitfall-item" style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:16px;margin:12px 0">
+            <h4>Earnings Call Summary Agent</h4>
+            <p style="margin:0;font-size:14px;color:rgba(255,255,255,0.62)">Your agent monitors news APIs for earnings releases from your portfolio companies. When a new earnings story appears, the agent pulls the headline, teaser, and sentiment score. If sentiment is negative (score &lt; -0.3), it drafts a brief summary and alerts the portfolio manager via Slack or email. A typical trigger prompt: "AAPL earnings sentiment dropped to -0.45. Draft a 3-bullet summary of the key concerns and suggest which downstream teams need to be notified." Finnhub's ticker-level tagging makes this straightforward — you filter by company symbol and pull the latest stories within minutes of publication. This pattern scales to 50+ companies with a single polling loop.</p>
+          </div>
+
+          <div class="pitfall-item" style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:16px;margin:12px 0">
+            <h4>FOMC Announcement Response Agent</h4>
+            <p style="margin:0;font-size:14px;color:rgba(255,255,255,0.62)">Federal Reserve statements move markets within seconds. An AI agent can subscribe to financial news feeds filtered for "FOMC", "Federal Reserve", or "interest rate" keywords. When a new article surfaces, the agent reads the content, extracts the sentiment signal (hawkish vs dovish), and triggers a pre-defined workflow — risk alerts, market commentary generation, or a Slack thread for the macro team. A practical prompt: "A new FOMC article was published at 14:00 EST titled '[headline]'. Extract whether the tone is hawkish or dovish, identify the key metric mentioned, and post a one-paragraph impact summary to #macro-alerts." The multi-language capability in Marketaux lets you monitor international coverage (BoJ, ECB, PBOC) simultaneously, giving your agent a global macro view.</p>
+          </div>
+
+          <div class="pitfall-item" style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:16px;margin:12px 0">
+            <h4>Sector Sentiment Tracking Dashboard</h4>
+            <p style="margin:0;font-size:14px;color:rgba(255,255,255,0.62)">Your AI agent runs on a schedule — every hour, it queries news APIs for a basket of tickers in a sector (e.g., semiconductor stocks: NVDA, AMD, INTC, ASML). It aggregates the sentiment scores across multiple articles, calculates a sector-level sentiment trend, and writes the result to a dashboard or database. Over time, the trend data becomes a feature for downstream signal extraction models. A typical query: "For the past 24 hours, aggregate all news for NVDA, AMD, and INTC. Calculate the average sentiment score, flag any articles with absolute sentiment &gt; 0.6, and write the results to the sector_sentiment table." This pattern requires consistent ticker tagging, which Finnhub and Marketaux both provide natively — and it benefits from multi-provider coverage to catch stories that a single source might miss.</p>
+          </div>
+
+          <div class="pitfall-item" style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:16px;margin:12px 0">
+            <h4>Corporate Announcement Alert System</h4>
+            <p style="margin:0;font-size:14px;color:rgba(255,255,255,0.62)">Regulatory filings, CEO departures, product recalls, and partnership announcements all create news events that matter to your stakeholders. An AI agent monitors for specific keywords and announcement types. When a matching article appears with a sentiment score that crosses a threshold, the agent triggers an alert or executes a pre-defined action. A concrete trigger: "A new article matching 'CEO departure' for MSFT appeared with sentiment -0.72. Execute the CEO-change protocol: draft an internal memo, notify the legal team via email, and create a task to review board succession implications." The <text style="color: #7C9BFF;">function calling</text> pattern connects the news event directly to the downstream action without human intervention — the agent handles the full pipeline from event detection to action execution.</p>
+          </div>
+
+          <p>All four patterns share a common dependency: your agent needs structured, machine-readable news data — ticker symbols, sentiment scores, timestamps, and source metadata — delivered in a consistent format. That's the integration challenge the next sections address.</p>
+        </section>
+
+
+        <section id="multi-provider">
+          <h2>The Multi-Provider Problem</h2>
+          <p>At some point, a single provider won't be enough. You need broader coverage to catch stories across different sources, lower latency to reduce the gap between publication and your agent's awareness, or redundancy against provider outages. That's when the multi-provider problem starts — and it's harder than it looks.</p>
+
+          <h3>Single-Provider Code Example</h3>
+          <p>Starting with a single provider is the right move. The integration is simpler, and you can validate your agent's news-triggered workflow before adding multi-provider complexity. Marketaux is a strong starting point for AI agent use cases: it provides sentiment scores with confidence intervals, ticker tagging, multilingual coverage, and a developer-friendly REST API.</p>
+
+          <div class="code-block">
+            <pre><code><span class="comment"># Fetch financial news with sentiment scores from Marketaux</span>
+<span class="comment"># Free tier: 100 requests/day</span>
+<span class="comment"># Docs: https://marketaux.com/</span>
+
+<span class="keyword">curl</span> -X GET <span class="string">"https://api.marketaux.com/v1/news"</span> \
+  -d <span class="string">"api_token=YOUR_API_KEY"</span> \
+  -d <span class="string">"symbols=AAPL,MSFT,GOOGL"</span> \
+  -d <span class="string">"filter_entities=true"</span> \
+  -d <span class="string">"language=en"</span>
+
+<span class="comment"># Sample response structure (simplified):</span>
+{
+  <span class="property">"data"</span>: [
+    {
+      <span class="property">"title"</span>: <span class="string">"Apple Reports Record Q1 Revenue"</span>,
+      <span class="property">"description"</span>: <span class="string">"iPhone maker beats analyst expectations..."</span>,
+      <span class="property">"sentiment"</span>: {
+        <span class="property">"score"</span>: <span class="number">0.72</span>,       <span class="comment">// -1 (negative) to +1 (positive)</span>
+        <span class="property">"label"</span>: <span class="string">"positive"</span>,
+        <span class="property">"confidence"</span>: <span class="number">0.87</span> <span class="comment">// confidence interval</span>
+      },
+      <span class="property">"entities"</span>: [
+        { <span class="property">"symbol"</span>: <span class="string">"AAPL"</span>, <span class="property">"name"</span>: <span class="string">"Apple Inc."</span> }
+      ],
+      <span class="property">"published_at"</span>: <span class="string">"2026-05-20T09:30:00Z"</span>,
+      <span class="property">"source"</span>: <span class="string">"Reuters"</span>,
+      <span class="property">"url"</span>: <span class="string">"https://..."</span>
+    }
+  ]
+}</code></pre>
+          </div>
+
+          <p>The response structure is clean: sentiment scores are top-level, confidence intervals are included, and ticker symbols are in a dedicated <code>entities</code> array. For an AI agent, parsing this into a structured prompt is straightforward. The confidence score is particularly useful — you can set a threshold (e.g., only act on articles where <code>confidence &gt; 0.7</code>) to filter lowquality sentiment predictions.</p>
+
+          <p><strong>Where to start:</strong> If you're building a proof-of-concept AI agent that monitors financial news, Marketaux's free tier (100 req/day, 30+ languages) and sentiment scoring make it the lowest-friction starting point. <a href="https://marketaux.com/" target="_blank" rel="noopener">Marketaux API documentation</a> has a sandbox environment you can use without burning daily quota. For English-only workloads with higher rate limits, <a href="https://finnhub.io/docs/api/company-news" target="_blank" rel="noopener">Finnhub News</a> offers 60 calls/minute on its free tier — roughly 86,400 requests per day — with normalized sentiment scores from -1 to +1 and ticker-level tagging. The tradeoff: no confidence interval, and English-only coverage.</p>
+
+          <h3>The Four Challenges of Multi-Provider Integration</h3>
+
+          <div class="ba-grid">
+            <div class="ba-card ba-before">
+              <div class="ba-label">Challenge #1: Deduplication</div>
+              <div class="ba-text">The same news event — say, an Apple earnings release — appears across Benzinga, Finnhub, Marketaux, and NewsData.io within minutes. Each provider assigns its own article ID and timestamp. Without deduplication logic, your AI agent processes the same story four times and potentially triggers four duplicate actions.</div>
+            </div>
+            <div class="ba-card ba-after">
+              <div class="ba-label">Challenge #2: Sentiment Normalization</div>
+              <div class="ba-text">Finnhub scores from -1 to +1. Marketaux provides a confidence-weighted label. Alpha Vantage uses its own scale. When your agent aggregates sentiment across providers to build a sector trend, these incompatible scales make direct comparison meaningless without a normalization step.</div>
+            </div>
+          </div>
+
+          <div class="ba-grid" style="margin-top:8px">
+            <div class="ba-card ba-before">
+              <div class="ba-label">Challenge #3: Rate Limit Fragmentation</div>
+              <div class="ba-text">Marketaux gives 100 requests/day. Finnhub gives 60 calls/minute but per-IP. NewsData.io gives 200 requests/day. A multi-provider agent needs to track per-provider rate limits, implement exponential backoff, and fall back to a secondary provider when the primary hits a wall — all at the orchestration layer.</div>
+            </div>
+            <div class="ba-card ba-after">
+              <div class="ba-label">Challenge #4: Format Incompatibility</div>
+              <div class="ba-text">Every provider returns JSON, but the field names and nesting differ. Finnhub puts sentiment at the top level. Marketaux nests it under an <code>entities</code> array. Alpha Vantage embeds it within a <code>sentiment</code> object with different field names. Your parsing code must handle each format separately, or you need a normalization layer.</div>
+            </div>
+          </div>
+
+          <p>Here's what the manual fallback pattern looks like in code:</p>
+
+          <div class="code-block">
+            <pre><code><span class="comment"># Manual multi-provider fallback — the naive approach</span>
+<span class="comment"># Every new provider adds ~30-50 lines of parsing and error handling</span>
+
+<span class="keyword">import</span> requests
+<span class="keyword">import</span> time
+
+<span class="keyword">def</span><span class="function"> fetch_news_with_fallback</span>(symbols):
+    providers = [<span class="string">"finnhub"</span>, <span class="string">"marketaux"</span>, <span class="string">"newsdata"</span>]
+    rate_limits = {<span class="string">"finnhub"</span>: {<span class="string">"calls"</span>: <span class="number">60</span>, <span class="string">"window"</span>: <span class="number">60</span>},
+                   <span class="string">"marketaux"</span>: {<span class="string">"calls"</span>: <span class="number">100</span>, <span class="string">"window"</span>: <span class="number">86400</span>},
+                   <span class="string">"newsdata"</span>: {<span class="string">"calls"</span>: <span class="number">200</span>, <span class="string">"window"</span>: <span class="number">86400</span>}}
+
+    <span class="keyword">for</span> provider <span class="keyword">in</span> providers:
+        <span class="keyword">if</span> rate_limits[provider][<span class="string">"calls"</span>] &lt;= <span class="number">0</span>:
+            <span class="keyword">continue</span>  <span class="comment"># Rate limited — skip to next</span>
+        <span class="keyword">try</span>:
+            response = call_provider_api(provider, symbols)
+            <span class="comment"># Each provider returns different JSON structure:</span>
+            articles = normalize_format(provider, response)  <span class="comment">// ~40 lines</span>
+            <span class="keyword">return</span> deduplicate(articles)
+        <span class="keyword">except</span> RateLimitError:
+            rate_limits[provider][<span class="string">"calls"</span>] -= <span class="number">1</span>
+            time.sleep(<span class="number">2</span> ** (rate_limits[provider][<span class="string">"window"</span>]))
+        <span class="keyword">except</span> APIError <span class="keyword">as</span> e:
+            <span class="keyword">continue</span>  <span class="comment">// Try next provider silently</span>
+
+    <span class="keyword">return</span> []  <span class="comment">// All providers failed</span>
+
+<span class="comment"># The normalization function for just 3 providers:</span>
+<span class="keyword">def</span><span class="function"> normalize_format</span>(provider, response):
+    <span class="keyword">if</span> provider == <span class="string">"finnhub"</span>:
+        <span class="keyword">return</span> [{<span class="property">"title"</span>: r[<span class="string">"headline"</span>],
+                   <span class="property">"sentiment"</span>: r[<span class="string">"sentiment"</span>],   <span class="comment">// -1 to +1</span>
+                   <span class="property">"tickers"</span>: r[<span class="string">"related"</span>].split(<span class="string">","</span>)}
+                  <span class="keyword">for</span> r <span class="keyword">in</span> response[<span class="string">"data"</span>]]
+    <span class="keyword">elif</span> provider == <span class="string">"marketaux"</span>:
+        <span class="keyword">return</span> [{<span class="property">"title"</span>: r[<span class="string">"title"</span>],
+                   <span class="property">"sentiment"</span>: r[<span class="string">"sentiment"</span>][<span class="string">"score"</span>],  <span class="comment">// nested</span>
+                   <span class="property">"tickers"</span>: [e[<span class="string">"symbol"</span>] <span class="keyword">for</span> e <span class="keyword">in</span> r[<span class="string">"entities"</span>]]}
+                  <span class="keyword">for</span> r <span class="keyword">in</span> response[<span class="string">"data"</span>]]
+    <span class="keyword">elif</span> provider == <span class="string">"newsdata"</span>:
+        <span class="keyword">return</span> [{<span class="property">"title"</span>: r[<span class="string">"title"</span>],
+                   <span class="property">"sentiment"</span>: <span class="number">None</span>,  <span class="comment">// No sentiment — map to None</span>
+                   <span class="property">"tickers"</span>: extract_tickers(r)}
+                  <span class="keyword">for</span> r <span class="keyword">in</span> response[<span class="string">"results"</span>]]}</code></pre>
+          </div>
+
+          <p>The code above handles 3 providers. The <code>normalize_format</code> function alone is 25+ lines, and it grows linearly with every new provider you add. The real cost isn't the code — it's the maintenance burden: every time a provider changes their response format (and they do), you update the normalization layer. Beyond the code, you need monitoring for rate limit exhaustion, alerting for provider outages, and a strategy for when two providers give contradictory sentiment scores for the same article.</p>
+
+          <p>The alternative is treating multi-provider complexity as an infrastructure problem, not a code problem. That's what <text style="color: #7C9BFF;">capability routing</text> addresses — you write one integration, and the routing layer handles provider discovery, fallback logic, and response normalization.</p>
+        </section>
+
+        <section id="unified">
+          <h2>Unified Access Through Capability Routing</h2>
+          <p>The capability routing pattern abstracts away provider-specific integration logic by presenting a unified interface to your AI agent. You write one integration call; the routing layer handles multi-provider fallback, deduplication, and response normalization. The key insight: multi-provider complexity is an infrastructure problem, not a code problem. By delegating that complexity to a routing layer, your agent code stays focused on the business logic — what to do with the data, not how to fetch it.</p>
+
+          <p>Why QVeris specifically for this use case? The QVeris CLI approach differs from MCP schema injection in a critical way: tool calls execute as subprocess calls that bypass the LLM's context window entirely. With traditional MCP, every tool schema gets injected into every prompt — 50 tools can mean 10,000-25,000 tokens of overhead before your actual query runs. The CLI subprocess pattern eliminates that overhead. Your agent calls <code>qveris call</code>, the routing layer handles the provider complexity, and the result returns directly without touching the LLM context with tool schemas.</p>
+
+          <div class="code-block">
+            <pre><code><span class="comment"># QVeris CLI — unified financial news access for AI agents</span>
+<span class="comment"># No per-provider authentication. No manual fallback logic.</span>
+<span class="comment"># Docs: https://qveris.ai/docs/cli</span>
+
+<span class="comment"># Step 1: Discover available financial news capabilities</span>
+$ qveris discover <span class="string">"financial news with sentiment"</span>
+
+<span class="comment"># Returns a list of matching capabilities across all providers:</span>
+<span class="comment"># finnhub_news           Finnhub News API — sentiment scores, ticker tags (60 req/min free)</span>
+<span class="comment"># marketaux_news         Marketaux News API — sentiment + confidence, 30+ languages</span>
+<span class="comment"># alphavantage_news      Alpha Vantage News Sentiment — topic + ticker filtering</span>
+
+<span class="comment"># Step 2: Query via unified interface — the routing layer handles fallback</span>
+$ qveris call finnhub_news --symbols <span class="string">"AAPL,MSFT,GOOGL"</span> --format json
+
+<span class="comment"># Step 3: Wire into your AI agent's function-calling loop</span>
+<span class="comment"># The agent calls qveris via subprocess — zero schema injection overhead</span>
+
+<span class="keyword">const</span> newsResult = await execSync(<span class="string">`qveris call finnhub_news --symbols "${symbols}" --format json`</span>)
+<span class="keyword">const</span> articles = JSON.parse(newsResult.stdout)
+
+articles.<span class="function">forEach</span>(article =&gt; {
+  <span class="keyword">if</span> (article.sentiment &lt; <span class="number">-0.3</span>) {
+    agent.trigger(<span class="string">"negative_sentiment_alert"</span>, {
+      ticker: article.tickers[<span class="number">0</span>],
+      sentiment: article.sentiment,
+      headline: article.title,
+      url: article.url
+    })
+  }
+})</code></pre>
+          </div>
+
+          <p>The routing layer knows which providers support sentiment scoring, what their rate limits are, and how to normalize their response formats. Your agent code stays clean — it calls one interface and gets back structured data regardless of which provider ultimately answered. This is the pattern that makes "FOMC announcement → agent action" work reliably. The agent doesn't need to know which provider responded, whether a rate limit was hit, or how to parse a specific provider's JSON. The capability routing layer handles all of that behind the interface.</p>
+
+          <p>For AI agents using the <text style="color: #7C9BFF;">function calling</text> pattern, QVeris CLI integrates directly into the tool-calling loop via subprocess execution — zero MCP schema injection overhead, no token cost from tool schema management. <a href="https://qveris.ai/docs/cli">Get started with QVeris CLI in 30 seconds</a>.</p>
+        </section>
+
+        <section class="cta-box">
+          <h3>Give Your AI Agent Unified Financial News Access</h3>
+          <p>QVeris CLI handles multi-provider routing, sentiment normalization, and fallback logic — so your agent gets structured financial news without per-provider integration code. Connect to Finnhub, Marketaux, Alpha Vantage, and more through one interface.</p>
+          <a href="https://qveris.ai/docs/cli" class="cta-btn">Explore QVeris CLI →</a>
+        </section>
+
+        <section id="checklist">
+          <h2>Getting Started Checklist</h2>
+          <p>Ready to integrate financial news into your AI agent? Here's a practical checklist to go from zero to a working prototype:</p>
+
+          <div class="step-box">
+            <span class="step-num">1</span>
+            <strong>Install QVeris CLI</strong>
+            <p>Install via npm: <code>npm install -g qveris</code>. Or download the binary for macOS, Linux, or Windows from <a href="https://qveris.ai/docs/cli">qveris.ai/docs/cli</a>. Run <code>qveris login</code> to authenticate.</p>
+          </div>
+
+          <div class="step-box">
+            <span class="step-num">2</span>
+            <strong>Discover available financial news capabilities</strong>
+            <p>Run <code>qveris discover "financial news with sentiment"</code> to see all available news API capabilities. Each entry shows the provider, rate limits, and whether sentiment scoring is included. Start with finnhub_news or marketaux_news for sentiment-enabled options.</p>
+          </div>
+
+          <div class="step-box">
+            <span class="step-num">3</span>
+            <strong>Query news for a specific ticker</strong>
+            <p>Run <code>qveris call finnhub_news --symbols "AAPL" --format json</code> to retrieve the latest articles with sentiment scores and ticker tags. Examine the response structure before integrating into your agent.</p>
+          </div>
+
+          <div class="step-box">
+            <span class="step-num">4</span>
+            <strong>Integrate into your agent's function-calling loop</strong>
+            <p>Wire the CLI call into your agent via subprocess execution: <code>execSync("qveris call finnhub_news --symbols "AAPL" --format json")</code>. Parse the JSON response and pass sentiment scores to your LLM prompt. Set a threshold (e.g., sentiment &lt; -0.3) to trigger downstream actions like alerts or summaries.</p>
+          </div>
+
+          <div class="step-box">
+            <span class="step-num">5</span>
+            <strong>Add fallback logic</strong>
+            <p>Configure your agent to fall back to a secondary provider when the primary hits a rate limit. QVeris CLI handles provider switching automatically if you configure multiple providers in your routing profile. Monitor your daily request counts to stay within free-tier limits.</p>
+          </div>
+
+          <p>For more details on each step, see the <a href="https://qveris.ai/docs/cli">QVeris CLI documentation</a>. For a deeper dive into the function-calling pattern, see <a href="https://qveris.ai/docs/cookbook">Function Calling for AI Agents</a>.</p>
+        </section>
+
+        <section>
+          <h2>FAQ: Financial News APIs for AI Agents</h2>
+
+          <div class="faq-item">
+            <div class="faq-q">Which financial news API is best?</div>
+            <div class="faq-a">The best financial news API depends on your use case. For AI agent integration with sentiment scoring, Marketaux and Finnhub lead on free-tier accessibility and ticker tagging. For enterprise-grade coverage without free options, Nexis Data+ provides institutional depth. Benzinga suits developers needing AWS Marketplace integration. No single provider covers all dimensions — the right choice hinges on your sentiment analysis needs, language requirements, and whether you need real-time or near-real-time data.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">How much does a financial news API cost?</div>
+            <div class="faq-a">Pricing spans a wide range. Marketaux offers a free tier of 100 requests per day with sentiment scoring across 30+ languages. Benzinga provides institutional-grade headlines via AWS Marketplace with a free tier. Alpha Vantage bundles news sentiment within its main API (free tier: 25 requests/day). Finnhub News allows 60 calls/minute free with sentiment scores and ticker marking. NewsData.io offers global news with financial vertical filtering at various tiers. Nexis Data+ (LexisNexis) is enterprise-only, typically $1,000+/month with no free tier.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">Can I use multiple financial news APIs together?</div>
+            <div class="faq-a">Yes, but it introduces three significant challenges: deduplication (the same news event appears across providers with different IDs and timestamps), sentiment score normalization (each provider uses a different scoring scale and algorithm), and rate limit management (each provider has different throttling windows). Teams typically address these by building a normalization layer that handles response format differences and deduplication logic across providers.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">How do sentiment analysis approaches differ across financial news APIs?</div>
+            <div class="faq-a">Providers use different methodologies for sentiment scoring. Finnhub assigns a normalized score from -1 (most negative) to +1 (most positive) per article, with ticker-level tagging. Marketaux provides sentiment scores with confidence intervals and supports multilingual articles. Alpha Vantage integrates news sentiment with its topic/ticker filtering within the broader API. Benzinga delivers headline + teaser content with institutional-grade metadata. NewsData.io focuses on raw news breadth across geographies. Nexis Data+ uses LexisNexis's proprietary NLP pipeline for enterprise financial analysis. No industry-standard benchmark exists for sentiment accuracy — each approach has trade-offs in speed, depth, and coverage.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">When should I NOT use a financial news API?</div>
+            <div class="faq-a">Avoid relying solely on a financial news API for real-time trading signals. News APIs have latency ranging from minutes to hours — they are not suitable for high-frequency trading or time-sensitive market intelligence generation where milliseconds matter. Also avoid single-source dependency for mission-critical monitoring: news APIs can have outages, rate limit hits, or tier changes that break your agent's news access. Build in fallback logic to switch providers automatically when issues occur.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">What are the options for integrating multiple financial news APIs in one application?</div>
+            <div class="faq-a">Three main approaches exist for multi-API integration. First, build a custom adapter layer: write separate integrations for each provider and a normalization layer to handle response format differences and sentiment scale variations. Second, use a routing proxy: deploy a middleware that sits between your application and providers, handling deduplication, format conversion, and provider fallback. Third, use a capability routing CLI: tools like QVeris CLI provide unified access to multiple news providers through a single interface, handling multi-provider routing, deduplication, and response normalization behind the scenes. Each approach trades off development time, maintenance burden, and flexibility.</div>
+          </div>
+        </section>
+
+        <aside class="methodology">
+          <h2>About This Comparison</h2>
+          <p><strong>How we evaluated:</strong> We tested each provider's free tier availability, sentiment score format and accessibility, API response structure, and update frequency. Data sourced from each provider's official documentation as of May 2026. Rate limit figures reflect free tier constraints; paid tier limits vary.</p>
+          <p><strong>Update frequency:</strong> Reviewed every 90 days. Financial news API market changes rapidly — providers add/remove free tiers and adjust sentiment models frequently. Current free tier limits: Marketaux 100 req/day, Finnhub 60 calls/min, Alpha Vantage 25 req/day, NewsData.io 200 req/day.</p>
+          <p><strong>Sentiment scoring disclaimer:</strong> Sentiment scores reflect algorithmic analysis of article tone, not financial analysis outputs or market intelligence recommendations. AI agents using these scores should combine them with other signals before triggering any action. The scoring methodologies vary across providers and are not standardized — do not compare sentiment scores across providers directly.</p>
+          <p><strong>Conflict of interest:</strong> QVeris provides capability routing for AI agents and benefits when readers choose our platform for unified news access. However, this comparison includes 6 independent provider options, and we disclose where paid tiers may be more appropriate than our free tooling. The comparison is structured around practical AI agent needs, not QVeris-specific advantages.</p>
+          <p><strong>Author:</strong> Linfang Wang, CEO &amp; Founder, QVeris AI. MS from Tsinghua University. Former engineer at Microsoft (Bing), Opera News, JD.com AI Lab.</p>
+        </aside>
+
+        <section>
+          <h2>Related Guides</h2>
+          <div class="related">
+            <!-- <a href="https://qveris.ai/concepts/what-is-ai-agent-orchestration">What is AI Agent Orchestration? A Practical Guide</a> -->
+            <!-- <a href="https://qveris.ai/concepts/function-calling">Function Calling for AI Agents: A Practical Guide</a> -->
+            <!-- <a href="https://qveris.ai/concepts/mcp-client">MCP Client: What It Is and the 9 Best Options in 2026</a> -->
+            <!-- <a href="https://qveris.ai/concepts/mcp-tools">MCP Tools: How Discovery Works and Token Cost in 2026</a> -->
+            <!-- <a href="https://qveris.ai/mcp-server">MCP Server: What It Is and the 9 Best Options in 2026</a> -->
+            <a href="https://qveris.ai/docs/mcp-server">MCP Integration: Connecting AI Agents to External Tools</a>
+            <!-- <a href="https://qveris.ai/concepts/cryptocurrency-price-api-for-ai-agents">Cryptocurrency Price API: 6 Providers Compared for AI Agents</a> -->
+            <!-- <a href="https://qveris.ai/concepts/real-time-stock-price-api-for-ai-agents">Real-Time Stock Price API: 6 Providers Compared for AI Agents</a> -->
+          </div>
+        </section>
+
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div style="font-size:18px;font-weight:600;color:rgba(255,255,255,0.9);margin-bottom:12px">QVeris AI</div>
+          <p style="font-size:14px;color:rgba(255,255,255,0.35);max-width:300px;margin-bottom:16px;line-height:1.6">AI-Agent native capability routing network. Unified protocol accessing 10,000+ capabilities across search, maps, docs, finance, blockchain, healthcare and more.</p>
+          <a href="https://qveris.ai" class="cta-btn" style="padding:8px 20px;font-size:13px">Get Started →</a>
+        </div>
+        <div>
+          <span class="footer-title">Product</span>
+          <div class="footer-links">
+            <a href="https://qveris.ai/product">Features</a>
+            <a href="https://qveris.ai/pricing">Pricing</a>
+            <a href="https://qveris.ai/integrations">Integrations</a>
+            <a href="https://qveris.ai/enterprise">Enterprise</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-title">Resources</span>
+          <div class="footer-links">
+            <a href="https://qveris.ai/docs">Documentation</a>
+            <a href="https://qveris.ai/docs/api-reference">API Reference</a>
+            <a href="https://qveris.ai/docs/cli">CLI Docs</a>
+            <a href="https://qveris.ai/changelog">Changelog</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-title">Company</span>
+          <div class="footer-links">
+            <a href="https://qveris.ai/about">About</a>
+            <a href="https://qveris.ai/blog">Blog</a>
+            <a href="https://qveris.ai/contact">Contact</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 QVeris AI. All rights reserved.</span>
+        <span>AI-Agent Native • Capability Routing Network • Pay-Per-Call</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

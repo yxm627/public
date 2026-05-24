@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCP Server: 8 Best Options & How They Work (2026) | QVeris</title>
+  <meta name="description" content="An MCP server exposes tools and data to AI agents via Model Context Protocol. Compare 8 popular servers and how meta-servers aggregate 10,000+ capabilities.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Wang Linfang">
+
+  <meta property="og:title" content="MCP Server: 8 Best Options & How They Work (2026) | QVeris">
+  <meta property="og:description" content="An MCP server exposes tools and data to AI agents via Model Context Protocol. Compare 8 popular servers and how meta-servers aggregate 10,000+ capabilities.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://qveris.ai/concepts/mcp-server">
+  <meta property="og:image" content="https://qveris.ai/og/mcp-server.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MCP Server: 8 Best Options & How They Work (2026)">
+  <meta name="twitter:description" content="An MCP server exposes tools and data to AI agents via Model Context Protocol. Compare 8 popular servers and how meta-servers aggregate 10,000+ capabilities.">
+  <meta name="twitter:image" content="https://qveris.ai/og/mcp-server.png">
+  <meta name="theme-color" content="#0A0E1A">
+
+  <link rel="canonical" href="https://qveris.ai/concepts/mcp-server">
+  <link rel="icon" type="image/svg+xml" href="https://qveris.ai/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://qveris.ai/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://qveris.ai/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"QVeris AI","url":"https://qveris.ai","logo":"https://qveris.ai/logo.png","sameAs":["https://twitter.com/qveris_ai","https://github.com/qveris","https://www.linkedin.com/company/qveris"]}
+  </script>
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://qveris.ai/"},{"@type":"ListItem","position":2,"name":"Concepts","item":"https://qveris.ai/concepts"},{"@type":"ListItem","position":3,"name":"MCP Server","item":"https://qveris.ai/concepts/mcp-server"}]}
+  </script>
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"MCP Server: What It Is and the 8 Best Servers to Use in 2026","datePublished":"2026-05-19","dateModified":"2026-05-19","author":{"@type":"Person","name":"Wang Linfang","url":"https://qveris.ai/authors/wang-linfang","jobTitle":"CEO & Founder, QVeris AI","sameAs":["https://www.linkedin.com/in/wanglinfang"]},"publisher":{"@type":"Organization","name":"QVeris AI","logo":{"@type":"ImageObject","url":"https://qveris.ai/logo.png"}},"image":"https://qveris.ai/og/mcp-server.png"}
+  </script>
+
+  <!-- ItemList Schema (8 MCP servers) -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"GitHub MCP","url":"https://github.com/github/github-mcp-server","applicationCategory":"DeveloperApplication"}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"Figma MCP","url":"https://help.figma.com/hc/en-us/articles/32132100833559","applicationCategory":"DeveloperApplication"}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"Linear MCP","url":"https://linear.app/settings/integrations/model-context-protocol","applicationCategory":"DeveloperApplication"}},{"@type":"ListItem","position":4,"item":{"@type":"SoftwareApplication","name":"Sentry MCP","url":"https://github.com/getsentry/sentry-mcp","applicationCategory":"DeveloperApplication"}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"Context7","url":"https://github.com/upstash/context7","applicationCategory":"DeveloperApplication"}},{"@type":"ListItem","position":6,"item":{"@type":"SoftwareApplication","name":"Brave Search","url":"https://github.com/modelcontextprotocol/servers/tree/main/src/brave-search","applicationCategory":"DeveloperApplication"}},{"@type":"ListItem","position":7,"item":{"@type":"SoftwareApplication","name":"Supabase MCP","url":"https://github.com/supabase-community/supabase-mcp","applicationCategory":"DeveloperApplication"}},{"@type":"ListItem","position":8,"item":{"@type":"SoftwareApplication","name":"Notion MCP","url":"https://www.notion.so/my-integrations","applicationCategory":"DeveloperApplication"}}]}
+  </script>
+
+  <!-- DefinedTerm Schema -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"DefinedTerm","name":"MCP Server","description":"An MCP server is a capability provider in the Model Context Protocol that exposes tools, resources, and prompts to connected clients. It implements the MCP specification and communicates via JSON-RPC over stdio or Streamable HTTP.","inDefinedTermSet":{"@type":"DefinedTermSet","name":"Model Context Protocol Concepts"}}
+  </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an MCP server?","acceptedAnswer":{"@type":"Answer","text":"An MCP server is a capability provider in the Model Context Protocol that exposes tools, resources, and prompts to connected clients. Servers implement the MCP specification and communicate with clients via JSON-RPC over stdio or Streamable HTTP. When a client sends a tools/list request, the server returns its available capabilities for the LLM to choose from."}},{"@type":"Question","name":"What is the difference between an MCP server and an MCP client?","acceptedAnswer":{"@type":"Answer","text":"An MCP server is the capability provider — the service that exposes tools and data. An MCP client is the component inside the AI application (the host) that connects to servers and manages communication. Clients like Claude Desktop or Cursor expose one or more MCP clients, each connecting to one or more servers. The server doesn't know which client is using it — it simply responds to requests."}},{"@type":"Question","name":"What are the best MCP servers for AI developers in 2026?","acceptedAnswer":{"@type":"Answer","text":"The best MCP servers for AI developers include GitHub MCP (code repository access), Figma MCP (design file manipulation), Linear MCP (project management), Sentry MCP (error monitoring), Context7 (contextual documentation), Brave Search MCP (web search), Supabase MCP (database access), and Notion MCP (knowledge base integration). Each targets a specific domain and exposes tools relevant to that workflow."}},{"@type":"Question","name":"How does an MCP server expose tools?","acceptedAnswer":{"@type":"Answer","text":"An MCP server implements the MCP specification and exposes capabilities through a tools/list endpoint. When a client connects, it sends a tools/list JSON-RPC request, and the server responds with all available tools — each with a name, description, and inputSchema. The client injects this schema into the LLM's context so it knows which tools it can call. The server then executes tools/call requests and returns results."}},{"@type":"Question","name":"What is a meta-server and how does it differ from single-purpose MCP servers?","acceptedAnswer":{"@type":"Answer","text":"A single-purpose MCP server focuses on one domain — GitHub MCP handles code, Figma MCP handles design files. A meta-server aggregates capabilities from multiple providers into a single connection. Instead of connecting to 10 different servers, your client connects to one meta-server that routes tool calls to the appropriate underlying provider. This reduces connection complexity and enables unified capability routing across thousands of tools."}},{"@type":"Question","name":"How do I deploy an MCP server in production?","acceptedAnswer":{"@type":"Answer","text":"MCP servers can be deployed as local processes (stdio transport for CLI tools), remote services (Streamable HTTP for cloud deployments), or managed platforms. Platforms like Apigene, Prefect, and AWS Bedrock offer managed MCP hosting with monitoring, scaling, and security features. Qveris provides a managed meta-server option — a single connection that aggregates 10,000+ capabilities across search, maps, docs, finance, and more — without the operational overhead of managing multiple servers."}}]}
+  </script>
+
+  <style>
+    .skip-link{position:absolute;left:-9999px;top:0;background:#7C9BFF;color:#0A0E1A;padding:10px 16px;border-radius:0 0 8px 0;font-weight:600;z-index:100}
+    .skip-link:focus{left:0}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;color:rgba(255,255,255,0.82);background:#0A0E1A;font-size:16.5px;line-height:1.75;-webkit-font-smoothing:antialiased}
+    ::selection{background:rgba(124,155,255,0.3)}
+    a{color:#7C9BFF;text-decoration:none}
+    a:hover{color:#B5C6FF}
+    .nav{position:sticky;top:0;z-index:50;background:rgba(10,14,26,0.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.06);padding:14px 0}
+    .nav-inner{max-width:1024px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .nav-logo-mark{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,#7C9BFF,#3D5FE0);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#0A0E1A}
+    .nav-logo span{font-size:16px;font-weight:600;color:rgba(255,255,255,0.97)}
+    .nav-links{display:flex;align-items:center;gap:22px;font-size:14px}
+    .nav-links a{color:rgba(255,255,255,0.55);transition:color 0.15s}
+    .nav-links a:hover{color:rgba(255,255,255,0.9)}
+    .nav-cta{background:linear-gradient(135deg,#B5C6FF,#7C9BFF);color:#0A0E1A;padding:7px 18px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none}
+    .nav-cta:hover{opacity:0.9;color:#0A0E1A}
+    .wrap{max-width:1024px;margin:0 auto;padding:48px 24px}
+    h1{font-size:2.4rem;font-weight:500;line-height:1.15;margin-bottom:16px;color:rgba(255,255,255,0.97);letter-spacing:-0.02em}
+    h2{font-size:1.22rem;font-weight:600;margin:40px 0 16px;color:rgba(255,255,255,0.92);border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:10px}
+    h3{font-size:15px;font-weight:600;margin:24px 0 10px;color:rgba(255,255,255,0.85)}
+    p{margin:0 0 18px;color:rgba(255,255,255,0.62)}
+    strong{color:rgba(255,255,255,0.92)}
+    em{color:rgba(255,255,255,0.72);font-style:italic}
+    ul,ol{margin:12px 0 14px 24px}
+    li{margin:6px 0;color:rgba(255,255,255,0.62)}
+    .meta-desc{font-size:1.05rem;color:rgba(255,255,255,0.5);margin-bottom:28px;line-height:1.55;max-width:680px}
+    .breadcrumb{font-size:13px;color:rgba(255,255,255,0.35);margin-bottom:20px}
+    .breadcrumb a{color:#7C9BFF}
+    .breadcrumb span{margin:0 6px}
+    .badge{display:inline-block;font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;margin-right:8px;margin-bottom:14px}
+    .badge-client{background:rgba(124,155,255,0.18);color:#B5C6FF;border:1px solid rgba(124,155,255,0.25)}
+    .badge-cat{background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.55)}
+    .author-meta{display:flex;align-items:center;gap:14px;padding:16px 0;margin:0 0 24px;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);flex-wrap:wrap}
+    .author-meta img{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7C9BFF,#3D5FE0)}
+    .author-info{flex:1;min-width:200px}
+    .author-info a{font-weight:600;color:rgba(255,255,255,0.92)}
+    .author-bio{font-size:13px;color:rgba(255,255,255,0.45);margin:2px 0 0}
+    .dates{font-size:12px;color:rgba(255,255,255,0.4);display:flex;flex-direction:column;gap:2px;text-align:right}
+    .toc{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;margin:0 0 32px}
+    .toc-label{font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+    .toc ul{margin:0;padding-left:18px;font-size:14.5px}
+    .toc a{color:rgba(255,255,255,0.7)}
+    .toc a:hover{color:#B5C6FF}
+    .tldr{background:rgba(124,155,255,0.05);border-left:3px solid #7C9BFF;border-radius:0 10px 10px 0;padding:16px 20px;margin:0 0 28px}
+    .tldr-label{font-size:12px;font-weight:600;color:#B5C6FF;margin-bottom:8px;text-transform:uppercase;letter-spacing:1.5px}
+    .tldr ul{margin:0;padding-left:18px;font-size:14.5px}
+    .tldr li{color:rgba(255,255,255,0.7);margin:4px 0}
+    .snippet-answer{background:rgba(255,255,255,0.02);border-left:3px solid #B5C6FF;padding:14px 18px;border-radius:0 8px 8px 0;font-size:15.5px;color:rgba(255,255,255,0.85);line-height:1.6}
+    .compare-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+    .compare-table th,.compare-table td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06)}
+    .compare-table thead th{background:rgba(255,255,255,0.03);color:rgba(255,255,255,0.85);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.5px}
+    .compare-table tbody th{background:transparent;color:rgba(255,255,255,0.85);font-weight:500;font-size:14px}
+    .compare-table td{color:rgba(255,255,255,0.65);font-size:13.5px}
+    .compare-table .highlight{color:#B5C6FF;font-weight:600}
+    .viz{margin:40px 0;padding:28px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;overflow-x:auto}
+    .viz svg{width:100%;height:auto;display:block;max-width:100%;margin:0 auto}
+    .viz-caption{margin-top:16px;font-size:13px;color:rgba(255,255,255,0.6);text-align:center;font-style:italic;line-height:1.5;max-width:680px;margin-left:auto;margin-right:auto}
+    @media (max-width:640px){
+      .viz{padding:16px;margin:28px 0;border-radius:8px}
+      .viz svg{min-width:560px}
+      .viz-caption{font-size:12px;margin-top:12px;min-width:auto;padding:0 4px}
+    }
+    .code-block{background:#080b14;border:1px solid rgba(124,155,255,0.15);border-radius:10px;padding:20px;margin:20px 0;overflow-x:auto}
+    .code-block pre{margin:0;padding:0;background:transparent;border:none}
+    .code-block code{background:none;border:none;padding:0;font-size:13px;line-height:1.65;color:#c9d1d9;font-family:'SF Mono','Fira Code','JetBrains Mono',monospace}
+    .code-block .comment{color:#6a737d}
+    .code-block .keyword{color:#ff7b72}
+    .code-block .string{color:#a5d6ff}
+    .code-block .function{color:#d2a8ff}
+    .code-block .variable{color:#ffa657}
+    .code-block .property{color:#79c0ff}
+    .code-block .number{color:#79c0ff}
+    .server-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:18px;margin:14px 0}
+    .server-card h3{margin-top:0}
+    .server-meta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+    .server-tag{display:inline-block;font-size:11px;font-weight:500;padding:3px 10px;border-radius:12px;background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.08)}
+    .server-tag.popular{background:rgba(124,155,255,0.1);color:#B5C6FF;border-color:rgba(124,155,255,0.2)}
+    .cta-box{background:linear-gradient(135deg,rgba(124,155,255,0.1),rgba(61,95,224,0.08));border:1px solid rgba(124,155,255,0.2);text-align:center;padding:36px;border-radius:14px;margin:44px 0}
+    .cta-box h3{color:rgba(255,255,255,0.95);margin:0 0 8px;font-size:20px;font-weight:600}
+    .cta-box p{color:rgba(255,255,255,0.55);margin:0 0 20px}
+    .cta-btn{display:inline-block;background:linear-gradient(135deg,#B5C6FF,#7C9BFF);color:#0A0E1A;padding:12px 32px;border-radius:24px;font-weight:600;font-size:15px;text-decoration:none}
+    .cta-btn:hover{opacity:0.9;color:#0A0E1A}
+    .faq-item{border-bottom:1px solid rgba(255,255,255,0.06);padding:18px 0}
+    .faq-q{font-weight:600;font-size:16px;color:rgba(255,255,255,0.9)}
+    .faq-a{margin-top:8px;color:rgba(255,255,255,0.55);font-size:14.5px;line-height:1.65}
+    .methodology{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:20px 24px;margin:32px 0;font-size:14px;color:rgba(255,255,255,0.55)}
+    .methodology h2{font-size:14px;border:none;padding:0;margin:0 0 12px;color:rgba(255,255,255,0.85);text-transform:uppercase;letter-spacing:1px}
+    .methodology p{margin:6px 0;font-size:13.5px}
+    .related{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+    .related a{display:block;padding:14px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;text-decoration:none;color:#B5C6FF;font-size:14px;font-weight:500;transition:all 0.2s;line-height:1.45}
+    .related a:hover{background:rgba(124,155,255,0.05);border-color:rgba(124,155,255,0.25)}
+    .note-box{background:rgba(124,155,255,0.04);border:1px solid rgba(124,155,255,0.15);border-radius:8px;padding:14px 18px;margin:16px 0;font-size:14px;color:rgba(255,255,255,0.65)}
+    .note-box strong{color:#B5C6FF}
+    .comparison-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:20px;margin:20px 0}
+    .comparison-box h3{margin-top:0}
+    .footer{background:#060912;border-top:1px solid rgba(255,255,255,0.04);padding:48px 24px}
+    .footer-inner{max-width:1024px;margin:0 auto}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:32px}
+    .footer .footer-title{display:block;font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+    .footer-links{display:flex;flex-direction:column;gap:10px;font-size:14px}
+    .footer-links a{color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.15s}
+    .footer-links a:hover{color:rgba(255,255,255,0.75)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.04);padding-top:24px;display:flex;justify-content:space-between;font-size:13px;color:rgba(255,255,255,0.28)}
+    @media(max-width:720px){.related{grid-template-columns:1fr};h1{font-size:1.75rem}.footer-grid{grid-template-columns:1fr 1fr};.nav-links a:not(.nav-cta){display:none};.author-meta{flex-direction:column;align-items:flex-start};.dates{text-align:left};.code-block{padding:12px};.compare-table{font-size:13px}}
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="https://qveris.ai" class="nav-logo">
+        <span class="nav-logo-mark">Q</span>
+        <span>QVeris</span>
+      </a>
+      <div class="nav-links">
+        <a href="https://qveris.ai">Product</a>
+        <a href="https://qveris.ai/pricing">Pricing</a>
+        <a href="https://qveris.ai/docs">Docs</a>
+        <a href="https://qveris.ai" class="nav-cta">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <article>
+      <div class="wrap">
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a><span>›</span><a href="/concepts">Concepts</a><span>›</span>MCP Server
+        </nav>
+
+        <header>
+          <div><span class="badge badge-client">QVeris</span><span class="badge badge-cat">Guide</span></div>
+          <h1>MCP Server: What It Is and the 8 Best Servers to Use in 2026</h1>
+          <p class="meta-desc">A practical guide comparing the 8 best MCP servers for AI developers, plus how meta-servers like Qveris aggregate 10,000+ capabilities across multiple providers.</p>
+
+          <div class="author-meta">
+            <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%237C9BFF'/%3E%3Cstop offset='100%25' stop-color='%233D5FE0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='44' height='44' rx='22' fill='url(%23g)'/%3E%3Ctext x='22' y='28' font-family='Inter,sans-serif' font-size='18' font-weight='600' fill='%230A0E1A' text-anchor='middle'%3ELW%3C/text%3E%3C/svg%3E" alt="Linfang Wang, Founder &amp; CEO of QVeris AI" width="44" height="44" loading="lazy" decoding="async">
+            <div class="author-info">
+              <a href="https://qveris.ai/authors/wang-linfang" rel="author">Linfang Wang</a> · CEO &amp; Founder
+              <a href="https://www.linkedin.com/in/wanglinfang" rel="noopener" target="_blank" style="margin-left:8px;font-size:12px;color:#7C9BFF;">LinkedIn</a>
+              <p class="author-bio">MS from Tsinghua University. Former engineer at Microsoft (Bing), Opera News, JD.com AI Lab. 2023: CTO at Liblib AI. 2025: Founded QVeris AI to build action infrastructure for AI Agents.</p>
+            </div>
+            <div class="dates">
+              <span>Published: May 19, 2026</span><br>
+              <span>Last Updated: May 19, 2026</span>
+            </div>
+          </div>
+        </header>
+
+        <nav class="toc" aria-label="Table of Contents">
+          <div class="toc-label">Contents</div>
+          <ul>
+            <li><a href="#what-is">What Is an MCP Server?</a></li>
+            <li><a href="#architecture">MCP Server vs MCP Client: The Architecture</a></li>
+            <li><a href="#servers">The 8 Best MCP Servers in 2026</a></li>
+            <li><a href="#examples">MCP Server Examples: How They Work in Practice</a></li>
+            <li><a href="#meta">Single-Purpose vs Meta-Server: A Different Category</a></li>
+            <li><a href="#deployment">Deployment Options for MCP Servers</a></li>
+          </ul>
+        </nav>
+
+        <section class="tldr">
+          <div class="tldr-label">TL;DR</div>
+          <ul>
+            <li><strong>Problem:</strong> AI agents need tools and data, but integrating each data source (GitHub, Figma, Notion) requires a separate MCP server connection. With 13,000+ MCP servers on GitHub alone, connection management becomes complex.</li>
+            <li><strong>Solution:</strong> MCP servers expose tools via a standardized protocol — single-purpose servers focus on one domain, while meta-servers aggregate thousands of capabilities into one connection.</li>
+            <li><strong>Result:</strong> Whether you connect to GitHub MCP, Figma MCP, or a meta-server like Qveris, the MCP protocol ensures interoperability. Qveris provides one connection to 10,000+ capabilities across search, maps, docs, finance, and more.</li>
+          </ul>
+        </section>
+
+        <section id="what-is">
+          <h2>What Is an MCP Server?</h2>
+          <p class="snippet-answer"><strong>An MCP server is a capability provider in the Model Context Protocol that exposes tools, resources, and prompts to connected clients. Servers implement the MCP specification and communicate with clients via JSON-RPC over stdio or Streamable HTTP. When a client sends a tools/list request, the server returns its available capabilities for the LLM to choose from.</strong></p>
+
+          <p>An MCP server is the capability provider in the Model Context Protocol. While MCP clients (inside AI applications like Claude Desktop or Cursor) initiate connections, servers respond to those connections by exposing the tools, resources, and prompts available to connected clients.</p>
+
+          <p>The MCP specification, introduced by Anthropic in November 2024 and now stewarded by the Linux Foundation, defines how servers communicate with clients. <a href="https://modelcontextprotocol.io" rel="noopener nofollow" target="_blank">The MCP specification</a> mandates that servers implement four core capabilities:</p>
+
+          <ul>
+            <li><strong>tools/list</strong> — returns available tools with name, description, and inputSchema</li>
+            <li><strong>tools/call</strong> — executes a named tool with provided arguments</li>
+            <li><strong>resources/list</strong> — returns available resources (read-only data)</li>
+            <li><strong>prompts/list</strong> — returns available prompt templates</li>
+          </ul>
+
+          <p>The MCP SDK has recorded 97 million monthly downloads as of early 2026 (Source: Lushbinary MCP ecosystem report, March 2026), reflecting the rapid adoption of MCP servers across the AI developer ecosystem. With 13,000+ MCP servers available on GitHub, servers span every domain from code repositories to design files to database access.</p>
+
+          <p>When a client connects to an MCP server, it first sends a tools/list request. The server responds with all available tools — each tool includes a natural language description that the LLM uses to decide when to invoke it. This discovery mechanism is what makes MCP servers interoperable: any client can connect to any server and discover its capabilities without custom integration code.</p>
+
+          <p>Production MCP servers differ from development examples in one critical way: security. <text>Toolradar's scan of 2,181 MCP endpoints</text> (April 2026) found that 52% of remote MCP servers become unresponsive within 30 days, and 66% of scanned servers had at least one security vulnerability. Enterprise deployments require monitoring, authentication, and connection health checks that basic server implementations omit.</p>
+        </section>
+
+        <section id="architecture">
+          <h2>MCP Server vs MCP Client: The Architecture</h2>
+          <p>The MCP architecture separates concerns clearly: servers provide capabilities, clients consume them, and hosts run one or more clients. Understanding this separation helps you design better AI systems and debug connection issues.</p>
+
+          <figure class="viz">
+            <svg preserveAspectRatio="xMidYMid meet" viewBox="0 0 800 280" role="img" aria-labelledby="mcp-server-architecture-title mcp-server-architecture-desc">
+              <title id="mcp-server-architecture-title">MCP Server vs Client Architecture: Host Contains Clients, Servers Provide Capabilities</title>
+              <desc id="mcp-server-architecture-desc">Architecture diagram showing MCP host (AI application) containing one or more MCP clients, each connecting to one or more MCP servers. Arrows show bidirectional JSON-RPC communication over stdio or HTTP transport.</desc>
+              <rect width="800" height="280" fill="#0f1420" rx="12"/>
+
+              <!-- Host layer -->
+              <rect x="30" y="30" width="360" height="90" rx="10" fill="#12192a" stroke="#7C9BFF" stroke-width="1.5"/>
+              <text x="210" y="50" text-anchor="middle" fill="#B5C6FF" font-size="12" font-weight="600">MCP HOST (AI Application)</text>
+              <rect x="50" y="70" width="140" height="35" rx="6" fill="#0f1625" stroke="#4a5a9a" stroke-width="1"/>
+              <text x="120" y="92" text-anchor="middle" fill="#8a9ab0" font-size="11">Client A</text>
+              <rect x="230" y="70" width="140" height="35" rx="6" fill="#0f1625" stroke="#4a5a9a" stroke-width="1"/>
+              <text x="300" y="92" text-anchor="middle" fill="#8a9ab0" font-size="11">Client B</text>
+
+              <!-- Transport layer -->
+              <rect x="30" y="140" width="360" height="40" rx="8" fill="#0a0f1a" stroke="#2d3548" stroke-width="1"/>
+              <text x="210" y="163" text-anchor="middle" fill="#6b7280" font-size="10">Transport: stdio / Streamable HTTP</text>
+
+              <!-- Server layer -->
+              <rect x="410" y="30" width="360" height="150" rx="10" fill="#0f1420" stroke="#3D5FE0" stroke-width="1.5"/>
+              <text x="590" y="50" text-anchor="middle" fill="#3D5FE0" font-size="12" font-weight="600">MCP SERVERS (Capability Providers)</text>
+
+              <rect x="430" y="70" width="100" height="50" rx="6" fill="#141b2d" stroke="#3D5FE0" stroke-width="1"/>
+              <text x="480" y="98" text-anchor="middle" fill="#8a9ab0" font-size="10">GitHub MCP</text>
+              <rect x="540" y="70" width="100" height="50" rx="6" fill="#141b2d" stroke="#3D5FE0" stroke-width="1"/>
+              <text x="590" y="98" text-anchor="middle" fill="#8a9ab0" font-size="10">Figma MCP</text>
+              <rect x="650" y="70" width="100" height="50" rx="6" fill="#141b2d" stroke="#3D5FE0" stroke-width="1"/>
+              <text x="700" y="98" text-anchor="middle" fill="#8a9ab0" font-size="10">Linear MCP</text>
+
+              <rect x="430" y="130" width="100" height="35" rx="6" fill="#141b2d" stroke="#3D5FE0" stroke-width="1"/>
+              <text x="480" y="152" text-anchor="middle" fill="#8a9ab0" font-size="10">Sentry MCP</text>
+              <rect x="540" y="130" width="100" height="35" rx="6" fill="#141b2d" stroke="#3D5FE0" stroke-width="1"/>
+              <text x="590" y="152" text-anchor="middle" fill="#8a9ab0" font-size="10">Context7</text>
+              <rect x="650" y="130" width="100" height="35" rx="6" fill="#141b2d" stroke="#3D5FE0" stroke-width="1"/>
+              <text x="700" y="152" text-anchor="middle" fill="#8a9ab0" font-size="10">Notion MCP</text>
+
+              <!-- Connection arrows -->
+              <line x1="190" y1="87" x2="430" y2="87" stroke="#7C9BFF" stroke-width="1.5"/>
+              <line x1="370" y1="87" x2="540" y2="87" stroke="#7C9BFF" stroke-width="1.5"/>
+              <line x1="190" y1="160" x2="430" y2="160" stroke="#B5C6FF" stroke-width="1" stroke-dasharray="3"/>
+              <line x1="370" y1="160" x2="540" y2="160" stroke="#B5C6FF" stroke-width="1" stroke-dasharray="3"/>
+
+              <!-- Labels -->
+              <text x="310" y="82" fill="#7C9BFF" font-size="9">JSON-RPC</text>
+              <text x="310" y="170" fill="#6b7280" font-size="9">Request/Response</text>
+            </svg>
+            <figcaption class="viz-caption">Figure: MCP server-client architecture — a host application runs clients that connect to multiple servers</figcaption>
+          </figure>
+
+          <p>Key distinction from the client perspective: clients don't know which other clients are connected to the same server, and servers don't track which clients are using them. A client sends a tools/list request and receives a list of available tools. The server simply responds to requests — it doesn't track state about which client made which request.</p>
+
+          <p>This stateless design is intentional. MCP servers are designed to be lightweight and composable — you can connect multiple clients to the same server, or a single client to multiple servers, without modifying the server's implementation. The MCP specification handles the protocol negotiation, so servers remain simple capability providers regardless of how many clients connect.</p>
+
+          <p>For developers building AI systems, this means: your choice of MCP server is independent of your choice of MCP client. Claude Desktop, Cursor, Cline, and any other MCP-compatible application can all connect to the same servers. The MCP protocol enables this interoperability by standardizing the communication interface.</p>
+        </section>
+
+        <section id="servers">
+          <h2>The 8 Best MCP Servers in 2026</h2>
+          <p>These eight MCP servers represent the strongest options for AI developers in 2026, spanning code repositories, design tools, project management, error monitoring, documentation, search, databases, and knowledge bases. Each exposes tools relevant to its domain.</p>
+
+          <table class="compare-table">
+            <caption>Comparison of 8 best MCP servers for AI developers</caption>
+            <thead>
+              <tr><th scope="col">Server</th><th scope="col">Domain</th><th scope="col">Tools Exposes</th><th scope="col">Best For</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row"><a href="https://github.com/github/github-mcp-server" rel="noopener" target="_blank">GitHub MCP</a></th><td>Code Repository</td><td>Issues, PRs, code search, file ops</td><td>Developer workflow automation</td></tr>
+              <tr><th scope="row"><a href="https://help.figma.com/hc/en-us/articles/32132100833559" rel="noopener" target="_blank">Figma MCP</a></th><td>Design</td><td>File access, component retrieval, comment ops</td><td>Design-to-code workflows</td></tr>
+              <tr><th scope="row"><a href="https://linear.app/settings/integrations/model-context-protocol" rel="noopener" target="_blank">Linear MCP</a></th><td>Project Management</td><td>Issues, projects, cycles, comments</td><td>Engineering team automation</td></tr>
+              <tr><th scope="row"><a href="https://github.com/getsentry/sentry-mcp" rel="noopener" target="_blank">Sentry MCP</a></th><td>Error Monitoring</td><td>Error lookup, issue creation, stack trace</td><td>Debugging AI-generated code</td></tr>
+              <tr><th scope="row"><a href="https://github.com/upstash/context7" rel="noopener" target="_blank">Context7</a></th><td>Documentation</td><td>Context retrieval, code examples, API docs</td><td>RAG and code assistance</td></tr>
+              <tr><th scope="row"><a href="https://github.com/modelcontextprotocol/servers/tree/main/src/brave-search" rel="noopener" target="_blank">Brave Search MCP</a></th><td>Web Search</td><td>Web search, local search, image search</td><td>Real-time information retrieval</td></tr>
+              <tr><th scope="row"><a href="https://github.com/supabase-community/supabase-mcp" rel="noopener" target="_blank">Supabase MCP</a></th><td>Database</td><td>Query execution, schema inspection, auth</td><td>Data access for AI agents</td></tr>
+              <tr><th scope="row"><a href="https://www.notion.so/my-integrations" rel="noopener" target="_blank">Notion MCP</a></th><td>Knowledge Base</td><td>Page read/write, search, comment ops</td><td>Internal knowledge management</td></tr>
+            </tbody>
+          </table>
+
+          <h3>1. GitHub MCP</h3>
+          <div class="server-card">
+            <div class="server-meta">
+              <span class="server-tag">Domain: Code Repository</span>
+              <span class="server-tag popular">Most Popular</span>
+              <span class="server-tag">Interface: stdio / HTTP</span>
+            </div>
+            <p>GitHub MCP exposes tools for interacting with GitHub repositories — creating and managing issues, pull requests, code search, and file operations. Built by GitHub's official team at <a href="https://github.com/github/github-mcp-server" rel="noopener" target="_blank">github.com/github/github-mcp-server</a>, it's the standard for AI-powered developer workflow automation. The server integrates with GitHub's API to provide natural language interfaces for repository management. MCP servers expose tool calling interfaces that any MCP-compatible client can invoke through standardized JSON-RPC requests.</p>
+            <p>Best for: teams building AI coding assistants that need to interact with code repositories, automate issue triage, or generate PR descriptions. The GitHub MCP reduces the friction between AI reasoning and repository operations.</p>
+          </div>
+
+          <h3>2. Figma MCP</h3>
+          <div class="server-card">
+            <div class="server-meta">
+              <span class="server-tag">Domain: Design</span>
+              <span class="server-tag">Interface: Plugin-based</span>
+            </div>
+            <p>Figma MCP exposes tools for interacting with Figma design files — retrieving components, accessing design tokens, reading comments, and navigating file structures. This enables AI assistants to understand design context and generate code that matches design specifications.</p>
+            <p>Best for: design-to-code pipelines where AI needs to understand visual designs and convert them into implementation. Also useful for accessibility audits — AI can read design files and flag accessibility issues.</p>
+          </div>
+
+          <h3>3. Linear MCP</h3>
+          <div class="server-card">
+            <div class="server-meta">
+              <span class="server-tag">Domain: Project Management</span>
+              <span class="server-tag">Interface: stdio / HTTP</span>
+            </div>
+            <p>Linear MCP exposes tools for managing Linear workspaces — creating and updating issues, managing projects and cycles, and interacting with comments. Linear's API-first approach makes it a natural fit for AI workflow automation.</p>
+            <p>Best for: engineering teams building AI assistants that handle sprint planning, issue triage, or status updates. The Linear MCP connects AI reasoning to operational project management.</p>
+          </div>
+
+          <h3>4. Sentry MCP</h3>
+          <div class="server-card">
+            <div class="server-meta">
+              <span class="server-tag">Domain: Error Monitoring</span>
+              <span class="server-tag">Interface: stdio</span>
+            </div>
+            <p>Sentry MCP exposes tools for interacting with Sentry's error tracking — looking up errors by fingerprint, creating issues, and retrieving stack traces. This is particularly valuable for AI coding assistants that generate code and need to debug their own output.</p>
+            <p>Best for: AI systems that write code and need to self-correct based on runtime errors. When an AI generates code that triggers a Sentry error, it can look up the details, understand the stack trace, and fix the issue without human intervention.</p>
+          </div>
+
+          <h3>5. Context7</h3>
+          <div class="server-card">
+            <div class="server-meta">
+              <span class="server-tag">Domain: Documentation</span>
+              <span class="server-tag popular">Developer Favorite</span>
+              <span class="server-tag">Interface: stdio</span>
+            </div>
+            <p>Context7 MCP exposes tools for retrieving contextual documentation from project repositories. It indexes code, README files, and API documentation, then provides tools for semantic search and context retrieval. This is the foundation for AI code assistants that need accurate project-specific context.</p>
+            <p>Best for: AI coding assistants that need to understand a codebase before generating suggestions. Context7 provides the "knowledge" layer that makes AI code generation project-aware rather than generic.</p>
+          </div>
+
+          <h3>6. Brave Search MCP</h3>
+          <div class="server-card">
+            <div class="server-meta">
+              <span class="server-tag">Domain: Web Search</span>
+              <span class="server-tag">Interface: stdio</span>
+            </div>
+            <p>Brave Search MCP exposes tools for web and local search — retrieving current information from the web, searching for images, and running local Brave Search queries. Unlike API-based search that requires paid subscriptions, Brave Search provides a privacy-respecting alternative with generous free tiers.</p>
+            <p>Best for: AI systems that need real-time information but want to avoid the cost and privacy implications of Google or Bing APIs. Brave Search MCP is popular for AI research assistants and fact-checking workflows.</p>
+          </div>
+
+          <h3>7. Supabase MCP</h3>
+          <div class="server-card">
+            <div class="server-meta">
+              <span class="server-tag">Domain: Database</span>
+              <span class="server-tag">Interface: stdio</span>
+            </div>
+            <p>Supabase MCP exposes tools for interacting with Supabase projects — running SQL queries, inspecting schemas, and managing auth. This enables AI assistants to query databases directly, generate SQL from natural language, and build data-driven applications.</p>
+            <p>Best for: AI systems that need to interact with data — generating reports from database queries, building dashboards, or automating data workflows. The Supabase MCP bridges AI reasoning and relational data.</p>
+          </div>
+
+          <h3>8. Notion MCP</h3>
+          <div class="server-card">
+            <div class="server-meta">
+              <span class="server-tag">Domain: Knowledge Base</span>
+              <span class="server-tag">Interface: API-based</span>
+            </div>
+            <p>Notion MCP exposes tools for interacting with Notion workspaces — reading and writing pages, searching content, and managing comments. This enables AI assistants to access internal knowledge bases and keep documentation updated based on AI-generated insights.</p>
+            <p>Best for: teams that use Notion as their primary knowledge management system. AI can read existing documentation, update pages based on new findings, and surface relevant knowledge in response to queries.</p>
+          </div>
+        </section>
+
+        <section id="examples">
+          <h2>MCP Server Examples: How They Work in Practice</h2>
+          <p>Understanding how an MCP server works under the hood helps you evaluate servers, debug connection issues, and build custom servers when needed. Here's a minimal FastMCP server implementation and the JSON-RPC flow that powers tool discovery.</p>
+
+          <h3>Building a Minimal MCP Server with FastMCP</h3>
+          <div class="code-block">
+            <pre><code><span class="comment"># Minimal MCP server with FastMCP</span>
+<span class="comment"># Source: MCP SDK documentation, modelcontextprotocol.io</span>
+
+<span class="keyword">from</span> fastmcp <span class="keyword">import</span> FastMCP
+
+mcp = FastMCP(<span class="string">"my-server"</span>)
+
+<span class="decorator">@mcp.tool</span>()
+<span class="keyword">def</span> <span class="function">search_docs</span>(query: str) -> str:
+    <span class="string">"""Search documentation for a query string."""</span>
+    <span class="keyword">return</span> f<span class="string">"Results for: </span>{query}<span class="string">"</span>
+
+<span class="decorator">@mcp.tool</span>()
+<span class="keyword">def</span> <span class="function">get_doc_content</span>(doc_id: str) -> str:
+    <span class="string">"""Retrieve the full content of a document by ID."""</span>
+    <span class="comment"># Implementation would fetch from your doc store</span>
+    <span class="keyword">return</span> f<span class="string">"Content of </span>{doc_id}<span class="string">"</span>
+
+<span class="comment"># Run with: fastmcp run my_server.py</span>
+<span class="comment"># Or connect via: fastmcp dev my_server.py (for development)</span></code></pre>
+          </div>
+
+          <p>The FastMCP decorator-based approach keeps server code minimal. Each decorated function automatically becomes a tool with its name derived from the function name, its description from the docstring, and its input schema from type annotations. The MCP SDK handles the protocol layer — you focus on the business logic.</p>
+
+          <h3>JSON-RPC Request/Response Flow</h3>
+          <p>When a client connects to a server, the discovery and invocation flow uses JSON-RPC over stdio or Streamable HTTP. Here's what that looks like:</p>
+
+          <div class="code-block">
+            <pre><code><span class="comment">// Client sends tools/list request (client → server via stdio/HTTP)</span>
+{<span class="property">"jsonrpc"</span>: <span class="string">"2.0"</span>, <span class="property">"id"</span>: <span class="number">1</span>, <span class="property">"method"</span>: <span class="string">"tools/list"</span>, <span class="property">"params"</span>: {}}
+
+<span class="comment">// Server responds with available tools (server → client)</span>
+{<span class="property">"jsonrpc"</span>: <span class="string">"2.0"</span>, <span class="property">"id"</span>: <span class="number">1</span>, <span class="property">"result"</span>: {
+  <span class="property">"tools"</span>: [
+    {<span class="property">"name"</span>: <span class="string">"search_docs"</span>, <span class="property">"description"</span>: <span class="string">"Search documentation for a query string."</span>, <span class="property">"inputSchema"</span>: {<span class="property">"type"</span>: <span class="string">"object"</span>, <span class="property">"properties"</span>: {<span class="property">"query"</span>: {<span class="property">"type"</span>: <span class="string">"string"</span>}}}},
+    {<span class="property">"name"</span>: <span class="string">"get_doc_content"</span>, <span class="property">"description"</span>: <span class="string">"Retrieve the full content of a document by ID."</span>, <span class="property">"inputSchema"</span>: {<span class="property">"type"</span>: <span class="string">"object"</span>, <span class="property">"properties"</span>: {<span class="property">"doc_id"</span>: {<span class="property">"type"</span>: <span class="string">"string"</span>}}}}
+  ]
+}}
+
+<span class="comment">// Client invokes a tool (client → server)</span>
+{<span class="property">"jsonrpc"</span>: <span class="string">"2.0"</span>, <span class="property">"id"</span>: <span class="number">2</span>, <span class="property">"method"</span>: <span class="string">"tools/call"</span>, <span class="property">"params"</span>: {
+  <span class="property">"name"</span>: <span class="string">"search_docs"</span>, <span class="property">"arguments"</span>: {<span class="property">"query"</span>: <span class="string">"authentication best practices"</span>}
+}}
+
+<span class="comment">// Server returns tool result (server → client)</span>
+{<span class="property">"jsonrpc"</span>: <span class="string">"2.0"</span>, <span class="property">"id"</span>: <span class="number">2</span>, <span class="property">"result"</span>: {
+  <span class="property">"content"</span>: [{<span class="property">"type"</span>: <span class="string">"text"</span>, <span class="property">"text"</span>: <span class="string">"Results for: authentication best practices"</span>}]
+}}</code></pre>
+          </div>
+
+          <p>The JSON-RPC format is simple by design. Every request includes a <code>jsonrpc</code> version, an <code>id</code> for correlation, a <code>method</code> name, and <code>params</code>. Responses include the same <code>id</code> and a <code>result</code> or <code>error</code>. This simplicity is what makes MCP servers easy to implement and debug. MCP servers expose tool calling interfaces that any MCP-compatible client can invoke through standardized JSON-RPC requests, enabling seamless interoperability across different AI applications and tools.</p>
+        </section>
+
+        <section id="meta">
+          <h2>Single-Purpose vs Meta-Server: A Different Category</h2>
+
+          <div class="note-box">
+            <strong>Important distinction:</strong> This page covers single-purpose MCP servers — tools focused on one domain like GitHub, Figma, or Linear. Qveris operates as a meta-server, which is a different category entirely. This isn't a comparison; it's two distinct architectural approaches for different use cases.
+          </div>
+
+          <p>The eight servers above are single-purpose MCP servers — each focuses on one domain and exposes tools specific to that domain. GitHub MCP knows about repositories and pull requests; Figma MCP knows about designs and components. They excel at their domain but require separate connections for each domain you want to access.</p>
+
+          <figure class="viz">
+            <svg preserveAspectRatio="xMidYMid meet" viewBox="0 0 800 260" role="img" aria-labelledby="meta-server-comparison-title meta-server-comparison-desc">
+              <title id="meta-server-comparison-title">Single-Purpose MCP Servers vs Meta-Server Architecture Comparison</title>
+              <desc id="meta-server-comparison-desc">Side-by-side comparison showing: Left - multiple single-purpose MCP servers (GitHub MCP, Figma MCP, Linear MCP, etc.) each requiring separate client connections; Right - one meta-server (Qveris) aggregating 10,000+ capabilities from multiple providers into a single connection.</desc>
+              <rect width="800" height="260" fill="#0f1420" rx="12"/>
+
+              <!-- Left side: Multiple single-purpose servers -->
+              <text x="170" y="25" text-anchor="middle" fill="#c8d0e8" font-size="12" font-weight="600">Single-Purpose Servers</text>
+
+              <rect x="30" y="45" width="280" height="70" rx="8" fill="#12192a" stroke="#2d3548" stroke-width="1"/>
+              <text x="170" y="60" text-anchor="middle" fill="#6b7280" font-size="10">Client Connection Required</text>
+
+              <rect x="50" y="80" width="80" height="25" rx="4" fill="#1a2035" stroke="#7C9BFF" stroke-width="1"/>
+              <text x="90" y="97" text-anchor="middle" fill="#8a9ab0" font-size="9">GitHub</text>
+              <rect x="150" y="80" width="80" height="25" rx="4" fill="#1a2035" stroke="#7C9BFF" stroke-width="1"/>
+              <text x="190" y="97" text-anchor="middle" fill="#8a9ab0" font-size="9">Figma</text>
+              <rect x="250" y="80" width="80" height="25" rx="4" fill="#1a2035" stroke="#7C9BFF" stroke-width="1"/>
+              <text x="290" y="97" text-anchor="middle" fill="#8a9ab0" font-size="9">Linear</text>
+              <rect x="100" y="115" width="80" height="25" rx="4" fill="#1a2035" stroke="#7C9BFF" stroke-width="1"/>
+              <text x="140" y="132" text-anchor="middle" fill="#8a9ab0" font-size="9">Sentry</text>
+              <rect x="200" y="115" width="80" height="25" rx="4" fill="#1a2035" stroke="#7C9BFF" stroke-width="1"/>
+              <text x="240" y="132" text-anchor="middle" fill="#8a9ab0" font-size="9">Notion</text>
+
+              <text x="170" y="175" text-anchor="middle" fill="#6b7280" font-size="10">N connections for N capabilities</text>
+
+              <!-- Right side: Meta-server -->
+              <text x="600" y="25" text-anchor="middle" fill="#B5C6FF" font-size="12" font-weight="600">Meta-Server (Qveris)</text>
+
+              <rect x="440" y="45" width="320" height="130" rx="8" fill="#0f1625" stroke="#3D5FE0" stroke-width="1.5"/>
+              <text x="600" y="60" text-anchor="middle" fill="#3D5FE0" font-size="11" font-weight="600">Qveris MCP Server</text>
+              <text x="600" y="80" text-anchor="middle" fill="#8a9ab0" font-size="10">10,000+ Capabilities Aggregated</text>
+
+              <!-- Capability boxes inside meta-server -->
+              <rect x="460" y="95" width="70" height="22" rx="4" fill="#141b2d" stroke="#3D5FE0" stroke-width="0.5"/>
+              <text x="495" y="110" text-anchor="middle" fill="#6b7280" font-size="8">Search</text>
+              <rect x="540" y="95" width="70" height="22" rx="4" fill="#141b2d" stroke="#3D5FE0" stroke-width="0.5"/>
+              <text x="575" y="110" text-anchor="middle" fill="#6b7280" font-size="8">Maps</text>
+              <rect x="620" y="95" width="70" height="22" rx="4" fill="#141b2d" stroke="#3D5FE0" stroke-width="0.5"/>
+              <text x="655" y="110" text-anchor="middle" fill="#6b7280" font-size="8">Weather</text>
+              <rect x="700" y="95" width="50" height="22" rx="4" fill="#141b2d" stroke="#3D5FE0" stroke-width="0.5"/>
+              <text x="725" y="110" text-anchor="middle" fill="#6b7280" font-size="8">...</text>
+
+              <rect x="460" y="125" width="70" height="22" rx="4" fill="#141b2d" stroke="#3D5FE0" stroke-width="0.5"/>
+              <text x="495" y="140" text-anchor="middle" fill="#6b7280" font-size="8">Finance</text>
+              <rect x="540" y="125" width="70" height="22" rx="4" fill="#141b2d" stroke="#3D5FE0" stroke-width="0.5"/>
+              <text x="575" y="140" text-anchor="middle" fill="#6b7280" font-size="8">Blockchain</text>
+              <rect x="620" y="125" width="70" height="22" rx="4" fill="#141b2d" stroke="#3D5FE0" stroke-width="0.5"/>
+              <text x="655" y="140" text-anchor="middle" fill="#6b7280" font-size="8">Docs</text>
+              <rect x="700" y="125" width="50" height="22" rx="4" fill="#141b2d" stroke="#3D5FE0" stroke-width="0.5"/>
+              <text x="725" y="140" text-anchor="middle" fill="#6b7280" font-size="8">...</text>
+
+              <rect x="480" y="155" width="100" height="18" rx="4" fill="#141b2d" stroke="#3D5FE0" stroke-width="0.5"/>
+              <text x="530" y="167" text-anchor="middle" fill="#4a5568" font-size="8">+ more categories</text>
+
+              <text x="600" y="200" text-anchor="middle" fill="#3D5FE0" font-size="10">1 connection for 10,000+ capabilities</text>
+
+              <!-- Single connection arrow -->
+              <line x1="330" y1="90" x2="440" y2="90" stroke="#B5C6FF" stroke-width="2" marker-end="url(#arrow)"/>
+              <text x="385" y="85" text-anchor="middle" fill="#B5C6FF" font-size="9">1 connection</text>
+            </svg>
+            <figcaption class="viz-caption">Figure: Single-purpose servers require separate connections per domain; meta-servers aggregate capabilities into one</figcaption>
+          </figure>
+
+          <p>A meta-server takes a different architectural approach: instead of focusing on one domain, it aggregates capabilities from multiple providers into a single connection. Qveris operates as a meta-server — one connection gives your AI assistant access to tools across search, maps, weather, documents, financial data, blockchain, healthcare, and more. This capability routing architecture handles the complexity of routing each tool call to the correct provider, so your AI application doesn't need to manage multiple server connections or authentication flows.</p>
+
+          <p>The practical difference: if you want to connect to 10 different single-purpose servers, your AI application needs to manage 10 connections, handle 10 authentication flows, and maintain 10 separate server configurations. With a meta-server, one connection covers all domains.</p>
+
+          <p>Neither approach is universally better. Single-purpose servers are ideal when you need deep, domain-specific integrations with fine-grained control. Meta-servers are ideal when you want broad capability access with minimal connection management overhead. The meta-server approach excels at capability routing — intelligently directing tool calls to the appropriate underlying provider based on the user's request. Instead of your AI application needing to know which of 10 different servers handles search versus maps versus finance, the meta-server handles that routing internally. This unified capability routing reduces integration complexity while maintaining access to thousands of distinct capabilities.</p>
+
+          <p>Qveris is designed as a meta-server because it addresses the capability routing problem: routing tool calls to the right provider based on the task. The system automatically determines whether a user query should be routed to a search provider, a maps service, a financial data source, or any other capability — without requiring your AI application to manage those connections directly. This is a different problem than what single-purpose servers solve, and it requires a different architectural approach. <a href="https://qveris.ai/docs/cli" rel="noopener" target="_blank">Read the Qveris installation guide →</a></p>
+        </section>
+
+        <section id="deployment">
+          <h2>Deployment Options for MCP Servers</h2>
+          <p>MCP servers can be deployed in several ways depending on your requirements for security, scalability, and operational overhead. The three main patterns are local process, remote service, and managed platform.</p>
+
+          <table class="compare-table">
+            <caption>MCP server deployment options comparison</caption>
+            <thead>
+              <tr><th scope="col">Deployment</th><th scope="col">Transport</th><th scope="col">Security</th><th scope="col">Best For</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Local Process</th><td>stdio</td><td>Process isolation</td><td class="highlight">Development, CLI tools</td></tr>
+              <tr><th scope="row">Remote Service</th><td>Streamable HTTP</td><td>Authentication required</td><td class="highlight">Production, team access</td></tr>
+              <tr><th scope="row">Managed Platform</th><td>HTTP / SDK</td><td>Built-in auth + monitoring</td><td class="highlight">Enterprise, scaled deployments</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Local Process (stdio)</h3>
+          <p>The simplest deployment: run the MCP server as a local process and connect via stdio. This works well for development, CLI tools, and single-user workflows. Claude Code and other CLI-based clients typically use stdio transport.</p>
+
+          <p>Configuration is minimal — you point your MCP client at the process and it handles the connection. The downside: the server is tied to the local machine, which limits team sharing and remote access.</p>
+
+          <h3>Remote Service (Streamable HTTP)</h3>
+          <p>For production deployments where multiple clients need to connect, deploy the MCP server as a remote service with Streamable HTTP transport. This requires implementing authentication (API keys, OAuth, or mTLS) and connection health monitoring.</p>
+
+          <p>According to <text target="_blank">Toolradar's endpoint scan</text>, 52% of remote MCP servers become unresponsive within 30 days — often due to missing health checks and auto-restart configuration. Production deployments need monitoring for connection health and automatic recovery on failure.</p>
+
+          <h3>Managed Platform</h3>
+          <p>Managed MCP platforms like <a href="https://apigene.ai/blog/mcp-server-management" rel="noopener nofollow" target="_blank">Apigene</a>, <a href="https://www.prefect.io" rel="noopener nofollow" target="_blank">Prefect</a>, and AWS Bedrock handle the operational complexity — authentication, monitoring, scaling, and security — so you focus on the server logic. <a href="https://www.cdata.ai" rel="noopener nofollow" target="_blank">CData's MCP integration market</a> (projecting $10.4B market size at 24.7% CAGR) reflects the growing demand for managed MCP infrastructure.</p>
+
+          <p>Qveris provides a managed meta-server option that combines the meta-server architecture with managed deployment. Instead of connecting to individual single-purpose servers, you connect to Qveris and get access to 10,000+ capabilities across all domains — without managing multiple server connections.</p>
+
+          <div class="note-box">
+            <strong>For production AI systems:</strong> If you're managing multiple MCP servers and finding connection complexity overwhelming, a meta-server approach like Qveris reduces operational overhead. One connection to Qveris replaces connections to GitHub MCP, Figma MCP, Brave Search MCP, and all the other individual servers — with unified authentication and monitoring.
+          </div>
+        </section>
+
+        <section class="cta-box">
+          <h3>Aggregate 10,000+ Capabilities with One MCP Connection</h3>
+          <p>QVeris operates as a meta-server — a single MCP connection that aggregates tools across search, maps, weather, documents, finance, blockchain, healthcare, and more. Skip the complexity of managing multiple single-purpose server connections.</p>
+          <a href="https://qveris.ai/docs/getting-started" class="cta-btn">Get Started in 30 Seconds →</a>
+        </section>
+
+        <div class="code-block">
+          <pre><code><span class="comment">// Claude Desktop config - macOS:</span>
+<span class="comment">// ~/Library/Application Support/Claude/claude_desktop_config.json</span>
+
+{
+  <span class="property">"mcpServers"</span>: {
+    <span class="property">"qveris"</span>: {
+      <span class="property">"command"</span>: <span class="string">"npx"</span>,
+      <span class="property">"args"</span>: [<span class="string">"-y"</span>, <span class="string">"@qverisai/mcp"</span>],
+      <span class="property">"env"</span>: {
+        <span class="property">"QVERIS_API_KEY"</span>: <span class="string">"your-api-key"</span>
+      }
+    }
+  }
+}</code></pre>
+        </div>
+        <p>Restart Claude Desktop, and your AI assistant instantly gains access to 10,000+ capabilities through one MCP connection — no need to install separate servers for each tool.</p>
+
+        <section>
+          <h2>FAQ: MCP Servers</h2>
+
+          <div class="faq-item">
+            <div class="faq-q">What is an MCP server?</div>
+            <div class="faq-a">An MCP server is a capability provider in the Model Context Protocol that exposes tools, resources, and prompts to connected clients. Servers implement the MCP specification and communicate with clients via JSON-RPC over stdio or Streamable HTTP. When a client sends a tools/list request, the server returns its available capabilities for the LLM to choose from.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">What is the difference between an MCP server and an MCP client?</div>
+            <div class="faq-a">An MCP server is the capability provider — the service that exposes tools and data. An MCP client is the component inside the AI application (the host) that connects to servers and manages communication. Clients like Claude Desktop or Cursor expose one or more MCP clients, each connecting to one or more servers. The server doesn't know which client is using it — it simply responds to requests.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">What are the best MCP servers for AI developers?</div>
+            <div class="faq-a">The best MCP servers for AI developers include GitHub MCP (code repository access), Figma MCP (design file manipulation), Linear MCP (project management), Sentry MCP (error monitoring), Context7 (contextual documentation), Brave Search MCP (web search), Supabase MCP (database access), and Notion MCP (knowledge base integration). Each targets a specific domain and exposes tools relevant to that workflow.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">How does an MCP server expose tools?</div>
+            <div class="faq-a">An MCP server implements the MCP specification and exposes capabilities through a tools/list endpoint. When a client connects, it sends a tools/list JSON-RPC request, and the server responds with all available tools — each with a name, description, and inputSchema. The client injects this schema into the LLM's context so it knows which tools it can call. The server then executes tools/call requests and returns results.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">What is a meta-server and how does it differ from single-purpose MCP servers?</div>
+            <div class="faq-a">A single-purpose MCP server focuses on one domain — GitHub MCP handles code, Figma MCP handles design files. A meta-server aggregates capabilities from multiple providers into a single connection. Instead of connecting to 10 different servers, your client connects to one meta-server that routes tool calls to the appropriate underlying provider. This reduces connection complexity and enables unified capability routing across thousands of tools.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">How do I deploy an MCP server in production?</div>
+            <div class="faq-a">MCP servers can be deployed as local processes (stdio transport for CLI tools), remote services (Streamable HTTP for cloud deployments), or managed platforms. Platforms like Apigene, Prefect, and AWS Bedrock offer managed MCP hosting with monitoring, scaling, and security features. Qveris provides a managed meta-server option — a single connection that aggregates 10,000+ capabilities across search, maps, docs, finance, and more — without the operational overhead of managing multiple servers.</div>
+          </div>
+        </section>
+
+        <aside class="methodology">
+          <h2>About This Guide</h2>
+          <p><strong>Last updated:</strong> May 19, 2026</p>
+          <p><strong>Methodology:</strong> This guide covers MCP servers documented in the official MCP specification and available as of Q2 2026. Server descriptions reflect documented capabilities from each project's official repository. Security and reliability data sourced from Toolradar's April 2026 scan of 2,181 MCP endpoints. Ecosystem size data from Lushbinary's March 2026 MCP developer report.</p>
+          <p><strong>Conflict of Interest:</strong> QVeris operates as a meta-server, a different category from the single-purpose servers listed above. This guide aims for objectivity: servers are recommended based on documented capabilities and community adoption, not on Qveris compatibility. Qveris is included because it represents a fundamentally different architectural approach — not as a product placement in the single-purpose server comparison.</p>
+          <p><strong>Update Frequency:</strong> Reviewed every 60 days. MCP server ecosystem evolves rapidly — we re-verify server availability, security posture, and capability coverage after each major release.</p>
+        </aside>
+
+        <section>
+          <h2>Related Guides</h2>
+          <div class="related">
+            <!-- <a href="/concepts/what-is-ai-agent-orchestration">What is AI Agent Orchestration? A Practical Guide</a> -->
+            <!-- <a href="/concepts/mcp-client">MCP Client: What It Is and the 9 Best Options in 2026</a> -->
+            <!-- <a href="/concepts/mcp-registry">MCP Registry: Finding and Using MCP Servers</a> -->
+            <!-- <a href="/concepts/mcp-tools">MCP Tools: Protocol Primitive That Powers AI Agent Actions</a> -->
+            <a href="https://qveris.ai/docs/getting-started">Getting Started with QVeris MCP Server</a>
+          </div>
+        </section>
+
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div style="font-size:18px;font-weight:600;color:rgba(255,255,255,0.9);margin-bottom:12px">QVeris AI</div>
+          <p style="font-size:14px;color:rgba(255,255,255,0.35);max-width:300px;margin-bottom:16px;line-height:1.6">AI-Agent native capability routing network. Unified protocol accessing 10,000+ capabilities across search, maps, docs, finance, blockchain, healthcare and more.</p>
+          <a href="https://qveris.ai" class="cta-btn" style="padding:8px 20px;font-size:13px">Get Started →</a>
+        </div>
+        <div>
+          <span class="footer-title">Product</span>
+          <div class="footer-links">
+            <a href="https://qveris.ai/product">Features</a>
+            <a href="https://qveris.ai/pricing">Pricing</a>
+            <a href="https://qveris.ai/integrations">Integrations</a>
+            <a href="https://qveris.ai/enterprise">Enterprise</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-title">Resources</span>
+          <div class="footer-links">
+            <a href="https://qveris.ai/docs">Documentation</a>
+            <a href="https://qveris.ai/docs/api-reference">API Reference</a>
+            <a href="https://qveris.ai/concepts/mcp-registry">MCP Registry</a>
+            <a href="https://qveris.ai/changelog">Changelog</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-title">Company</span>
+          <div class="footer-links">
+            <a href="https://qveris.ai/about">About</a>
+            <a href="https://qveris.ai/blog">Blog</a>
+            <a href="https://qveris.ai/contact">Contact</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 QVeris AI. All rights reserved.</span>
+        <span>AI-Agent Native • Capability Routing Network • Pay-Per-Call</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
