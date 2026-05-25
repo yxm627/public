@@ -452,7 +452,9 @@
 
           <!-- SVG 1: 4-Stage Sequence Diagram -->
           <div class="viz">
-            <svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fc-flow-title">
+              <title id="fc-flow-title">4-Stage Function Calling Flow Diagram</title>
+              <desc>Four-stage sequence diagram showing: 1. User Request with user query, 2. LLM Decision where the LLM analyzes and produces a tool_call JSON, 3. Tool Execution where the tool executes, and 4. Response where the LLM synthesizes results with tool_result returned.</desc>
               <defs>
                 <linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
                   <stop offset="0%" stop-color="#7C9BFF" stop-opacity="0.6"/>
