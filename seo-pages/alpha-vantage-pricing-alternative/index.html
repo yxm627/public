@@ -398,94 +398,8 @@
           <h2>Decision Matrix: Which Plan Fits Your AI Agent?</h2>
           <p>Use this matrix to quickly identify the best option based on your usage profile. Each row represents a distinct scenario category.</p>
 
-          <div class="viz" role="img" aria-label="Decision matrix showing AI agent use cases mapped to recommended pricing plans">
-            <svg viewBox="0 0 840 480" xmlns="http://www.w3.org/2000/svg" style="font-family:Inter,sans-serif;" role="img" aria-labelledby="alpha-pricing-title">
-              <title id="alpha-pricing-title">AI Agent Pricing Decision Matrix</title>
-              <desc>Decision matrix comparing QVeris and Alpha Vantage pricing plans across five use case scenarios: Solo Developer Evaluation, MVP/Low Volume, Mid Production, High Volume, and Enterprise Maximum Scale.</desc>
-              <!-- Background -->
-              <rect width="840" height="480" fill="#0F1520" rx="12"/>
-
-              <!-- Title -->
-              <text x="420" y="32" text-anchor="middle" fill="rgba(255,255,255,0.92)" font-size="16" font-weight="600">AI Agent Pricing Decision Matrix</text>
-
-              <!-- Column Headers -->
-              <text x="140" y="58" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="12" font-weight="600">USE CASE</text>
-              <text x="350" y="58" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="12" font-weight="600">CALL PATTERN</text>
-              <text x="510" y="58" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="12" font-weight="600">MONTHLY COST</text>
-              <text x="680" y="58" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="12" font-weight="600">RECOMMENDED</text>
-
-              <!-- Divider line -->
-              <line x1="40" y1="68" x2="800" y2="68" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-
-              <!-- Row 1: Solo Dev / Evaluation -->
-              <rect x="40" y="78" width="760" height="68" fill="rgba(124,155,255,0.04)" rx="8"/>
-              <text x="60" y="102" fill="rgba(255,255,255,0.85)" font-size="14" font-weight="600">Solo Developer / Evaluation</text>
-              <text x="60" y="122" fill="rgba(255,255,255,0.45)" font-size="12">Exploring data coverage, testing APIs</text>
-              <text x="320" y="112" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="13">&lt;25 calls/day</text>
-              <text x="320" y="130" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="11">Bursty, unpredictable</text>
-              <text x="510" y="112" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="14">$0</text>
-              <text x="510" y="130" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="11">Both free tiers</text>
-              <!-- Recommended badge - QVeris -->
-              <rect x="598" y="92" width="180" height="40" rx="20" fill="rgba(124,155,255,0.2)" stroke="rgba(124,155,255,0.4)" stroke-width="1"/>
-              <text x="688" y="118" text-anchor="middle" fill="#B5C6FF" font-size="13" font-weight="600">QVeris Free Discovery</text>
-
-              <!-- Row 2: MVP / Low Volume -->
-              <rect x="40" y="156" width="760" height="68" fill="rgba(255,255,255,0.02)" rx="8"/>
-              <text x="60" y="180" fill="rgba(255,255,255,0.85)" font-size="14" font-weight="600">AI Agent MVP / Low Volume</text>
-              <text x="60" y="200" fill="rgba(255,255,255,0.45)" font-size="12">&lt;5K calls/month, early production</text>
-              <text x="320" y="190" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="13">&lt;75 req/min avg</text>
-              <text x="320" y="208" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="11">Variable, some bursts</text>
-              <text x="510" y="190" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="14">$0–$50/mo</text>
-              <text x="510" y="208" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="11">QVeris cheaper</text>
-              <!-- Recommended badge - QVeris -->
-              <rect x="598" y="170" width="180" height="40" rx="20" fill="rgba(124,155,255,0.2)" stroke="rgba(124,155,255,0.4)" stroke-width="1"/>
-              <text x="688" y="196" text-anchor="middle" fill="#B5C6FF" font-size="13" font-weight="600">QVeris Pay-Per-Call</text>
-
-              <!-- Row 3: Mid Production -->
-              <rect x="40" y="234" width="760" height="68" fill="rgba(255,255,255,0.02)" rx="8"/>
-              <text x="60" y="258" fill="rgba(255,255,255,0.85)" font-size="14" font-weight="600">Mid Production / Moderate Burst</text>
-              <text x="60" y="278" fill="rgba(255,255,255,0.45)" font-size="12">5K–50K calls/month, sustained workload</text>
-              <text x="320" y="268" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="13">75–150 req/min</text>
-              <text x="320" y="286" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="11">Moderate bursts</text>
-              <text x="510" y="268" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="14">$50–$100/mo</text>
-              <text x="510" y="286" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="11">Break-even zone</text>
-              <!-- Recommended badge - Both -->
-              <rect x="598" y="248" width="180" height="40" rx="20" fill="rgba(255,193,79,0.15)" stroke="rgba(255,193,79,0.35)" stroke-width="1"/>
-              <text x="688" y="274" text-anchor="middle" fill="#FFD349" font-size="13" font-weight="600">Compare Both</text>
-
-              <!-- Row 4: High Volume / Sustained -->
-              <rect x="40" y="312" width="760" height="68" fill="rgba(239,68,68,0.04)" rx="8"/>
-              <text x="60" y="336" fill="rgba(255,255,255,0.85)" font-size="14" font-weight="600">High Volume / Sustained Load</text>
-              <text x="60" y="356" fill="rgba(255,255,255,0.45)" font-size="12">&gt;50K calls/month, 8+ hrs/day active</text>
-              <text x="320" y="346" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="13">150–600 req/min</text>
-              <text x="320" y="364" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="11">Consistent high rate</text>
-              <text x="510" y="346" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="14">$100–$250/mo</text>
-              <text x="510" y="364" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="11">Alpha Vantage wins</text>
-              <!-- Recommended badge - Alpha Vantage -->
-              <rect x="598" y="326" width="180" height="40" rx="20" fill="rgba(239,68,68,0.15)" stroke="rgba(239,68,68,0.35)" stroke-width="1"/>
-              <text x="688" y="352" text-anchor="middle" fill="#f87171" font-size="13" font-weight="600">Alpha Vantage $99+</text>
-
-              <!-- Row 5: Enterprise / Max Scale -->
-              <rect x="40" y="390" width="760" height="68" fill="rgba(239,68,68,0.06)" rx="8"/>
-              <text x="60" y="414" fill="rgba(255,255,255,0.85)" font-size="14" font-weight="600">Enterprise / Maximum Scale</text>
-              <text x="60" y="434" fill="rgba(255,255,255,0.45)" font-size="12">&gt;1M calls/month, premium endpoints needed</text>
-              <text x="320" y="424" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="13">&gt;600 req/min</text>
-              <text x="320" y="442" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="11">Peak at 1,200+/min</text>
-              <text x="510" y="424" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="14">$250/mo+</text>
-              <text x="510" y="442" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="11">Flat subscriptions</text>
-              <!-- Recommended badge - Alpha Vantage -->
-              <rect x="598" y="398" width="180" height="40" rx="20" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)" stroke-width="1"/>
-              <text x="688" y="424" text-anchor="middle" fill="#f87171" font-size="13" font-weight="600">Alpha Vantage $249</text>
-
-              <!-- Legend -->
-              <rect x="40" y="466" width="12" height="12" rx="3" fill="rgba(124,155,255,0.2)"/>
-              <text x="58" y="476" fill="rgba(255,255,255,0.45)" font-size="11">QVeris recommended</text>
-              <rect x="180" y="466" width="12" height="12" rx="3" fill="rgba(255,193,79,0.15)"/>
-              <text x="198" y="476" fill="rgba(255,255,255,0.45)" font-size="11">Compare both</text>
-              <rect x="300" y="466" width="12" height="12" rx="3" fill="rgba(239,68,68,0.15)"/>
-              <text x="318" y="476" fill="rgba(255,255,255,0.45)" font-size="11">Alpha Vantage recommended</text>
-            </svg>
-            <p class="viz-caption">Pricing decision matrix: map your AI Agent's usage pattern to the optimal plan</p>
+          <div class="viz">
+            <img src="one.png" alt="AI Agent Pricing Decision Matrix comparing QVeris and Alpha Vantage pricing plans across five use case scenarios: Solo Developer Evaluation, MVP/Low Volume, Mid Production, High Volume, and Enterprise Maximum Scale" style="width:100%;height:auto;display:block;max-width:960px;margin:0 auto">
           </div>
 
           <p><strong>Quick takeaway:</strong> If your AI Agent is in development, has variable call volume, or experiences burst patterns — QVeris wins on economics and flexibility. If you have consistent high-volume sustained workloads (150+ req/min), Alpha Vantage's flat subscription delivers better per-call cost at scale.</p>
@@ -535,7 +449,7 @@
               <span id="calc-rate-hint" class="sr-only">Enter the QVeris cost per API call in USD.</span>
             </div>
           </div>
-          <button class="calc-btn" onclick="calculateCost()">Calculate</button>
+          <button class="calc-btn" id="calc-btn">Calculate</button>
           <div class="calc-result" id="calc-result">
             <h3>Estimated Monthly Cost</h3>
             <div class="calc-result-body">
@@ -626,10 +540,10 @@ const qverisResult = await qveris.ai("quote", { symbol });</code></pre>
 
         <h2>Related Guides</h2>
         <div class="related">
-          <a href="https://try.qveris.ai/polygon-pricing-optimized/">Polygon Pricing vs QVeris: AI-Agent API Comparison</a>
-          <a href="https://try.qveris.ai/stock-api-free-comparison/">Stock API Free: 8 Best Options Compared</a>
-          <a href="https://try.qveris.ai/mcp-server-list-finance/">MCP Server List for Finance 2026</a>
-          <a href="https://try.qveris.ai/what-is-ai-agent-orchestration/">What is AI Agent Orchestration?</a>
+          <a href="../polygon-pricing-optimized/index.html">Polygon Pricing vs QVeris: AI-Agent API Comparison</a>
+          <a href="../stock-api-free-comparison/index.html">Stock API Free: 8 Best Options Compared</a>
+          <a href="../mcp-server-list-finance/index.html">MCP Server List for Finance 2026</a>
+          <a href="../what-is-ai-agent-orchestration/index.html">What is AI Agent Orchestration?</a>
         </div>
 
       </div>
@@ -697,15 +611,32 @@ const qverisResult = await qveris.ai("quote", { symbol });</code></pre>
 
   <script>
     function calculateCost() {
-      var calls = parseFloat(document.getElementById('calc-calls').value) || 0;
-      var rate = parseFloat(document.getElementById('calc-rate').value) || 0;
+      var callsInput = document.getElementById('calc-calls');
+      var rateInput = document.getElementById('calc-rate');
+      var avTierEl = document.getElementById('result-av-tier');
+      var avCostEl = document.getElementById('result-av');
+      var qvCostEl = document.getElementById('result-qv');
+      var verdictEl = document.getElementById('result-verdict');
+
+      // Guard: ensure all DOM elements exist
+      if (!callsInput || !rateInput || !avTierEl || !avCostEl || !qvCostEl || !verdictEl) return;
+
+      var calls = parseFloat(callsInput.value) || 0;
+      var rate = parseFloat(rateInput.value) || 0;
 
       // Estimate calls per minute assuming ~8 active hours/day x 30 days
       var callsPerMin = calls / 30 / 480;
       var avCost, avTier;
+
       if (callsPerMin <= 5) {
-        avCost = 0;
-        avTier = 'Free (5/min)';
+        // Free tier: 25 calls/day cap = 750 calls/month max
+        if (calls <= 750) {
+          avCost = 0;
+          avTier = 'Free (5/min, 25/day)';
+        } else {
+          avCost = 49.99;
+          avTier = '$49.99/mo (75/min)';
+        }
       } else if (callsPerMin <= 75) {
         avCost = 49.99;
         avTier = '$49.99/mo (75/min)';
@@ -724,19 +655,31 @@ const qverisResult = await qveris.ai("quote", { symbol });</code></pre>
       }
 
       var qvCost = calls * rate;
-      document.getElementById('result-av-tier').textContent = avTier;
-      document.getElementById('result-av').textContent = '$' + avCost.toFixed(2);
-      document.getElementById('result-qv').textContent = '$' + qvCost.toFixed(2);
-      var verdict = document.getElementById('result-verdict');
+      avTierEl.textContent = avTier;
+      avCostEl.textContent = '$' + avCost.toFixed(2);
+      qvCostEl.textContent = '$' + qvCost.toFixed(2);
+
       if (qvCost < avCost) {
-        verdict.textContent = 'QVeris is cheaper at this volume. Save $' + (avCost - qvCost).toFixed(2) + '/month.';
+        verdictEl.textContent = 'QVeris is cheaper at this volume. Save $' + (avCost - qvCost).toFixed(2) + '/month.';
       } else if (qvCost > avCost) {
-        verdict.textContent = 'Alpha Vantage ' + avTier + ' is cheaper at this volume. QVeris still wins on development-phase free discovery.';
+        verdictEl.textContent = 'Alpha Vantage ' + avTier + ' is cheaper at this volume. QVeris still wins on development-phase free discovery.';
       } else {
-        verdict.textContent = 'Same cost at this volume. QVeris wins on rate-limit flexibility and free development.';
+        verdictEl.textContent = 'Same cost at this volume. QVeris wins on rate-limit flexibility and free development.';
       }
     }
-    calculateCost();
+
+    // Run on page load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', calculateCost);
+    } else {
+      calculateCost();
+    }
+
+    // Set up button click via addEventListener (more robust than inline onclick)
+    document.addEventListener('DOMContentLoaded', function () {
+      var btn = document.getElementById('calc-btn');
+      if (btn) btn.addEventListener('click', calculateCost);
+    });
   </script>
 </body>
 </html>

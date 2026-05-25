@@ -629,102 +629,8 @@
 
       <!-- Original Visualization: Decision Matrix SVG -->
       <div class="viz">
-        <svg viewBox="0 0 800 360" role="img" aria-labelledby="matrix-title matrix-desc">
-          <title id="matrix-title">Free Stock API Decision Matrix: Real-Time vs Daily Limit vs Commercial Use</title>
-          <desc id="matrix-desc">Visual decision matrix showing 8 free stock APIs plotted by real-time availability, daily limit tier, and commercial use policy. Alpha Vantage and FMP are low-limit delayed-only. Finnhub and Alpaca offer real-time on free tiers. Databento and QVeris support commercial use.</desc>
-          <rect width="800" height="360" fill="rgba(255,255,255,0.02)"/>
-
-          <!-- Title -->
-          <text x="400" y="28" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="15" font-weight="600">Free Stock API Decision Matrix</text>
-
-          <!-- Y-axis label -->
-          <text x="18" y="180" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="11" transform="rotate(-90, 18, 180)">Daily Limit (log scale)</text>
-          <!-- X-axis label -->
-          <text x="480" y="340" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="11">Real-Time Availability</text>
-
-          <!-- Grid lines -->
-          <line x1="100" y1="60" x2="100" y2="310" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-          <line x1="100" y1="310" x2="760" y2="310" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-          <line x1="100" y1="220" x2="760" y2="220" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="4"/>
-          <line x1="100" y1="140" x2="760" y2="140" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="4"/>
-          <line x1="100" y1="60" x2="760" y2="60" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="4"/>
-
-          <!-- Y-axis labels -->
-          <text x="95" y="314" text-anchor="end" fill="rgba(255,255,255,0.35)" font-size="10">100/day</text>
-          <text x="95" y="224" text-anchor="end" fill="rgba(255,255,255,0.35)" font-size="10">1K/day</text>
-          <text x="95" y="144" text-anchor="end" fill="rgba(255,255,255,0.35)" font-size="10">10K/day</text>
-          <text x="95" y="64" text-anchor="end" fill="rgba(255,255,255,0.35)" font-size="10">100K+/day</text>
-
-          <!-- X-axis labels -->
-          <text x="100" y="330" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="10">Delayed Only</text>
-          <text x="430" y="330" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="10">Limited Real-Time</text>
-          <text x="760" y="330" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="10">Full Real-Time</text>
-
-          <!-- Dividers -->
-          <line x1="265" y1="60" x2="265" y2="310" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="4"/>
-          <line x1="595" y1="60" x2="595" y2="310" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="4"/>
-
-          <!-- Legend -->
-          <rect x="570" y="10" width="220" height="75" fill="rgba(255,255,255,0.03)" rx="6" stroke="rgba(255,255,255,0.08)"/>
-          <text x="580" y="26" fill="rgba(255,255,255,0.5)" font-size="10" font-weight="600">TAG LEGEND</text>
-          <rect x="580" y="34" width="10" height="10" rx="2" fill="#4ade80"/>
-          <text x="596" y="43" fill="rgba(255,255,255,0.5)" font-size="10">Genuinely Free</text>
-          <rect x="580" y="50" width="10" height="10" rx="2" fill="#fbbf24"/>
-          <text x="596" y="59" fill="rgba(255,255,255,0.5)" font-size="10">Limited Free</text>
-          <rect x="580" y="66" width="10" height="10" rx="2" fill="#f87171"/>
-          <text x="596" y="75" fill="rgba(255,255,255,0.5)" font-size="10">Trial / Paid Only</text>
-
-          <!-- Alpha Vantage: 25/day, Delayed only -->
-          <circle cx="130" cy="220" r="18" fill="rgba(251,191,36,0.15)" stroke="#fbbf24" stroke-width="1.5"/>
-          <text x="130" y="224" text-anchor="middle" fill="#fbbf24" font-size="9" font-weight="600">AV</text>
-          <text x="130" y="250" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8">Alpha Vantage</text>
-
-          <!-- FMP: 250/day, Delayed only -->
-          <circle cx="180" cy="235" r="15" fill="rgba(251,191,36,0.15)" stroke="#fbbf24" stroke-width="1.5"/>
-          <text x="180" y="239" text-anchor="middle" fill="#fbbf24" font-size="9" font-weight="600">FMP</text>
-          <text x="180" y="260" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8">FMP</text>
-
-          <!-- Twelve Data: 800/day, Delayed only (free) -->
-          <circle cx="230" cy="215" r="16" fill="rgba(251,191,36,0.15)" stroke="#fbbf24" stroke-width="1.5"/>
-          <text x="230" y="219" text-anchor="middle" fill="#fbbf24" font-size="9" font-weight="600">TD</text>
-          <text x="230" y="240" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8">Twelve Data</text>
-
-          <!-- Marketstack: Trial, Delayed -->
-          <circle cx="140" cy="280" r="14" fill="rgba(239,68,68,0.12)" stroke="#f87171" stroke-width="1.5"/>
-          <text x="140" y="284" text-anchor="middle" fill="#f87171" font-size="9" font-weight="600">MS</text>
-          <text x="140" y="305" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8">Marketstack</text>
-
-          <!-- Finnhub: 60/sec, Limited real-time -->
-          <circle cx="400" cy="120" r="22" fill="rgba(251,191,36,0.15)" stroke="#fbbf24" stroke-width="2"/>
-          <text x="400" y="124" text-anchor="middle" fill="#fbbf24" font-size="10" font-weight="600">FH</text>
-          <text x="400" y="152" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="9">Finnhub</text>
-
-          <!-- Alpaca: High limit, Real-time (US equities) -->
-          <circle cx="620" cy="85" r="24" fill="rgba(34,197,94,0.12)" stroke="#4ade80" stroke-width="2"/>
-          <text x="620" y="89" text-anchor="middle" fill="#4ade80" font-size="10" font-weight="600">AP</text>
-          <text x="620" y="118" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="9">Alpaca</text>
-
-          <!-- Polygon.io: No free tier, Full real-time (paid) -->
-          <circle cx="720" cy="70" r="20" fill="rgba(239,68,68,0.12)" stroke="#f87171" stroke-width="1.5"/>
-          <text x="720" y="74" text-anchor="middle" fill="#f87171" font-size="9" font-weight="600">PG</text>
-          <text x="720" y="100" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8">Polygon</text>
-
-          <!-- Databento: 250K msg/month, Real-time, commercial OK -->
-          <circle cx="560" cy="100" r="19" fill="rgba(34,197,94,0.12)" stroke="#4ade80" stroke-width="1.5"/>
-          <text x="560" y="104" text-anchor="middle" fill="#4ade80" font-size="9" font-weight="600">DB</text>
-          <text x="560" y="128" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8">Databento</text>
-
-          <!-- QVeris: Free discovery, Real-time, commercial OK -->
-          <circle cx="700" cy="160" r="20" fill="rgba(34,197,94,0.18)" stroke="#4ade80" stroke-width="2"/>
-          <text x="700" y="164" text-anchor="middle" fill="#4ade80" font-size="10" font-weight="600">QV</text>
-          <text x="700" y="188" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="9">QVeris</text>
-
-          <!-- Annotation line for Finnhub -->
-          <line x1="410" y1="108" x2="470" y2="90" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-          <text x="472" y="88" fill="rgba(255,255,255,0.45)" font-size="9">Best for AI agents</text>
-          <text x="472" y="99" fill="rgba(255,255,255,0.45)" font-size="9">(WebSocket + high rate limit)</text>
-        </svg>
-        <div class="viz-caption">Chart: Free stock API decision matrix — plot your use case to find the right free tier</div>
+        <p style="text-align:center;font-weight:600;font-size:15px;color:rgba(255,255,255,0.7);margin-bottom:16px">Free Stock API Decision Matrix</p>
+        <img src="one.png" alt="Free Stock API Decision Matrix showing 8 free stock APIs plotted by real-time availability (Delayed Only, Limited Real-Time, Full Real-Time) and daily limit tier (100/day to 100K+/day) with color-coded tags: Alpha Vantage (AV, Limited Free), FMP (Limited Free), Twelve Data (TD, Limited Free), Marketstack (MS, Trial/Paid Only), Finnhub (FH, Limited Free, best for AI agents with WebSocket + high rate limit), Alpaca (AP, Genuinely Free), Polygon (PG, Trial/Paid Only), Databento (DB, Genuinely Free), QVeris (QV, Genuinely Free, commercial use OK)." style="width:100%;height:auto;display:block">
       </div>
 
       <!-- Quick Start -->
@@ -817,11 +723,11 @@
       <section>
         <h2>Related Guides</h2>
         <div class="related">
-          <a href="https://try.qveris.ai/alpha-vantage-pricing-alternative/">Alpha Vantage Pricing: Complete Guide</a>
-          <a href="https://try.qveris.ai/polygon-pricing-optimized/">QVeris vs Polygon.io Pricing</a>
-          <a href="https://try.qveris.ai/mcp-server-list-finance/">Finance MCP Server List</a>
-          <a href="https://try.qveris.ai/litellm-alternative-comparison/">LiteLLM Alternative: 5 Best LLM Gateways</a>
-          <a href="https://try.qveris.ai/what-is-ai-agent-orchestration/">What is AI Agent Orchestration?</a>
+          <a href="../alpha-vantage-pricing-alternative/index.html">Alpha Vantage Pricing: Complete Guide</a>
+          <a href="../polygon-pricing-optimized/index.html">QVeris vs Polygon.io Pricing</a>
+          <a href="../mcp-server-list-finance/index.html">Finance MCP Server List</a>
+          <a href="../litellm-alternative-comparison/index.html">LiteLLM Alternative: 5 Best LLM Gateways</a>
+          <a href="../what-is-ai-agent-orchestration/index.html">What is AI Agent Orchestration?</a>
         </div>
       </section>
       </article>

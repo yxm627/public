@@ -367,49 +367,7 @@ qveris install stock-price-lookup
         </section>
 
         <section class="viz">
-          <svg viewBox="0 0 800 460" role="img" aria-labelledby="mcp-architecture-title mcp-architecture-desc">
-            <title id="mcp-architecture-title">MCP Registry Architecture: Official Registry, Sub-Registries, and Capability Routing</title>
-            <desc id="mcp-architecture-desc">Architecture diagram showing the layered MCP ecosystem: official MCP Registry stores metadata, community directories provide discovery UX, sub-registries like QVeris add capability routing, and AI agents consume tools through standardized interfaces</desc>
-            <defs>
-              <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#7C9BFF"/></marker>
-            </defs>
-            <rect width="800" height="460" fill="#0f1420" rx="12"/>
-
-            <!-- Official Registry Layer -->
-            <text x="400" y="32" text-anchor="middle" fill="#c8d0e8" font-size="15" font-weight="600">Official MCP Registry</text>
-            <rect x="200" y="48" width="400" height="95" rx="8" fill="#1a2035" stroke="#7C9BFF" stroke-width="1"/>
-            <text x="400" y="75" text-anchor="middle" fill="#e8ecf5" font-size="13" font-weight="500">Metadata Repository</text>
-            <text x="400" y="100" text-anchor="middle" fill="#a0aec0" font-size="12">server.json schemas  |  ~2,000 servers  |  Trusted review</text>
-            <text x="400" y="126" text-anchor="middle" fill="#6b7280" font-size="11">registry.modelcontextprotocol.io</text>
-
-            <!-- Arrows down -->
-            <path d="M320,143 L320,175" stroke="#7C9BFF" stroke-width="2" marker-end="url(#arrow)"/>
-            <path d="M480,143 L480,175" stroke="#7C9BFF" stroke-width="2" marker-end="url(#arrow)"/>
-            <path d="M320,143 L480,143" stroke="#4a5a9a" stroke-width="1.5" fill="none"/>
-
-            <!-- Directory Layer -->
-            <text x="400" y="210" text-anchor="middle" fill="#c8d0e8" font-size="15" font-weight="600">Community Directories</text>
-            <rect x="90" y="230" width="195" height="55" rx="6" fill="#141824" stroke="#3a4a7a" stroke-width="1"/>
-            <text x="187" y="263" text-anchor="middle" fill="#a0aec0" font-size="12">Smithery.ai</text>
-            <rect x="305" y="230" width="190" height="55" rx="6" fill="#141824" stroke="#3a4a7a" stroke-width="1"/>
-            <text x="400" y="263" text-anchor="middle" fill="#a0aec0" font-size="12">Glama.ai</text>
-            <rect x="515" y="230" width="195" height="55" rx="6" fill="#1e2440" stroke="#B5C6FF" stroke-width="2"/>
-            <text x="612" y="263" text-anchor="middle" fill="#d0d8f0" font-size="12" font-weight="600">QVeris Sub-Registry</text>
-
-            <!-- Arrows down -->
-            <path d="M612,285 L612,320" stroke="#B5C6FF" stroke-width="2" marker-end="url(#arrow)"/>
-
-            <!-- Sub-Registry Layer -->
-            <rect x="420" y="315" width="230" height="85" rx="6" fill="rgba(181,198,255,0.08)" stroke="#B5C6FF" stroke-width="1" stroke-dasharray="4,3"/>
-            <text x="535" y="345" text-anchor="middle" fill="#B5C6FF" font-size="14" font-weight="600">+ Capability Routing</text>
-            <text x="535" y="370" text-anchor="middle" fill="#8a9ab0" font-size="11">10,000+ capabilities</text>
-            <text x="535" y="388" text-anchor="middle" fill="#8a9ab0" font-size="11">AI agent integration</text>
-
-            <!-- Labels -->
-            <text x="187" y="310" text-anchor="middle" fill="#6b7280" font-size="10">Discovery UX</text>
-            <text x="535" y="420" text-anchor="middle" fill="#6b7280" font-size="10">Agent-native capability routing</text>
-          </svg>
-          <div class="viz-caption">Figure: MCP Registry architecture showing layered ecosystem from official registry to community directories to sub-registries with capability routing</div>
+          <img src="one.png" alt="MCP Registry architecture diagram showing three layers. Top: Official MCP Registry — Metadata Repository with ~2,000 servers, server.json schemas, trusted review at registry.modelcontextprotocol.io. Middle: Community Directories including Smithery.ai, Glama.ai, and QVeris Sub-Registry. Bottom: QVeris Sub-Registry adds +Capability Routing with 10,000+ capabilities and AI agent integration. Arrows show flow from registry through community directories to sub-registries for agent-native capability routing." style="width:100%;height:auto;display:block">
         </section>
 
         <section id="vs-sub">
@@ -530,11 +488,11 @@ qveris install stock-price-lookup
           <section>
             <h2 style="border:none;padding:0;margin:0 0 16px;">Related Guides</h2>
             <div class="related">
-              <a href="https://try.qveris.ai/what-is-ai-agent-orchestration/">What is AI Agent Orchestration?</a>
-              <a href="https://try.qveris.ai/mcp-server/">MCP Server: 8 Best Options &amp; How They Work</a>
-              <a href="https://try.qveris.ai/mcp-client/">MCP Client: 9 Best Options for AI Developers</a>
-              <a href="https://try.qveris.ai/mcp-tools/">MCP Tools: How Discovery Works &amp; Token Cost</a>
-              <a href="https://try.qveris.ai/mcp-integration/">MCP Integration: How to Connect AI Agents</a>
+              <a href="../what-is-ai-agent-orchestration/index.html">What is AI Agent Orchestration?</a>
+              <a href="../mcp-server/index.html">MCP Server: 8 Best Options &amp; How They Work</a>
+              <a href="../mcp-client/index.html">MCP Client: 9 Best Options for AI Developers</a>
+              <a href="../mcp-tools/index.html">MCP Tools: How Discovery Works &amp; Token Cost</a>
+              <a href="../mcp-integration/index.html">MCP Integration: How to Connect AI Agents</a>
             </div>
           </section>
         </div>

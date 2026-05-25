@@ -49,7 +49,7 @@
 
   <!-- FAQPage Schema -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a cryptocurrency price API and how does it work?","acceptedAnswer":{"@type":"Answer","text":"A cryptocurrency price API is a programmatic interface that lets applications fetch real-time or historical price data for cryptocurrencies. AI agents use these APIs to gather market data as part of decision-making workflows — for example, checking BTC/USD before executing a trade, or monitoring portfolio values across multiple assets."}},{"@type":"Question","name":"What are the best free cryptocurrency price APIs?","acceptedAnswer":{"@type":"Answer","text":"The free tier leaders are CoinGecko (no API key required for basic endpoints), Coinpaprika (25,000 free calls per month as of May 2026), and CoinCap (free with rate limits). These work well for prototypes and low-traffic applications. For production AI agents handling higher volumes, a unified routing layer like Qveris can manage multiple free-tier providers simultaneously."}},{"@type":"Question","name":"How can AI agents access real-time crypto price data?","acceptedAnswer":{"@type":"Answer","text":"AI agents can access real-time crypto data through REST polling, WebSocket streams, or a capability routing layer. Direct API calls require handling rate limits, format differences, and fallback logic per provider. Qveris provides a unified CLI and MCP server interface — `qveris discover \"cryptocurrency market data\" --json` returns structured data from multiple providers without per-provider integration work."}},{"@type":"Question","name":"What is the difference between CoinGecko and CoinMarketCap?","acceptedAnswer":{"@type":"Answer","text":"CoinGecko is open and community-driven with no mandatory API key for basic endpoints, making it popular among developers. CoinMarketCap offers a more structured professional tier with advanced analytics and higher rate limits. CoinGecko tracks more exchanges by raw count; CoinMarketCap focuses on higher-quality market data and has a larger professional user base. For AI agents, both are viable — CoinGecko for quick prototyping, CoinMarketCap for production-grade needs."}},{"@type":"Question","name":"When should you NOT use a cryptocurrency price API?","acceptedAnswer":{"@type":"Answer","text":"Avoid direct API calls when: your application needs sub-second latency for trading (WebSocket or specialized feeds like Kaiko are better), you need legal-grade audit trails for regulated trading, or your volume exceeds free tier limits and a paid solution becomes cost-prohibitive. For high-frequency or compliance-sensitive use cases, dedicated financial data providers with SLAs are more appropriate than general crypto APIs."}},{"@type":"Question","name":"How does Qveris unify access to multiple crypto APIs?","acceptedAnswer":{"@type":"Answer","text":"Qveris acts as a capability routing layer — it connects to 138 finance-related capabilities (including multiple crypto data providers) through its MCP server and CLI. Instead of writing separate integration code for each provider, AI agents call `qveris discover \"cryptocurrency market data\"` and receive structured JSON responses. Qveris handles provider selection, fallback logic, and format normalization internally."}}]}
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a cryptocurrency price API and how does it work?","acceptedAnswer":{"@type":"Answer","text":"A cryptocurrency price API is a programmatic interface that lets applications fetch real-time or historical price data for cryptocurrencies. AI agents use these APIs to gather market data as part of decision-making workflows — for example, checking BTC/USD before executing a trade, or monitoring portfolio values across multiple assets."}},{"@type":"Question","name":"What are the best free cryptocurrency price APIs?","acceptedAnswer":{"@type":"Answer","text":"The free tier leaders are CoinGecko (no API key required for basic endpoints), Coinpaprika (25,000 free calls per month as of May 2026), and CoinCap (free with rate limits). These work well for prototypes and low-traffic applications. For production AI agents handling higher volumes, a unified routing layer like QVeris can manage multiple free-tier providers simultaneously."}},{"@type":"Question","name":"How can AI agents access real-time crypto price data?","acceptedAnswer":{"@type":"Answer","text":"AI agents can access real-time crypto data through REST polling, WebSocket streams, or a capability routing layer. Direct API calls require handling rate limits, format differences, and fallback logic per provider. QVeris provides a unified CLI and MCP server interface — `qveris discover \"cryptocurrency market data\" --json` returns structured data from multiple providers without per-provider integration work."}},{"@type":"Question","name":"What is the difference between CoinGecko and CoinMarketCap?","acceptedAnswer":{"@type":"Answer","text":"CoinGecko is open and community-driven with no mandatory API key for basic endpoints, making it popular among developers. CoinMarketCap offers a more structured professional tier with advanced analytics and higher rate limits. CoinGecko tracks more exchanges by raw count; CoinMarketCap focuses on higher-quality market data and has a larger professional user base. For AI agents, both are viable — CoinGecko for quick prototyping, CoinMarketCap for production-grade needs."}},{"@type":"Question","name":"When should you NOT use a cryptocurrency price API?","acceptedAnswer":{"@type":"Answer","text":"Avoid direct API calls when: your application needs sub-second latency for trading (WebSocket or specialized feeds like Kaiko are better), you need legal-grade audit trails for regulated trading, or your volume exceeds free tier limits and a paid solution becomes cost-prohibitive. For high-frequency or compliance-sensitive use cases, dedicated financial data providers with SLAs are more appropriate than general crypto APIs."}},{"@type":"Question","name":"How does QVeris unify access to multiple crypto APIs?","acceptedAnswer":{"@type":"Answer","text":"QVeris acts as a capability routing layer — it connects to 138 finance-related capabilities (including multiple crypto data providers) through its MCP server and CLI. Instead of writing separate integration code for each provider, AI agents call `qveris discover \"cryptocurrency market data\"` and receive structured JSON responses. QVeris handles provider selection, fallback logic, and format normalization internally."}}]}
   </script>
 
   <style>
@@ -224,8 +224,8 @@
             <div class="ba-text">AI agents integrate with one crypto API at a time. When that provider hits rate limits or goes down during market volatility, the agent's data source fails silently. Developers spend weeks building fallback logic across multiple providers — then maintain it as each API changes.</div>
           </div>
           <div class="ba-card ba-after">
-            <div class="ba-label">After — with Qveris</div>
-            <div class="ba-text">AI agents call a single capability interface. Qveris handles provider selection, fallback logic, and format normalization internally. If CoinGecko hits rate limits, Qveris routes to CoinMarketCap. The agent sees consistent JSON regardless of which provider responded.</div>
+            <div class="ba-label">After — with QVeris</div>
+            <div class="ba-text">AI agents call a single capability interface. QVeris handles provider selection, fallback logic, and format normalization internally. If CoinGecko hits rate limits, QVeris routes to CoinMarketCap. The agent sees consistent JSON regardless of which provider responded.</div>
           </div>
         </div>
 
@@ -554,8 +554,8 @@
             <div class="ba-text">AI agents integrate with one crypto API at a time. When that provider hits rate limits or goes down during market volatility, the agent's data source fails silently. Developers spend weeks building fallback logic across multiple providers — then maintain it as each API changes.</div>
           </div>
           <div class="ba-card ba-after">
-            <div class="ba-label">After — with Qveris</div>
-            <div class="ba-text">AI agents call a single capability interface. Qveris handles provider selection, fallback logic, and format normalization internally. If CoinGecko hits rate limits, Qveris routes to CoinMarketCap. The agent sees consistent JSON regardless of which provider responded.</div>
+            <div class="ba-label">After — with QVeris</div>
+            <div class="ba-text">AI agents call a single capability interface. QVeris handles provider selection, fallback logic, and format normalization internally. If CoinGecko hits rate limits, QVeris routes to CoinMarketCap. The agent sees consistent JSON regardless of which provider responded.</div>
           </div>
         </div>
 
@@ -606,7 +606,7 @@
         <p>Capability routing works by abstracting the provider complexity behind a single interface. Your AI agent calls one endpoint; the routing layer selects the optimal provider based on availability, rate limits, and coverage. If the primary provider fails, the routing layer automatically switches to a fallback — without any code changes in your agent.</p>
         <p>This pattern is part of the broader <a href="https://qveris.ai/docs/mcp-server">MCP (Model Context Protocol) ecosystem</a> — the same protocol that lets AI agents access tools through the <a href="https://qveris.ai/docs/mcp-server">MCP Client</a> and discover capabilities through the <a href="https://qveris.ai/docs/mcp-server">MCP Registry</a>. Cryptocurrency data is one of many capability categories available through this infrastructure.</p>
         <div class="code-block">
-          <pre><code><span class="comment">// Qveris CLI: one command, multiple crypto data providers</span>
+          <pre><code><span class="comment">// QVeris CLI: one command, multiple crypto data providers</span>
 <span class="comment">// No per-provider integration, no fallback logic, no format parsing</span>
 $ qveris discover <span class="string">"cryptocurrency market data"</span> --json
 
@@ -622,20 +622,20 @@ $ qveris discover <span class="string">"cryptocurrency market data"</span> --jso
   <span class="string">"timestamp"</span>: <span class="string">"2026-05-20T10:30:00Z"</span>
 }</code></pre>
         </div>
-        <p>Qveris connects to 138 finance-related capabilities (including cryptocurrency data from multiple providers) through its MCP server and CLI. For AI agents, this means:</p>
+        <p>QVeris connects to 138 finance-related capabilities (including cryptocurrency data from multiple providers) through its MCP server and CLI. For AI agents, this means:</p>
         <ul>
-          <li><strong>Single integration:</strong> Connect once to Qveris, access all crypto providers. No per-provider SDK installation.</li>
-          <li><strong>Automatic fallback:</strong> If one provider hits rate limits, Qveris routes to another. Your agent's data flow never stops.</li>
+          <li><strong>Single integration:</strong> Connect once to QVeris, access all crypto providers. No per-provider SDK installation.</li>
+          <li><strong>Automatic fallback:</strong> If one provider hits rate limits, QVeris routes to another. Your agent's data flow never stops.</li>
           <li><strong>Normalized output:</strong> JSON format stays consistent regardless of which provider responds. Parse once, use everywhere.</li>
           <li><strong>Provider transparency:</strong> Each response includes the source provider, so you know where the data came from.</li>
         </ul>
         <div class="stat-highlight">
-          <strong>Qveris finance capabilities:</strong> 138 dedicated capabilities for finance data, out of 10,000+ total capabilities available across search, maps, documents, and more. (Source: <a href="https://qveris.ai/docs/cli" rel="noopener">qveris.ai/docs/cli</a>)
+          <strong>QVeris finance capabilities:</strong> 138 dedicated capabilities for finance data, out of 10,000+ total capabilities available across search, maps, documents, and more. (Source: <a href="https://qveris.ai/docs/cli" rel="noopener">qveris.ai/docs/cli</a>)
         </div>
 
         <div class="step-box">
           <span class="step-num">1</span>
-          <strong>Install Qveris CLI</strong>
+          <strong>Install QVeris CLI</strong>
           <p>Run <code>npm install -g qveris</code> or download from <a href="https://qveris.ai/docs/cli" rel="noopener">qveris.ai/docs/cli</a>. The CLI works on macOS, Linux, and Windows. Installation takes under 30 seconds.</p>
         </div>
         <div class="step-box">
@@ -646,12 +646,12 @@ $ qveris discover <span class="string">"cryptocurrency market data"</span> --jso
         <div class="step-box">
           <span class="step-num">3</span>
           <strong>Integrate into your AI agent</strong>
-          <p>Use the MCP protocol for native integration with AI agent frameworks, or call the CLI directly from your agent code. Qveris handles provider selection, rate limit management, and response normalization — your agent receives clean, consistent data.</p>
+          <p>Use the MCP protocol for native integration with AI agent frameworks, or call the CLI directly from your agent code. QVeris handles provider selection, rate limit management, and response normalization — your agent receives clean, consistent data.</p>
         </div>
         <div class="step-box">
           <span class="step-num">4</span>
           <strong>Monitor and scale</strong>
-          <p>Track provider health through Qveris logs. When a provider goes down, Qveris automatically routes to alternatives. Scale your agent's data volume without re-engineering per-provider integrations.</p>
+          <p>Track provider health through QVeris logs. When a provider goes down, QVeris automatically routes to alternatives. Scale your agent's data volume without re-engineering per-provider integrations.</p>
         </div>
 
         <h2 id="vs-related">Cryptocurrency Price API vs Related Data Sources</h2>
@@ -673,8 +673,8 @@ $ qveris discover <span class="string">"cryptocurrency market data"</span> --jso
 
         <div class="cta-box">
           <h3>Access Crypto Data Through Unified Capability Routing</h3>
-          <p>Qveris connects AI agents to 138 finance capabilities including multiple cryptocurrency price providers — one integration, no per-provider fallback logic.</p>
-          <a href="https://qveris.ai/docs/cli" class="cta-btn">Try Qveris CLI →</a>
+          <p>QVeris connects AI agents to 138 finance capabilities including multiple cryptocurrency price providers — one integration, no per-provider fallback logic.</p>
+          <a href="https://qveris.ai/docs/cli" class="cta-btn">Try QVeris CLI →</a>
         </div>
 
         <h2>FAQ</h2>
@@ -684,11 +684,11 @@ $ qveris discover <span class="string">"cryptocurrency market data"</span> --jso
         </div>
         <div class="faq-item">
           <div class="faq-q">What are the best free cryptocurrency price APIs?</div>
-          <div class="faq-a">The free tier leaders are CoinGecko (no API key required for basic endpoints), Coinpaprika (25,000 free calls per month as of May 2026), and CoinCap (free with rate limits). These work well for prototypes and low-traffic applications. For production AI agents handling higher volumes, a unified routing layer like Qveris can manage multiple free-tier providers simultaneously.</div>
+          <div class="faq-a">The free tier leaders are CoinGecko (no API key required for basic endpoints), Coinpaprika (25,000 free calls per month as of May 2026), and CoinCap (free with rate limits). These work well for prototypes and low-traffic applications. For production AI agents handling higher volumes, a unified routing layer like QVeris can manage multiple free-tier providers simultaneously.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q">How can AI agents access real-time crypto price data?</div>
-          <div class="faq-a">AI agents can access real-time crypto data through REST polling, WebSocket streams, or a capability routing layer. Direct API calls require handling rate limits, format differences, and fallback logic per provider. Qveris provides a unified CLI and MCP server interface — <code>qveris discover "cryptocurrency market data" --json</code> returns structured data from multiple providers without per-provider integration work.</div>
+          <div class="faq-a">AI agents can access real-time crypto data through REST polling, WebSocket streams, or a capability routing layer. Direct API calls require handling rate limits, format differences, and fallback logic per provider. QVeris provides a unified CLI and MCP server interface — <code>qveris discover "cryptocurrency market data" --json</code> returns structured data from multiple providers without per-provider integration work.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q">What is the difference between crypto price APIs and exchange APIs?</div>
@@ -703,25 +703,25 @@ $ qveris discover <span class="string">"cryptocurrency market data"</span> --jso
           <div class="faq-a">Avoid direct API calls for: sub-second latency requirements (specialized feeds like Kaiko are better for high-frequency trading systems), legal-grade audit trails for regulated markets (compliance-sensitive applications need dedicated financial data providers with SLAs), or when your traffic volume exceeds free tier limits and paid plans become cost-prohibitive. This is not financial advice — these are technical considerations for system architecture, not investment recommendations.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-q">How does Qveris unify access to multiple crypto APIs?</div>
-          <div class="faq-a">Qveris acts as a capability routing layer — it connects to 138 finance-related capabilities (including multiple crypto data providers) through its MCP server and CLI. Instead of writing separate integration code for each provider, AI agents call <code>qveris discover "cryptocurrency market data"</code> and receive structured JSON responses. Qveris handles provider selection, fallback logic, and format normalization internally.</div>
+          <div class="faq-q">How does QVeris unify access to multiple crypto APIs?</div>
+          <div class="faq-a">QVeris acts as a capability routing layer — it connects to 138 finance-related capabilities (including multiple crypto data providers) through its MCP server and CLI. Instead of writing separate integration code for each provider, AI agents call <code>qveris discover "cryptocurrency market data"</code> and receive structured JSON responses. QVeris handles provider selection, fallback logic, and format normalization internally.</div>
         </div>
 
         <div class="methodology">
           <h2>About this comparison</h2>
           <p><strong>Last updated:</strong> May 20, 2026</p>
           <p><strong>Methodology:</strong> We evaluated providers based on public documentation, free tier availability, API stability, and AI agent integration patterns. Data figures (coin counts, exchange counts) are sourced directly from each provider's official documentation as of May 2026.</p>
-          <p><strong>Conflict of interest:</strong> Qveris provides capability routing for AI agents and benefits when readers choose our platform for unified crypto access. However, this comparison includes 7 independent provider options, and we disclose where paid tiers may be more appropriate than our free tooling.</p>
+          <p><strong>Conflict of interest:</strong> QVeris provides capability routing for AI agents and benefits when readers choose our platform for unified crypto access. However, this comparison includes 7 independent provider options, and we disclose where paid tiers may be more appropriate than our free tooling.</p>
           <p><strong>Update cadence:</strong> Reviewed quarterly. Free tier limits and coverage numbers verified against provider documentation every 90 days.</p>
         </div>
 
         <h2>Related Guides</h2>
         <div class="related">
-          <a href="https://try.qveris.ai/what-is-ai-agent-orchestration/">What is AI Agent Orchestration? A Practical Guide for Developers in 2026</a>
-          <a href="https://try.qveris.ai/function-calling/">Function Calling: OpenAI vs Anthropic vs Google</a>
-          <a href="https://try.qveris.ai/mcp-server/">MCP Server: 8 Best Options &amp; How They Work</a>
-          <a href="https://try.qveris.ai/mcp-client/">MCP Client: 9 Best Options for AI Developers</a>
-          <a href="https://try.qveris.ai/mcp-tools/">MCP Tools: How Discovery Works &amp; Token Cost</a>
+          <a href="../what-is-ai-agent-orchestration/index.html">What is AI Agent Orchestration? A Practical Guide for Developers in 2026</a>
+          <a href="../function-calling/index.html">Function Calling: OpenAI vs Anthropic vs Google</a>
+          <a href="../mcp-server/index.html">MCP Server: 8 Best Options &amp; How They Work</a>
+          <a href="../mcp-client/index.html">MCP Client: 9 Best Options for AI Developers</a>
+          <a href="../mcp-tools/index.html">MCP Tools: How Discovery Works &amp; Token Cost</a>
         </div>
       </div>
     </article>

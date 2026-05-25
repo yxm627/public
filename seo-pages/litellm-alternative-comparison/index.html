@@ -740,91 +740,7 @@
     <p>The core decision point: do you want to manage infrastructure or pay for convenience?</p>
 
     <div class="decision-tree">
-      <p style="text-align:center;font-weight:600;margin-bottom:16px;color:rgba(255,255,255,0.85)">LiteLLM Alternative Selector</p>
-      <svg viewBox="0 0 800 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="decision-tree-title decision-tree-desc">
-        <title id="decision-tree-title">Decision tree for choosing the right LLM gateway alternative based on self-hosting preference, observability needs, and feature scope</title>
-        <desc id="decision-tree-desc">Flowchart starting from "Can you self-host infrastructure?" Yes leads to LiteLLM (routing only) or Helicone (with observability). No leads to OpenRouter (simple API access), Portkey (observability + prompt mgmt), Vellum (enterprise full lifecycle), or Eden AI (multi-modal LLM + Vision + STT/TTS).</desc>
-        <!-- Start -->
-        <rect x="320" y="20" width="160" height="40" rx="20" fill="#7C9BFF" />
-        <text x="400" y="45" text-anchor="middle" fill="#0A0E1A" font-size="13" font-weight="600">Start Here</text>
-
-        <!-- Question 1 -->
-        <line x1="400" y1="60" x2="400" y2="90" stroke="#7C9BFF" stroke-width="2" />
-        <rect x="300" y="90" width="200" height="36" rx="18" fill="rgba(124,155,255,0.15)" stroke="#7C9BFF" />
-        <text x="400" y="113" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="12">Can you self-host infrastructure?</text>
-
-        <!-- Left branch (Yes) -->
-        <line x1="300" y1="108" x2="160" y2="108" stroke="#7C9BFF" stroke-width="2" />
-        <line x1="160" y1="108" x2="160" y2="140" stroke="#7C9BFF" stroke-width="2" />
-        <text x="230" y="100" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="11">Yes</text>
-        <rect x="40" y="140" width="240" height="36" rx="18" fill="rgba(124,155,255,0.15)" stroke="#7C9BFF" />
-        <text x="160" y="163" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="12">Do you need observability?</text>
-
-        <!-- Left-Left (LiteLLM) -->
-        <line x1="60" y1="176" x2="60" y2="210" stroke="#7C9BFF" stroke-width="2" />
-        <line x1="60" y1="210" x2="110" y2="210" stroke="#7C9BFF" stroke-width="2" />
-        <text x="35" y="195" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="11">Just routing?</text>
-        <rect x="10" y="210" width="100" height="50" rx="8" fill="#3D5FE0" />
-        <text x="60" y="230" text-anchor="middle" fill="white" font-size="11" font-weight="500">LiteLLM</text>
-        <text x="60" y="245" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">Self-hosted, free</text>
-
-        <!-- Left-Right (Helicone) -->
-        <line x1="160" y1="176" x2="240" y2="176" stroke="#7C9BFF" stroke-width="2" />
-        <line x1="240" y1="176" x2="240" y2="210" stroke="#7C9BFF" stroke-width="2" />
-        <line x1="240" y1="210" x2="290" y2="210" stroke="#7C9BFF" stroke-width="2" />
-        <text x="120" y="200" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="11">Yes</text>
-        <rect x="190" y="210" width="100" height="50" rx="8" fill="#4ade80" />
-        <text x="240" y="230" text-anchor="middle" fill="#0A0E1A" font-size="11" font-weight="500">Helicone</text>
-        <text x="240" y="245" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">Open-source</text>
-        <text x="240" y="258" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">self-hosted</text>
-
-        <!-- Right branch (No) -->
-        <line x1="500" y1="108" x2="640" y2="108" stroke="#7C9BFF" stroke-width="2" />
-        <line x1="640" y1="108" x2="640" y2="140" stroke="#7C9BFF" stroke-width="2" />
-        <text x="570" y="102" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="11">No</text>
-        <rect x="520" y="140" width="240" height="36" rx="18" fill="rgba(124,155,255,0.15)" stroke="#7C9BFF" />
-        <text x="640" y="163" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="12">Do you need prompt mgmt?</text>
-
-        <!-- Right-Left (OpenRouter) -->
-        <line x1="540" y1="158" x2="480" y2="158" stroke="#7C9BFF" stroke-width="2" />
-        <line x1="480" y1="158" x2="480" y2="210" stroke="#7C9BFF" stroke-width="2" />
-        <line x1="480" y1="210" x2="530" y2="210" stroke="#7C9BFF" stroke-width="2" />
-        <text x="510" y="152" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="11">Simple only?</text>
-        <rect x="430" y="210" width="100" height="50" rx="8" fill="#f87171" />
-        <text x="480" y="230" text-anchor="middle" fill="white" font-size="11" font-weight="500">OpenRouter</text>
-        <text x="480" y="245" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">Quick API</text>
-        <text x="480" y="258" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">access</text>
-
-        <!-- Right-Right (Portkey) -->
-        <line x1="740" y1="158" x2="740" y2="210" stroke="#7C9BFF" stroke-width="2" />
-        <line x1="740" y1="210" x2="690" y2="210" stroke="#7C9BFF" stroke-width="2" />
-        <text x="750" y="205" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="11">Yes</text>
-        <rect x="640" y="210" width="100" height="50" rx="8" fill="#60a5fa" />
-        <text x="690" y="230" text-anchor="middle" fill="white" font-size="11" font-weight="500">Portkey</text>
-        <text x="690" y="245" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">Observability</text>
-        <text x="690" y="258" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">+ prompt mgmt</text>
-
-        <!-- Enterprise branch -->
-        <line x1="760" y1="176" x2="780" y2="176" stroke="#7C9BFF" stroke-width="2" />
-        <line x1="780" y1="176" x2="780" y2="350" stroke="#7C9BFF" stroke-width="2" />
-        <line x1="780" y1="350" x2="730" y2="350" stroke="#7C9BFF" stroke-width="2" />
-        <text x="755" y="195" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="11">Enterprise</text>
-        <rect x="680" y="350" width="100" height="50" rx="8" fill="#a78bfa" />
-        <text x="730" y="370" text-anchor="middle" fill="white" font-size="11" font-weight="500">Vellum</text>
-        <text x="730" y="385" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">Full prompt</text>
-        <text x="730" y="398" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">lifecycle</text>
-
-        <!-- Multi-modal -->
-        <line x1="640" y1="176" x2="600" y2="176" stroke="#7C9BFF" stroke-width="2" />
-        <line x1="600" y1="176" x2="600" y2="350" stroke="#7C9BFF" stroke-width="2" />
-        <line x1="600" y1="350" x2="580" y2="350" stroke="#7C9BFF" stroke-width="2" />
-        <text x="600" y="195" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="11">Multi-modal?</text>
-        <rect x="530" y="350" width="100" height="50" rx="8" fill="#fbbf24" />
-        <text x="580" y="370" text-anchor="middle" fill="#0A0E1A" font-size="11" font-weight="500">Eden AI</text>
-        <text x="580" y="385" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">LLM + Vision</text>
-        <text x="580" y="398" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9">+ STT/TTS</text>
-      </svg>
-      <div class="viz-caption">Decision tree: Choose your LLM gateway based on deployment preference, observability needs, and feature scope.</div>
+      <img src="one.png" alt="LiteLLM Alternative Selector decision tree. Start: Can you self-host infrastructure? Yes → Do you need observability? — Just routing? leads to LiteLLM (self-hosted, free), Yes leads to Helicone (open-source self-hosted). No → Do you need prompt management? — Simple only? leads to OpenRouter (quick API access), Yes leads to Portkey (observability + prompt mgmt). Enterprise needs point to Vellum (full prompt lifecycle). Multi-modal needs point to Eden AI (LLM + Vision + STT/TTS)." style="width:100%;height:auto;display:block;max-width:960px;margin:0 auto">
     </div>
 
     <p><strong>Bottom line:</strong> If you have infrastructure capacity and want control, LiteLLM or Helicone (self-hosted) work. If you want managed convenience, OpenRouter (simple) or Portkey (full-featured) fit. Enterprise prompt lifecycle needs point to Vellum.</p>
@@ -914,58 +830,7 @@
 
     <!-- BLOCK 13: ORIGINAL VISUALIZATION -->
     <div class="viz">
-      <p style="font-weight:600;margin-bottom:16px;text-align:center;color:rgba(255,255,255,0.85)">LLM Gateway vs Capability Router: Different Layers, Different Jobs</p>
-      <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" style="max-width:800px;margin:0 auto;display:block" role="img" aria-labelledby="architecture-diagram-title architecture-diagram-desc">
-        <title id="architecture-diagram-title">Architecture diagram showing how LLM gateways and capability routers work together in an AI agent system</title>
-        <desc id="architecture-diagram-desc">Diagram showing AI Agent at top, connected to QVeris Capability Layer (10,000+ verified capabilities across financial data), which connects to LLM Gateway layer (model routing for GPT-4o, Claude, Gemini, open-source models). Gateway connects to LLM providers below.</desc>
-        <!-- AI Agent box -->
-        <rect x="280" y="20" width="240" height="50" rx="10" fill="rgba(124,155,255,0.2)" stroke="#7C9BFF" stroke-width="2"/>
-        <text x="400" y="50" text-anchor="middle" fill="white" font-size="14" font-weight="600">AI Agent</text>
-
-        <!-- QVeris layer -->
-        <rect x="100" y="100" width="600" height="70" rx="10" fill="rgba(124,155,255,0.1)" stroke="#B5C6FF" stroke-width="1"/>
-        <text x="130" y="125" fill="#B5C6FF" font-size="11" font-weight="600">QVERIS — Capability Layer</text>
-        <text x="130" y="145" fill="rgba(255,255,255,0.6)" font-size="11">Financial capabilities: market data, KYC, compliance, on-chain</text>
-        <text x="130" y="162" fill="rgba(255,255,255,0.6)" font-size="11">10,000+ verified capabilities via unified protocol</text>
-
-        <!-- LLM Gateway layer -->
-        <rect x="100" y="190" width="600" height="70" rx="10" fill="rgba(74,222,128,0.1)" stroke="#4ade80" stroke-width="1"/>
-        <text x="130" y="215" fill="#4ade80" font-size="11" font-weight="600">LLM GATEWAY — Model Router</text>
-        <text x="130" y="235" fill="rgba(255,255,255,0.6)" font-size="11">Model routing: GPT-4o, Claude, Gemini, open-source models</text>
-        <text x="130" y="252" fill="rgba(255,255,255,0.6)" font-size="11">Load balancing, fallback, cost tracking</text>
-
-        <!-- Connections -->
-        <path d="M310 70 L310 100" stroke="#B5C6FF" stroke-width="2" marker-end="url(#arrowBlue)"/>
-        <path d="M490 70 L490 100" stroke="#B5C6FF" stroke-width="2"/>
-        <path d="M310 170 L310 190" stroke="#4ade80" stroke-width="2"/>
-        <path d="M490 170 L490 190" stroke="#4ade80" stroke-width="2" marker-end="url(#arrowGreen)"/>
-
-        <!-- LLM Providers -->
-        <rect x="100" y="280" width="100" height="0" fill="none"/>
-        <text x="150" y="295" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">GPT-4o</text>
-        <text x="250" y="295" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">Claude 3.5</text>
-        <text x="350" y="295" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">Gemini 2.0</text>
-        <text x="450" y="295" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">Llama 3</text>
-        <text x="550" y="295" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">Mistral</text>
-
-        <!-- Financial Data Sources -->
-        <text x="150" y="295" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">Bloomberg</text>
-        <text x="250" y="295" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">Refinitiv</text>
-        <text x="350" y="295" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">Chainalysis</text>
-        <text x="450" y="295" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">ComplyAdvantage</text>
-        <text x="550" y="295" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">+9,996</text>
-
-        <!-- Arrow markers -->
-        <defs>
-          <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-            <path d="M0,0 L0,6 L9,3 z" fill="#B5C6FF"/>
-          </marker>
-          <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-            <path d="M0,0 L0,6 L9,3 z" fill="#4ade80"/>
-          </marker>
-        </defs>
-      </svg>
-      <div class="viz-caption">LLM gateways and capability routers solve different problems—they stack, not replace.</div>
+      <img src="two.png" alt="Architecture diagram showing AI Agent at top connected to QVeris Capability Layer (10,000+ verified capabilities across financial data, KYC, compliance, on-chain), which connects to LLM Gateway layer (model routing for GPT-4o, Claude, Gemini, Llama 3, Mistral with load balancing, fallback, and cost tracking). Gateway connects to LLM providers below. LLM gateways and capability routers solve different problems and stack together." style="width:100%;height:auto;display:block;max-width:960px;margin:0 auto">
     </div>
 
     <!-- BLOCK 14: QUICK START / STEPS -->
@@ -1063,10 +928,10 @@
     <!-- BLOCK 18: RELATED GUIDES -->
     <h2>Related Guides</h2>
     <div class="related">
-      <a href="https://try.qveris.ai/mcp-server-list-finance/">Top MCP Servers for Financial AI Agents (2026)</a>
-      <a href="https://try.qveris.ai/polygon-pricing-optimized/">QVeris vs Polygon: Pricing Comparison</a>
-      <a href="https://try.qveris.ai/function-calling/">Function Calling: OpenAI vs Anthropic vs Google</a>
-      <a href="https://try.qveris.ai/mcp-registry/">MCP Registry: Find &amp; Publish MCP Servers</a>
+      <a href="../mcp-server-list-finance/index.html">Top MCP Servers for Financial AI Agents (2026)</a>
+      <a href="../polygon-pricing-optimized/index.html">QVeris vs Polygon: Pricing Comparison</a>
+      <a href="../function-calling/index.html">Function Calling: OpenAI vs Anthropic vs Google</a>
+      <a href="../mcp-registry/index.html">MCP Registry: Find &amp; Publish MCP Servers</a>
     </div>
 
   </div>
