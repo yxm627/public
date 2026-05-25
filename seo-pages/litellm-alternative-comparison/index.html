@@ -741,8 +741,9 @@
 
     <div class="decision-tree">
       <p style="text-align:center;font-weight:600;margin-bottom:16px;color:rgba(255,255,255,0.85)">LiteLLM Alternative Selector</p>
-      <svg viewBox="0 0 800 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="decision-tree-title">
+      <svg viewBox="0 0 800 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="decision-tree-title decision-tree-desc">
         <title id="decision-tree-title">Decision tree for choosing the right LLM gateway alternative based on self-hosting preference, observability needs, and feature scope</title>
+        <desc id="decision-tree-desc">Flowchart starting from "Can you self-host infrastructure?" Yes leads to LiteLLM (routing only) or Helicone (with observability). No leads to OpenRouter (simple API access), Portkey (observability + prompt mgmt), Vellum (enterprise full lifecycle), or Eden AI (multi-modal LLM + Vision + STT/TTS).</desc>
         <!-- Start -->
         <rect x="320" y="20" width="160" height="40" rx="20" fill="#7C9BFF" />
         <text x="400" y="45" text-anchor="middle" fill="#0A0E1A" font-size="13" font-weight="600">Start Here</text>
@@ -914,8 +915,9 @@
     <!-- BLOCK 13: ORIGINAL VISUALIZATION -->
     <div class="viz">
       <p style="font-weight:600;margin-bottom:16px;text-align:center;color:rgba(255,255,255,0.85)">LLM Gateway vs Capability Router: Different Layers, Different Jobs</p>
-      <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" style="max-width:800px;margin:0 auto;display:block" role="img" aria-labelledby="architecture-diagram-title">
+      <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" style="max-width:800px;margin:0 auto;display:block" role="img" aria-labelledby="architecture-diagram-title architecture-diagram-desc">
         <title id="architecture-diagram-title">Architecture diagram showing how LLM gateways and capability routers work together in an AI agent system</title>
+        <desc id="architecture-diagram-desc">Diagram showing AI Agent at top, connected to QVeris Capability Layer (10,000+ verified capabilities across financial data), which connects to LLM Gateway layer (model routing for GPT-4o, Claude, Gemini, open-source models). Gateway connects to LLM providers below.</desc>
         <!-- AI Agent box -->
         <rect x="280" y="20" width="240" height="50" rx="10" fill="rgba(124,155,255,0.2)" stroke="#7C9BFF" stroke-width="2"/>
         <text x="400" y="50" text-anchor="middle" fill="white" font-size="14" font-weight="600">AI Agent</text>
