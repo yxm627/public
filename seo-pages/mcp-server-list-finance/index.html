@@ -352,7 +352,7 @@
     /* Footer */
     .footer{background:#060912;border-top:1px solid rgba(255,255,255,0.04);padding:48px 24px}
     .footer-inner{max-width:1024px;margin:0 auto}
-    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:32px}
+    .footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px}
     .footer .footer-title{display:block;font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
     .footer-links{display:flex;flex-direction:column;gap:10px;font-size:14px}
     .footer-links a{color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.15s}
@@ -397,11 +397,11 @@
         <span class="nav-logo-mark">Q</span>
         <span>QVeris</span>
       </a>
-      <div class="nav-links">
-        <a href="https://qveris.ai">Product</a>
-        <a href="https://qveris.ai/pricing">Pricing</a>
-        <a href="https://qveris.ai/docs">Docs</a>
-        <a href="https://qveris.ai" class="nav-cta">Get Started</a>
+            <div class="nav-links">
+        <a href="https://qveris.ai">产品</a>
+        <a href="https://qveris.ai/pricing">定价</a>
+        <a href="https://qveris.ai/docs">文档</a>
+        <a href="https://qveris.ai" class="nav-cta">开始使用</a>
       </div>
     </div>
   </nav>
@@ -1039,36 +1039,52 @@ except qveris.TimeoutError:
           <a href="https://qveris.ai/" class="cta-btn" style="padding:8px 20px;font-size:13px">Get Started →</a>
         </div>
         <div>
-          <span class="footer-title">Product</span>
+          <span class="footer-title">产品</span>
           <div class="footer-links">
-            <a href="https://qveris.ai/product">Features</a>
-            <a href="https://qveris.ai/integrations">Integrations</a>
-            <a href="https://qveris.ai/enterprise">Enterprise</a>
-            <a href="https://qveris.ai/pricing">Pricing</a>
+            <a href="https://qveris.ai/capabilities/explore">能力地图</a>
+            <a href="https://qveris.ai/cli">QVeris CLI</a>
+            <a href="https://qveris.ai/qverisbot">QVerisBot</a>
+            <a href="https://qveris.ai/skills">技能目录</a>
+            <a href="https://qveris.ai/playground">在线体验</a>
+            <a href="https://qveris.ai/plugins">给智能体安装</a>
           </div>
         </div>
         <div>
-          <span class="footer-title">Resources</span>
+          <span class="footer-title">开发者</span>
           <div class="footer-links">
-            <a href="https://qveris.ai/docs">Documentation</a>
-            <a href="https://qveris.ai/guides">Guides</a>
-            <a href="https://qveris.ai/changelog">Changelog</a>
-            <a href="https://qveris.ai/security">Security</a>
+            <a href="https://qveris.ai/docs">快速开始</a>
+            <a href="https://qveris.ai/blog">博客</a>
+            <a href="https://qveris.ai/docs/cli">CLI 文档</a>
+            <a href="https://qveris.ai/docs/rest-api">REST API</a>
+            <a href="https://qveris.ai/docs/mcp-server">MCP Server</a>
+            <a href="https://qveris.ai/docs/python-sdk">Python SDK</a>
           </div>
         </div>
         <div>
-          <span class="footer-title">Company</span>
+          <span class="footer-title">生态</span>
           <div class="footer-links">
-            <a href="https://qveris.ai/about">About</a>
-            <a href="https://qveris.ai/contact">Contact</a>
-            <a href="https://qveris.ai/terms">Terms</a>
-            <a href="https://qveris.ai/privacy">Privacy</a>
+            <a href="https://github.com/QVerisAI">GitHub</a>
+            <a href="https://www.npmjs.com/org/qverisai">npm 包</a>
+            <a href="https://clawhub.ai/skills?sort=downloads&q=qveris">ClawHub</a>
+            <a href="https://qveris.ai/for-agents">智能体指南</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-title">公司</span>
+          <div class="footer-links">
+            <a href="https://qveris.ai/pricing">定价</a>
+            <a href="https://qveris.ai/whats-new">最新动态</a>
+            <a href="https://qveris.ai/help">帮助中心</a>
+            <a href="https://qveris.ai/ecosystem">生态</a>
+            <a href="https://qveris.ai/security">安全</a>
+            <a href="https://qveris.ai/terms">服务条款</a>
+            <a href="https://qveris.ai/privacy">隐私政策</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 QVeris. All rights reserved.</span>
-        <span><a href="https://qveris.ai/terms" style="color:rgba(255,255,255,0.4);margin-right:14px">Terms</a><a href="https://qveris.ai/privacy" style="color:rgba(255,255,255,0.4)">Privacy</a></span>
+        <span>© 2026 QVeris AI. All rights reserved.</span>
+        <span>AI-Agent Native • Capability Routing Network • Pay-Per-Call</span>
       </div>
     </div>
   </footer>
