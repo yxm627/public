@@ -26,6 +26,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- Vercel Web Analytics -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Article","headline":"实时股票价格 API 对比：6 大提供商评测与 AI Agent 集成指南","description":"6 大实时股票行情 API 深度对比","author":{"@type":"Person","name":"Wang Linfang"},"datePublished":"2026-05-20","dateModified":"2026-05-26","mainEntityOfPage":{"@type":"WebPage","@id":"https://example.com/real-time-stock-price-api-for-ai-agents/"}}
   </script>
@@ -177,7 +183,7 @@
 
         <section id="compared">
           <h2>6 大提供商核心参数对比</h2>
-          <p>以下六家提供商覆盖了从 WebSocket 原生平台到高性价比 REST 方案的完整谱系。所有数据来源于各提供商官方文档和定价页面（最后核实时间：2026 年 5 月 22 日 <sup><a href="#r2" style="color:#7C9BFF;font-size:11px;">[2]</a></sup>）。</p>
+          <p>以下六家提供商��盖了从 WebSocket 原生平台到高性价比 REST 方案的完整谱系。所有数据来源于各提供商官方文档和定价页面（最后核实时间：2026 年 5 月 22 日 <sup><a href="#r2" style="color:#7C9BFF;font-size:11px;">[2]</a></sup>）。</p>
 
           <div class="viz">
             <table class="compare-table">
@@ -615,7 +621,7 @@ price = get_realtime_price(<span class="string">"AAPL"</span>)
 
           <div class="faq-item">
             <div class="faq-q">免费层真的能支撑生产环境吗？</div>
-            <div class="faq-a">仅限低频率场景。参见限速归一化表：Finnhub 60/min 可支撑单标的 1 秒轮询；Twelve Data 800/天约合每 1.8 分钟一次查询。多标的监控建议升级付费计划或聚合多个免费层。</div>
+            <div class="faq-a">仅限低频率场景。参见限速归一化表：Finnhub 60/min 可支撑单标�� 1 秒轮询；Twelve Data 800/天约合每 1.8 分钟一次查询。多标的监控建议升级付费计划或聚合多个免费层。</div>
           </div>
 
           <div class="faq-item">
