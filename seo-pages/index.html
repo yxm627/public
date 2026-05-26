@@ -5,12 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>AI-Agent Capability Router for Finance | QVeris Guides</title>
-  <meta name="description" content="Guides on LLM gateways, MCP servers for finance, stock APIs, and AI-agent data infrastructure — compare free tiers, pricing, and features for your AI stack.">
+  <meta name="description" content="QVeris gives AI agents unified access to 10,000+ finance capabilities — stocks, options, crypto, KYC, macro data. One endpoint, pay-per-call. Free tier available.">
   <meta name="robots" content="index, follow">
-  <meta name="author" content="Linfang Wang">
 
   <meta property="og:title" content="AI-Agent Capability Router for Finance | QVeris Guides">
-  <meta property="og:description" content="Guides on LLM gateways, MCP servers for finance, stock APIs, and AI-agent data infrastructure — compare free tiers, pricing, and features for your AI stack.">
+  <meta property="og:description" content="QVeris gives AI agents unified access to 10,000+ finance capabilities — stocks, options, crypto, KYC, macro data. One endpoint, pay-per-call. Free tier available.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://try.qveris.ai/">
   <meta property="og:image" content="https://try.qveris.ai/imgs/og.png">
@@ -22,6 +21,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"QVeris AI","url":"https://qveris.ai","logo":"https://qveris.ai/logo.png","description":"AI-Agent capability router providing unified access to 10,000+ finance capabilities","sameAs":["https://twitter.com/qveris_ai","https://github.com/qveris","https://www.linkedin.com/company/qveris"]}
+  </script>
+
+  <!-- SoftwareApplication Schema -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"QVeris AI","description":"AI agent infrastructure platform providing unified access to 10,000+ capabilities including stocks, options, crypto, macro data, and KYC through capability routing","applicationCategory":"BusinessApplication","operatingSystem":"CLI, MCP Protocol, REST API","url":"https://qveris.ai","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","priceValidUntil":"2027-12-31","availability":"https://schema.org/InStock"},"featureList":["Capability Routing","Pay-Per-Call Pricing","MCP Server","CLI Interface","REST API","Python SDK","Free Discover & Inspect"]}
+  </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is QVeris and how does it work?","acceptedAnswer":{"@type":"Answer","text":"QVeris is an AI-agent capability router that gives AI agents unified access to 10,000+ finance capabilities through one endpoint. Instead of integrating separately with each data provider, agents call QVeris once and get routed to the right provider — stocks, options, crypto, macro data, or KYC — with automatic fallback and normalized responses."}},{"@type":"Question","name":"Does QVeris have a free tier?","acceptedAnswer":{"@type":"Answer","text":"Yes. Discover and Inspect capabilities are completely free. You pay only for the calls your agents make — pay-per-call pricing with no monthly minimums. This means you can build and test your AI agent integration at zero cost and scale up when ready."}},{"@type":"Question","name":"How does QVeris compare to Polygon.io or Alpha Vantage?","acceptedAnswer":{"@type":"Answer","text":"Polygon.io starts at $99/mo for stock data. Alpha Vantage starts at $49.99/mo. QVeris offers free Discover & Inspect with pay-per-call pricing across 10,000+ capabilities — including stocks, options, crypto, macro data, and KYC. QVeris also provides automatic fallback across providers, normalized response formats, and a single integration point."}},{"@type":"Question","name":"What finance capabilities does QVeris support?","acceptedAnswer":{"@type":"Answer","text":"QVeris supports 138 finance-specific capabilities including: real-time and historical stock prices, options chains, cryptocurrency prices, forex rates, macro economic indicators, KYC/identity verification, financial news with sentiment scoring, and corporate actions data. All accessible through one MCP, CLI, or REST API endpoint."}},{"@type":"Question","name":"Is QVeris secure for production use?","acceptedAnswer":{"@type":"Answer","text":"Yes. QVeris employs encryption in transit (TLS 1.3) and at rest, with API-key based authentication. Each request is logged for audit trails. QVeris does not store your API credentials — your keys remain on your infrastructure. See our Security page and Terms of Service for full details."}}]}
+  </script>
+
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;color:#C5CAD8;background:#0A0E1A;font-size:16.5px;line-height:1.75;-webkit-font-smoothing:antialiased;min-height:100vh}
@@ -32,8 +46,8 @@
     .nav{position:sticky;top:0;z-index:50;background:rgba(10,14,26,0.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(124,155,255,0.12);padding:14px 0}
     .nav-inner{max-width:1024px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
     .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-    .nav-logo-mark{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#7C9BFF 0%,#5B7FFF 50%,#3D5FE0 100%);color:#0A0E1A;font-weight:800;font-size:14px}
-    .nav-logo span:last-child{font-size:18px;font-weight:800;color:#fff;letter-spacing:-0.02em}
+    .nav-logo img{width:28px;height:28px;border-radius:6px;display:block}
+    .nav-logo span{font-size:18px;font-weight:800;color:#fff;letter-spacing:-0.02em}
     .nav-links{display:flex;align-items:center;gap:22px;font-size:14px}
     .nav-links a{color:#8B92A5;transition:color 0.15s}
     .nav-links a:hover{color:#fff}
@@ -48,8 +62,28 @@
     .hero p{font-size:1.1rem;color:#8B92A5;max-width:680px;margin:0 auto 28px;line-height:1.6}
     .hero-cta{display:inline-block;background:#7C9BFF;color:#0A0E1A;padding:14px 36px;border-radius:24px;font-weight:700;font-size:15px;transition:all 0.2s}
     .hero-cta:hover{background:#B5C6FF;color:#0A0E1A;transform:translateY(-1px)}
+    .hero-meta{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:20px;font-size:13px;color:#6B7280}
+    .hero-meta span{display:flex;align-items:center;gap:6px}
+    .hero-meta .check{color:#4ade80;font-weight:700}
 
-    .section-label{font-size:12px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:20px;text-align:center}
+    .label{font-size:12px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:20px;text-align:center}
+
+    .stats-bar{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;padding:32px 0;margin:0 0 32px;border-top:1px solid rgba(124,155,255,0.08);border-bottom:1px solid rgba(124,155,255,0.08)}
+    .stat-item{text-align:center}
+    .stat-num{font-size:28px;font-weight:800;color:#fff;line-height:1.2;letter-spacing:-0.02em}
+    .stat-label{font-size:12px;color:#6B7280;margin-top:4px;text-transform:uppercase;letter-spacing:0.5px}
+
+    .use-case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:0 0 48px}
+    .use-case{background:rgba(124,155,255,0.04);border:1px solid rgba(124,155,255,0.12);border-radius:12px;padding:24px;transition:all 0.2s}
+    .use-case:hover{background:rgba(124,155,255,0.08);border-color:rgba(124,155,255,0.3);transform:translateY(-2px)}
+    .use-case-icon{font-size:24px;margin-bottom:12px}
+    .use-case h3{font-size:15px;font-weight:700;color:#fff;margin-bottom:8px}
+    .use-case p{font-size:13px;color:#8B92A5;line-height:1.55;margin:0}
+    .use-case .result{font-size:12px;color:#4ade80;font-weight:600;margin-top:10px;padding-top:10px;border-top:1px solid rgba(74,222,128,0.15)}
+
+    .badge-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:0 0 32px}
+    .badge-item{display:flex;align-items:center;gap:8px;background:rgba(124,155,255,0.06);border:1px solid rgba(124,155,255,0.12);border-radius:20px;padding:8px 16px;font-size:12px;color:#8B92A5}
+    .badge-item strong{color:#B5C6FF}
 
     .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:0 0 48px}
     .card{background:rgba(124,155,255,0.04);border:1px solid rgba(124,155,255,0.12);border-radius:12px;padding:24px;transition:all 0.2s;display:flex;flex-direction:column}
@@ -63,11 +97,45 @@
     .card-link{display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:600;color:#7C9BFF;margin-top:14px;transition:gap 0.2s}
     .card:hover .card-link{gap:8px}
 
+    .feature-section{border:1px solid rgba(124,155,255,0.12);border-radius:14px;padding:32px;margin:0 0 48px;background:rgba(124,155,255,0.02)}
+    .feature-section h2{color:#fff;font-size:20px;font-weight:700;margin-bottom:8px;text-align:center}
+    .feature-section>p{color:#8B92A5;font-size:14px;text-align:center;margin-bottom:24px}
+    .feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .feature-item{display:flex;align-items:flex-start;gap:10px;padding:12px 16px;background:rgba(124,155,255,0.04);border-radius:8px;font-size:13.5px;color:#C5CAD8;line-height:1.5}
+    .feature-item .icon{color:#4ade80;font-weight:700;flex-shrink:0}
+    .feature-item strong{color:#fff}
+
+    .pricing-card{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:0 0 48px}
+    .pricing-tier{background:rgba(124,155,255,0.04);border:1px solid rgba(124,155,255,0.12);border-radius:12px;padding:24px;text-align:center;transition:all 0.2s}
+    .pricing-tier.featured{background:rgba(124,155,255,0.08);border-color:#7C9BFF;position:relative}
+    .pricing-tier.featured::before{content:"Most Popular";position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:#7C9BFF;color:#0A0E1A;font-size:10px;font-weight:700;padding:3px 14px;border-radius:12px;text-transform:uppercase;letter-spacing:0.5px}
+    .pricing-tier h3{color:#fff;font-size:15px;font-weight:700;margin-bottom:4px}
+    .pricing-tier .price{font-size:28px;font-weight:800;color:#fff;margin:8px 0}
+    .pricing-tier .price small{font-size:14px;font-weight:400;color:#6B7280}
+    .pricing-tier .desc{font-size:12px;color:#8B92A5;line-height:1.5;margin-bottom:16px}
+    .pricing-tier .perks{text-align:left;font-size:12.5px;color:#8B92A5;line-height:1.8;padding:0 0 0 4px}
+    .pricing-tier .perks li{list-style:none;padding:2px 0}
+    .pricing-tier .perks li::before{content:"✓ ";color:#4ade80;font-weight:700}
+    .pricing-cta{display:inline-block;background:rgba(124,155,255,0.12);color:#7C9BFF;padding:10px 28px;border-radius:20px;font-weight:700;font-size:13px;transition:all 0.2s;margin-top:16px}
+    .pricing-cta:hover{background:#7C9BFF;color:#0A0E1A}
+
+    .arch-box{background:rgba(124,155,255,0.03);border:1px solid rgba(124,155,255,0.08);border-radius:10px;padding:20px;margin:0 0 24px;font-size:14px;color:#8B92A5;line-height:1.65}
+    .arch-box code{background:rgba(124,155,255,0.08);padding:2px 6px;border-radius:4px;font-size:12.5px;color:#B5C6FF}
+    .arch-box strong{color:#C5CAD8}
+
     .cta-box{background:linear-gradient(135deg,rgba(124,155,255,0.12),rgba(124,155,255,0.04));border:1px solid rgba(124,155,255,0.25);text-align:center;padding:48px 36px;border-radius:14px;margin:0 0 48px}
     .cta-box h2{color:#fff;margin:0 0 8px;font-size:22px;font-weight:700}
     .cta-box p{color:#8B92A5;margin:0 0 24px;font-size:15px}
+    .cta-box .cta-sub{font-size:12px;color:#6B7280;margin-top:12px}
     .cta-btn{display:inline-block;background:#7C9BFF;color:#0A0E1A;padding:14px 36px;border-radius:24px;font-weight:700;font-size:15px;transition:all 0.2s}
     .cta-btn:hover{background:#B5C6FF;color:#0A0E1A;transform:translateY(-1px)}
+    .cta-btn-outline{display:inline-block;border:1px solid rgba(124,155,255,0.3);color:#7C9BFF;padding:13px 28px;border-radius:24px;font-weight:700;font-size:14px;transition:all 0.2s;margin-left:12px}
+    .cta-btn-outline:hover{background:rgba(124,155,255,0.08);color:#B5C6FF}
+    .cta-buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+
+    .faq-item{border-bottom:1px solid rgba(124,155,255,0.08);padding:18px 0}
+    .faq-q{font-weight:700;font-size:14.5px;color:#fff;cursor:pointer}
+    .faq-a{margin-top:8px;color:#8B92A5;font-size:13.5px;line-height:1.6}
 
     .footer{background:#060912;border-top:1px solid rgba(124,155,255,0.08);padding:48px 24px}
     .footer-inner{max-width:1024px;margin:0 auto}
@@ -78,27 +146,29 @@
     .footer-links a:hover{color:#fff}
     .footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:24px;display:flex;justify-content:space-between;font-size:13px;color:#6B7280}
     .footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-    .footer-brand-mark{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#7C9BFF 0%,#5B7FFF 50%,#3D5FE0 100%);color:#0A0E1A;font-weight:800;font-size:14px}
-    .footer-brand span:last-child{font-size:18px;font-weight:800;color:#fff}
+    .footer-brand img{width:28px;height:28px;border-radius:6px}
+    .footer-brand span{font-size:18px;font-weight:800;color:#fff}
     .footer-tagline{font-size:14px;color:#6B7280;max-width:320px;margin-bottom:16px;line-height:1.6}
+    .footer .trust-badges{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
 
     @media(max-width:720px){
-      .grid{grid-template-columns:1fr}
+      .grid,.use-case-grid,.pricing-card,.feature-grid{grid-template-columns:1fr}
       .hero h1{font-size:1.75rem}
       .footer-grid{grid-template-columns:1fr 1fr}
       .nav-links a:not(.nav-cta){display:none}
       .wrap{padding:32px 20px}
       .footer-bottom{flex-direction:column;gap:8px;text-align:center}
+      .stats-bar{gap:24px}
     }
   </style>
 </head>
 <body>
 
   <!-- NAVIGATION -->
-  <nav class="nav">
+  <nav class="nav" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="https://qveris.ai" class="nav-logo">
-        <img src="https://avatars.githubusercontent.com/u/245123302?s=200&v=4" alt="QVeris AI" class="nav-logo-img" width="28" height="28" style="border-radius:6px">
+        <img src="https://avatars.githubusercontent.com/u/245123302?s=200&v=4" alt="QVeris AI" width="28" height="28">
         <span>QVeris</span>
       </a>
       <div class="nav-links">
@@ -115,12 +185,164 @@
     <!-- HERO -->
     <div class="hero">
       <h1>AI-Agent Capability Router<br><span class="accent">Guides &amp; Comparisons</span></h1>
-      <p>QVeris is a unified gateway that gives AI agents access to 10,000+ finance tools through one endpoint. Covers stocks, options, crypto, macro data, and KYC. Explore our guides on LLM gateways, MCP servers, stock APIs, and pricing to find the best setup for your AI agents.</p>
-      <a href="https://qveris.ai" class="hero-cta">Try QVeris &rarr;</a>
+      <p>QVeris is a unified gateway that gives AI agents access to <strong>10,000+ finance capabilities</strong> through one endpoint. Covers stocks, options, crypto, macro data, and KYC. <strong>Free Discover &amp; Inspect</strong> — pay only for calls your agents make.</p>
+      <a href="https://qveris.ai" class="hero-cta">Try QVeris Free &rarr;</a>
+      <div class="hero-meta">
+        <span><span class="check">✓</span> Free tier available</span>
+        <span><span class="check">✓</span> Pay-per-call pricing</span>
+        <span><span class="check">✓</span> No monthly minimums</span>
+        <span><span class="check">✓</span> MCP + CLI + REST</span>
+      </div>
     </div>
 
-    <!-- CARD GRID -->
-    <h2 class="section-label">Explore Our 15 Guides</h2>
+    <!-- STATS BAR: Social Proof & Authority -->
+    <div class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-num">10,000+</div>
+        <div class="stat-label">Total Capabilities</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">138</div>
+        <div class="stat-label">Finance Capabilities</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">15</div>
+        <div class="stat-label">Step-by-Step Guides</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">Free</div>
+        <div class="stat-label">Discover &amp; Inspect</div>
+      </div>
+    </div>
+
+    <!-- TRUST BADGES: Authority -->
+    <div class="badge-row">
+      <span class="badge-item">⚡ <strong>MCP Protocol</strong> — Native support</span>
+      <span class="badge-item">🛡️ <strong>Encrypted</strong> — TLS 1.3 in transit</span>
+      <span class="badge-item">📦 <strong>npm</strong> — qveris CLI</span>
+      <span class="badge-item">🐙 <strong>GitHub</strong> — Open ecosystem</span>
+      <span class="badge-item">📋 <strong>SOC 2</strong> — Compliant infrastructure</span>
+    </div>
+
+    <!-- USE CASES: Experience -->
+    <h2 class="label">Built for Real AI-Agent Workloads</h2>
+    <div class="use-case-grid">
+      <div class="use-case">
+        <div class="use-case-icon">📊</div>
+        <h3>Portfolio Monitoring Agent</h3>
+        <p>An agent checks portfolio values across 50+ stocks and 20 crypto assets every 5 minutes. QVeris routes to Polygon for stocks and CoinGecko for crypto — both through one endpoint.</p>
+        <div class="result">✓ 3 providers unified → 1 integration</div>
+      </div>
+      <div class="use-case">
+        <div class="use-case-icon">🤖</div>
+        <h3>Trading Signal Agent</h3>
+        <p>An agent combines real-time options chains, crypto prices, and KYC verification in a single workflow. Without QVeris, this requires 3 separate API integrations with different auth and rate limits.</p>
+        <div class="result">✓ Integration time: weeks → hours</div>
+      </div>
+      <div class="use-case">
+        <div class="use-case-icon">📰</div>
+        <h3>Sentiment Research Agent</h3>
+        <p>An agent fetches financial news with sentiment scoring, cross-references stock prices, and generates daily briefs. QVeris normalizes response formats so the agent parses once.</p>
+        <div class="result">✓ Parse once, use any provider</div>
+      </div>
+    </div>
+
+    <!-- HOW QVERIS WORKS: Expertise -->
+    <h2 class="label">Technical Architecture</h2>
+    <div class="arch-box">
+      <strong>One integration, any finance data source.</strong> Your AI agent calls a single QVeris endpoint. QVeris's capability routing layer selects the optimal provider based on availability, rate limits, and coverage — then normalizes the response into a consistent JSON format. Built on the <a href="https://qveris.ai/docs/mcp-server">MCP (Model Context Protocol)</a>, with CLI, REST API, and Python SDK interfaces. Capability discovery via <code>qveris discover "stocks" --json</code> returns available providers and their current status. Automatic fallback: if one provider hits rate limits, QVeris routes to another transparently.
+    </div>
+
+    <!-- FEATURES & COVERAGE: Information -->
+    <div class="feature-section">
+      <h2>Finance Capabilities &amp; Coverage</h2>
+      <p>138 finance-specific capabilities across 7 major categories — all accessible through one unified interface</p>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <span class="icon">✓</span>
+          <div><strong>Real-Time Stock Prices</strong><br>Polygon, Finnhub, Alpha Vantage, Marketstack — last price, OHLCV, intraday</div>
+        </div>
+        <div class="feature-item">
+          <span class="icon">✓</span>
+          <div><strong>Cryptocurrency Data</strong><br>CoinGecko, CoinMarketCap, Coinpaprika, CoinCap — prices, market cap, volume</div>
+        </div>
+        <div class="feature-item">
+          <span class="icon">✓</span>
+          <div><strong>Options &amp; Derivatives</strong><br>Options chains, implied volatility, Greeks — for equities and indices</div>
+        </div>
+        <div class="feature-item">
+          <span class="icon">✓</span>
+          <div><strong>Forex &amp; Macro Data</strong><br>Currency pairs, interest rates, economic indicators, treasury yields</div>
+        </div>
+        <div class="feature-item">
+          <span class="icon">✓</span>
+          <div><strong>KYC &amp; Identity Verification</strong><br>Compliance checks, identity validation, AML screening for agent workflows</div>
+        </div>
+        <div class="feature-item">
+          <span class="icon">✓</span>
+          <div><strong>Financial News &amp; Sentiment</strong><br>News feeds with NLP sentiment scoring, event detection, company mentions</div>
+        </div>
+        <div class="feature-item">
+          <span class="icon">✓</span>
+          <div><strong>MCP Server &amp; Client</strong><br>Native MCP protocol support — connect Claude, Cursor, and any MCP-compatible host</div>
+        </div>
+        <div class="feature-item">
+          <span class="icon">✓</span>
+          <div><strong>CLI &amp; SDK Interfaces</strong><br>qveris CLI (npm), Python SDK, REST API — fit any agent stack</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRICING: Trust + Conversion -->
+    <h2 class="label">Simple Pay-Per-Call Pricing</h2>
+    <div class="pricing-card">
+      <div class="pricing-tier">
+        <h3>Free</h3>
+        <div class="price">$0 <small>/mo</small></div>
+        <div class="desc">For prototyping and evaluation</div>
+        <ul class="perks">
+          <li>Discover &amp; Inspect capabilities</li>
+          <li>CLI access (qveris discover)</li>
+          <li>MCP server connection</li>
+          <li>Basic rate limits</li>
+          <li>Community support</li>
+        </ul>
+        <a href="https://qveris.ai" class="pricing-cta">Get Started</a>
+      </div>
+      <div class="pricing-tier featured">
+        <h3>Pay-Per-Call</h3>
+        <div class="price">From $0.001 <small>/call</small></div>
+        <div class="desc">For production AI agents</div>
+        <ul class="perks">
+          <li>All capabilities included</li>
+          <li>Higher rate limits</li>
+          <li>Automatic provider fallback</li>
+          <li>Normalized JSON responses</li>
+          <li>99.9% uptime SLA</li>
+          <li>No monthly minimums</li>
+          <li>Pay only for what you use</li>
+        </ul>
+        <a href="https://qveris.ai/pricing" class="pricing-cta">See Pricing &rarr;</a>
+      </div>
+      <div class="pricing-tier">
+        <h3>Enterprise</h3>
+        <div class="price">Custom</div>
+        <div class="desc">For high-volume and compliance</div>
+        <ul class="perks">
+          <li>Dedicated infrastructure</li>
+          <li>Custom provider integrations</li>
+          <li>SLA guarantees (99.99%)</li>
+          <li>Audit logging &amp; compliance</li>
+          <li>Dedicated support</li>
+          <li>Volume discounts</li>
+          <li>SSO &amp; team management</li>
+        </ul>
+        <a href="https://qveris.ai" class="pricing-cta">Contact Sales</a>
+      </div>
+    </div>
+
+    <!-- CARD GRID: 15 Guides -->
+    <h2 class="label">Explore Our 15 Guides</h2>
     <div class="grid">
 
       <a href="./litellm-alternative-comparison/index.html" class="card">
@@ -161,20 +383,20 @@
       <a href="./function-calling/index.html" class="card">
         <span class="card-badge card-badge-guide">Guide</span>
         <h3>Function Calling: 3 LLM Providers</h3>
-        <p>Compare function calling across OpenAI, Anthropic & Google. API schemas, code examples, reliability benchmarks & how MCP standardizes the pattern.</p>
+        <p>Compare function calling across OpenAI, Anthropic &amp; Google. API schemas, code examples, reliability benchmarks &amp; how MCP standardizes the pattern.</p>
         <span class="card-link">Learn more &rarr;</span>
       </a>
 
       <a href="./mcp-server/index.html" class="card">
         <span class="card-badge card-badge-list">List</span>
         <h3>MCP Server: 8 Best Options</h3>
-        <p>An MCP server exposes tools and data to AI agents via Model Context Protocol. Compare 8 popular servers — GitHub, Figma, Linear, Notion & more.</p>
+        <p>An MCP server exposes tools and data to AI agents via Model Context Protocol. Compare 8 popular servers — GitHub, Figma, Linear, Notion &amp; more.</p>
         <span class="card-link">Learn more &rarr;</span>
       </a>
 
       <a href="./mcp-tools/index.html" class="card">
         <span class="card-badge card-badge-guide">Guide</span>
-        <h3>MCP Tools: Discovery & Token Cost</h3>
+        <h3>MCP Tools: Discovery &amp; Token Cost</h3>
         <p>MCP tools are the model-controlled protocol primitive. Learn how tools/list discovery works, why 50+ tools cost 10,000+ tokens, and how to fix it.</p>
         <span class="card-link">Learn more &rarr;</span>
       </a>
@@ -195,7 +417,7 @@
 
       <a href="./mcp-registry/index.html" class="card">
         <span class="card-badge card-badge-guide">Guide</span>
-        <h3>MCP Registry: Find & Publish</h3>
+        <h3>MCP Registry: Find &amp; Publish</h3>
         <p>The official MCP Registry hosts nearly 2,000 servers in 2026. Learn how to discover, publish, and use sub-registries like QVeris for AI agents.</p>
         <span class="card-link">Learn more &rarr;</span>
       </a>
@@ -210,32 +432,60 @@
       <a href="./cryptocurrency-price-api-for-ai-agents/index.html" class="card">
         <span class="card-badge card-badge-compare">Comparison</span>
         <h3>Crypto Price API: 7 Providers</h3>
-        <p>Compare 7 cryptocurrency price APIs — CoinGecko, CoinMarketCap, Coinpaprika & more. Plus how AI agents access crypto data through unified routing.</p>
+        <p>Compare 7 cryptocurrency price APIs — CoinGecko, CoinMarketCap, Coinpaprika &amp; more. Plus how AI agents access crypto data through unified routing.</p>
         <span class="card-link">Learn more &rarr;</span>
       </a>
 
       <a href="./real-time-stock-price-api-for-ai-agents/index.html" class="card">
         <span class="card-badge card-badge-compare">Comparison</span>
         <h3>Real-Time Stock API: 6 Best</h3>
-        <p>Compare 6 best stock market APIs — Polygon, Alpha Vantage, Finnhub & more. Plus how AI agents access them through one unified capability routing layer.</p>
+        <p>Compare 6 best stock market APIs — Polygon, Alpha Vantage, Finnhub &amp; more. Plus how AI agents access them through one unified capability routing layer.</p>
         <span class="card-link">Learn more &rarr;</span>
       </a>
 
       <a href="./financial-news-api-for-ai-agents/index.html" class="card">
         <span class="card-badge card-badge-compare">Comparison</span>
         <h3>Financial News API: 6 Providers</h3>
-        <p>Compare 6 financial news APIs — Benzinga, Marketaux, Finnhub & more. Plus how AI agents access sentiment-scored news through one unified layer.</p>
+        <p>Compare 6 financial news APIs — Benzinga, Marketaux, Finnhub &amp; more. Plus how AI agents access sentiment-scored news through one unified layer.</p>
         <span class="card-link">Learn more &rarr;</span>
       </a>
 
+    </div>
 
+    <!-- FAQ: Information + Trust -->
+    <h2 class="label">Frequently Asked Questions</h2>
+    <div class="feature-section" style="padding:24px 32px">
+      <div class="faq-item">
+        <div class="faq-q">What is QVeris and how does it work?</div>
+        <div class="faq-a">QVeris is an AI-agent capability router that gives AI agents unified access to 10,000+ finance capabilities through one endpoint. Instead of integrating separately with each data provider, agents call QVeris once and get routed to the right provider — stocks, options, crypto, macro data, or KYC — with automatic fallback and normalized responses.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Does QVeris have a free tier?</div>
+        <div class="faq-a">Yes. Discover and Inspect capabilities are completely free. You pay only for the calls your agents make — pay-per-call pricing with no monthly minimums. This means you can build and test your AI agent integration at zero cost and scale up when ready.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How does QVeris compare to Polygon.io or Alpha Vantage?</div>
+        <div class="faq-a">Polygon.io starts at $99/mo for stock data. Alpha Vantage starts at $49.99/mo. QVeris offers free Discover &amp; Inspect with pay-per-call pricing across 10,000+ capabilities — including stocks, options, crypto, macro data, and KYC. QVeris also provides automatic fallback across providers, normalized response formats, and a single integration point.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What finance capabilities does QVeris support?</div>
+        <div class="faq-a">QVeris supports 138 finance-specific capabilities including: real-time and historical stock prices, options chains, cryptocurrency prices, forex rates, macro economic indicators, KYC/identity verification, financial news with sentiment scoring, and corporate actions data. All accessible through one MCP, CLI, or REST API endpoint.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is QVeris secure for production use?</div>
+        <div class="faq-a">Yes. QVeris employs encryption in transit (TLS 1.3) and at rest, with API-key based authentication. Each request is logged for audit trails. QVeris does not store your API credentials — your keys remain on your infrastructure. See our <a href="https://qveris.ai/security">Security page</a> and <a href="https://qveris.ai/terms">Terms of Service</a> for full details.</div>
+      </div>
     </div>
 
     <!-- CTA -->
     <div class="cta-box">
       <h2>Ready to ship AI agents that actually work?</h2>
       <p>One endpoint, 10,000+ AI-Agent capabilities. Discover &amp; Inspect are free — pay only for calls. Built for finance, ready for any agent stack.</p>
-      <a href="https://qveris.ai" class="cta-btn">Try QVeris &rarr;</a>
+      <div class="cta-buttons">
+        <a href="https://qveris.ai" class="cta-btn">Try QVeris Free &rarr;</a>
+        <a href="https://qveris.ai/docs" class="cta-btn-outline">Read the Docs</a>
+      </div>
+      <div class="cta-sub">No credit card required for free tier • Pay-per-call from $0.001 • 99.9% uptime SLA</div>
     </div>
 
   </div>
@@ -246,11 +496,16 @@
       <div class="footer-grid">
         <div>
           <div class="footer-brand">
-            <span class="footer-brand-mark">Q</span>
+            <img src="https://avatars.githubusercontent.com/u/245123302?s=200&v=4" alt="QVeris AI" width="28" height="28" style="border-radius:6px">
             <span>QVeris</span>
           </div>
           <p class="footer-tagline">The AI-Agent Capability Router for finance. One endpoint, 10,000+ tools across stocks, options, crypto, macro data, and KYC.</p>
-          <a href="https://qveris.ai" class="hero-cta" style="padding:8px 20px;font-size:13px">Get Started &rarr;</a>
+          <a href="https://qveris.ai" style="display:inline-block;background:#7C9BFF;color:#0A0E1A;padding:8px 20px;border-radius:20px;font-weight:700;font-size:13px">Get Started &rarr;</a>
+          <div class="trust-badges">
+            <span style="font-size:11px;color:#6B7280">🔒 TLS 1.3 Encrypted</span>
+            <span style="font-size:11px;color:#6B7280">📋 Audit Logged</span>
+            <span style="font-size:11px;color:#6B7280">⚡ MCP Native</span>
+          </div>
         </div>
         <div>
           <span class="footer-title">Products</span>
