@@ -1,41 +1,67 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>实时股票价格 API 对比：6 大提供商评测与 AI Agent 集成指南 (2026)</title>
-  <meta name="description" content="6 大实时股票行情 API 深度对比 —— Polygon.io、Alpha Vantage、Finnhub、Twelve Data、EODHD、Marketstack。含 WebSocket 支持、限速归一化、实测延迟与 AI Agent 集成方案。">
+  <title>Real-Time Stock Price API: 6 Best APIs for AI Agents (2026)</title>
+  <meta name="description" content="Compare 6 best stock market APIs — Polygon, Alpha Vantage, Finnhub & more. Plus how AI agents access them through one unified capability routing layer.">
   <meta name="robots" content="index, follow">
+  <meta name="author" content="Wang Linfang">
 
-  <meta property="og:title" content="实时股票价格 API 对比：6 大提供商评测与 AI Agent 集成指南 (2026)">
-  <meta property="og:description" content="6 大实时股票行情 API 深度对比 —— 限速归一化、实测延迟、特征深度矩阵与 AI Agent 集成方案。">
+  <meta property="og:title" content="Real-Time Stock Price API: 7 Providers for AI Agents (2026)">
+  <meta property="og:description" content="Compare 6 best stock market APIs — Polygon, Alpha Vantage, Finnhub & more. Plus how AI agents access them through one unified capability routing layer.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://example.com/real-time-stock-price-api-for-ai-agents/">
-  <meta property="og:image" content="https://example.com/imgs/og.png">
+  <meta property="og:url" content="https://try.qveris.ai/real-time-stock-price-api-for-ai-agents/">
+  <meta property="og:image" content="https://try.qveris.ai/imgs/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Real-Time Stock Price API: 7 Providers Compared for AI Agents">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="实时股票价格 API 对比：6 大提供商评测与 AI Agent 集成指南 (2026)">
-  <meta name="twitter:description" content="6 大实时股票行情 API 深度对比 —— 限速归一化、实测延迟、特征深度矩阵与 AI Agent 集成方案。">
+  <meta name="twitter:title" content="Real-Time Stock Price API: 7 Providers for AI Agents (2026)">
+  <meta name="twitter:description" content="Compare 6 best stock market APIs — Polygon, Alpha Vantage, Finnhub & more. Plus how AI agents access them through one unified capability routing layer.">
+  <meta name="twitter:image" content="https://try.qveris.ai/imgs/og.png">
   <meta name="theme-color" content="#0A0E1A">
 
-  <link rel="canonical" href="https://example.com/real-time-stock-price-api-for-ai-agents/">
+  <link rel="canonical" href="https://try.qveris.ai/real-time-stock-price-api-for-ai-agents/">
+  <link rel="icon" type="image/svg+xml" href="https://qveris.ai/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://qveris.ai/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://qveris.ai/apple-touch-icon.png">
 
+  <link rel="dns-prefetch" href="https://qveris.ai">
+  <link rel="preconnect" href="https://qveris.ai">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- Schema #1: Organization -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"实时股票价格 API 对比：6 大提供商评测与 AI Agent 集成指南","description":"6 大实时股票行情 API 深度对比","author":{"@type":"Person","name":"Wang Linfang"},"datePublished":"2026-05-20","dateModified":"2026-05-26","mainEntityOfPage":{"@type":"WebPage","@id":"https://example.com/real-time-stock-price-api-for-ai-agents/"}}
+  {"@context":"https://schema.org","@type":"Organization","name":"QVeris AI","url":"https://qveris.ai","logo":"https://qveris.ai/logo.png","sameAs":["https://twitter.com/qveris_ai","https://github.com/qveris","https://www.linkedin.com/company/qveris"]}
   </script>
 
+  <!-- Schema #2: SoftwareApplication (QVeris CLI) -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"哪个实时股票价格 API 最好？","acceptedAnswer":{"@type":"Answer","text":"取决于具体需求。需要 WebSocket 流式传输和广泛美国覆盖的 AI Agent 选择 Polygon.io；预算有限的开发者从 Finnhub 或 Twelve Data 免费层入手；需要技术指标的考虑 Alpha Vantage。没有全能提供商。"}},{"@type":"Question","name":"股票数据 API 的价格是多少？","acceptedAnswer":{"@type":"Answer","text":"价格差异很大。Finnhub 免费层每分钟 60 次调用；Twelve Data 每天 800 请求免费；Alpha Vantage 每天 25 请求免费；EODHD 起步 EUR19.99/月；Marketstack 实时数据 $9.99/月起；Polygon.io 免费层仅提供延迟数据，实时 WebSocket 需 $200/月，其 $29/月 Starter 计划已停用。"}},{"@type":"Question","name":"AI Agent 能否同时使用多个股票价格 API？","acceptedAnswer":{"@type":"Answer","text":"可以，但会引入显着复杂性：跨提供商的 WebSocket 连接管理、多个速率限制跟踪、响应格式规范化。通常通过构建统一路由层来解决。"}}]}
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"QVeris CLI","description":"A command-line tool providing unified capability routing for AI agents, connecting to 10,000+ capabilities across finance, search, maps, docs, blockchain, and healthcare.","applicationCategory":"DeveloperApplication","operatingSystem":"macOS, Linux, Windows","url":"https://qveris.ai/docs/cli","featureList":["Discover 10,000+ capabilities across multiple providers","Unified API interface for multi-provider data access","Automatic WebSocket connection management","Rate limit handling and provider fallback","Response format normalization","Subprocess-based tool execution for zero context overhead","Support for finance, search, maps, docs, blockchain, and healthcare domains"],"offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock"}}
   </script>
 
+  <!-- Schema #3: BreadcrumbList -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"ItemList","name":"6 大实时股票价格 API","numberOfItems":6,"itemListElement":[{"@type":"Product","position":1,"name":"Polygon.io","description":"200,000+ US tickers, sub-second WebSocket, Essential $200/mo"},{"@type":"Product","position":2,"name":"Finnhub","description":"Free tier 60 calls/min, WebSocket, global coverage"},{"@type":"Product","position":3,"name":"Twelve Data","description":"800 calls/day free, WebSocket-First, 130+ indicators"},{"@type":"Product","position":4,"name":"Alpha Vantage","description":"25 requests/day free, REST, 50+ technical indicators"},{"@type":"Product","position":5,"name":"EODHD","description":"EUR19.99/mo start, 150,000+ tickers global, REST"},{"@type":"Product","position":6,"name":"Marketstack","description":"$9.99/mo real-time, 80,000+ tickers global, REST"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://qveris.ai/"},{"@type":"ListItem","position":2,"name":"Concepts","item":"https://qveris.ai/concepts"},{"@type":"ListItem","position":3,"name":"Real-Time Stock Price API for AI Agents","item":"https://qveris.ai/concepts/real-time-stock-price-api-for-ai-agents"}]}
+  </script>
+
+  <!-- Schema #4: Article -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Real-Time Stock Price API: 6 Best Stock Market APIs Compared and How to Use Them in AI Agents","description":"Compare 6 best stock market APIs — Polygon, Alpha Vantage, Finnhub & more. Plus how AI agents access them through one unified capability routing layer.","image":["https://try.qveris.ai/imgs/og.png"],"author":{"@type":"Person","name":"Wang Linfang","url":"https://qveris.ai/authors/wang-linfang","jobTitle":"CEO & Founder, QVeris AI","sameAs":["https://www.linkedin.com/in/wanglinfang"]},"datePublished":"2026-05-20","dateModified":"2026-05-20","publisher":{"@type":"Organization","name":"QVeris AI","logo":{"@type":"ImageObject","url":"https://qveris.ai/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://qveris.ai/concepts/real-time-stock-price-api-for-ai-agents"}}
+  </script>
+
+  <!-- Schema #5: FAQPage -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which real-time stock price API is best?","acceptedAnswer":{"@type":"Answer","text":"The best real-time stock price API depends on your specific needs. For AI agents requiring WebSocket streaming and broad US coverage, Polygon.io leads with 200,000+ tickers and NASDAQ/OPRA data. For developers on a budget, Finnhub (60 calls/min free) and Twelve Data (800 calls/day free) offer strong free stock data API starting points. Alpha Vantage suits teams needing 50+ technical indicators alongside price data. EODHD provides the most cost-effective enterprise tier at EUR19.99/month with global ticker coverage. Marketstack offers affordable global real-time data at $9.99/month. No single provider dominates all dimensions — the right choice depends on your ticker coverage requirements, latency needs, and budget."}},{"@type":"Question","name":"How much does a stock data API cost?","acceptedAnswer":{"@type":"Answer","text":"Pricing varies significantly across stock market API providers. Finnhub offers a free tier with 60 calls/minute including WebSocket access. Twelve Data provides 800 requests/day free with access to 50+ exchanges and 130+ technical indicators. Alpha Vantage's free tier includes 25 requests/day and 50+ technical indicators. EODHD starts at EUR19.99/month for full market coverage with 150,000+ tickers. Marketstack's real-time data requires a paid tier starting at $9.99/month for global coverage. Polygon.io offers a free tier for delayed data and starts at $29/month for real-time WebSocket access. Most providers offer free tiers suitable for development, prototyping, and low-volume production use cases."}},{"@type":"Question","name":"Do stock price APIs support WebSocket streaming?","acceptedAnswer":{"@type":"Answer","text":"WebSocket support varies by stock market API provider. Polygon.io provides robust WebSocket streaming with trade ticks, quotes, and aggregated trades. Finnhub offers WebSocket connections for real-time trades and news. Twelve Data supports WebSocket with a WebSocket-First architecture for real-time streaming. Alpha Vantage, EODHD, and Marketstack primarily offer REST APIs with polling, though some support WebSocket for specific data types via paid tiers. For AI agents that need continuous price monitoring through a stock WebSocket API, Polygon.io, Finnhub, and Twelve Data provide the most mature WebSocket implementations."}},{"@type":"Question","name":"Can AI agents use multiple stock price APIs together?","acceptedAnswer":{"@type":"Answer","text":"Yes, but combining multiple stock price APIs introduces significant complexity: WebSocket connection management across providers, rate limit tracking per API, response format normalization, and ticker symbol mapping differences. Each provider uses different identifiers and data structures. Teams typically address this by building a routing layer that normalizes responses and manages connections across providers."}},{"@type":"Question","name":"When should I NOT use a real-time stock price API?","acceptedAnswer":{"@type":"Answer","text":"Avoid relying on real-time stock price APIs for high-frequency trading or time-sensitive execution where milliseconds matter — the latency from API polling or WebSocket delivery may not meet your requirements. Also avoid single-source dependency for mission-critical applications: APIs have rate limits, outages, and pricing changes that can break your agent's data access. Build in fallback logic to switch providers automatically when issues occur."}},{"@type":"Question","name":"What are the options for integrating multiple stock data APIs in one application?","acceptedAnswer":{"@type":"Answer","text":"Three main approaches exist for multi-API integration. First, build a custom adapter layer: write separate integrations for each provider and a normalization layer to handle response format differences. Second, use a routing proxy: deploy a middleware that sits between your application and providers, handling connection management and format conversion. Third, use a capability routing CLI: tools like QVeris CLI provide unified access to multiple stock data providers through a single interface, handling WebSocket connections, rate limiting, and response normalization behind the scenes. Each approach trades off development time, maintenance burden, and flexibility."}}]}
+  </script>
+
+  <!-- Schema #6: HowTo -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"HowTo","name":"How to Give an AI Agent Access to Real-Time Stock Prices","description":"A practical guide for AI agent developers to integrate real-time stock price data using a unified capability routing layer.","totalTime":"PT15M","step":[{"@type":"HowToStep","position":1,"name":"Install QVeris CLI","text":"Install QVeris CLI via npm (npm install -g qveris) or download the binary for macOS, Linux, or Windows from qveris.ai/docs/cli. Run qveris login to authenticate."},{"@type":"HowToStep","position":2,"name":"Discover available stock data capabilities","text":"Run qveris discover \"real-time stock market data\" to see all available stock price API capabilities, including those with WebSocket streaming, technical indicators, and global coverage. Each entry shows the provider, rate limits, and data format."},{"@type":"HowToStep","position":3,"name":"Query stock prices for specific symbols","text":"Run qveris call polygon_quotes --symbols AAPL,MSFT,GOOGL --format json to retrieve real-time quotes with bid-ask spreads, volume, and trade ticks. The CLI handles provider selection and fallback automatically."},{"@type":"HowToStep","position":4,"name":"Integrate into your AI agent workflow","text":"Wire the CLI call into your agent via subprocess execution: execSync(\"qveris call polygon_quotes --symbols AAPL --format json\"). Parse the JSON response and pass price data to your LLM prompt. Use price thresholds to trigger downstream actions like alerts or portfolio updates."},{"@type":"HowToStep","position":5,"name":"Add fallback for multi-provider coverage","text":"Configure your agent to fall back to a secondary provider when the primary hits a rate limit or WebSocket disconnects. Define multiple capabilities in your routing profile so the system can switch providers automatically when issues occur."}]}
   </script>
 
   <style>
@@ -46,16 +72,40 @@
     ::selection{background:rgba(124,155,255,0.3)}
     a{color:#7C9BFF;text-decoration:none}
     a:hover{color:#B5C6FF}
+    .nav{position:sticky;top:0;z-index:50;background:rgba(10,14,26,0.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.06);padding:14px 0}
+    .nav-inner{max-width:1024px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .nav-logo-mark{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,#7C9BFF,#3D5FE0);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#0A0E1A}.nav-logo-img{width:28px;height:28px;border-radius:6px;display:block}
+    .nav-logo span{font-size:16px;font-weight:600;color:rgba(255,255,255,0.97)}
+    .nav-links{display:flex;align-items:center;gap:22px;font-size:14px}
+    .nav-links a{color:rgba(255,255,255,0.55);transition:color 0.15s}
+    .nav-links a:hover{color:rgba(255,255,255,0.9)}
+    .nav-cta{background:linear-gradient(135deg,#B5C6FF,#7C9BFF);color:#0A0E1A;padding:7px 18px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none}
+    .nav-cta:hover{opacity:0.9;color:#0A0E1A}
     .wrap{max-width:1024px;margin:0 auto;padding:48px 24px}
     h1{font-size:2.4rem;font-weight:500;line-height:1.15;margin-bottom:16px;color:rgba(255,255,255,0.97);letter-spacing:-0.02em}
     h2{font-size:1.22rem;font-weight:600;margin:40px 0 16px;color:rgba(255,255,255,0.92);border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:10px}
     h3{font-size:15px;font-weight:600;margin:24px 0 10px;color:rgba(255,255,255,0.85)}
+h4{font-size:15px;font-weight:600;color:rgba(255,255,255,0.85);margin:0 0 8px}
+.pitfall-item h4{color:#B5C6FF}
     p{margin:0 0 18px;color:rgba(255,255,255,0.62)}
     strong{color:rgba(255,255,255,0.92)}
+    em{color:rgba(255,255,255,0.72);font-style:italic}
     ul,ol{margin:12px 0 14px 24px}
     li{margin:6px 0;color:rgba(255,255,255,0.62)}
-    .meta-desc{font-size:1.05rem;color:rgba(255,255,255,0.5);margin-bottom:28px;line-height:1.55;max-width:760px}
-    .badge{display:inline-block;font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;margin-right:8px;margin-bottom:14px;background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.55)}
+    .meta-desc{font-size:1.05rem;color:rgba(255,255,255,0.5);margin-bottom:28px;line-height:1.55;max-width:680px}
+    .breadcrumb{font-size:13px;color:rgba(255,255,255,0.35);margin-bottom:20px}
+    .breadcrumb a{color:#7C9BFF}
+    .breadcrumb span{margin:0 6px}
+    .badge{display:inline-block;font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;margin-right:8px;margin-bottom:14px}
+    .badge-client{background:rgba(124,155,255,0.18);color:#B5C6FF;border:1px solid rgba(124,155,255,0.25)}
+    .badge-cat{background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.55)}
+    .author-meta{display:flex;align-items:center;gap:14px;padding:16px 0;margin:0 0 24px;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);flex-wrap:wrap}
+    .author-meta img{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7C9BFF,#3D5FE0)}
+    .author-info{flex:1;min-width:200px}
+    .author-info a{font-weight:600;color:rgba(255,255,255,0.92)}
+    .author-bio{font-size:13px;color:rgba(255,255,255,0.45);margin:2px 0 0}
+    .dates{font-size:12px;color:rgba(255,255,255,0.4);display:flex;flex-direction:column;gap:2px;text-align:right}
     .toc{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;margin:0 0 32px}
     .toc-label{font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
     .toc ul{margin:0;padding-left:18px;font-size:14.5px}
@@ -66,615 +116,530 @@
     .tldr ul{margin:0;padding-left:18px;font-size:14.5px}
     .tldr li{color:rgba(255,255,255,0.7);margin:4px 0}
     .snippet-answer{background:rgba(255,255,255,0.02);border-left:3px solid #B5C6FF;padding:14px 18px;border-radius:0 8px 8px 0;font-size:15.5px;color:rgba(255,255,255,0.85);line-height:1.6}
-    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0 8px}
-    .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:16px 0}
-    .card{padding:18px;border-radius:10px}
-    .card-red{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.18)}
-    .card-blue{background:rgba(124,155,255,0.06);border:1px solid rgba(124,155,255,0.2)}
-    .card-white{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px}
-    .card-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
-    .card-red .card-label{color:#f87171}
-    .card-blue .card-label{color:#B5C6FF}
-    .card-text{font-size:14.5px;color:rgba(255,255,255,0.6);line-height:1.65}
+    .ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0 8px}
+    .ba-card{padding:18px;border-radius:10px}
+    .ba-before{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.18)}
+    .ba-after{background:rgba(124,155,255,0.06);border:1px solid rgba(124,155,255,0.2)}
+    .ba-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+    .ba-before .ba-label{color:#f87171}
+    .ba-after .ba-label{color:#B5C6FF}
+    .ba-text{font-size:14.5px;color:rgba(255,255,255,0.6);line-height:1.65}
     .compare-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px;overflow-x:auto;display:block}
-    .compare-table th,.compare-table td{padding:9px 10px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06);white-space:nowrap}
-    .compare-table thead th{background:rgba(255,255,255,0.03);color:rgba(255,255,255,0.85);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:0.5px}
-    .compare-table tbody th{color:rgba(255,255,255,0.85);font-weight:500;font-size:13.5px}
-    .compare-table td{color:rgba(255,255,255,0.62);font-size:13px}
+    .compare-table th,.compare-table td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06);white-space:nowrap}
+    .compare-table thead th{background:rgba(255,255,255,0.03);color:rgba(255,255,255,0.85);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.5px}
+    .compare-table tbody th{background:transparent;color:rgba(255,255,255,0.85);font-weight:500;font-size:14px}
+    .compare-table td{color:rgba(255,255,255,0.65);font-size:13.5px}
     .compare-table .highlight{color:#B5C6FF;font-weight:600}
+    .compare-table .check{color:#86efac}
+    .compare-table .cross{color:#f87171}
+    .step-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:18px;margin:12px 0}
+    .step-box:hover{border-color:rgba(124,155,255,0.22)}
+    .step-num{display:inline-flex;width:26px;height:26px;background:linear-gradient(135deg,#7C9BFF,#3D5FE0);color:#0A0E1A;border-radius:50%;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-right:10px;vertical-align:middle}
+    .step-box strong{display:inline;vertical-align:middle}
+    .viz{margin:32px 0;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;overflow-x:auto}
+    .viz svg{width:100%;height:auto;display:block}
+    .viz-caption{margin-top:12px;font-size:13px;color:rgba(255,255,255,0.5);text-align:center;font-style:italic}
     .code-block{background:#080b14;border:1px solid rgba(124,155,255,0.15);border-radius:10px;padding:20px;margin:20px 0;overflow-x:auto}
     .code-block pre{margin:0;padding:0;background:transparent;border:none}
-    .code-block code{font-size:13px;line-height:1.65;color:#c9d1d9;font-family:'SF Mono','Fira Code','JetBrains Mono',monospace}
+    .code-block code{background:none;border:none;padding:0;font-size:13px;line-height:1.65;color:#c9d1d9;font-family:'SF Mono','Fira Code','JetBrains Mono',monospace}
     .code-block .comment{color:#6a737d}
     .code-block .keyword{color:#ff7b72}
     .code-block .string{color:#a5d6ff}
     .code-block .function{color:#d2a8ff}
+    .code-block .variable{color:#ffa657}
+    .code-block .property{color:#79c0ff}
     .code-block .number{color:#79c0ff}
-    .viz{margin:32px 0;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;overflow-x:auto}
-    .viz-caption{margin-top:12px;font-size:12px;color:rgba(255,255,255,0.45);text-align:center;font-style:italic}
-    .norm-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px}
-    .norm-table th,.norm-table td{padding:7px 10px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06)}
-    .norm-table thead th{background:rgba(255,255,255,0.03);color:rgba(255,255,255,0.85);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:0.5px}
-    .norm-table td{color:rgba(255,255,255,0.6)}
+    .cta-box{background:linear-gradient(135deg,rgba(124,155,255,0.1),rgba(61,95,224,0.08));border:1px solid rgba(124,155,255,0.2);text-align:center;padding:36px;border-radius:14px;margin:44px 0}
+    .cta-box h3{color:rgba(255,255,255,0.95);margin:0 0 8px;font-size:20px;font-weight:600}
+    .cta-box p{color:rgba(255,255,255,0.55);margin:0 0 20px}
+    .cta-btn{display:inline-block;background:linear-gradient(135deg,#B5C6FF,#7C9BFF);color:#0A0E1A;padding:12px 32px;border-radius:24px;font-weight:600;font-size:15px;text-decoration:none}
+    .cta-btn:hover{opacity:0.9;color:#0A0E1A}
     .faq-item{border-bottom:1px solid rgba(255,255,255,0.06);padding:18px 0}
     .faq-q{font-weight:600;font-size:16px;color:rgba(255,255,255,0.9)}
     .faq-a{margin-top:8px;color:rgba(255,255,255,0.55);font-size:14.5px;line-height:1.65}
-    .ref-section{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:16px 20px;margin:32px 0;font-size:13px;color:rgba(255,255,255,0.5)}
-    .ref-section h2{font-size:13px;border:none;padding:0;margin:0 0 12px;color:rgba(255,255,255,0.85);text-transform:uppercase;letter-spacing:1px}
-    .ref-section a{color:#B5C6FF}
-    .ref-section li{margin:3px 0;color:rgba(255,255,255,0.45);font-size:12.5px;line-height:1.5}
+    .methodology{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:20px 24px;margin:32px 0;font-size:14px;color:rgba(255,255,255,0.55)}
+    .methodology h2{font-size:14px;border:none;padding:0;margin:0 0 12px;color:rgba(255,255,255,0.85);text-transform:uppercase;letter-spacing:1px}
+    .methodology p{margin:6px 0;font-size:13.5px}
+    .methodology strong{color:#B5C6FF}
+    .related{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+    .related a{display:block;padding:14px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;text-decoration:none;color:#B5C6FF;font-size:14px;font-weight:500;transition:all 0.2s;line-height:1.45}
+    .related a:hover{background:rgba(124,155,255,0.05);border-color:rgba(124,155,255,0.25)}
     .note-box{background:rgba(124,155,255,0.04);border:1px solid rgba(124,155,255,0.15);border-radius:8px;padding:14px 18px;margin:16px 0;font-size:14px;color:rgba(255,255,255,0.65)}
     .note-box strong{color:#B5C6FF}
-    .methodology{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:20px 24px;margin:32px 0;font-size:14px;color:rgba(255,255,255,0.55)}
-    .methodology h2{font-size:13px;border:none;padding:0;margin:0 0 12px;color:rgba(255,255,255,0.85);text-transform:uppercase;letter-spacing:1px}
-    .methodology p{margin:5px 0;font-size:13px}
-    .methodology strong{color:#B5C6FF}
-    .step-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px;margin:12px 0}
-    .step-num{display:inline-flex;width:24px;height:24px;background:linear-gradient(135deg,#7C9BFF,#3D5FE0);color:#0A0E1A;border-radius:50%;align-items:center;justify-content:center;font-size:12px;font-weight:700;margin-right:8px}
-    @media(max-width:720px){.grid-2,.grid-3{grid-template-columns:1fr};h1{font-size:1.75rem};.code-block{padding:12px}}
+    .footer{background:#060912;border-top:1px solid rgba(255,255,255,0.04);padding:48px 24px}
+    .footer-inner{max-width:1024px;margin:0 auto}
+    .footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px}
+    .footer-title{display:block;font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+    .footer-links{display:flex;flex-direction:column;gap:10px;font-size:14px}
+    .footer-links a{color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.15s}
+    .footer-links a:hover{color:rgba(255,255,255,0.75)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.04);padding-top:24px;display:flex;justify-content:space-between;font-size:13px;color:rgba(255,255,255,0.28)}
+    @media(max-width:720px){.ba-grid,.related{grid-template-columns:1fr};h1{font-size:1.75rem}.footer-grid{grid-template-columns:1fr 1fr};.nav-links a:not(.nav-cta){display:none};.author-meta{flex-direction:column;align-items:flex-start};.dates{text-align:left};.code-block{padding:12px};.compare-table{font-size:13px}}
   </style>
 </head>
 <body>
-  <main>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="https://qveris.ai" class="nav-logo">
+        <img src="https://avatars.githubusercontent.com/u/245123302?s=200&v=4" alt="QVeris AI" class="nav-logo-img" width="28" height="28" style="border-radius:6px">
+        <span>QVeris</span>
+      </a>
+      <div class="nav-links">
+        <a href="https://qveris.ai">Product</a>
+        <a href="https://qveris.ai/pricing">Pricing</a>
+        <a href="https://qveris.ai/docs">Docs</a>
+        <a href="https://qveris.ai" class="nav-cta">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
     <article>
       <div class="wrap">
 
-        <span class="badge">API 对比评测 · 2026 年 5 月</span>
-        <h1>实时股票价格 API 对比：6 大提供商评测与 AI Agent 集成指南</h1>
-        <p class="meta-desc">基于实测数据的 6 大股票行情 API 横向对比：Polygon.io、Alpha Vantage、Finnhub、Twelve Data、EODHD、Marketstack。涵盖 WebSocket 支持、<strong>限速归一化</strong>（将次/天、次/分钟统一换算）、<strong>特征深度矩阵</strong>、<strong>延迟百分位实测</strong>及 AI Agent 集成方案。</p>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a><span>›</span><a href="/concepts">Concepts</a><span>›</span>Real-Time Stock Price API for AI Agents
+        </nav>
 
-        <!-- 仅保留版本记录，去除所有利益关联声明 -->
-        <div style="display:flex;gap:8px;flex-wrap:wrap;margin:0 0 24px;font-size:11px;color:rgba(255,255,255,0.4)">
-          <span style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:5px;padding:4px 9px">
-            v2.0 · 2026-05-26 — 限速归一化表、特征深度矩阵、延迟百分位数据、引用深度加强
-          </span>
-          <span style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:5px;padding:4px 9px">
-            v1.1 · 2026-05-22 — 修复 Twelve Data 实时数据描述偏差
-          </span>
-          <span style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:5px;padding:4px 9px">
-            v1.0 · 2026-05-20 — 初版
-          </span>
-        </div>
+        <header>
+          <div><span class="badge badge-client">QVeris</span><span class="badge badge-cat">Provider Comparison</span></div>
+          <h1>Real-Time Stock Price API: 6 Best Stock Market APIs Compared and How to Use Them in AI Agents</h1>
+          <p class="meta-desc">A technical comparison of 6 real-time stock market APIs — Polygon.io, Alpha Vantage, Finnhub, Twelve Data, EODHD, and Marketstack — with a focus on WebSocket support, AI agent integration patterns, and a unified routing approach.</p>
 
-        <nav class="toc" aria-label="目录">
-          <div class="toc-label">目录</div>
+          
+        </header>
+
+        <nav class="toc" aria-label="Table of Contents">
+          <div class="toc-label">Contents</div>
           <ul>
-            <li><a href="#overview">概述与评测框架</a></li>
-            <li><a href="#compared">6 大提供商核心参数对比</a></li>
-            <li><a href="#normalized">限速归一化分析</a></li>
-            <li><a href="#depth">特征深度与延迟实测</a></li>
-            <li><a href="#patterns">多提供商集成模式</a></li>
-            <li><a href="#integration">AI Agent 集成方案</a></li>
-            <li><a href="#faq">常见问题</a></li>
+            <li><a href="#what-is">What is a Real-Time Stock Price API?</a></li>
+            <li><a href="#compared">7 Real-Time Stock Price APIs Compared</a></li>
+            <li><a href="#multi-provider">The Multi-Provider Problem in AI Agents</a></li>
+            <li><a href="#use-cases">AI Agent Use Cases for Real-Time Stock Data</a></li>
+            <li><a href="#unified">Unified Access Through Capability Routing</a></li>
+            <li><a href="#checklist">Getting Started Checklist</a></li>
           </ul>
         </nav>
 
         <section class="tldr">
-          <div class="tldr-label">核心结论</div>
+          <div class="tldr-label">TL;DR</div>
           <ul>
-            <li><strong>WebSocket 首选：</strong>Polygon.io（200K+ 美股代码，亚秒级延迟）和 Finnhub（免费层 60 次/分钟，含 WebSocket 流）</li>
-            <li><strong>免费层配额最优：</strong>Finnhub（60/min）远高于 Twelve Data（0.56/min 归一化值）</li>
-            <li><strong>技术指标最丰富：</strong>Twelve Data 130+ 种服务器端指标</li>
-            <li><strong>性价比之选：</strong>Marketstack（$9.99/月全球实时）和 EODHD（€19.99/月 150K+ 标的）</li>
-            <li><strong>多提供商集成：</strong>三种模式可选用，推荐按团队规模和技术栈选择</li>
+            <li><strong>Problem:</strong> Seven real-time stock price APIs compete on WebSocket support, ticker coverage, and latency — but no single provider dominates all dimensions, and managing multiple providers introduces WebSocket connection overhead, rate limit complexity, and format fragmentation for AI agents.</li>
+            <li><strong>Solution:</strong> Compare Polygon.io, Alpha Vantage, Finnhub, Twelve Data, EODHD, and Marketstack on objective criteria; then use a capability routing layer to abstract multi-provider complexity behind a unified interface.</li>
+            <li><strong>Result:</strong> Your AI agent gets real-time stock prices without writing WebSocket connection management code or handling provider-specific rate limits and response formats.</li>
           </ul>
         </section>
 
-        <section id="overview">
-          <h2>概述与评测框架</h2>
-          <p class="snippet-answer"><strong>实时股票价格 API 通过 HTTP REST 或 WebSocket 协议提供证券市场实时报价、成交量、买卖盘口等结构化数据。在 AI Agent 场景下，其核心价值在于让 LLM 驱动的自动化系统能够以机器可读格式消费市场数据并基于价格事件触发决策。</strong></p>
+        <section id="what-is">
+          <h2>What is a Real-Time Stock Price API?</h2>
+          <p class="snippet-answer"><strong>A real-time stock price API is a service that provides live and historical market data for publicly traded securities through programmatic access. Developers integrate these APIs to fetch current prices, volume, bid-ask spreads, and trade history — enabling trading platforms, portfolio trackers, and AI agents that consume financial data.</strong></p>
 
-          <p>AI Agent 与股票价格 API 的结合是 2026 年 LLM Function Calling 的高频场景之一。基本模式为：价格事件 → 条件评估 → Agent 决策 → 自动执行。关键在于 API 返回结构化、机器可读的数据，而非面向人类读者的金融终端页面。</p>
+          <p>The core capability: your AI agent sends a request (a ticker symbol or batch of symbols), and the API returns structured market data — current price, volume, bid-ask spread, and often additional metadata like market cap or day high/low. For AI agent use cases, the critical differentiator is <strong>WebSocket support</strong> — the ability to maintain a persistent connection for streaming price updates rather than polling on an interval.</p>
 
-          <p>评测维度及权重（基于 AI Agent 场景的工程实践 <sup><a href="#r1" style="color:#7C9BFF;font-size:11px;">[1]</a></sup>）：</p>
+          <p>Real-time stock price APIs serve two distinct populations:</p>
           <ul>
-            <li><strong>WebSocket 支持（35%）：</strong>能否维持持久连接进行流式推送，避免轮询开销</li>
-            <li><strong>免费层可用性（25%）：</strong>开发阶段的免费配额是否充足</li>
-            <li><strong>标的覆盖范围（20%）：</strong>美股/全球股票/ETF/基金等覆盖度</li>
-            <li><strong>集成复杂度（20%）：</strong>API 设计质量、文档完整性、SDK 可用性</li>
+            <li><strong>Human-facing applications</strong> — portfolio trackers, trading dashboards, and financial news tools</li>
+            <li><strong>AI agent pipelines</strong> — autonomous systems that consume price data, evaluate conditions, and trigger actions</li>
           </ul>
+          <p>This comparison focuses on the AI agent use case. For that workload, the four most important dimensions are: <strong>WebSocket availability</strong>, <strong>ticker coverage</strong>, <strong>rate limits on free tiers</strong>, and <strong>ease of integration</strong>.</p>
+
+          <p>The "AI agent + stock price" pairing is a core LLM use case in 2026. The pattern is straightforward: price event → condition evaluation → agent decision → action. Whether the action is alerting a portfolio manager, updating a dashboard, or triggering a rebalancing workflow, the AI agent orchestration layer needs structured, machine-readable price data — not a human-readable financial terminal.</p>
         </section>
 
         <section id="compared">
-          <h2>6 大提供商核心参数对比</h2>
-          <p>以下六家提供商覆盖了从 WebSocket 原生平台到高性价比 REST 方案的完整谱系。所有数据来源于各提供商官方文档和定价页面（最后核实时间：2026 年 5 月 22 日 <sup><a href="#r2" style="color:#7C9BFF;font-size:11px;">[2]</a></sup>）。</p>
+          <h2>6 Best Stock Market APIs Compared</h2>
+          <p>The seven providers below cover the range from WebSocket-native platforms to cost-effective REST-based options. The comparison focuses on dimensions that matter for AI agent integration.</p>
 
           <div class="viz">
             <table class="compare-table">
-              <caption>6 大股票行情 API 核心参数对比</caption>
+              <caption>Real-Time Stock Price API Comparison — Free Tier, Real-Time Latency, Ticker Coverage, WebSocket, and Pricing</caption>
               <thead>
                 <tr>
-                  <th scope="col">提供商</th>
-                  <th scope="col">免费层</th>
-                  <th scope="col">延迟</th>
-                  <th scope="col">标的覆盖</th>
+                  <th scope="col">Provider</th>
+                  <th scope="col">Free Tier</th>
+                  <th scope="col">Real-Time Latency</th>
+                  <th scope="col">Ticker Coverage</th>
                   <th scope="col">WebSocket</th>
-                  <th scope="col">起步价</th>
-                  <th scope="col">GitHub Stars</th>
+                  <th scope="col">Starting Price</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row"><a href="https://polygon.io/docs#getting-started" target="_blank" rel="noopener">Polygon.io</a></th>
-                  <td>延迟数据（免费）</td>
-                  <td class="highlight">&lt;500ms</td>
-                  <td class="highlight">200,000+ US</td>
-                  <td>✅ 交易/报价</td>
-                  <td>$200/月 <sup><a href="#r3" style="color:#7C9BFF;font-size:10px;">[3]</a></sup></td>
-                  <td>—</td>
+                  <th scope="row"><a href="https://polygon.io/docs" target="_blank" rel="noopener">Polygon.io</a></th>
+                  <td class="highlight">Limited (delayed data)</td>
+                  <td class="highlight">Sub-second</td>
+                  <td class="highlight">200,000+ tickers</td>
+                  <td class="check">Yes — trade ticks, quotes</td>
+                  <td>$200/month (paid)</td>
                 </tr>
                 <tr>
-                  <th scope="row"><a href="https://finnhub.io/docs/api/quote" target="_blank" rel="noopener">Finnhub</a></th>
-                  <td class="highlight">60/min</td>
-                  <td class="highlight">&lt;500ms</td>
-                  <td>美股+全球</td>
-                  <td>✅ 交易+新闻</td>
-                  <td>免费 / $50/月</td>
-                  <td><a href="https://github.com/Finnhub-Stock-API/finnhub-python" target="_blank" rel="noopener">~1.2K</a></td>
+                  <th scope="row"><a href="https://www.alphavantage.co/documentation" target="_blank" rel="noopener">Alpha Vantage</a></th>
+                  <td>25 requests/day</td>
+                  <td>1-5s (REST polling)</td>
+                  <td class="highlight">200,000+ tickers</td>
+                  <td class="cross">REST only</td>
+                  <td>$49.99/month (premium)</td>
                 </tr>
                 <tr>
-                  <th scope="row"><a href="https://twelvedata.com/docs#getting-started" target="_blank" rel="noopener">Twelve Data</a></th>
-                  <td class="highlight">800/天</td>
-                  <td>~1s</td>
-                  <td>50+ 交易所</td>
-                  <td>✅ WebSocket-First</td>
-                  <td>免费 / $8/月</td>
-                  <td><a href="https://github.com/twelvedata/twelvedata-python" target="_blank" rel="noopener">~380</a></td>
+                  <th scope="row"><a href="https://finnhub.io/docs/api" target="_blank" rel="noopener">Finnhub</a></th>
+                  <td class="highlight">60 calls/minute</td>
+                  <td class="highlight">Sub-second</td>
+                  <td>US + global</td>
+                  <td class="check">Yes — trades + news</td>
+                  <td>$0 (free tier); $50/month</td>
                 </tr>
                 <tr>
-                  <th scope="row"><a href="https://www.alphavantage.co/documentation/#intraday" target="_blank" rel="noopener">Alpha Vantage</a></th>
-                  <td>25/天</td>
-                  <td>1-5s</td>
-                  <td class="highlight">200,000+</td>
-                  <td>❌ REST</td>
-                  <td>免费 / $50/月</td>
-                  <td><a href="https://github.com/RomelTorres/alpha_vantage" target="_blank" rel="noopener">~4.3K</a></td>
+                  <th scope="row"><a href="https://twelvedata.com/docs" target="_blank" rel="noopener">Twelve Data</a></th>
+                  <td class="highlight">800 requests/day</td>
+                  <td>Sub-second to 1s</td>
+                  <td class="highlight">50+ exchanges</td>
+                  <td class="check">Yes — WebSocket + WebSocket-First</td>
+                  <td>$0 (free tier); paid from $8/month</td>
                 </tr>
                 <tr>
-                  <th scope="row"><a href="https://eodhistoricaldata.com/financial-apis/api-features" target="_blank" rel="noopener">EODHD</a></th>
-                  <td>试用</td>
-                  <td>1-5s</td>
-                  <td class="highlight">150,000+</td>
-                  <td>❌ REST</td>
-                  <td>€19.99/月</td>
-                  <td>—</td>
+                  <th scope="row"><a href="https://eodhistoricaldata.com" target="_blank" rel="noopener">EODHD</a></th>
+                  <td>20 years historical</td>
+                  <td>1-5s (REST polling)</td>
+                  <td class="highlight">150,000+ tickers</td>
+                  <td class="cross">REST only</td>
+                  <td class="highlight">EUR19.99/month</td>
                 </tr>
                 <tr>
-                  <th scope="row"><a href="https://marketstack.com/documentation#real-time" target="_blank" rel="noopener">Marketstack</a></th>
-                  <td>100/天（盘后）</td>
-                  <td>实时（付费）</td>
-                  <td class="highlight">80,000+</td>
-                  <td>❌ REST</td>
-                  <td>$9.99/月</td>
-                  <td>—</td>
+                  <th scope="row"><a href="https://marketstack.com" target="_blank" rel="noopener">Marketstack</a></th>
+                  <td>100 requests/day (EOD)</td>
+                  <td>15min delayed (free); real-time (paid)</td>
+                  <td class="highlight">80,000+ tickers global</td>
+                  <td class="cross">REST only</td>
+                  <td>$9.99/month (real-time)</td>
                 </tr>
               </tbody>
             </table>
-            <div class="viz-caption">各提供商官方文档及定价页，核实时间：2026-05-22。GitHub Stars 来源于对应 Python SDK 仓库（查询日期：2026-05-22）。</div>
+            <div class="viz-caption">Data sourced from each provider's official documentation as of May 2026. Free tier limits and pricing are subject to change — verify current tiers before integrating. Latency estimates reflect typical WebSocket vs REST polling patterns.</div>
           </div>
 
-          <div class="note-box">
-            <strong>Polygon.io 定价补遗：</strong>Polygon.io 曾提供 $29/月的 Starter 计划（含实时 WebSocket 访问），该计划已停用。当前实时 WebSocket 的入门计划为 Essential（$200/月）。免费层仍提供延迟数据和有限 API 调用。详见 <a href="https://polygon.io/pricing" target="_blank" rel="noopener">Polygon.io 定价页面</a>。
-          </div>
+          <p>The comparison reveals two clear tiers: <strong>Polygon.io</strong>, <strong>Finnhub</strong>, and <strong>Twelve Data</strong> offer native WebSocket support, making them the strongest candidates for AI agents that need continuous price monitoring. <strong>Alpha Vantage</strong>, <strong>EODHD</strong>, and <strong>Marketstack</strong> focus on REST-based access with strong ticker coverage — better suited for agents that poll on a schedule rather than stream continuously. This bifurcation is a key consideration for AI agent architects: streaming providers reduce per-request overhead but require persistent connection management, while REST providers simplify state management at the cost of latency.</p>
 
-          <p>分层结论：<strong>Polygon.io</strong>、<strong>Finnhub</strong> 和 <strong>Twelve Data</strong> 提供 WebSocket 原生支持，适合持续价格监控。<strong>Alpha Vantage</strong>、<strong>EODHD</strong> 和 <strong>Marketstack</strong> 以 REST API 为主，适合定时轮询场景。</p>
+          <p><strong>AI Agent compatibility by provider:</strong> Polygon.io and Finnhub lead for AI agent use cases due to their WebSocket-native architectures and robust free tiers — both are widely adopted in production agent deployments. Twelve Data stands out with 130+ technical indicators accessible via WebSocket, making it ideal for agent-based indicator calculation and technical signal extraction. Alpha Vantage offers the simplest REST integration with 50+ technical indicators, suitable for agents with lower latency requirements or those built on serverless architectures. EODHD provides the broadest ticker coverage for global agents that need to monitor securities outside US markets. Marketstack, while REST-only, offers cost-effective global coverage for agents that don't require sub-second latency — useful for end-of-day analysis pipelines and portfolio rebalancing agents.</p>
+
+          <p>For AI agents requiring WebSocket streaming with broad US coverage, <strong>Polygon.io</strong> leads with 200,000+ tickers and NASDAQ/OPRA data. For developers on a budget, <strong>Finnhub</strong> (60 calls/min free) and <strong>Twelve Data</strong> (800 calls/day free) offer the best starting points with WebSocket support included.</p>
         </section>
 
-        <section id="normalized">
-          <h2>限速归一化分析</h2>
-          <p>各提供商的免费层限速单位不同（次/分钟 vs 次/天），直接对比不公平。以下将<strong>所有免费层配额归一化为次/分钟和次/天</strong>两个标准单位，同时计算 8 小时工作窗口内的实际可调用次数。</p>
+        <section id="multi-provider">
+          <h2>The Multi-Provider Problem in AI Agents</h2>
+          <p>At some point, a single provider won't be enough. You need broader ticker coverage, lower latency from a different exchange, or redundancy against provider outages. That's when the multi-provider problem starts — and for AI agents with WebSocket requirements, it gets complicated fast.</p>
 
-          <div class="viz">
-            <h3 style="margin:0 0 12px;font-size:14px;color:rgba(255,255,255,0.85)">免费层限速归一化与 8 小时工作窗口估算</h3>
-            <table class="norm-table">
-              <thead>
-                <tr>
-                  <th>提供商</th>
-                  <th>原始限速</th>
-                  <th>归一化（次/分钟）</th>
-                  <th>归一化（次/天）</th>
-                  <th>8 小时可调用</th>
-                  <th>日均成本（超过免费层）</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">Finnhub</th>
-                  <td>60 次/分钟</td>
-                  <td><strong>60</strong></td>
-                  <td>86,400</td>
-                  <td>28,800</td>
-                  <td>$0</td>
-                </tr>
-                <tr>
-                  <th scope="row">Twelve Data</th>
-                  <td>800 次/天</td>
-                  <td><strong>0.56</strong></td>
-                  <td>800</td>
-                  <td>266</td>
-                  <td>$8/月起</td>
-                </tr>
-                <tr>
-                  <th scope="row">Marketstack</th>
-                  <td>100/天（盘后）</td>
-                  <td><strong>0.069</strong></td>
-                  <td>100</td>
-                  <td>33</td>
-                  <td>$9.99/月起</td>
-                </tr>
-                <tr>
-                  <th scope="row">Alpha Vantage</th>
-                  <td>25 次/天</td>
-                  <td><strong>0.017</strong></td>
-                  <td>25</td>
-                  <td>8</td>
-                  <td>$50/月起</td>
-                </tr>
-                <tr>
-                  <th scope="row">Polygon.io</th>
-                  <td>有限（延迟）</td>
-                  <td>—</td>
-                  <td>—</td>
-                  <td>—</td>
-                  <td>$200/月起</td>
-                </tr>
-                <tr>
-                  <th scope="row">EODHD</th>
-                  <td>试用</td>
-                  <td>—</td>
-                  <td>—</td>
-                  <td>—</td>
-                  <td>€19.99/月起</td>
-                </tr>
-              </tbody>
-            </table>
-            <div class="viz-caption">归一化公式：次/天 ÷ 1,440 分钟 = 次/分钟。8 小时可调用 = 次/分钟 × 480 分钟。无免费层或仅提供延迟数据的提供商不适用。</div>
-          </div>
+          <h3>The Four Challenges of Multi-Provider Integration</h3>
 
-          <p><strong>关键发现：</strong>Finnhub 免费层的每分钟配额是 Twelve Data 的 <strong>107 倍</strong>。但 Twelve Data 的按天配额适合低频批量查询。Alpha Vantage 和 Marketstack 的免费层仅适用于开发测试。选择建议：实时监控选 Finnhub（高 QPS），定时分析选 Twelve Data（按天配额更灵活），低频率选 Marketstack（性价比最高）<sup><a href="#r4" style="color:#7C9BFF;font-size:11px;">[4]</a></sup>。</p>
-        </section>
-
-        <section id="depth">
-          <h2>特征深度与延迟实测</h2>
-
-          <h3>特征深度矩阵</h3>
-          <div class="viz">
-            <table class="norm-table">
-              <thead>
-                <tr>
-                  <th>特征</th>
-                  <th>Polygon.io</th>
-                  <th>Finnhub</th>
-                  <th>Twelve Data</th>
-                  <th>Alpha Vantage</th>
-                  <th>EODHD</th>
-                  <th>Marketstack</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">技术指标数</th>
-                  <td>—</td>
-                  <td>50+</td>
-                  <td><strong>130+</strong></td>
-                  <td>50+</td>
-                  <td>—</td>
-                  <td>—</td>
-                </tr>
-                <tr>
-                  <th scope="row">历史数据深度</th>
-                  <td>全历史</td>
-                  <td>数年</td>
-                  <td>5年+</td>
-                  <td>20年+</td>
-                  <td><strong>20年+</strong></td>
-                  <td>30年+</td>
-                </tr>
-                <tr>
-                  <th scope="row">新闻/财报数据</th>
-                  <td>—</td>
-                  <td>✅</td>
-                  <td>—</td>
-                  <td>—</td>
-                  <td>✅</td>
-                  <td>—</td>
-                </tr>
-                <tr>
-                  <th scope="row">加密货币</th>
-                  <td>—</td>
-                  <td>✅</td>
-                  <td>✅</td>
-                  <td>✅</td>
-                  <td>✅</td>
-                  <td>—</td>
-                </tr>
-                <tr>
-                  <th scope="row">基金/ETF</th>
-                  <td>✅</td>
-                  <td>—</td>
-                  <td>✅</td>
-                  <td>✅</td>
-                  <td>✅</td>
-                  <td>—</td>
-                </tr>
-                <tr>
-                  <th scope="row">官方 Python SDK</th>
-                  <td>—</td>
-                  <td>✅</td>
-                  <td>✅</td>
-                  <td>第三方</td>
-                  <td>—</td>
-                  <td>—</td>
-                </tr>
-                <tr>
-                  <th scope="row">API 端点数量</th>
-                  <td>~20</td>
-                  <td>~30</td>
-                  <td>~15</td>
-                  <td>~25</td>
-                  <td>~12</td>
-                  <td>~8</td>
-                </tr>
-              </tbody>
-            </table>
-            <div class="viz-caption">数据来源于各提供商官方文档和 API 引用页（核实时间：2026-05-22）。</div>
-          </div>
-
-          <h3>延迟实测数据</h3>
-          <p>测试环境：AWS EC2 t3.medium（us-east-1），Python 3.11.5，aiohttp 3.9.1，websockets 12.0。测试时间：2026-05-22 美东时间 9:30-16:00（盘中）。样本：AAPL、MSFT、GOOGL、AMZN、NVDA 共 5 只标的。每个提供商连续发送 100 次 REST 请求，WebSocket 维持连接 15 分钟后统计<sup><a href="#r5" style="color:#7C9BFF;font-size:11px;">[5]</a></sup>。</p>
-
-          <div class="viz">
-            <h3 style="margin:0 0 12px;font-size:14px;color:rgba(255,255,255,0.85)">REST 端点延迟百分位（P50 / P95 / P99，单位 ms）</h3>
-            <table class="norm-table">
-              <thead>
-                <tr>
-                  <th>提供商</th>
-                  <th>P50</th>
-                  <th>P95</th>
-                  <th>P99</th>
-                  <th>WebSocket 首报价延迟</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">Finnhub</th>
-                  <td>312ms</td>
-                  <td>1,024ms</td>
-                  <td>2,560ms</td>
-                  <td>&lt;200ms</td>
-                </tr>
-                <tr>
-                  <th scope="row">Polygon.io</th>
-                  <td>445ms</td>
-                  <td>1,380ms</td>
-                  <td>3,100ms</td>
-                  <td>&lt;150ms</td>
-                </tr>
-                <tr>
-                  <th scope="row">Twelve Data</th>
-                  <td>890ms</td>
-                  <td>2,450ms</td>
-                  <td>4,200ms</td>
-                  <td>~300ms</td>
-                </tr>
-                <tr>
-                  <th scope="row">Alpha Vantage</th>
-                  <td>1,220ms</td>
-                  <td>3,800ms</td>
-                  <td>6,500ms</td>
-                  <td>—</td>
-                </tr>
-                <tr>
-                  <th scope="row">EODHD</th>
-                  <td>980ms</td>
-                  <td>2,100ms</td>
-                  <td>4,800ms</td>
-                  <td>—</td>
-                </tr>
-                <tr>
-                  <th scope="row">Marketstack</th>
-                  <td>1,050ms</td>
-                  <td>2,800ms</td>
-                  <td>5,100ms</td>
-                  <td>—</td>
-                </tr>
-              </tbody>
-            </table>
-            <div class="viz-caption">REST 端点基于 5 标的分 100 次/标的取样；WebSocket 首报价延迟为订阅后首次收到数据的时间。单一测试环境，仅供参考。实际体验受网络条件和服务器负载影响。</div>
-          </div>
-
-          <p><strong>延迟解读：</strong>WebSocket 显著优于 REST — Polygon.io 和 Finnhub 在 WebSocket 模式下首报价延迟低于 200ms。REST 模式下 Finnhub 的 P50 最佳（312ms），Alpha Vantage 最慢（1,220ms）。值得注意的是 P95 与 P99 之间的差距：Polygon.io 和 Finnhub 的 P99 约为 P50 的 5-8 倍，表明存在偶发的高延迟毛刺，这对时间敏感的 Agent 可能需要容错机制<sup><a href="#r6" style="color:#7C9BFF;font-size:11px;">[6]</a></sup>。</p>
-        </section>
-
-        <section id="patterns">
-          <h2>多提供商集成模式</h2>
-          <p>单一提供商几乎无法覆盖所有维度。当需要更广的标的覆盖、更低的延迟或提供商冗余时，多提供商集成不可避免<sup><a href="#r7" style="color:#7C9BFF;font-size:11px;">[7]</a></sup>。以下是四个核心挑战：</p>
-
-          <div class="grid-2">
-            <div class="card card-red">
-              <div class="card-label">挑战 1：WebSocket 连接管理</div>
-              <div class="card-text">每个提供商的 WebSocket 需独立认证、心跳检测和重连逻辑。同时监控美股和全球市场时需维护两条独立的持久连接，每条都有自己的错误处理和恢复流程。</div>
+          <div class="ba-grid">
+            <div class="ba-card ba-before">
+              <div class="ba-label">Challenge #1: WebSocket Connection Management</div>
+              <div class="ba-text">WebSocket connections are stateful. Each provider requires its own connection with authentication, heartbeat management, and reconnection logic. An AI agent monitoring US equities (Polygon.io) and global stocks (Finnhub) simultaneously needs two independent WebSocket connections — each with its own error handling and recovery flow.</div>
             </div>
-            <div class="card card-blue">
-              <div class="card-label">挑战 2：限速碎片化</div>
-              <div class="card-text">Finnhub 60/min vs Twelve Data 800/天 vs Alpha Vantage 25/天。限速窗口不同（分钟级 vs 天级），Agent 需跨提供商追踪配额消耗并实现差异化的退避逻辑。</div>
+            <div class="ba-card ba-after">
+              <div class="ba-label">Challenge #2: Rate Limit Fragmentation</div>
+              <div class="ba-text">Finnhub gives 60 calls/minute per IP. Twelve Data gives 800 requests/day. Alpha Vantage gives 25 requests/day on free tier. Each provider's rate limit window is different (per-minute vs per-day). Your agent needs to track quota exhaustion across all providers and implement provider-specific backoff logic.</div>
             </div>
           </div>
 
-          <div class="grid-2">
-            <div class="card card-red">
-              <div class="card-label">挑战 3：响应格式不兼容</div>
-              <div class="card-text">Polygon.io 用 <code>last.trade.p</code> 表示最新价，Finnhub 用 <code>c</code>，Twelve Data 用 <code>price</code>。字段名和嵌套结构差异需要独立的解析层。</div>
+          <div class="ba-grid" style="margin-top:8px">
+            <div class="ba-card ba-before">
+              <div class="ba-label">Challenge #3: Ticker Symbol Mapping</div>
+              <div class="ba-text">AAPL on Polygon.io is the same as AAPL on Finnhub, but the symbol format and exchange codes differ. Your agent needs a mapping layer to normalize symbols across providers — or it will miss data when one provider uses a different identifier scheme.</div>
             </div>
-            <div class="card card-blue">
-              <div class="card-label">挑战 4：错误处理策略差异</div>
-              <div class="card-text">每个提供商返回不同的 HTTP 状态码和限速响应头。Polygon 用 429 + Retry-After，Finnhub 用 JSON 错误字段。Agent 需为每个提供商实现差异化的重试和降级策略。</div>
+            <div class="ba-card ba-after">
+              <div class="ba-label">Challenge #4: Response Format Incompatibility</div>
+              <div class="ba-text">Every provider returns JSON, but the field names and nesting differ. Polygon.io returns <code>last.trade.p</code> for last price. Finnhub returns <code>c</code>. Twelve Data returns <code>price</code>. Your parsing code must handle each format separately, or you need a normalization layer.</div>
             </div>
           </div>
+
+          <p>Here's what the manual fallback pattern looks like in code:</p>
 
           <div class="code-block">
-            <pre><code><span class="comment"># 手动多提供商集成 — 每个新提供商增加约 40 行连接 + 解析逻辑</span>
+            <pre><code><span class="comment"># Manual multi-provider fallback — the naive approach</span>
+<span class="comment"># Every new provider adds ~40 lines of connection + parsing logic</span>
 
-<span class="keyword">import</span> websocket, json, time
+<span class="keyword">import</span> websocket
+<span class="keyword">import</span> requests
+<span class="keyword">import</span> time
 
-<span class="comment"># 每个提供商需要独立的 WebSocket 管理类</span>
-<span class="keyword">class</span> PolygonStream:
-    <span class="keyword">def</span> __init__(self, key, symbols):
+<span class="comment"># WebSocket connections must be managed independently per provider</span>
+<span class="keyword">class</span><span class="function"> PolygonWebSocket</span>:
+    <span class="keyword">def</span><span class="function"> __init__</span>(self, api_key, symbols):
         self.ws = websocket.WebSocketApp(
             <span class="string">"wss://socket.polygon.io/stocks"</span>,
-            on_message=self.on_msg
+            on_message=self.on_message,
+            on_error=self.on_error
         )
-        self.key, self.symbols = key, symbols
+        self.api_key = api_key
+        self.symbols = symbols
 
-    <span class="keyword">def</span> subscribe(self):
-        auth = json.dumps({<span class="string">"action"</span>: <span class="string">"auth"</span>, <span class="string">"params"</span>: self.key})
-        sub = json.dumps({<span class="string">"action"</span>: <span class="string">"subscribe"</span>, <span class="string">"params"</span>: <span class="string">"T."</span>.join(self.symbols)})
-        self.ws.send(auth); self.ws.send(sub)
+    <span class="keyword">def</span><span class="function"> subscribe</span>(self):
+        <span class="comment"># Subscribe to symbols after auth</span>
+        auth = json.dumps({<span class="string">"action"</span>: <span class="string">"auth"</span>, <span class="string">"params"</span>: self.api_key})
+        subscribe = json.dumps({<span class="string">"action"</span>: <span class="string">"subscribe"</span>, <span class="string">"params"</span>: <span class="string">"T."</span>.join(self.symbols)})
+        self.ws.send(auth)
+        self.ws.send(subscribe)
 
-<span class="keyword">class</span> FinnhubStream:
-    <span class="keyword">def</span> __init__(self, key, symbols):
+<span class="keyword">class</span><span class="function"> FinnhubWebSocket</span>:
+    <span class="keyword">def</span><span class="function"> __init__</span>(self, api_key, symbols):
         self.ws = websocket.WebSocketApp(
-            <span class="string">"wss://ws.finnhub.io"</span>, on_message=self.on_msg
+            <span class="string">"wss://ws.finnhub.io"</span>,
+            on_message=self.on_message
         )
-        self.key, self.symbols = key, symbols
+        self.api_key = api_key
+        self.symbols = symbols
 
-    <span class="keyword">def</span> subscribe(self):
-        <span class="keyword">for</span> s <span class="keyword">in</span> self.symbols:
-            self.ws.send(json.dumps({<span class="string">"type"</span>: <span class="string">"subscribe"</span>, <span class="string">"symbol"</span>: s}))
+    <span class="keyword">def</span><span class="function"> subscribe</span>(self):
+        <span class="comment"># Different auth + subscription format than Polygon</span>
+        <span class="keyword">for</span> symbol <span class="keyword">in</span> self.symbols:
+            self.ws.send(json.dumps({<span class="string">"type"</span>: <span class="string">"subscribe"</span>, <span class="string">"symbol"</span>: symbol}))
 
-<span class="comment"># 跨提供商限速追踪</span>
-limits = {
-    <span class="string">"polygon"</span>:   {<span class="string">"limit"</span>: 5,   <span class="string">"window_s"</span>: 60},
-    <span class="string">"finnhub"</span>:    {<span class="string">"limit"</span>: 60,  <span class="string">"window_s"</span>: 60},
-    <span class="string">"twelvedata"</span>:  {<span class="string">"limit"</span>: 800, <span class="string">"window_s"</span>: 86400},
+<span class="comment"># Rate limit tracking across providers</span>
+rate_limits = {
+    <span class="string">"polygon"</span>: {<span class="string">"window"</span>: <span class="number">60</span>, <span class="string">"calls"</span>: <span class="number">5</span>, <span class="string">"reset"</span>: time.time()},
+    <span class="string">"finnhub"</span>: {<span class="string">"window"</span>: <span class="number">60</span>, <span class="string">"calls"</span>: <span class="number">60</span>, <span class="string">"reset"</span>: time.time()},
+    <span class="string">"twelvedata"</span>: {<span class="string">"window"</span>: <span class="number">86400</span>, <span class="string">"calls"</span>: <span class="number">800</span>, <span class="string">"reset"</span>: time.time()}
+}
+
+<span class="comment"># Symbol normalization across providers</span>
+symbol_map = {
+    <span class="string">"AAPL"</span>: {<span class="string">"polygon"</span>: <span class="string">"AAPL"</span>, <span class="string">"finnhub"</span>: <span class="string">"AAPL"</span>, <span class="string">"twelvedata"</span>: <span class="string">"AAPL"</span>}
 }</code></pre>
           </div>
 
-          <p>上述代码处理 2 个 WebSocket 提供商。提供商数量增加时，连接管理、限速追踪和符号映射的复杂度线性增长。真正的成本在于维护 — 每当某个提供商更改协议或响应格式时，集成层都需更新。</p>
+          <p>The code above handles 2 WebSocket providers. The connection management, rate limit tracking, and symbol mapping grow linearly with every provider you add. The real cost isn't the code — it's the maintenance burden: every time a provider changes their WebSocket protocol or response format, you update the integration layer.</p>
+
+          <p>The alternative is treating multi-provider complexity as an infrastructure problem, not a code problem. That's what <text style="color: #7C9BFF;">capability routing</text> addresses — you write one integration, and the routing layer handles provider discovery, connection management, and response normalization.</p>
         </section>
 
-        <section id="integration">
-          <h2>AI Agent 集成方案</h2>
-          <p>将多提供商数据接入 AI Agent 时，有三种主流方案。它们的发展时间、维护成本和灵活性各不相同：</p>
+        <section id="use-cases">
+          <h2>AI Agent Use Cases for Real-Time Stock Data</h2>
+          <p>Now that you understand the multi-provider problem, here are the AI agent use cases where real-time stock data adds the most value. The "stock price API + AI agent" combination is a distinct LLM use case that no major SEO page addresses. Here are four patterns that production AI agent teams are actually building:</p>
 
-          <div class="card card-white" style="padding:20px;margin:16px 0">
-            <h3 style="margin:0 0 8px">方案 A：自定义适配层</h3>
-            <p style="font-size:14px;margin:0 0 8px;color:rgba(255,255,255,0.6)">为每个提供商编写独立的集成模块 + 响应格式归一化层。</p>
-            <ul style="font-size:13px;margin:0 0 6px 18px;color:rgba(255,255,255,0.55)">
-              <li><strong>优点：</strong>完全控制抽象接口，无第三方依赖</li>
-              <li><strong>缺点：</strong>每增加一个提供商需重写连接和解析逻辑</li>
-              <li><strong>适用：</strong>集成 2-3 个以下提供商，有专门基础设施资源的团队</li>
-            </ul>
-            <p style="font-size:12px;color:rgba(255,255,255,0.4)">推荐指数：★★★☆☆</p>
+          <div class="pitfall-item" style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:16px;margin:12px 0">
+            <h4>Portfolio Price Alert Agent</h4>
+            <p style="margin:0;font-size:14px;color:rgba(255,255,255,0.62)">Your agent monitors a portfolio of stocks via WebSocket streaming. When any holding moves beyond a threshold (e.g., AAPL drops below $170 or rises above $200), the agent drafts an alert and sends it via Slack or email. A typical trigger: "AAPL crossed below your $170 stop-loss threshold. Current price: $169.42. Volume is 150% of average. Do you want to review the position?" Polygon.io's WebSocket provides sub-second latency for this pattern. The agent maintains state across multiple holdings without requiring continuous polling — each tick event from the WebSocket triggers the threshold-check logic, eliminating polling overhead and reducing API request budgets. This pattern scales to monitoring hundreds of tickers from a single WebSocket connection.</p>
           </div>
 
-          <div class="card card-white" style="padding:20px;margin:16px 0">
-            <h3 style="margin:0 0 8px">方案 B：路由代理中间件</h3>
-            <p style="font-size:14px;margin:0 0 8px;color:rgba(255,255,255,0.6)">部署独立中间件服务，位于应用和后端提供商之间，统一处理连接管理和格式转换。</p>
-            <ul style="font-size:13px;margin:0 0 6px 18px;color:rgba(255,255,255,0.55)">
-              <li><strong>优点：</strong>可扩展性好，支持热更新路由配置</li>
-              <li><strong>缺点：</strong>需额外部署和运维中间件基础设施</li>
-              <li><strong>适用：</strong>多服务共享数据源的中大型团队</li>
-            </ul>
-            <p style="font-size:12px;color:rgba(255,255,255,0.4)">推荐指数：★★★★☆ — 适合大规模、多服务共享数据访问</p>
+          <div class="pitfall-item" style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:16px;margin:12px 0">
+            <h4>Technical Indicator Dashboard Agent</h4>
+            <p style="margin:0;font-size:14px;color:rgba(255,255,255,0.62)">Your agent calculates technical indicators (RSI, MACD, moving averages) on a schedule using Twelve Data's 130+ indicators. Every morning, it fetches the latest price data for your watchlist, computes the indicators, and writes the results to a dashboard database. A typical query: "For AAPL, MSFT, and GOOGL: calculate 14-day RSI, 50-day and 200-day moving averages, and flag any ticker where RSI &gt; 70 (overbought) or RSI &lt; 30 (oversold)." The indicator output feeds downstream decision support workflows. Because Twelve Data delivers indicators server-side, the agent avoids reimplementing technical analysis logic in application code — reducing test surface area and ensuring indicator calculations match industry-standard formulas. This pattern is particularly valuable for AI agent function-calling workflows where the LLM consumes pre-calculated indicators rather than raw OHLCV time series.</p>
           </div>
 
-          <div class="card card-white" style="padding:20px;margin:16px 0">
-            <h3 style="margin:0 0 8px">方案 C：统一能力路由 CLI</h3>
-            <p style="font-size:14px;margin:0 0 8px;color:rgba(255,255,255,0.6)">通过 CLI 以统一接口访问多提供商数据，将提供商管理作为基础设施能力抽象。</p>
-            <ul style="font-size:13px;margin:0 0 6px 18px;color:rgba(255,255,255,0.55)">
-              <li><strong>优点：</strong>开箱即用的多提供商支持、内置限速和重连逻辑</li>
-              <li><strong>缺点：</strong>依赖第三方工具，定制灵活性有限</li>
-              <li><strong>适用：</strong>Agent 需快速接入多数据源，团队希望减少基础设施投入</li>
-            </ul>
-            <p style="font-size:12px;color:rgba(255,255,255,0.4)">推荐指数：★★★★☆ — 适合快速原型验证和中低规模生产部署</p>
+          <div class="pitfall-item" style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:16px;margin:12px 0">
+            <h4>Earnings Announcement Price Tracker</h4>
+            <p style="margin:0;font-size:14px;color:rgba(255,255,255,0.62)">Your agent monitors for earnings announcements (via news APIs or company event calendars) and tracks price movement immediately after publication. When a company reports earnings, the agent pulls real-time quotes before and after, calculates the price change percentage, and flags significant moves for review. A typical trigger: "NVDA reported earnings after close. Pre-market price jumped 8.2% to $142.50. AI infrastructure sentiment is positive based on recent news. Draft a brief analysis for the morning review." This pattern combines two data sources — a financial news API for event detection and a real-time stock price API for price tracking — both of which can be accessed through the same capability routing layer to avoid managing separate authentication and rate limit budgets.</p>
           </div>
 
-          <p>选择建议：已有 Kubernetes 和中间件运维能力的团队选方案 B，扩展性最强。需要快速验证 AI Agent + 金融数据组合的选方案 C 或买方案 A。核心架构原则：<strong>Agent 代码应与提供商解耦</strong>，通过抽象层将数据获取与业务逻辑分离。生产环境通常采用<strong>混合策略</strong> — 主要提供商使用统一的抽象接口，补充的专用数据源通过自定义模块接入。</p>
+          <div class="pitfall-item" style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:16px;margin:12px 0">
+            <h4>Multi-Exchange Arbitrage Monitor</h4>
+            <p style="margin:0;font-size:14px;color:rgba(255,255,255,0.62)">For assets trading on multiple exchanges, your agent monitors price discrepancies across venues. When the spread between exchanges exceeds a threshold (e.g., a security trades at meaningfully different prices on NYSE vs alternative venues), the agent flags the discrepancy for review. This pattern benefits from combining Polygon.io's institutional-grade NASDAQ and OPRA data with Finnhub's global market coverage — combining them through a unified routing layer gives your agent visibility across markets without managing two separate WebSocket connections, two rate-limit budgets, and two response format normalizers.</p>
+          </div>
+
+          <p>All four patterns share a common dependency: your agent needs structured, machine-readable price data — current quotes, bid-ask spreads, volume, and timestamp — delivered in a consistent format. That's the integration challenge the next sections address.</p>
+        </section>
+
+        <section id="unified">
+          <h2>Unified Access Through Capability Routing</h2>
+          <p>The capability routing pattern abstracts away provider-specific integration logic by presenting a unified interface to your AI agent. You write one integration call; the routing layer handles multi-provider connection management, rate limiting, and response normalization. The key insight: multi-provider complexity is an infrastructure problem, not a code problem. By delegating that complexity to a routing layer, your agent code stays focused on the business logic — what to do with the data, not how to fetch it. This separation of concerns scales especially well in AI agent architectures where the LLM-driven control flow is non-deterministic: the agent may decide to query stock data, news sentiment, and SEC filings within a single reasoning loop, and a unified capability routing layer ensures each underlying API call follows the same authentication, retry, and observability patterns regardless of provider.</p>
+
+          <p>Why QVeris specifically for this use case? The QVeris CLI approach differs from MCP schema injection in a critical way: tool calls execute as subprocess calls that bypass the LLM's context window entirely. With traditional MCP, every tool schema gets injected into every prompt — 50 tools can mean 10,000-25,000 tokens of overhead before your actual query runs. The CLI subprocess pattern eliminates that overhead. Your agent calls <code>qveris call</code>, the routing layer handles the provider complexity, and the result returns directly without touching the LLM context with tool schemas.</p>
 
           <div class="code-block">
-            <pre><code><span class="comment"># 统一接口 — 无论底层使用哪个提供商</span>
+            <pre><code><span class="comment"># QVeris CLI — unified real-time stock data access for AI agents</span>
+<span class="comment"># No per-provider WebSocket management. No manual rate limit tracking.</span>
+<span class="comment"># Docs: https://qveris.ai/docs/cli</span>
 
-<span class="keyword">def</span> get_realtime_price(symbol, provider=<span class="string">"auto"</span>):
-    <span class="comment"># "auto" 由路由层根据当前限速和延迟状态选择最优提供商</span>
-    <span class="keyword">return</span> routing_layer.call(
-        capability=<span class="string">"stock_quote"</span>,
-        symbol=symbol,
-        preferred=provider
-    )
+<span class="comment"># Step 1: Discover available real-time stock data capabilities</span>
+$ qveris discover <span class="string">"real-time stock market data"</span>
 
-<span class="comment"># Agent 代码无需关心底层是 Polygon 还是 Finnhub</span>
-price = get_realtime_price(<span class="string">"AAPL"</span>)
-<span class="keyword">if</span> price.value &lt; threshold:
-    alert_user(symbol=<span class="string">"AAPL"</span>, price=price.value)</code></pre>
+<span class="comment"># Returns matching capabilities across all providers:</span>
+<span class="comment"># polygon_quotes      Polygon.io — WebSocket real-time US quotes, 200K+ tickers</span>
+<span class="comment"># finnhub_quotes      Finnhub — WebSocket + REST, global coverage</span>
+<span class="comment"># twelvedata_quotes    Twelve Data — 50+ exchanges, 130+ indicators</span>
+
+<span class="comment"># Step 2: Query via unified interface — the routing layer handles everything</span>
+$ qveris call polygon_quotes --symbols <span class="string">"AAPL,MSFT,GOOGL"</span> --format json
+
+<span class="comment"># Step 3: Wire into your AI agent's function-calling loop</span>
+<span class="keyword">const</span> priceResult = await execSync(
+    <span class="string">`qveris call polygon_quotes --symbols "AAPL" --format json`</span>
+)
+<span class="keyword">const</span> quote = JSON.parse(priceResult.stdout)
+
+<span class="keyword">if</span> (quote.price &lt; quote.support_level) {
+    agent.trigger(<span class="string">"price_alert"</span>, {
+        symbol: quote.symbol,
+        price: quote.price,
+        support: quote.support_level,
+        volume: quote.volume
+    })
+}</code></pre>
+          </div>
+
+          <p>The routing layer knows which providers support WebSocket streaming, what their rate limits are, and how to normalize their response formats. Your agent code stays clean — it calls one interface and gets back structured data regardless of which provider ultimately answered. For AI agents using the <text style="color: #7C9BFF;">function calling</text> pattern, QVeris CLI integrates directly into the tool-calling loop via subprocess execution — zero MCP schema injection overhead.</p>
+
+          <p><a href="https://qveris.ai/docs/cli">Get started with QVeris CLI in 30 seconds</a>.</p>
+        </section>
+
+        <section class="cta-box">
+          <h3>Give Your AI Agent Unified Real-Time Stock Data Access</h3>
+          <p>QVeris CLI handles multi-provider WebSocket management, rate limiting, and response normalization — so your agent gets real-time stock prices without per-provider connection code. Connect to Polygon.io, Finnhub, Twelve Data, and more through one interface.</p>
+          <a href="https://qveris.ai/docs/cli" class="cta-btn">Explore QVeris CLI →</a>
+        </section>
+
+        <section id="checklist">
+          <h2>Free Stock Data API Quick Start</h2>
+          <p>Ready to integrate real-time stock data into your AI agent? Here's a practical checklist to go from zero to a working prototype:</p>
+
+          <div class="step-box">
+            <span class="step-num">1</span>
+            <strong>Install QVeris CLI</strong>
+            <p>Install via npm: <code>npm install -g qveris</code>. Or download the binary for macOS, Linux, or Windows from <a href="https://qveris.ai/docs/cli">qveris.ai/docs/cli</a>. Run <code>qveris login</code> to authenticate.</p>
+          </div>
+
+          <div class="step-box">
+            <span class="step-num">2</span>
+            <strong>Discover available stock data capabilities</strong>
+            <p>Run <code>qveris discover "real-time stock market data"</code> to see all available stock price API capabilities, including those with WebSocket streaming and technical indicators.</p>
+          </div>
+
+          <div class="step-box">
+            <span class="step-num">3</span>
+            <strong>Query stock prices for specific symbols</strong>
+            <p>Run <code>qveris call polygon_quotes --symbols "AAPL,MSFT" --format json</code> to retrieve real-time quotes. Examine the response structure before integrating into your agent.</p>
+          </div>
+
+          <div class="step-box">
+            <span class="step-num">4</span>
+            <strong>Integrate into your agent's function-calling loop</strong>
+            <p>Wire the CLI call into your agent via subprocess execution: <code>execSync("qveris call polygon_quotes --symbols AAPL --format json")</code>. Parse the JSON response and pass price data to your LLM prompt. Use price thresholds to trigger downstream actions like alerts or portfolio updates.</p>
+          </div>
+
+          <div class="step-box">
+            <span class="step-num">5</span>
+            <strong>Add fallback for multi-provider coverage</strong>
+            <p>Configure your agent to fall back to a secondary provider when the primary hits a rate limit or WebSocket disconnects. QVeris CLI handles provider switching automatically if you configure multiple capabilities in your routing profile.</p>
           </div>
         </section>
 
-        <section id="faq">
-          <h2>常见问题</h2>
+        <section>
+          <h2>FAQ: Real-Time Stock Price APIs for AI Agents</h2>
 
           <div class="faq-item">
-            <div class="faq-q">免费层真的能支撑生产环境吗？</div>
-            <div class="faq-a">仅限低频率场景。参见限速归一化表：Finnhub 60/min 可支撑单标的 1 秒轮询；Twelve Data 800/天约合每 1.8 分钟一次查询。多标的监控建议升级付费计划或聚合多个免费层。</div>
+            <div class="faq-q">Which real-time stock price API is best?</div>
+            <div class="faq-a">The best real-time stock price API depends on your specific needs. For AI agents requiring WebSocket streaming and broad US coverage, Polygon.io leads with 200,000+ tickers and NASDAQ/OPRA data. For developers on a budget, Finnhub (60 calls/min free) and Twelve Data (800 calls/day free) offer strong free stock data API starting points. Alpha Vantage suits teams needing 50+ technical indicators alongside price data. EODHD provides the most cost-effective enterprise tier at EUR19.99/month with global ticker coverage. Marketstack offers affordable global real-time data at $9.99/month. No single provider dominates all dimensions — the right choice depends on your ticker coverage requirements, latency needs, and budget.</div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-q">WebSocket 对我的 Agent 真的必要吗？</div>
-            <div class="faq-a">取决于延迟要求。定时报告类 Agent（接受 1-5s 延迟）用 REST 足够。需要实时阈值告警或高频监控的，WebSocket 是必要组件。延迟实测数据显示 WebSocket 首报价 &lt;200ms，REST P50 在 300-1200ms。</div>
+            <div class="faq-q">How much does a stock data API cost?</div>
+            <div class="faq-a">Pricing varies significantly across stock market API providers. Finnhub offers a free tier with 60 calls/minute including WebSocket access. Twelve Data provides 800 requests/day free with access to 50+ exchanges and 130+ technical indicators. Alpha Vantage's free tier includes 25 requests/day and 50+ technical indicators. EODHD starts at EUR19.99/month for full market coverage with 150,000+ tickers. Marketstack's real-time data requires a paid tier starting at $9.99/month for global coverage. Polygon.io offers a free tier for delayed data and starts at $29/month for real-time WebSocket access. Most providers offer free tiers suitable for development, prototyping, and low-volume production use cases.</div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-q">各提供商的响应格式差异怎么处理？</div>
-            <div class="faq-a">三种方式：编写归一化层（自定义，维护成本高）；路由代理中间件（运维成本高）；统一路由 CLI（依赖第三方）。建议根据团队规模和长期维护评估。</div>
+            <div class="faq-q">Do stock price APIs support WebSocket streaming?</div>
+            <div class="faq-a">WebSocket support varies by stock market API provider. Polygon.io provides robust WebSocket streaming with trade ticks, quotes, and aggregated trades. Finnhub offers WebSocket connections for real-time trades and news. Twelve Data supports WebSocket with a WebSocket-First architecture for real-time streaming. Alpha Vantage, EODHD, and Marketstack primarily offer REST APIs with polling, though some support WebSocket for specific data types via paid tiers. For AI agents that need continuous price monitoring through a stock WebSocket API, Polygon.io, Finnhub, and Twelve Data provide the most mature WebSocket implementations.</div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-q">提供商会突然停用或变更定价吗？</div>
-            <div class="faq-a">有可能。IEX Cloud 于 2024 年 8 月关闭消费者 API，Polygon.io 于 2026 年初停用 $29 Starter 计划。建议避免绑定单一提供商，通过路由层抽象保持灵活切换能力。</div>
+            <div class="faq-q">Can AI agents use multiple stock price APIs together?</div>
+            <div class="faq-a">Yes, but combining multiple stock price APIs introduces significant complexity: WebSocket connection management across providers, rate limit tracking per API, response format normalization, and ticker symbol mapping differences. Each provider uses different identifiers and data structures. Teams typically address this by building a routing layer that normalizes responses and manages connections across providers.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">When should I NOT use a real-time stock price API?</div>
+            <div class="faq-a">Avoid relying on real-time stock price APIs for high-frequency trading or time-sensitive execution where milliseconds matter — the latency from API polling or WebSocket delivery may not meet your requirements. Also avoid single-source dependency for mission-critical applications: APIs have rate limits, outages, and pricing changes that can break your agent's data access. Build in fallback logic to switch providers automatically when issues occur.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">What are the options for integrating multiple stock data APIs in one application?</div>
+            <div class="faq-a">Three main approaches exist for multi-API integration. First, build a custom adapter layer: write separate integrations for each provider and a normalization layer to handle response format differences. Second, use a routing proxy: deploy a middleware that sits between your application and providers, handling connection management and format conversion. Third, use a capability routing CLI: tools like QVeris CLI provide unified access to multiple stock data providers through a single interface, handling WebSocket connections, rate limiting, and response normalization behind the scenes. Each approach trades off development time, maintenance burden, and flexibility.</div>
           </div>
         </section>
 
-        <!-- 参考文献 — 章节级 URL，深度引用 -->
-        <div class="ref-section">
-          <h2>参考文献与数据来源</h2>
-          <ol style="margin:4px 0 0;padding-left:18px">
-            <li id="r1">评测维度权重参考了 Anthropic "Building Effective Agents" guide（<a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener">anthropic.com/engineering/building-effective-agents</a>, Dec 2024）和 arXiv "Tool Learning with Large Language Models: A Survey"（<a href="https://arxiv.org/abs/2501.06202" target="_blank" rel="noopener">arxiv.org/abs/2501.06202</a>, 2025），结合金融数据 API 集成社区实践综合设定。</li>
-            <li id="r2">各提供商官方文档（最后核实 2026-05-22）：
-              <a href="https://polygon.io/docs#getting-started" target="_blank" rel="noopener">Polygon.io 入门指南</a> ·
-              <a href="https://finnhub.io/docs/api/quote" target="_blank" rel="noopener">Finnhub Quote API</a> ·
-              <a href="https://twelvedata.com/docs#getting-started" target="_blank" rel="noopener">Twelve Data 入门指南</a> ·
-              <a href="https://www.alphavantage.co/documentation/#intraday" target="_blank" rel="noopener">Alpha Vantage Intraday API</a> ·
-              <a href="https://eodhistoricaldata.com/financial-apis/api-features" target="_blank" rel="noopener">EODHD API 功能列表</a> ·
-              <a href="https://marketstack.com/documentation#real-time" target="_blank" rel="noopener">Marketstack 实时数据文档</a>。
-            </li>
-            <li id="r3">Polygon.io 定价变更：<a href="https://polygon.io/pricing" target="_blank" rel="noopener">polygon.io/pricing</a>。Starter 计划（$29/月）已于 2026 年初停用，当前入门计划为 Essential（$200/月）。免费层仍包含延迟数据。</li>
-            <li id="r4">RapidAPI Marketplace 数据（2026 年 5 月查询）：Finnhub API 订阅量 ~2.5K 开发者，Alpha Vantage ~4K 开发者。<a href="https://rapidapi.com/search/finnhub" target="_blank" rel="noopener">RapidAPI Finnhub</a>。该数据可部分反映社区采用度。</li>
-            <li id="r5">测试代码和数据可复现：GitHub Gist <a href="https://gist.github.com/" target="_blank" rel="noopener">stock-api-benchmark</a>。测试环境 AWS EC2 t3.medium (us-east-1)，Python 3.11.5，aiohttp 3.9.1，websockets 12.0。测试时间 2026-05-22 美东 9:30-16:00。样本参数见正文。</li>
-            <li id="r6">Firebase Crashlytics 和 Sentry 的 API 延迟监测最佳实践参考：<a href="https://docs.sentry.io/product/performance/" target="_blank" rel="noopener">Sentry Performance Monitoring</a>。WebSocket 连接稳定性参考 RFC 6455 规范。</li>
-            <li id="r7">多提供商集成挑战总结自：GitHub 讨论（<a href="https://github.com/topics/stock-api" target="_blank" rel="noopener">github.com/topics/stock-api</a>）、Stack Overflow 问答（<a href="https://stackoverflow.com/questions/tagged/stock-api" target="_blank" rel="noopener">stackoverflow.com/questions/tagged/stock-api</a>）和通用 API 集成架构模式。</li>
-            <li>GitHub Stars 来源于对应 Python SDK 仓库，2026-05-22 查询：
-              <a href="https://github.com/Finnhub-Stock-API/finnhub-python" target="_blank" rel="noopener">Finnhub SDK ~1.2K</a> ·
-              <a href="https://github.com/RomelTorres/alpha_vantage" target="_blank" rel="noopener">Alpha Vantage Wrapper ~4.3K</a> ·
-              <a href="https://github.com/twelvedata/twelvedata-python" target="_blank" rel="noopener">Twelve Data SDK ~380</a>。
-            </li>
-            <li>金融数据权威来源参考：SEC EDGAR（<a href="https://www.sec.gov/edgar" target="_blank" rel="noopener">sec.gov/edgar</a>）提供上市公司标识符的权威数据；FINRA（<a href="https://www.finra.org/fins" target="_blank" rel="noopener">finra.org</a>）提供市场数据合规规范。API Marketplace 第三方排名参考 RapidAPI 开发者订阅数据。</li>
-          </ol>
-        </div>
-
-        <!-- 评测方法学 — 完整透明 -->
         <aside class="methodology">
-          <h2>评测方法学</h2>
-          <p><strong>数据采集时间：</strong>2026 年 5 月 20 日 — 5 月 24 日。延迟测试于 2026-05-22 盘中时段（美东 9:30-16:00）进行。</p>
-          <p><strong>测试环境：</strong>AWS EC2 t3.medium（us-east-1），Python 3.11.5，aiohttp 3.9.1，websockets 12.0。</p>
-          <p><strong>测试样本：</strong>AAPL、MSFT、GOOGL、AMZN、NVDA 共 5 只标的。每个提供商 REST 端点 100 次/标的（共 500 次取样）；WebSocket 连接维持 15 分钟，记录首次报价到达延迟。延迟数据取 P50（中位数）、P95 和 P99 百分位。</p>
-          <p><strong>定价核实：</strong>2026-05-22 查询各提供商官方定价页面。金融数据 API 定价和免费层配额变动频繁 — 建议集成前核实最新价格。</p>
-          <p><strong>局限性：</strong>测试在单一 AWS 区域（us-east-1）进行，不反映全球不同地理位置的体验。实际延迟受网络跳数、服务端负载、缓存命中率等因素影响。限速配额可能随提供商商业策略变化。</p>
-          <p><strong>更新策略：</strong>每 90 天更新一次。跟踪历史变更：v1.0（2026-05-20）原始版本；v1.1（2026-05-22）移除 IEX Cloud（已于 2024-08 关闭消费者 API），修正 Twelve Data 描述；v2.0（2026-05-26）新增限速归一化、特征深度矩阵、延迟百分位数据、引用深度加强。完整变更记录可查看 GitHub 提交历史。</p>
-          <p><strong>关于作者：</strong>Wang Linfang，清华大学硕士。前 Microsoft Bing、Opera News、京东 AI Lab 工程师。在金融数据基础设施和 API 集成方面有多年经验。本文不构成投资建议或产品推荐。</p>
+          <h2>About This Comparison</h2>
+          <p><strong>How we evaluated:</strong> We tested each provider's free tier availability, WebSocket support, API response structure, and ticker coverage. Data sourced from each provider's official documentation as of May 2026. Free tier limits and WebSocket availability reflect current offerings — verify with providers before integrating.</p>
+          <p><strong>Update frequency:</strong> Reviewed every 90 days. Stock data API market changes rapidly — providers adjust pricing, add WebSocket features, and modify free tier limits frequently. Current free tier limits: Finnhub 60 calls/min, Twelve Data 800 calls/day, Alpha Vantage 25 requests/day, EODHD trial available.</p>
+          <p><strong>Note on past changes:</strong> This page was updated to remove IEX Cloud after the provider shut down its consumer API in August 2024. Earlier versions listed IEX Cloud among real-time US equity providers; that recommendation is no longer accurate. We commit to similar updates when other providers change availability or pricing.</p>
+          <p><strong>Conflict of interest:</strong> QVeris provides capability routing for AI agents and benefits when readers choose our platform for unified data access. However, this comparison includes 6 independent provider options across different tiers and specializations. We do not claim any provider is universally superior, and we disclose where specific providers excel for particular use cases.</p>
+          <p><strong>Author:</strong> Linfang Wang, CEO &amp; Founder, QVeris AI. MS from Tsinghua University. Former engineer at Microsoft (Bing), Opera News, JD.com AI Lab.</p>
         </aside>
+
+        <section>
+          <h2>Related Guides</h2>
+          <div class="related">
+            <a href="../cryptocurrency-price-api-for-ai-agents/index.html">Cryptocurrency Price API: 7 Providers Compared for AI Agents</a>
+            <a href="../financial-news-api-for-ai-agents/index.html">Financial News API: 6 Providers Compared for AI Agents</a>
+            <a href="../function-calling/index.html">Function Calling: OpenAI vs Anthropic vs Google</a>
+            <a href="../what-is-ai-agent-orchestration/index.html">What is AI Agent Orchestration? A Practical Guide</a>
+            <a href="../mcp-tools/index.html">MCP Tools: How Discovery Works &amp; Token Cost</a>
+          </div>
+        </section>
 
       </div>
     </article>
   </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div style="font-size:18px;font-weight:600;color:rgba(255,255,255,0.9);margin-bottom:12px">QVeris AI</div>
+          <p style="font-size:14px;color:rgba(255,255,255,0.35);max-width:300px;margin-bottom:16px;line-height:1.6">AI-Agent native capability routing network. Unified protocol accessing 10,000+ capabilities across search, maps, docs, finance, blockchain, healthcare and more.</p>
+          <a href="https://qveris.ai" class="cta-btn" style="padding:8px 20px;font-size:13px">Get Started →</a>
+        </div>
+        <div>
+          <span class="footer-title">Products</span>
+          <div class="footer-links">
+            <a href="https://qveris.ai/capabilities/explore">Capability Map</a>
+            <a href="https://qveris.ai/cli">QVeris CLI</a>
+            <a href="https://qveris.ai/qverisbot">QVerisBot</a>
+            <a href="https://qveris.ai/skills">Skills</a>
+            <a href="https://qveris.ai/playground">Live Demo</a>
+            <a href="https://qveris.ai/plugins">Install for Agents</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-title">Developers</span>
+          <div class="footer-links">
+            <a href="https://qveris.ai/docs">Quick Start</a>
+            <a href="https://qveris.ai/blog">Blog</a>
+            <a href="https://qveris.ai/docs/cli">CLI Docs</a>
+            <a href="https://qveris.ai/docs/rest-api">REST API</a>
+            <a href="https://qveris.ai/docs/mcp-server">MCP Server</a>
+            <a href="https://qveris.ai/docs/python-sdk">Python SDK</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-title">Ecosystem</span>
+          <div class="footer-links">
+            <a href="https://github.com/QVerisAI">GitHub</a>
+            <a href="https://www.npmjs.com/org/qverisai">npm Packages</a>
+            <a href="https://clawhub.ai/skills?sort=downloads&q=qveris">ClawHub</a>
+            <a href="https://qveris.ai/for-agents">Agents Guide</a>
+          </div>
+        </div>
+        <div>
+          <span class="footer-title">Company</span>
+          <div class="footer-links">
+            <a href="https://qveris.ai/pricing">Pricing</a>
+            <a href="https://qveris.ai/whats-new">What's New</a>
+            <a href="https://qveris.ai/help">Help Center</a>
+            <a href="https://qveris.ai/ecosystem">Ecosystem</a>
+            <a href="https://qveris.ai/security">Security</a>
+            <a href="https://qveris.ai/terms">Terms of Service</a>
+            <a href="https://qveris.ai/privacy">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 QVeris AI. All rights reserved.</span>
+        <span>AI-Agent Native • Capability Routing Network • Pay-Per-Call</span>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
