@@ -76,7 +76,7 @@
       "sameAs": ["https://www.linkedin.com/in/wanglinfang"]
     },
     "datePublished": "2026-05-13",
-    "dateModified": "2026-05-13",
+    "dateModified": "2026-05-26",
     "publisher": {
       "@type": "Organization",
       "name": "QVeris AI",
@@ -115,7 +115,7 @@
       {
         "@type": "Question",
         "name": "Which free stock API has real-time data without a credit card?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Most free stock APIs offer delayed data (15-20 minutes). Finnhub provides limited real-time quotes on its free tier (Alpha Vantage and Twelve Data free tiers are delayed 15 min) — typically 1-5 symbols per minute. Free real-time stock API access without a credit card is rare; most require signup but not payment upfront. For truly unlimited real-time data, paid tiers are necessary."}
+        "acceptedAnswer": {"@type": "Answer", "text": "Most free stock APIs offer delayed data (15-20 minutes). Finnhub provides limited real-time quotes on its free tier; Twelve Data reserves real-time data for paid plans. Alpha Vantage free tier is delayed 15 min. Free real-time stock API access without a credit card is rare; most require signup but not payment upfront. For truly unlimited real-time data, paid tiers are necessary."}
       },
       {
         "@type": "Question",
@@ -130,7 +130,7 @@
       {
         "@type": "Question",
         "name": "What's the difference between a free tier and a free trial?",
-        "acceptedAnswer": {"@type": "Answer", "text": "A free tier (like Alpha Vantage or Finnhub) provides ongoing limited access — typically 25-800 API calls per day with rate limits, indefinitely. A free trial (like some Marketstack plans) provides full access for 7-30 days, then automatically converts to paid or expires. Free tiers are better for ongoing development; free trials are better for evaluating premium features. Note: Polygon.io is paid-only — it has no free tier and no free trial."}
+        "acceptedAnswer": {"@type": "Answer", "text": "A free tier (like Alpha Vantage or Finnhub) provides ongoing limited access — typically 25-250 API calls per day forever. A free trial (like Polygon.io or some Marketstack plans) provides full access for 7-30 days, then automatically converts to paid or expires. Free tiers are better for ongoing development; free trials are better for evaluating premium features."}
       },
       {
         "@type": "Question",
@@ -140,7 +140,7 @@
       {
         "@type": "Question",
         "name": "Which free stock API is best for AI trading agents?",
-        "acceptedAnswer": {"@type": "Answer", "text": "For AI trading agents requiring real-time data, the free options are limited. Finnhub offers 60 API calls/minute on its free tier with real-time WebSocket quotes, making it the strongest option for high-frequency AI agent applications. Alpaca provides 5 req/sec with real-time data, suitable for medium-frequency trading agents. For low-frequency analysis agents, Alpha Vantage (25 calls/day) or Twelve Data (800 calls/day) are sufficient."}
+        "acceptedAnswer": {"@type": "Answer", "text": "For AI trading agents requiring real-time data, the free options are limited. Finnhub offers 60 API calls/minute on its free tier with real-time WebSocket quotes, making it a strong option for real-time AI agent applications. Alpaca provides 5 req/sec with real-time data, suitable for medium-frequency trading agents. For low-frequency analysis agents, Alpha Vantage (25 calls/day) or Twelve Data (800 calls/day) are sufficient."}
       },
       {
         "@type": "Question",
@@ -150,12 +150,12 @@
       {
         "@type": "Question",
         "name": "What is the best free stock API alternative to Polygon.io?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Polygon.io has no free tier — it starts at $99/month (Basic tier; the previous $29/month Starter was discontinued during the Massive.com rebrand). The best free alternatives depend on your data needs: Alpha Vantage for simple EOD data, Finnhub for real-time quotes with rate limits, Alpaca for US equities with trading capability. For AI agents needing more than free tiers allow, pay-per-call models (Databento, QVeris) offer usage-based billing without fixed monthly commitments."}
+        "acceptedAnswer": {"@type": "Answer", "text": "Polygon.io has no free tier — it starts at $99/month (Basic tier; the previous $29/month Starter was discontinued during the Massive.com rebrand). The best free alternatives depend on your data needs: Alpha Vantage for simple EOD data, Finnhub for real-time quotes with rate limits, Alpaca for US equities with trading capability. For AI agents outgrowing all free options, evaluate pay-per-call models (Databento) or fixed-tier paid plans based on your expected usage."}
       },
       {
         "@type": "Question",
         "name": "Is QVeris a free stock API?",
-        "acceptedAnswer": {"@type": "Answer", "text": "QVeris is not a traditional free stock API — it uses a free discovery model instead. You can explore and inspect all 10,000+ financial capabilities for free, including stock data. Unlike fixed free tiers with strict limits, QVeris charges per API call in production (pay-per-call), meaning you pay nothing during development and testing. This model can suit AI agents with variable workloads, similar to Databento's usage-based pricing."}
+        "acceptedAnswer": {"@type": "Answer", "text": "QVeris is not a traditional free stock API — it uses a free discovery model instead. You can explore and inspect all 10,000+ financial capabilities for free, including stock data. Unlike fixed free tiers with strict limits, QVeris charges per API call in production (pay-per-call), meaning you pay nothing during development and testing. This model suits AI agents with variable workloads better than traditional fixed-tier pricing."}
       }
     ]
   }
@@ -172,7 +172,7 @@
     "step": [
       {"@type": "HowToStep", "position": 1, "name": "Define your data requirements", "text": "Determine if your AI agent needs real-time quotes, EOD data, or historical data. Estimate daily API call volume based on agent query frequency and portfolio size."},
       {"@type": "HowToStep", "position": 2, "name": "Match requirements to free tier limits", "text": "Use the comparison table above to filter APIs by: daily limit, rate limit, real-time availability, credit card requirement, and commercial use policy."},
-      {"@type": "HowToStep", "position": 3, "name": "Start free and upgrade when limits hit", "text": "Begin with the free tier that matches your requirements. When production usage exceeds free limits, evaluate pay-per-call alternatives (Databento, QVeris) before committing to fixed-tier subscriptions."}
+      {"@type": "HowToStep", "position": 3, "name": "Start free and upgrade when limits hit", "text": "Begin with the free tier that matches your requirements. When production usage exceeds free limits, evaluate paid tiers or pay-per-call alternatives before committing to a specific pricing model."}
     ]
   }
   </script>
@@ -308,7 +308,7 @@
         <h1>Stock API Free: The Complete Comparison of 8 Best Free Options for AI Agents (2026)</h1>
         <p class="meta-desc">Searching for a <strong>free stock API</strong> that actually works for your AI agent or trading bot? This guide benchmarks every major free tier — Alpha Vantage, Finnhub, Marketstack, Alpaca, Twelve Data, FMP, Polygon, and Databento — on the limits that matter: daily calls, rate limits, real-time data availability, and when you'll need to upgrade.</p>
 
-       
+
       </header>
 
       <nav class="toc" aria-label="Table of Contents">
@@ -328,18 +328,18 @@
         <ul>
           <li><strong>Problem:</strong> Finding a genuinely <strong>free stock data api</strong> for AI agents is hard — most "free" tiers cap you at 5-25 calls per day, require credit cards upfront, or only offer delayed data.</li>
           <li><strong>Solution:</strong> This guide benchmarks 8 free stock APIs on the limits that actually impact AI agent developers: daily limits, rate limits, real-time availability, credit card requirements, and commercial use policies.</li>
-          <li><strong>Result:</strong> You get a clear comparison table, a decision matrix, and a path forward — whether you stay free or upgrade to a scalable pay-per-call model.</li>
+          <li><strong>Result:</strong> You get a clear comparison table, a decision matrix, and a path forward — whether you stay free or upgrade when your needs exceed free tier limits.</li>
         </ul>
       </section>
 
       <section id="snippet">
         <h2>Which free stock API has real-time data without a credit card?</h2>
-        <p class="snippet-answer"><strong>Most free stock APIs offer delayed data (15-20 minutes). Finnhub provides limited real-time quotes on its free tier (Alpha Vantage and Twelve Data free tiers are delayed 15 min) — typically 1-5 symbols per minute. The best free stock data api options for AI agents are Finnhub (WebSocket, 60 calls/min) and Alpaca (no daily cap, real-time US equities). Free real-time stock API access without a credit card is rare.</strong></p>
+        <p class="snippet-answer"><strong>Most free stock APIs offer delayed data (15-20 minutes). Finnhub provides limited real-time quotes on its free tier; Twelve Data reserves real-time access for paid plans. Alpha Vantage free tier is delayed 15 min. The strongest free options for AI agents are Finnhub (WebSocket, 60 calls/min) and Alpaca (no daily cap, real-time US equities). Free real-time stock API access without a credit card is rare.</strong></p>
       </section>
 
       <section class="ba-grid">
         <div class="ba-card ba-before">
-          <div class="ba-label">The Free Stock API Reality</div>
+          <div class="ba-label">Common Free Tier Limitations</div>
           <div class="ba-text">
             <p>You signed up for a "free" stock API and hit 5 calls/day limits within hours of testing.</p>
             <p>Rate limit errors broke your AI agent's production workflow on day two.</p>
@@ -348,12 +348,12 @@
           </div>
         </div>
         <div class="ba-card ba-after">
-          <div class="ba-label">Pay-Per-Call Alternative</div>
+          <div class="ba-label">Alternative Pricing Models</div>
           <div class="ba-text">
             <p>Pay-per-call pricing eliminates the "idle cost" of fixed subscriptions — you only pay for actual API usage.</p>
             <p>No monthly commitment means development and testing can happen at zero cost.</p>
             <p>Scales linearly: costs grow only when your call volume grows.</p>
-            <p>Commercial use terms vary by provider — always verify the specific license.</p>
+            <p>Commercial use terms vary by provider — always verify the specific license before deploying.</p>
           </div>
         </div>
       </section>
@@ -367,11 +367,11 @@
 
         <ul>
           <li><strong>Free Tier (true):</strong> Ongoing limited access — Alpha Vantage, Finnhub, Alpaca, Twelve Data. No time limit. Caps on daily calls, rate limits, data freshness, or feature access. Typically sufficient for development and low-volume hobby projects.</li>
-          <li><strong>Free Trial (conditional):</strong> Full or premium access for a limited period — 7-30 days. Some Marketstack plans offer this; after the trial, you pay or lose access. Good for evaluating premium features you can't test on free tiers. Polygon.io has no free tier and no free trial — it is paid-only from day one.</li>
-          <li><strong>Paid-Only:</strong> No free access at all — Polygon.io starts at $99/month with Basic tier. The only "free" aspect is sometimes a sandbox environment with fake data, not real market data.</li>
+          <li><strong>Free Trial (conditional):</strong> Full or premium access for a limited period — 7-30 days. Some Marketstack plans. After the trial, you pay or lose access. Good for evaluating premium features you can't test on free tiers.</li>
+          <li><strong>Paid-Only:</strong> No free access at all — Polygon.io starts at $99/month (Basic tier; the previous $29/month Starter was discontinued). The only "free" aspect is sometimes a sandbox environment with fake data, not real market data.</li>
         </ul>
 
-        <p><strong>So who should pick what:</strong> If you're building a development prototype, stick with a true free tier (Alpha Vantage or Finnhub). If you need premium features for evaluation, use a free trial (Marketstack offers a 7-day full-access trial). If you're building a production AI agent, the free tier is a stepping stone — not a destination. Polygon.io has no free tier or free trial — you pay from day one.</p>
+        <p><strong>So who should pick what:</strong> If you're building a development prototype, stick with a true free tier (Alpha Vantage or Finnhub). If you need premium features for evaluation, use a free trial. If you're building a production AI agent, the free tier is a stepping stone — not a destination.</p>
       </section>
 
       <!-- H2 #2: The comparison table -->
@@ -489,7 +489,7 @@
 
         <p class="note">Note: Free tier limits are subject to change. All figures verified against official documentation as of May 2026. Marketstack requires credit card even for its free trial — a common pain point not disclosed on all comparison pages.</p>
 
-        <p><strong>Summary judgment:</strong> Alpaca and Databento offer the most genuinely free access (real-time data, no credit card, commercial-friendly). Finnhub is the strongest for AI agents requiring WebSocket streaming on a free tier. Alpha Vantage and Twelve Data are the easiest to get started with but cap out fast for AI workloads. Polygon.io has no free tier at all — it's the baseline to beat for paid options.</p>
+        <p><strong>Summary judgment:</strong> Alpaca and Databento offer the most genuinely free access (real-time data, no credit card, commercial-friendly). Finnhub stands out for WebSocket streaming on a free tier. Alpha Vantage and Twelve Data are the easiest to get started with but cap out fast for AI workloads. Polygon.io has no free tier at all.</p>
       </section>
 
       <!-- API Deep Dives -->
@@ -502,15 +502,15 @@
         <p>The limitation is stark for AI agents: 25 calls per day translates to roughly one query per hour during trading hours. A portfolio-tracking AI agent monitoring 25 symbols would exhaust its daily quota in under a minute. This makes Alpha Vantage suitable only for demonstration projects, learning environments, or AI agents that query a single symbol once daily. For anything resembling production workloads, Alpha Vantage's free tier is a stepping stone rather than a destination.</p>
 
         <h3>Finnhub — The WebSocket Champion</h3>
-        <p>Finnhub stands out among stock api free options for its WebSocket support on the free tier. While most competitors require paid plans for real-time streaming, Finnhub provides basic WebSocket access that AI agents can use to receive live price updates. This architectural advantage makes Finnhub the top choice for real-time AI trading agents that need continuous data streams rather than periodic polling.</p>
-        <p>The rate limit of 60 calls per minute (approx. 300 calls/day on the free tier) is generous by free tier standards — it accommodates parallel query patterns that would immediately throttle competing services. However, Finnhub restricts commercial use on its free tier, which means deploying an AI trading bot in a commercial product requires a paid subscription. For internal tools, prototypes, and non-commercial AI agents, Finnhub's free tier is among the strongest available.</p>
+        <p>Finnhub stands out among stock api free options for its WebSocket support on the free tier. While most competitors require paid plans for real-time streaming, Finnhub provides basic WebSocket access that AI agents can use to receive live price updates. This architectural advantage makes Finnhub a top choice for real-time AI trading agents that need continuous data streams rather than periodic polling.</p>
+        <p>The rate limit of 60 calls per minute on the free tier is competitive — it accommodates parallel query patterns that would immediately throttle stricter plans like Alpha Vantage (5/min). However, Finnhub restricts commercial use on its free tier, which means deploying an AI trading bot in a commercial product requires a paid subscription. For internal tools, prototypes, and non-commercial AI agents, Finnhub's free tier is among the strongest available.</p>
 
         <h3>Alpaca — The US Equity Specialist</h3>
         <p>Alpaca differentiates itself as a stock api free option by combining data access with commission-free trading capability (the trading API has separate licensing). For the data API specifically, Alpaca offers 5 requests per second with no hard daily cap — making it one of the most generous free tiers for US equity data. Real-time quotes, historical bars, and corporate actions are all available on the free tier.</p>
         <p>Alpaca's data coverage is US-equity-focused, which limits its utility for global portfolio strategies or forex/crypto use cases. The lack of international market data is the primary trade-off. If your AI agent targets US-listed stocks, ETFs, and options, Alpaca's free tier provides sufficient capacity for most production workloads. The platform's modern API design also makes integration straightforward for AI agents built in Python or JavaScript.</p>
 
         <h3>Databento — The Commercial-Friendly Alternative</h3>
-        <p>Databento's free tier offers 250,000 messages per month with real-time data access — a generous allocation that most AI agents won't exhaust in testing. More importantly, Databento permits commercial use on its free tier, making it the safest stock api free option for developers building commercial AI trading products. This distinguishes it from competitors like Alpha Vantage and Twelve Data that restrict free tiers to non-commercial use.</p>
+        <p>Databento's free tier offers 250,000 messages per month with real-time data access — a generous allocation that most AI agents won't exhaust in testing. More importantly, Databento permits commercial use on its free tier, making it a safe stock api free option for developers building commercial AI trading products. This distinguishes it from competitors like Alpha Vantage and Twelve Data that restrict free tiers to non-commercial use.</p>
         <p>The trade-off is that Databento's documentation and API surface area assume more technical sophistication. It's not the easiest stock api free option to get started with, but for AI agents that need production-grade reliability with commercial rights, Databento's free tier provides genuine value. Historical data access and WebSocket streaming are both included, giving AI agents the full toolset needed for serious market analysis.</p>
 
         <p><strong>So who should pick which:</strong> Choose Alpha Vantage for simple EOD data projects or learning environments. Choose Finnhub for real-time AI agents that need WebSocket streaming. Choose Alpaca for US equity strategies that benefit from the no-daily-cap architecture. Choose Databento for commercial AI products that need real-time data without legal ambiguity.</p>
@@ -526,15 +526,15 @@
         <ul>
           <li><strong>Alpha Vantage (25/day):</strong> Allows ~1 query per hour during market hours. Sufficient for low-frequency analysis agents tracking a single symbol daily. Breaks immediately for multi-symbol portfolio agents scanning 25+ tickers.</li>
           <li><strong>Twelve Data (800/day):</strong> Marginally better. Still insufficient for real-time trading agents needing minute-level data across 50+ symbols.</li>
-          <li><strong>FMP (250/day):</strong> Sufficient for EOD analysis, single-symbol bots, or low-volume free stock market API use cases where intraday data isn't critical. More generous daily cap than Alpha Vantage (25/day) but still restrictive for multi-symbol agents.</li>
+          <li><strong>FMP (250/day):</strong> Sufficient for EOD analysis, single-symbol bots, or low-volume use cases where intraday data isn't critical. More generous daily cap than Alpha Vantage (25/day) but still restrictive for multi-symbol agents.</li>
         </ul>
 
         <h3>Rate Limits (per second/minute)</h3>
         <p>The silent killer for AI agents. When your agent runs concurrent sub-queries:</p>
         <ul>
-          <li><strong>Alpha Vantage (5 req/min):</strong> At 5 requests per minute, a 10-symptom portfolio agent takes 2 minutes to complete one cycle. Real-time responsiveness is impossible.</li>
+          <li><strong>Alpha Vantage (5 req/min):</strong> At 5 requests per minute, a 10-symbol portfolio agent takes 2 minutes to complete one cycle. Real-time responsiveness is impossible.</li>
           <li><strong>Alpaca (5 req/sec):</strong> 300 calls per minute — 60× faster than Alpha Vantage. Handles most AI agent query patterns without rate limit errors.</li>
-          <li><strong>Finnhub (60 calls/min):</strong> The highest rate limit among free tiers. Parallel AI agent queries won't trigger throttling on this plan.</li>
+          <li><strong>Finnhub (60 calls/min):</strong> Competitive rate limit for a free tier with WebSocket support. Suitable for parallel AI agent queries that would throttle stricter plans like Alpha Vantage (5/min).</li>
         </ul>
 
         <h3>Real-Time vs Delayed Data</h3>
@@ -550,10 +550,10 @@
         <ul>
           <li><strong>Alpha Vantage, Twelve Data, FMP:</strong> Free tiers restrict to non-commercial use. Deploying your AI trading bot commercially on these free tiers violates Terms of Service.</li>
           <li><strong>Alpaca:</strong> Free data tier allows development use. Separate trading API (brokerage) requires licensing. Read the specific data license carefully.</li>
-          <li><strong>Databento:</strong> Commercial use permitted on free tier. The safest free option for commercial AI agent products. Verify current terms at databento.com.</li>
+          <li><strong>Databento:</strong> Commercial use permitted on free tier. A safe free option for commercial AI agent products. Verify current terms at databento.com.</li>
         </ul>
 
-        <p><strong>So who should pick which:</strong> If your AI agent needs real-time data for live trading decisions, skip the free tiers entirely and evaluate Alpaca or Databento — or consider pay-per-call options like Databento or QVeris. If you're building a non-trading analysis agent, Alpha Vantage or FMP are sufficient at the free tier level.</p>
+        <p><strong>So who should pick which:</strong> If your AI agent needs real-time data for live trading decisions, skip the free tiers entirely and evaluate Alpaca or Databento. If you're building a non-trading analysis agent, Alpha Vantage or FMP are sufficient at the free tier level.</p>
       </section>
 
       <!-- H2 #4: Decision Framework -->
@@ -584,11 +584,11 @@
           </div>
           <div class="decision-card">
             <div class="decision-card-title">Commercial AI Agent Product</div>
-            <p>Pick: Databento (commercial OK, free tier) or QVeris (commercial OK, free discovery). Others restrict commercial use on free tiers.</p>
+            <p>Pick: Databento (commercial OK, free tier). Others like Alpha Vantage, Twelve Data, and FMP restrict commercial use on free tiers — verify terms before deploying.</p>
           </div>
         </div>
 
-        <p><strong>Quick rule:</strong> If your AI agent runs more than 20 parallel queries per minute, no free tier will sustain it in production. Budget for a paid upgrade or evaluate pay-per-call options (Databento, QVeris) to align costs with actual usage.</p>
+        <p><strong>Quick rule:</strong> If your AI agent runs more than 20 parallel queries per minute, no free tier will sustain it in production. Budget for a paid upgrade or evaluate usage-based pricing to avoid the free-tier ceiling entirely.</p>
       </section>
 
       <!-- H2 #5: Upgrade Trap -->
@@ -606,17 +606,17 @@
 
         <h3>The Upgrade Cost Jump</h3>
         <ul>
-          <li><strong>Alpha Vantage:</strong> Free → $49.99/month (Premium, per third-party sources; Alpha Vantage does not publish pricing on its official site). Rate limit increases, but real-time data availability on this tier is unconfirmed.</li>
+          <li><strong>Alpha Vantage:</strong> Free → $49.99/month (Premium pricing per third-party sources; Alpha Vantage does not publish official paid pricing). Rate limit increases, but real-time data availability on this tier is not documented officially.</li>
           <li><strong>Twelve Data:</strong> Free → $35/month (Starter). Real-time data added. 120 req/day on Starter — still limited.</li>
           <li><strong>FMP:</strong> Free → $29/month (Starter). Intraday data added.</li>
-          <li><strong>Polygon.io:</strong> No free tier. Basic starts at $99/month. The upgrade trap doesn't apply — you pay from day one.</li>
+          <li><strong>Polygon.io:</strong> No free tier. Basic starts at $99/month (the $29/month Starter was discontinued). The upgrade trap doesn't apply — you pay from day one.</li>
         </ul>
 
         <h3>The Upgrade Path Options</h3>
         <p>When you outgrow a free tier, you have two upgrade paths:</p>
         <ul>
           <li><strong>Fixed-tier subscription:</strong> Upgrade to the provider's paid plan (Alpha Vantage ~$49.99/mo, Finnhub ~$99/mo, Twelve Data from $35/mo). Predictable cost but you pay the same regardless of actual usage. Rate limits and data access improve significantly.</li>
-          <li><strong>Pay-per-call / usage-based:</strong> Providers like Databento and QVeris charge per API call with no fixed monthly commitment. Cost scales with actual usage, which is more efficient for variable workloads but can be higher for steady high-volume use.</li>
+          <li><strong>Pay-per-call / usage-based:</strong> Providers like Databento charge per API call with no fixed monthly commitment. Cost scales with actual usage, which is more efficient for variable workloads but can be higher for steady high-volume use.</li>
         </ul>
         <p>Both models have valid use cases. Fixed tiers work well for stable, predictable volume; pay-per-call suits variable or growing workloads where you don't want to pay for idle capacity. Evaluate which aligns with your AI agent's actual traffic pattern.</p>
 
@@ -655,7 +655,7 @@
 
         <div class="faq-item">
           <div class="faq-q">Which free stock API has real-time data without a credit card?</div>
-          <div class="faq-a">Most free stock APIs offer delayed data (15-20 minutes). Finnhub provides limited real-time quotes on its free tier (Alpha Vantage and Twelve Data free tiers are delayed 15 min) — typically 1-5 symbols per minute. Free real-time stock API access without a credit card is rare; most require signup but not payment upfront. For truly unlimited real-time data, paid tiers are necessary.</div>
+          <div class="faq-a">Most free stock APIs offer delayed data (15-20 minutes). Finnhub provides limited real-time quotes on its free tier; Twelve Data reserves real-time data for paid plans. Alpha Vantage free tier is delayed 15 min. Free real-time stock API access without a credit card is rare; most require signup but not payment upfront. For truly unlimited real-time data, paid tiers are necessary.</div>
         </div>
 
         <div class="faq-item">
@@ -675,12 +675,12 @@
 
         <div class="faq-item">
           <div class="faq-q">Can I use a free stock API for commercial AI agent products?</div>
-          <div class="faq-a">Commercial use restrictions vary by provider. Alpha Vantage, Finnhub, and Twelve Data allow commercial use on paid plans but restrict it on free tiers — typically limiting to non-commercial or personal use only. Alpaca's free tier permits commercial use for development but may require licensing for production. Databento and QVeris are the safest options for commercial AI agent products — both allow commercial use from the free tier.</div>
+          <div class="faq-a">Commercial use restrictions vary by provider. Alpha Vantage, Finnhub, and Twelve Data allow commercial use on paid plans but restrict it on free tiers — typically limiting to non-commercial or personal use only. Alpaca's free tier permits commercial use for development but may require licensing for production. Databento is the safest free option for commercial AI agent products — it allows commercial use from the free tier. Always verify current terms before deploying.</div>
         </div>
 
         <div class="faq-item">
           <div class="faq-q">Which free stock API is best for AI trading agents?</div>
-          <div class="faq-a">For AI trading agents requiring real-time data, the free options are limited. Finnhub offers 60 API calls/minute on its free tier with real-time WebSocket quotes, making it the strongest option for high-frequency AI agent applications. Alpaca provides 5 req/sec with real-time data, suitable for medium-frequency trading agents. For low-frequency analysis agents, Alpha Vantage (25 calls/day) or Twelve Data (800 calls/day) are sufficient.</div>
+          <div class="faq-a">For AI trading agents requiring real-time data, the free options are limited. Finnhub offers 60 API calls/minute on its free tier with real-time WebSocket quotes, making it a strong option for real-time AI agent applications. Alpaca provides 5 req/sec with real-time data, suitable for medium-frequency trading agents. For low-frequency analysis agents, Alpha Vantage (25 calls/day) or Twelve Data (800 calls/day) are sufficient.</div>
         </div>
 
         <div class="faq-item">
@@ -690,15 +690,20 @@
 
         <div class="faq-item">
           <div class="faq-q">What is the best free stock API alternative to Polygon.io?</div>
-          <div class="faq-a">Polygon.io has no free tier — it starts at $99/month (Basic tier; the previous $29/month Starter was discontinued during the Massive.com rebrand). The best free alternatives depend on your data needs: Alpha Vantage for simple EOD data, Finnhub for real-time quotes with rate limits, Alpaca for US equities with trading capability. For AI agents needing more than free tiers allow, pay-per-call models (Databento, QVeris) offer usage-based billing without fixed monthly commitments.</div>
+          <div class="faq-a">Polygon.io has no free tier — it starts at $99/month (Basic tier; the previous $29/month Starter was discontinued during the Massive.com rebrand). The best free alternatives depend on your data needs: Alpha Vantage for simple EOD data, Finnhub for real-time quotes with rate limits, Alpaca for US equities with trading capability. For AI agents needing more than free tiers allow, evaluate pay-per-call models (Databento) or fixed-tier paid plans based on your expected usage pattern.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Is QVeris a free stock API?</div>
+          <div class="faq-a">QVeris is not a traditional free stock API — it uses a free discovery model instead. You can explore and inspect all 10,000+ financial capabilities for free, including stock data. Unlike fixed free tiers with strict limits, QVeris charges per API call in production (pay-per-call), meaning development and testing can be at zero cost. This model suits AI agents with variable workloads. However, for stable high-volume usage, a fixed-tier subscription from a dedicated data provider may offer more predictable pricing.</div>
         </div>
       </section>
 
       <!-- CTA Box -->
       <section class="cta-box">
         <h3>Need More Than a Free Tier Allows?</h3>
-        <p>If your AI agent has outgrown free daily limits, evaluate pay-per-call options: Databento for commercial-friendly usage or QVeris for free discovery with usage-based billing. No monthly commitment required.</p>
-        <a href="https://qveris.ai/playground" class="cta-btn">Explore Options →</a>
+        <p>If your AI agent has outgrown free daily limits, consider upgrading to a paid tier from your chosen provider, or evaluate usage-based models that scale with your actual call volume. Compare pricing against your expected usage to find the most cost-effective option.</p>
+        <a href="https://qveris.ai/playground" class="cta-btn">Compare Pricing →</a>
       </section>
 
       <!-- Methodology -->
