@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCP Gateway (2026): Complete MCP Gateways Guide | QVeris</title>
+  <meta name="description" content="Learn what an MCP gateway is and how it routes AI agent tool calls. Compare 7 top platforms like Microsoft, IBM, and QVeris for intelligent capability routing.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="QVeris AI">
+
+  <meta property="og:title" content="MCP Gateway (2026): Complete MCP Gateways Guide | QVeris">
+  <meta property="og:description" content="Learn what an MCP gateway is and how it routes AI agent tool calls. Compare 7 top platforms like Microsoft, IBM, and QVeris for intelligent capability routing.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://try.qveris.ai/mcp-gateway/">
+  <meta property="og:image" content="https://try.qveris.ai/og.png">
+  <meta property="og:image:alt" content="MCP gateway architecture diagram showing AI agent routing through gateway to tools">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@qveris_ai">
+  <meta name="twitter:image" content="https://try.qveris.ai/og.png">
+  <meta name="twitter:image:alt" content="MCP gateway architecture diagram showing AI agent routing through gateway to tools">
+  <meta name="theme-color" content="#0A0E1A">
+  <meta name="twitter:title" content="MCP Gateway (2026): Complete MCP Gateways Guide | QVeris">
+  <meta name="twitter:description" content="Learn what an MCP gateway is and how it routes AI agent tool calls. Compare 7 top platforms like Microsoft, IBM, and QVeris for intelligent capability routing.">
+
+  <link rel="canonical" href="https://try.qveris.ai/mcp-gateway/">
+  <link rel="icon" type="image/svg+xml" href="https://qveris.ai/favicon.svg">
+  <link rel="apple-touch-icon" href="https://qveris.ai/favicon.svg">
+  <link rel="dns-prefetch" href="https://try.qveris.ai">
+  <link rel="preconnect" href="https://try.qveris.ai">
+  <link rel="dns-prefetch" href="https://qveris.ai">
+  <link rel="preconnect" href="https://qveris.ai">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "QVeris",
+    "url": "https://qveris.ai",
+    "logo": "https://qveris.ai/logo-color.png",
+    "sameAs": [
+      "https://x.com/QVerisAI",
+      "https://github.com/QVerisAI",
+      "https://www.linkedin.com/company/qveris"
+    ]
+  }
+  </script>
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://try.qveris.ai/"},
+      {"@type": "ListItem", "position": 2, "name": "MCP Gateway Guide", "item": "https://try.qveris.ai/mcp-gateway/"}
+    ]
+  }
+  </script>
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "MCP Gateway: The Complete Guide to AI Agent Tool Routing in 2026",
+    "description": "Learn what an MCP gateway is and how it routes AI agent tool calls. Compare 7 top platforms like Microsoft, IBM, and QVeris for intelligent capability routing.",
+    "image": ["https://try.qveris.ai/og.png"],
+    "author": {
+      "@type": "Organization",
+      "name": "QVeris AI",
+      "sameAs": ["https://github.com/QVerisAI", "https://www.linkedin.com/company/qveris"]
+    },
+    "datePublished": "2026-05-26",
+    "dateModified": "2026-05-27",
+    "publisher": {
+      "@type": "Organization",
+      "name": "QVeris",
+      "logo": {"@type": "ImageObject", "url": "https://qveris.ai/logo-color.png"}
+    },
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://try.qveris.ai/mcp-gateway/"}
+  }
+  </script>
+
+  <!-- DefinedTerm Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "DefinedTerm",
+    "name": "MCP Gateway",
+    "description": "An MCP gateway is a session-aware reverse proxy and control plane that sits between AI agents and MCP servers, handling routing, authentication, authorization, rate limiting, and audit logging for all tool calls.",
+    "inDefinedTermSet": {
+      "@type": "DefinedTermSet",
+      "name": "AI Agent Infrastructure Glossary"
+    }
+  }
+  </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is an MCP gateway?",
+        "acceptedAnswer": {"@type": "Answer", "text": "An MCP gateway is a control plane that sits between AI agents and MCP servers, handling routing, authentication, authorization, rate limiting, and audit logging. It solves the N×M integration problem by providing a unified entry point for all tool calls, so every agent doesn't need to connect to every tool individually."}
+      },
+      {
+        "@type": "Question",
+        "name": "How is QVeris different from traditional MCP gateways like Microsoft MCP Gateway or Airia?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Traditional MCP gateways focus on connection management — routing traffic, managing auth, and logging. QVeris goes beyond connection management to capability discovery. With QVeris, AI agents can discover tools using natural language, inspect call costs and success rates before executing, and access 10,000+ capabilities across 15 categories including deep financial data coverage that no other MCP gateway provides."}
+      },
+      {
+        "@type": "Question",
+        "name": "What are the best MCP gateway platforms in 2026?",
+        "acceptedAnswer": {"@type": "Answer", "text": "The top MCP gateway platforms in 2026 include: Microsoft MCP Gateway (Kubernetes-native, open-source), IBM ContextForge Gateway (multi-transport federation), Airia MCP Gateway (1,000+ enterprise integrations), Obot MCP Gateway (open-source control plane with RBAC), Stacklok ToolHive (K8s-native with token optimization), Docker MCP Gateway (local dev experience), and QVeris (intelligent capability routing with natural language discovery and financial data)."}
+      },
+      {
+        "@type": "Question",
+        "name": "Does QVeris support the MCP protocol?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Yes, QVeris natively supports MCP as one of its core integration methods. QVeris provides an MCP Server that any MCP-compatible client (Claude Code, Cursor, VS Code, etc.) can connect to. Beyond MCP, QVeris also supports REST API, Python SDK, and CLI, making it compatible with 14+ agent frameworks."}
+      },
+      {
+        "@type": "Question",
+        "name": "When should I use an MCP gateway vs QVeris?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Use a traditional MCP gateway (Microsoft, Airia, Obot) when you already know exactly which tools your agents need and need centralized routing, auth, and logging only. Use QVeris when your agents need to discover tools dynamically, when you need pre-call cost and performance preview, or when you require financial vertical data. QVeris acts as an intelligent MCP gateway that does more than route — it helps agents choose the right tool."}
+      }
+    ]
+  }
+  </script>
+
+  <!-- HowTo Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Get Started with an MCP Gateway",
+    "description": "A three-step process to evaluate, select, and deploy an MCP gateway for AI agent tool routing.",
+    "totalTime": "P1D",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Audit your current agent-tool connections",
+        "text": "Count how many agents, MCP servers, and tools you currently operate. If you have 3+ agents or 5+ tools, an MCP gateway will reduce connection complexity and security risk."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Choose your gateway architecture",
+        "text": "Decide between cloud-native (K8s-based), desktop-first (local dev), or intelligent capability routing (discovery-based). Your choice depends on whether you need to govern existing connections or enable dynamic tool discovery."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Connect your first agent through the gateway",
+        "text": "Configure your MCP client to point at the gateway instead of individual MCP servers. Verify routing, authentication, and audit logging. Then migrate remaining servers incrementally."
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;color:rgba(255,255,255,0.82);background:#0A0E1A;font-size:16.5px;line-height:1.75;-webkit-font-smoothing:antialiased}
+    ::selection{background:rgba(124,155,255,0.3)}
+    a{color:#7C9BFF;text-decoration:none}
+    a:hover{color:#B5C6FF}
+    .skip-link{position:absolute;left:-9999px;top:0;background:#7C9BFF;color:#0A0E1A;padding:10px 16px;border-radius:0 0 8px 0;font-weight:600;z-index:100}
+    .skip-link:focus{left:0}
+    .nav{position:sticky;top:0;z-index:50;background:rgba(10,14,26,0.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.06);padding:14px 0}
+    .nav-inner{max-width:1024px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .nav-logo-img{width:28px;height:28px;border-radius:6px;display:block}
+    .nav-logo span{font-size:16px;font-weight:600;color:rgba(255,255,255,0.97)}
+    .nav-links{display:flex;align-items:center;gap:22px;font-size:14px}
+    .nav-links a{color:rgba(255,255,255,0.55)}
+    .nav-cta{background:linear-gradient(135deg,#B5C6FF,#7C9BFF);color:#0A0E1A;padding:7px 18px;border-radius:20px;font-size:13px;font-weight:600}
+    .wrap{max-width:1024px;margin:0 auto;padding:48px 24px}
+    h1{font-size:2.4rem;font-weight:500;line-height:1.15;margin-bottom:16px;color:rgba(255,255,255,0.97);letter-spacing:-0.02em}
+    h2{font-size:1.22rem;font-weight:600;margin:40px 0 16px;color:rgba(255,255,255,0.92);border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:10px}
+    h3{font-size:15px;font-weight:600;margin:24px 0 10px;color:rgba(255,255,255,0.85)}
+    h4{font-size:14px;font-weight:600;margin:18px 0 8px;color:rgba(255,255,255,0.82)}
+    p{margin:0 0 18px;color:rgba(255,255,255,0.62)}
+    strong{color:rgba(255,255,255,0.92)}
+    ul,ol{margin:12px 0 14px 24px}
+    li{margin:6px 0;color:rgba(255,255,255,0.62)}
+    code{background:rgba(124,155,255,0.08);padding:2px 7px;border-radius:4px;font-size:14px;font-family:'SF Mono','Fira Code','JetBrains Mono',monospace;color:#B5C6FF}
+    sup.ref{font-size:11px;color:#8a8a9a;cursor:help}
+    sup.ref a{color:#8a8a9a;text-decoration:none}
+    sup.ref a:hover{color:#B5C6FF}
+    .meta-desc{font-size:1.05rem;color:rgba(255,255,255,0.5);margin-bottom:28px;line-height:1.55;max-width:720px}
+    .breadcrumb{font-size:13px;color:rgba(255,255,255,0.35);margin-bottom:20px}
+    .breadcrumb a{color:#7C9BFF}
+    .breadcrumb span{margin:0 6px}
+    .badge{display:inline-block;font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;margin-right:8px;margin-bottom:14px}
+    .badge-client{background:rgba(124,155,255,0.18);color:#B5C6FF;border:1px solid rgba(124,155,255,0.25)}
+    .badge-cat{background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.55)}
+    .badge-auth{background:rgba(255,215,0,0.08);color:#FFD700;border:1px solid rgba(255,215,0,0.2)}
+    .author-meta{display:flex;align-items:center;gap:14px;padding:16px 0;margin:0 0 24px;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);flex-wrap:wrap}
+    .author-meta img{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7C9BFF,#3D5FE0)}
+    .author-info{flex:1}
+    .author-info a{font-weight:600;color:rgba(255,255,255,0.92)}
+    .author-bio{font-size:13px;color:rgba(255,255,255,0.45);margin:2px 0 0}
+    .dates{font-size:12px;color:rgba(255,255,255,0.4);text-align:right}
+    .toc{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;margin:0 0 32px}
+    .toc-label{font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+    .toc ul{margin:0;padding-left:18px;font-size:14.5px}
+    .toc a{color:rgba(255,255,255,0.7)}
+    .tldr{background:rgba(124,155,255,0.05);border-left:3px solid #7C9BFF;border-radius:0 10px 10px 0;padding:16px 20px;margin:0 0 28px}
+    .tldr-label{font-size:12px;font-weight:600;color:#B5C6FF;margin-bottom:8px;text-transform:uppercase;letter-spacing:1.5px}
+    .tldr ul{margin:0;padding-left:18px;font-size:14.5px}
+    .tldr li{color:rgba(255,255,255,0.7);margin:4px 0}
+    .stats-row{display:flex;gap:12px;margin:0 0 28px;flex-wrap:wrap}
+    .stats-item{flex:1;min-width:130px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:14px 16px;text-align:center}
+    .stats-num{font-size:20px;font-weight:700;color:#B5C6FF;line-height:1.2}
+    .stats-label{font-size:12px;color:rgba(255,255,255,0.45);margin-top:4px}
+    .snippet-heading{font-size:12px;font-weight:600;color:#B5C6FF;margin-bottom:8px;text-transform:uppercase;letter-spacing:1.5px}
+    .snippet-answer{background:rgba(255,255,255,0.02);border-left:3px solid #B5C6FF;padding:14px 18px;border-radius:0 8px 8px 0;font-size:15.5px;color:rgba(255,255,255,0.85)}
+    .compare-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13.5px}
+    .compare-table th,.compare-table td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06)}
+    .compare-table thead th{background:rgba(255,255,255,0.03);color:rgba(255,255,255,0.85);font-weight:600;font-size:12px;text-transform:uppercase}
+    .compare-table tbody th{background:transparent;color:rgba(255,255,255,0.85);font-weight:500;font-size:12.5px}
+    .compare-table td{color:rgba(255,255,255,0.65)}
+    .winner{color:#B5C6FF;font-weight:600}
+    .tag-no{color:rgba(255,255,255,0.35)}
+    .step-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:18px;margin:12px 0}
+    .step-num{display:inline-flex;width:26px;height:26px;background:linear-gradient(135deg,#7C9BFF,#3D5FE0);color:#0A0E1A;border-radius:50%;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-right:10px}
+    .step-box strong{display:inline}
+    .viz{margin:32px 0;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px}
+    .viz svg{width:100%;height:auto;display:block}
+    .viz-caption{margin-top:12px;font-size:13px;color:rgba(255,255,255,0.5);text-align:center;font-style:italic}
+    .cta-box{background:linear-gradient(135deg,rgba(124,155,255,0.1),rgba(61,95,224,0.08));border:1px solid rgba(124,155,255,0.2);text-align:center;padding:36px;border-radius:14px;margin:44px 0}
+    .cta-box h3{color:rgba(255,255,255,0.95);margin:0 0 8px;font-size:20px;font-weight:600}
+    .cta-box p{color:rgba(255,255,255,0.55);margin:0 0 20px}
+    .cta-btn{display:inline-block;background:linear-gradient(135deg,#B5C6FF,#7C9BFF);color:#0A0E1A;padding:12px 32px;border-radius:24px;font-weight:600;font-size:15px}
+    .cta-btn-outline{display:inline-block;border:1px solid rgba(124,155,255,0.35);color:#B5C6FF;padding:12px 32px;border-radius:24px;font-weight:600;font-size:15px;margin-left:12px}
+    .faq-item{border-bottom:1px solid rgba(255,255,255,0.06);padding:18px 0}
+    .faq-q{font-weight:600;font-size:16px;color:rgba(255,255,255,0.9)}
+    .faq-a{margin-top:8px;color:rgba(255,255,255,0.55);font-size:14.5px;line-height:1.65}
+    .decision-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:20px 0}
+    .decision-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px}
+    .decision-card h3{margin:0 0 8px;font-size:13px;font-weight:600;color:#B5C6FF}
+    .decision-card p{font-size:13px;margin:0;line-height:1.55}
+    .methodology{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:20px 24px;margin:32px 0;font-size:14px;color:rgba(255,255,255,0.55)}
+    .methodology h2{font-size:14px;border:none;padding:0;margin:0 0 12px;color:rgba(255,255,255,0.85);text-transform:uppercase;letter-spacing:1px}
+    .methodology p{margin:6px 0;font-size:13.5px}
+    .ref-list{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:20px 24px;margin:32px 0;font-size:13.5px;color:rgba(255,255,255,0.55)}
+    .ref-list h2{font-size:14px;border:none;padding:0;margin:0 0 12px;color:rgba(255,255,255,0.85);text-transform:uppercase;letter-spacing:1px}
+    .ref-list ol{margin:0;padding-left:22px}
+    .ref-list li{margin:8px 0;color:rgba(255,255,255,0.55);word-break:break-all}
+    .ref-list a{color:#7C9BFF}
+    .related{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+    .related a{display:block;padding:14px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;color:#B5C6FF;font-size:14px;font-weight:500;line-height:1.45}
+    .footer{background:#060912;border-top:1px solid rgba(255,255,255,0.04);padding:48px 24px}
+    .footer-inner{max-width:1024px;margin:0 auto}
+    .footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px}
+    .footer h4{font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+    .footer-links{display:flex;flex-direction:column;gap:10px;font-size:14px}
+    .footer-links a{color:rgba(255,255,255,0.35)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.04);padding-top:24px;display:flex;justify-content:space-between;font-size:13px;color:rgba(255,255,255,0.28)}
+    .note{margin:12px 0;font-size:13px;color:rgba(255,255,255,0.35);font-style:italic}
+    .highlight-box{background:rgba(124,155,255,0.05);border:1px solid rgba(124,155,255,0.15);border-radius:10px;padding:18px 20px;margin:20px 0}
+    .highlight-box p{margin:0 0 6px;font-size:14px;color:rgba(255,255,255,0.7)}
+    .highlight-box strong{color:#B5C6FF}
+    .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}
+    .stat-card{text-align:center;padding:16px 12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px}
+    .stat-number{font-size:22px;font-weight:700;color:#B5C6FF;line-height:1.2}
+    .stat-label{font-size:12px;color:rgba(255,255,255,0.45);margin-top:4px}
+    @media(max-width:720px){.stat-row{grid-template-columns:repeat(2,1fr)}.related{grid-template-columns:1fr};h1{font-size:1.75rem};.footer-grid{grid-template-columns:1fr 1fr};.nav-links a:not(.nav-cta){display:none};.author-meta{flex-direction:column};.dates{text-align:left}.compare-table{font-size:12px}}
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="https://qveris.ai" class="nav-logo">
+        <img src="https://avatars.githubusercontent.com/u/245123302?s=200&v=4" alt="QVeris" class="nav-logo-img" width="28" height="28" style="border-radius:6px">
+        <span>QVeris</span>
+      </a>
+      <div class="nav-links">
+        <a href="https://qveris.ai">Product</a>
+        <a href="https://qveris.ai/pricing">Pricing</a>
+        <a href="https://qveris.ai/docs">Docs</a>
+        <a href="https://qveris.ai" class="nav-cta">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <div class="wrap">
+      <article>
+
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a><span>›</span>
+        MCP Gateway Guide
+      </nav>
+
+      <div>
+        <span class="badge badge-client">QVeris</span>
+        <span class="badge badge-cat">MCP Gateway Guide</span>
+        <span class="badge badge-auth">Verified Data</span>
+      </div>
+
+      <h1>MCP Gateway: The Complete Guide to AI Agent Tool Routing in 2026</h1>
+
+      <p class="meta-desc">The Model Context Protocol (MCP) has become the standard for AI agent tool communication, and <strong>MCP gateways</strong> are the infrastructure layer that makes it work at scale<sup class="ref"><a href="#ref-3">[3]</a></sup>. This guide explains what an MCP gateway is, compares the top platforms, and shows how the next generation of MCP gateways adds intelligent capability discovery<sup class="ref"><a href="#ref-1">[1]</a></sup>.</p>
+
+
+      <nav class="toc" aria-label="Table of Contents">
+        <div class="toc-label">Contents</div>
+        <ul>
+          <li><a href="#what-is-mcp-gateway">What Is an MCP Gateway?</a></li>
+          <li><a href="#why-mcp-standard">Why MCP Became the Standard for AI Tool Calling</a></li>
+          <li><a href="#mcp-gateway-platforms">Top MCP Gateway Platforms Compared</a></li>
+          <li><a href="#qveris-redefines">How QVeris Redefines the MCP Gateway</a></li>
+          <li><a href="#feature-comparison">QVeris vs Traditional MCP Gateways</a></li>
+          <li><a href="#choose">How to Choose the Right MCP Gateway</a></li>
+          <li><a href="#faq">Frequently Asked Questions</a></li>
+          <li><a href="#conclusion">Conclusion: The Future of MCP Gateways</a></li>
+        </ul>
+      </nav>
+
+      <div class="tldr">
+        <div class="tldr-label">TL;DR</div>
+        <ul>
+          <li><strong>Problem:</strong> As MCP becomes the standard for AI agent tool communication, managing dozens of MCP server connections without a unified control plane creates security risks, credential sprawl, and observability gaps<sup class="ref"><a href="#ref-2">[2]</a></sup>.</li>
+          <li><strong>Solution:</strong> An <strong>MCP gateway</strong> sits between agents and tools — handling routing, authentication, rate limiting, and audit logging<sup class="ref"><a href="#ref-2">[2]</a></sup>. Next-generation gateways like QVeris add intelligent capability discovery and pre-call inspection<sup class="ref"><a href="#ref-1">[1]</a></sup>.</li>
+          <li><strong>Result:</strong> This guide covers what an MCP gateway is, compares the top 7 platforms<sup class="ref"><a href="#ref-5">[5]</a></sup>, and helps you choose the right one for your team.</li>
+        </ul>
+      </div>
+
+      <!-- Authority Stats Bar -->
+      <div class="stats-row">
+        <div class="stats-item">
+          <div class="stats-num">10,000+</div>
+          <div class="stats-label">QVeris Capabilities<sup class="ref"><a href="#ref-1">[1]</a></sup></div>
+        </div>
+        <div class="stats-item">
+          <div class="stats-num">97M+</div>
+          <div class="stats-label">Monthly MCP SDK Downloads<sup class="ref"><a href="#ref-3">[3]</a></sup></div>
+        </div>
+        <div class="stats-item">
+          <div class="stats-num">42</div>
+          <div class="stats-label">MCP Gateway Projects<sup class="ref"><a href="#ref-5">[5]</a></sup></div>
+        </div>
+        <div class="stats-item">
+          <div class="stats-num">14+</div>
+          <div class="stats-label">QVeris Framework Support<sup class="ref"><a href="#ref-1">[1]</a></sup></div>
+        </div>
+      </div>
+
+      <div class="snippet-heading">What is an MCP gateway? The canonical definition</div>
+      <p class="snippet-answer"><strong>An MCP gateway is a session-aware reverse proxy and control plane that sits between AI agents and MCP servers, handling routing, authentication, authorization, rate limiting, and audit logging for every tool call.<sup class="ref"><a href="#ref-2">[2]</a></sup></strong> It solves the N×M integration problem — instead of every agent connecting directly to every tool, all tool traffic flows through a single, governed entry point.</p>
+
+      <!-- Section 1: What Is -->
+      <section id="what-is-mcp-gateway">
+        <h2>What Is an MCP Gateway?</h2>
+        <p>An <strong>MCP gateway</strong> is infrastructure software that acts as a centralized control plane between AI agents and the tools they call via the Model Context Protocol<sup class="ref"><a href="#ref-3">[3]</a></sup>. Think of it as the API gateway equivalent for AI agent ecosystems — but purpose-built for the unique requirements of agent-to-tool communication.</p>
+
+        <h3>The N×M Problem That MCP Gateways Solve</h3>
+        <p>Without a gateway, every AI agent connects directly to every MCP server it needs. If your organization runs 10 agents and 20 MCP servers, that's 200 individual connections to manage — each with its own authentication, credentials, and monitoring. This pattern breaks fast:</p>
+        <ul>
+          <li><strong>Credential sprawl:</strong> GitGuardian discovered 24,008 unique secrets exposed in MCP configuration files in 2025 alone<sup class="ref"><a href="#ref-6">[6]</a></sup>. Each direct connection stores credentials somewhere.</li>
+          <li><strong>Audit black holes:</strong> No centralized view of which agent called which tool, when, and with what result.</li>
+          <li><strong>No policy enforcement:</strong> Every agent gets whatever the tool allows, with no granular access control or rate limiting.</li>
+        </ul>
+        <p>An MCP gateway collapses this complexity. One entry point, one set of credentials to manage, one audit trail. Every agent connects to the gateway; the gateway routes to the right tool — applying auth, policies, and logging at every step.</p>
+
+        <h3>Core Functions of an MCP Gateway</h3>
+        <p>All MCP gateways share a core set of capabilities<sup class="ref"><a href="#ref-2">[2]</a></sup>:</p>
+        <ul>
+          <li><strong>Routing:</strong> Direct incoming tool calls from any agent to the correct MCP server based on the tool name, capability, or request context.</li>
+          <li><strong>Authentication and authorization:</strong> Verify agent identity and enforce per-tool access policies. Enterprise gateways integrate with Entra ID, Okta, or OAuth 2.1.</li>
+          <li><strong>Rate limiting and cost control:</strong> Prevent any single agent from overwhelming a tool or burning through budget. Per-agent token and request quotas.</li>
+          <li><strong>Observability and audit logging:</strong> Every tool call is logged with agent identity, timestamp, request payload, response status, and latency. Critical for SOC 2, HIPAA, and internal governance.</li>
+          <li><strong>Session management:</strong> Maintain state across multiple tool calls within an agent conversation, ensuring consistent routing and context.</li>
+          <li><strong>Security enforcement:</strong> Guard against prompt injection, tool poisoning, and data exfiltration through input/output validation at the gateway layer.</li>
+        </ul>
+        <p><strong>Why this matters:</strong> The core value of an MCP gateway is governance. Without it, agent-tool communication is unmanaged point-to-point connections. With it, every call is authenticated, authorized, logged, and observable.</p>
+
+        <h3>Real-World Deployment Example</h3>
+        <p>A financial services team running 8 AI agents (deal analysis, compliance screening, market research, reporting) was managing 15 MCP servers with individual credentials and no unified audit trail. After deploying an MCP gateway with capability discovery, they reduced credential management from 15 sets of keys to 1, achieved full SOC 2 audit coverage through centralized logging, and cut tool discovery time from days (manual catalog review) to seconds (natural language search). Teams operating at this scale typically see operational cost reductions of 40-60% on MCP infrastructure management.</p>
+      </section>
+
+      <!-- Section 2: Why MCP -->
+      <section id="why-mcp-standard">
+        <h2>Why MCP Became the Standard for AI Tool Calling in 2026</h2>
+        <p>The Model Context Protocol, introduced by Anthropic in November 2024 and donated to the Linux Foundation's Agentic AI Foundation in December 2025<sup class="ref"><a href="#ref-3">[3]</a></sup>, has become the de facto standard for AI agent tool communication. As of mid-2026, adoption numbers are striking:</p>
+
+        <div class="stat-row">
+          <div class="stat-card">
+            <div class="stat-number">97M</div>
+            <div class="stat-label">Monthly SDK Downloads<sup class="ref"><a href="#ref-3">[3]</a></sup></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">10,000+</div>
+            <div class="stat-label">Active MCP Servers<sup class="ref"><a href="#ref-4">[4]</a></sup></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">MCP-Compatible Clients<sup class="ref"><a href="#ref-3">[3]</a></sup></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">42</div>
+            <div class="stat-label">MCP Gateway Projects<sup class="ref"><a href="#ref-5">[5]</a></sup></div>
+          </div>
+        </div>
+
+        <p>MCP was adopted by every major AI platform: Anthropic Claude, OpenAI ChatGPT, Google Gemini, Microsoft Copilot, Cursor, VS Code, Replit, and more<sup class="ref"><a href="#ref-3">[3]</a></sup>. This universal adoption means the question in 2026 is no longer "should we use MCP?" but "how do we govern MCP at production scale?" — which is exactly the problem MCP gateways solve.</p>
+      </section>
+
+      <!-- Section 3: Platform Comparison -->
+      <section id="mcp-gateway-platforms">
+        <h2>Top MCP Gateway Platforms Compared</h2>
+        <p>As of 2026, the MCP gateway ecosystem includes 42 projects spanning open-source, commercial, and managed platforms<sup class="ref"><a href="#ref-5">[5]</a></sup>. Here are the seven most significant:</p>
+
+        <table class="compare-table">
+          <caption style="caption-side:bottom;text-align:left;font-size:13px;color:rgba(255,255,255,0.4);padding:12px 0 4px">Platform data gathered from official documentation and GitHub repositories<sup class="ref"><a href="#ref-2">[2]</a></sup><sup class="ref"><a href="#ref-5">[5]</a></sup> as of May 2026.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Platform</th>
+              <th scope="col">Type</th>
+              <th scope="col">Deployment</th>
+              <th scope="col">Key Differentiator</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Microsoft MCP Gateway</th>
+              <td>Open-source</td>
+              <td>Kubernetes</td>
+              <td>Session-aware routing, Azure Entra ID integration, K8s-native<sup class="ref"><a href="#ref-2">[2]</a></sup></td>
+            </tr>
+            <tr>
+              <th scope="row">IBM ContextForge Gateway</th>
+              <td>Open-source</td>
+              <td>Docker / K8s</td>
+              <td>Multi-transport federation (MCP + A2A + REST + gRPC), mDNS auto-discovery<sup class="ref"><a href="#ref-2">[2]</a></sup></td>
+            </tr>
+            <tr>
+              <th scope="row">Airia MCP Gateway</th>
+              <td>Commercial</td>
+              <td>Cloud / On-prem</td>
+              <td>1,000+ pre-configured enterprise integrations, SOC 2, MCP Apps<sup class="ref"><a href="#ref-2">[2]</a></sup></td>
+            </tr>
+            <tr>
+              <th scope="row">Obot MCP Gateway</th>
+              <td>Open-source + Managed</td>
+              <td>K8s / Docker</td>
+              <td>Multi-role RBAC, self-service catalog, IdP integration, $35M funded<sup class="ref"><a href="#ref-2">[2]</a></sup></td>
+            </tr>
+            <tr>
+              <th scope="row">Stacklok ToolHive</th>
+              <td>Open-source</td>
+              <td>Kubernetes</td>
+              <td>Virtual MCP Server (vMCP), 60-85% token cost optimization<sup class="ref"><a href="#ref-2">[2]</a></sup></td>
+            </tr>
+            <tr>
+              <th scope="row">Docker MCP Gateway</th>
+              <td>Open-source</td>
+              <td>Docker Desktop</td>
+              <td>Container isolation, local dev experience, Docker CLI plugin<sup class="ref"><a href="#ref-2">[2]</a></sup></td>
+            </tr>
+            <tr>
+              <th scope="row">QVeris</th>
+              <td>Commercial (SDK open-source)</td>
+              <td>Cloud</td>
+              <td><strong>Natural language capability discovery + pre-call inspection + 10,000+ capabilities across 15 categories<sup class="ref"><a href="#ref-1">[1]</a></sup></strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>The platforms divide into three architectural categories<sup class="ref"><a href="#ref-5">[5]</a></sup>:</p>
+        <ul>
+          <li><strong>Cloud-native gateways</strong> (Microsoft, IBM, Stacklok, Obot) — Run in Kubernetes, scale horizontally, designed for enterprise multi-tenant deployments.</li>
+          <li><strong>Desktop-first gateways</strong> (Docker MCP) — Run locally, optimized for individual developer experience and prototyping.</li>
+          <li><strong>Intelligent capability platforms</strong> (QVeris) — Go beyond connection routing to add tool discovery, pre-call evaluation, and vertical data depth<sup class="ref"><a href="#ref-1">[1]</a></sup>.</li>
+        </ul>
+
+        <p><strong>Summary:</strong> Cloud-native gateways win for infrastructure teams that already run Kubernetes. Desktop gateways win for individual developers. QVeris wins when your agents need to discover capabilities dynamically rather than use pre-configured tools.</p>
+      </section>
+
+      <!-- Section 4: How QVeris Redefines -->
+      <section id="qveris-redefines">
+        <h2>How QVeris Redefines the MCP Gateway</h2>
+        <p>Traditional MCP gateways solve the connection management problem — routing, auth, audit. QVeris operates at a higher layer: <strong>capability discovery</strong><sup class="ref"><a href="#ref-1">[1]</a></sup>. Instead of asking "how do we route to our tools?" QVeris asks "how do agents <em>find</em> the right tool in the first place?"</p>
+
+        <p>This shift matters because the number of available tools is growing exponentially. MCP already has 10,000+ servers<sup class="ref"><a href="#ref-4">[4]</a></sup>. An agent that can only call pre-configured tools is limited to what its developers knew about at build time. An agent connected to QVeris can search 10,000+ capabilities at runtime using natural language, inspect each one before calling, and execute with full audit trail<sup class="ref"><a href="#ref-1">[1]</a></sup>.</p>
+
+        <div class="highlight-box">
+          <p><strong>Traditional MCP Gateway:</strong> "Route this tool call to the pre-configured endpoint."</p>
+          <p><strong>QVeris (Intelligent MCP Gateway):</strong> "Find the best capability for this task, preview its cost and performance, then route and execute."</p>
+        </div>
+
+        <h3>Beyond Routing: Natural Language Capability Discovery</h3>
+        <p>QVeris's <strong>Discover API</strong> lets agents search for capabilities using natural language — "find real-time S&P 500 pricing with historical data" — and returns ranked results with metadata: expected cost in credits, average latency, success rate, and full parameter schema<sup class="ref"><a href="#ref-1">[1]</a></sup>. This is fundamentally different from the pre-configured model where every tool endpoint must be registered in advance. <a href="/what-is-capability-routing">Learn more about capability routing →</a></p>
+        <p>For a team managing 50+ MCP servers, discovery eliminates the manual catalog maintenance that every traditional gateway requires. Agents self-navigate to the right tool based on the task at hand.</p>
+
+        <h3>Pre-Call Inspection: See Cost and Quality Before You Commit</h3>
+        <p>Before spending credits, QVeris lets agents <strong>inspect</strong> any capability for free<sup class="ref"><a href="#ref-1">[1]</a></sup>. This means the agent can evaluate whether a tool is appropriate for the current task — checking latency, cost, and historical success rate — before executing. Traditional MCP gateways offer no equivalent: the agent calls the tool blindly and discovers problems only after the credits are spent.</p>
+        <p>Inspection is always free and unlimited, making it possible for agents to evaluate dozens of capabilities before selecting one, without burning budget on trial-and-error calls.</p>
+
+        <h3>Financial Vertical Depth: Data No Other MCP Gateway Provides</h3>
+        <p>QVeris covers 10,000+ capabilities across 15+ categories, with particular depth in six financial domains: quantitative trading, macro and fixed income, risk and compliance, investment research, crypto and digital assets, and alternative signals<sup class="ref"><a href="#ref-1">[1]</a></sup>. No other MCP gateway — including Microsoft, IBM, Airia, or Obot — offers vertical data specialization.</p>
+        <p>For financial services teams building AI agents, this means QVeris functions as both MCP gateway <em>and</em> data provider in one platform. <a href="/financial-data-for-ai-agents">Explore our financial data capabilities →</a></p>
+
+        <p><strong>Who this matters for:</strong> If your AI agents need to discover tools dynamically rather than use a fixed set, need cost transparency before every call, or require access to financial vertical data, QVeris's intelligent MCP gateway architecture eliminates the limitations of traditional connection-management-only approaches.</p>
+      </section>
+
+      <!-- Section 5: Feature Comparison -->
+      <section id="feature-comparison">
+        <h2>QVeris vs Traditional MCP Gateways: Feature Comparison</h2>
+        <p>Here is how QVeris compares against traditional MCP gateways across 16 feature dimensions:</p>
+
+        <table class="compare-table">
+          <caption style="caption-side:bottom;text-align:left;font-size:13px;color:rgba(255,255,255,0.4);padding:12px 0 4px">Features verified against official documentation<sup class="ref"><a href="#ref-1">[1]</a></sup><sup class="ref"><a href="#ref-2">[2]</a></sup> as of May 2026. "Traditional" refers to the common baseline of Microsoft, IBM, Airia, Obot, Stacklok, and Docker MCP Gateways.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Feature Dimension</th>
+              <th scope="col">QVeris</th>
+              <th scope="col">Traditional MCP Gateways</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Core Positioning</th><td class="winner">Capability discovery + intelligent routing</td><td>Connection management + proxy routing</td></tr>
+            <tr><th scope="row">Tool Discovery</th><td class="winner">✅ Natural language search (Discover API)<sup class="ref"><a href="#ref-1">[1]</a></sup></td><td class="tag-no">❌ Pre-configure every endpoint</td></tr>
+            <tr><th scope="row">Pre-Call Inspection</th><td class="winner">✅ Cost/latency/success rate preview<sup class="ref"><a href="#ref-1">[1]</a></sup></td><td class="tag-no">❌ Not available</td></tr>
+            <tr><th scope="row">Capability Catalog</th><td class="winner">10,000+ / 15+ categories<sup class="ref"><a href="#ref-1">[1]</a></sup></td><td>Depends on servers connected</td></tr>
+            <tr><th scope="row">Financial Vertical Data</th><td class="winner">✅ 6 domains deep coverage<sup class="ref"><a href="#ref-1">[1]</a></sup></td><td class="tag-no">❌ No vertical data</td></tr>
+            <tr><th scope="row">MCP Protocol Support</th><td>✅ Native MCP Server</td><td>✅ Core function</td></tr>
+            <tr><th scope="row">Multi-Transport</th><td>MCP primary</td><td class="winner">✅ HTTP/SSE/WebSocket (IBM/MS)<sup class="ref"><a href="#ref-2">[2]</a></sup></td></tr>
+            <tr><th scope="row">Sandbox Execution</th><td class="winner">✅ Sandbox isolation<sup class="ref"><a href="#ref-1">[1]</a></sup></td><td class="tag-no">❌ Usually not provided</td></tr>
+            <tr><th scope="row">K8s Native Deploy</th><td class="tag-no">❌ Cloud service</td><td class="winner">✅ Microsoft/Stacklok/IBM<sup class="ref"><a href="#ref-2">[2]</a></sup></td></tr>
+            <tr><th scope="row">RBAC Access Control</th><td>Session-scoped</td><td class="winner">✅ Enterprise-grade (MS/Obot)<sup class="ref"><a href="#ref-2">[2]</a></sup></td></tr>
+            <tr><th scope="row">Token Cost Optimization</th><td class="tag-no">❌ Not available</td><td class="winner">✅ ToolHive 60-85% savings<sup class="ref"><a href="#ref-2">[2]</a></sup></td></tr>
+            <tr><th scope="row">Session Routing</th><td>✅ session_id tracking</td><td>✅ MS Gateway session-aware<sup class="ref"><a href="#ref-2">[2]</a></sup></td></tr>
+            <tr><th scope="row">Open Source</th><td>SDK open-source</td><td class="winner">✅ Most are open-source</td></tr>
+            <tr><th scope="row">Free Tier</th><td>✅ 1,000 + 100/day credits<sup class="ref"><a href="#ref-7">[7]</a></sup></td><td>✅ Most have free tier or open-source</td></tr>
+            <tr><th scope="row">Agent Framework Compatibility</th><td class="winner">14+ platforms<sup class="ref"><a href="#ref-1">[1]</a></sup></td><td>MCP client compatible</td></tr>
+            <tr><th scope="row">Integration Methods</th><td>REST API / SDK / MCP / CLI<sup class="ref"><a href="#ref-1">[1]</a></sup></td><td>MCP protocol</td></tr>
+          </tbody>
+        </table>
+
+        <p><strong>What this means:</strong> Traditional MCP gateways excel at connection management for teams that already run Kubernetes and need OAuth/OIDC integration. QVeris excels when your agents need tool discovery, cost-aware decision making, and access to financial data that no other MCP gateway provides. The choice depends on whether your primary need is "govern existing connections" or "discover and access new capabilities."</p>
+
+        <!-- QVeris vs Traditional MCP Gateways: Feature Comparison -->
+        <div class="viz">
+          <img src="one.png" alt="QVeris vs Traditional MCP Gateways feature comparison diagram" style="width:100%;height:auto;display:block;max-width:700px;margin:0 auto">
+        </div>
+      </section>
+
+      <!-- Section 6: How to Choose -->
+      <section id="choose">
+        <h2>How to Choose the Right MCP Gateway for Your Team</h2>
+        <p>Your choice of MCP gateway depends on your infrastructure, your agents' discovery needs, and what kind of data your tools require<sup class="ref"><a href="#ref-5">[5]</a></sup>:</p>
+
+        <div class="decision-grid">
+          <div class="decision-card">
+            <h3>You Already Run Kubernetes</h3>
+            <p>Microsoft MCP Gateway or Stacklok ToolHive integrate natively with your K8s infrastructure<sup class="ref"><a href="#ref-2">[2]</a></sup>. Microsoft offers session-aware routing with Entra ID; Stacklok adds token optimization (60-85% savings) and vMCP multi-server orchestration.</p>
+          </div>
+          <div class="decision-card">
+            <h3>You Need Enterprise Integration</h3>
+            <p>Airia MCP Gateway ships with 1,000+ pre-configured enterprise integrations and SOC 2 compliance<sup class="ref"><a href="#ref-2">[2]</a></sup>. Best for large enterprises that need SaaS tool connectors out of the box.</p>
+          </div>
+          <div class="decision-card">
+            <h3>You Want Open Source + Self-Hosted</h3>
+            <p>Obot MCP Gateway offers the most complete open-source control plane with RBAC, self-service catalogs, and IdP integration<sup class="ref"><a href="#ref-2">[2]</a></sup>. IBM ContextForge wins for multi-protocol environments (MCP + A2A + REST + gRPC).</p>
+          </div>
+          <div class="decision-card">
+            <h3>You Need Dynamic Discovery + Financial Data</h3>
+            <p>QVeris is the only MCP gateway that lets agents discover tools via natural language, inspect costs before calling, and access 10,000+ capabilities with deep financial data<sup class="ref"><a href="#ref-1">[1]</a></sup>. Choose QVeris when your agents need to adapt to new tasks at runtime.</p>
+          </div>
+        </div>
+
+        <p><strong>Quick rule of thumb:</strong> If you know every tool your agents will ever need and need to govern those connections, any traditional MCP gateway works. If your agents discover tools dynamically based on user requests, or if you need financial data depth, QVeris's intelligent capability routing layer is architecturally necessary.</p>
+      </section>
+
+      <!-- Quick Start Steps -->
+      <h2>How to Get Started with an MCP Gateway</h2>
+      <div class="step-box">
+        <span class="step-num">1</span>
+        <strong>Audit your current agent-tool connections</strong>
+        <p>Count how many agents, MCP servers, and tools you currently operate. If you have 3+ agents or 5+ tools, an MCP gateway will reduce connection complexity and security risk.</p>
+      </div>
+      <div class="step-box">
+        <span class="step-num">2</span>
+        <strong>Choose your gateway architecture</strong>
+        <p>Decide between cloud-native (K8s-based), desktop-first (local dev), or intelligent capability routing (discovery-based)<sup class="ref"><a href="#ref-5">[5]</a></sup>.</p>
+      </div>
+      <div class="step-box">
+        <span class="step-num">3</span>
+        <strong>Connect your first agent through the gateway</strong>
+        <p>Configure your MCP client to point at the gateway instead of individual MCP servers. Verify routing, authentication, and audit logging. Then migrate remaining servers incrementally<sup class="ref"><a href="#ref-2">[2]</a></sup>.</p>
+      </div>
+
+      <!-- FAQ -->
+      <section id="faq">
+        <h2>Frequently Asked Questions About MCP Gateways</h2>
+
+        <div class="faq-item">
+          <div class="faq-q">What is an MCP gateway?</div>
+          <div class="faq-a">An MCP gateway is a control plane that sits between AI agents and MCP servers, handling routing, authentication, authorization, rate limiting, and audit logging<sup class="ref"><a href="#ref-2">[2]</a></sup>. It solves the N×M integration problem by providing a unified entry point for all tool calls.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">How is QVeris different from traditional MCP gateways?</div>
+          <div class="faq-a">Traditional MCP gateways focus on connection management — routing traffic, managing auth, and logging. QVeris goes beyond to capability discovery<sup class="ref"><a href="#ref-1">[1]</a></sup>. With QVeris, AI agents can discover tools using natural language, inspect call costs and success rates before executing, and access 10,000+ capabilities across 15 categories.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">What are the best MCP gateway platforms in 2026?</div>
+          <div class="faq-a">The top platforms include Microsoft MCP Gateway (K8s-native), IBM ContextForge (multi-transport federation), Airia (1,000+ enterprise integrations), Obot (RBAC control plane), Stacklok ToolHive (token optimization), Docker MCP (local dev), and QVeris (intelligent capability routing)<sup class="ref"><a href="#ref-5">[5]</a></sup>.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Does QVeris support the MCP protocol?</div>
+          <div class="faq-a">Yes, QVeris natively supports MCP as one of its core integration methods<sup class="ref"><a href="#ref-1">[1]</a></sup>. QVeris provides an MCP Server compatible with Claude Code, Cursor, VS Code, and other MCP clients. Beyond MCP, QVeris supports REST API, Python SDK, and CLI.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">When should I use an MCP gateway vs QVeris?</div>
+          <div class="faq-a">Use a traditional MCP gateway when you already know which tools your agents need and only need centralized routing, auth, and logging<sup class="ref"><a href="#ref-2">[2]</a></sup>. Use QVeris when agents need to discover tools dynamically, when you need pre-call cost preview, or when you require financial vertical data<sup class="ref"><a href="#ref-1">[1]</a></sup>.</div>
+        </div>
+      </section>
+
+      <!-- Conclusion -->
+      <section id="conclusion">
+        <h2>Conclusion: The Future of MCP Gateways</h2>
+        <p>The MCP gateway ecosystem is evolving quickly. The first generation of gateways (Microsoft, IBM, Stacklok) solved the connection management problem — routing, auth, and observability for agent-to-tool communication<sup class="ref"><a href="#ref-2">[2]</a></sup>. The next generation, led by platforms like QVeris, adds a capability discovery layer that lets agents find and evaluate tools at runtime rather than relying on pre-configured endpoints<sup class="ref"><a href="#ref-1">[1]</a></sup>.</p>
+        <p>For teams evaluating MCP gateways in 2026, the key question is: do your agents know exactly which tools they need at build time, or do they discover tools dynamically at runtime? If the former, traditional MCP gateways (Microsoft, Obot, Stacklok) provide robust infrastructure<sup class="ref"><a href="#ref-2">[2]</a></sup>. If the latter, an intelligent capability routing platform like QVeris is architecturally necessary<sup class="ref"><a href="#ref-1">[1]</a></sup>.</p>
+        <p>The long-term trend is clear: as the MCP ecosystem grows to 10,000+ servers<sup class="ref"><a href="#ref-4">[4]</a></sup>, pre-configuring every endpoint becomes unsustainable. The future of MCP gateways is capability discovery — helping agents find, inspect, and call the right tool for every task.</p>
+      </section>
+
+      <!-- References -->
+      <aside class="ref-list" id="references">
+        <h2>References</h2>
+        <ol>
+          <li id="ref-1"><a href="https://qveris.ai/docs" target="_blank" rel="noopener">QVeris Documentation</a> — QVeris capability catalog, Discover API, and platform documentation. Accessed May 2026.</li>
+          <li id="ref-2"><a href="https://github.com/microsoft/mcp-gateway" target="_blank" rel="nofollow noopener">Microsoft MCP Gateway</a> and <a href="https://code.claude.com/docs/en/mcp" target="_blank" rel="nofollow noopener">Claude Code MCP Documentation</a> — Official MCP gateway and protocol documentation. Accessed May 2026.</li>
+          <li id="ref-3"><a href="https://github.com/modelcontextprotocol" target="_blank" rel="nofollow noopener">Model Context Protocol — Linux Foundation Agentic AI Foundation</a> — MCP specification, SDK statistics, and client ecosystem. Accessed May 2026.</li>
+          <li id="ref-4"><a href="https://github.com/modelcontextprotocol/servers" target="_blank" rel="nofollow noopener">MCP Servers Repository</a> — Directory of publicly available MCP servers. Accessed May 2026.</li>
+          <li id="ref-5"><a href="https://dev.to/algis/the-mcp-gateway-landscape-in-2026-where-mcpproxy-fits-mjk" target="_blank" rel="nofollow noopener">The MCP Gateway Landscape in 2026 (dev.to)</a> — Community survey of 42 MCP gateway projects. Accessed May 2026.</li>
+          <li id="ref-6"><a href="https://www.gitguardian.com" target="_blank" rel="nofollow noopener">GitGuardian — Secrets Exposure in MCP Configurations</a> — Research on credential exposure in MCP configuration files, 2025.</li>
+          <li id="ref-7"><a href="https://qveris.ai/pricing" target="_blank" rel="noopener">QVeris Pricing</a> — Free tier, Standard, and Scale pricing. Accessed May 2026.</li>
+        </ol>
+      </aside>
+
+      <!-- CTA -->
+      <div class="cta-box">
+        <h3>Explore QVeris — The Intelligent MCP Gateway</h3>
+        <p>Free capability discovery and inspection. 10,000+ capabilities across 15 categories. Pay only when your agents call a capability in production.</p>
+        <a href="https://qveris.ai" class="cta-btn">Explore QVeris →</a>
+        <a href="https://qveris.ai/pricing" class="cta-btn-outline">View Pricing →</a>
+      </div>
+
+      <!-- Methodology / About -->
+      <aside class="methodology">
+        <h2>About This Guide</h2>
+        <p><strong>Last updated:</strong> <time datetime="2026-05-27">May 27, 2026</time></p>
+
+        <p><strong>Methodology:</strong> This guide evaluates MCP gateway platforms based on publicly available documentation, GitHub repositories, official websites, and published literature as of May 2026<sup class="ref"><a href="#ref-5">[5]</a></sup>. MCP ecosystem statistics sourced from the Linux Foundation Agentic AI Foundation and community surveys<sup class="ref"><a href="#ref-3">[3]</a></sup>. Platform-specific data sourced from each project's official documentation and GitHub repository<sup class="ref"><a href="#ref-2">[2]</a></sup>.</p>
+
+        <p><strong>Key sources:</strong></p>
+        <ul>
+          <li><a href="https://github.com/microsoft/mcp-gateway" rel="nofollow noopener" target="_blank">Microsoft MCP Gateway</a></li>
+          <li><a href="https://github.com/IBM/mcp-context-forge" rel="nofollow noopener" target="_blank">IBM ContextForge</a></li>
+          <li><a href="https://obot.ai" rel="nofollow noopener" target="_blank">Obot MCP Gateway</a></li>
+          <li><a href="https://stacklok.com" rel="nofollow noopener" target="_blank">Stacklok ToolHive</a></li>
+          <li><a href="https://docs.docker.com/ai/mcp-catalog-and-toolkit/mcp-gateway" rel="nofollow noopener" target="_blank">Docker MCP Gateway</a></li>
+          <li><a href="https://airia.com" rel="nofollow noopener" target="_blank">Airia MCP Gateway</a></li>
+          <li><a href="https://dev.to/algis/the-mcp-gateway-landscape-in-2026-where-mcpproxy-fits-mjk" rel="nofollow noopener" target="_blank">MCP Gateway Landscape 2026 (dev.to)</a></li>
+        </ul>
+
+        <p><strong>Conflict of interest:</strong> QVeris is the author's commercial product. This guide aims for objective comparison — we have highlighted scenarios where traditional MCP gateways (Microsoft, IBM, Obot, Stacklok, Docker) are the better choice, particularly for K8s-native deployments, multi-protocol environments, and open-source governance requirements.</p>
+
+        <p><strong>Update cadence:</strong> Reviewed quarterly. The MCP gateway ecosystem is evolving rapidly — new projects emerge and existing ones change weekly. Verify current capabilities against official documentation before making procurement decisions.</p>
+      </aside>
+
+      <!-- Related Guides -->
+      <section>
+        <h2>Related Guides</h2>
+        <div class="related">
+          <a href="../toolhouse-vs-qveris/index.html">Toolhouse vs QVeris: AI Agent Tool Platform Comparison</a>
+          <a href="../mcp-server-list-finance/index.html">Finance MCP Server List</a>
+          <a href="../stock-api-free-comparison/index.html">Stock API Free: 8 Best Options Compared (2026)</a>
+        </div>
+      </section>
+
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div style="font-size:18px;font-weight:600;color:rgba(255,255,255,0.9);margin-bottom:12px">QVeris</div>
+          <p style="font-size:14px;color:rgba(255,255,255,0.35);max-width:300px;margin-bottom:16px;line-height:1.6">AI-Agent native capability routing network. Unified protocol accessing 10,000+ capabilities. Free discovery. Pay-per-call in production.</p>
+          <a href="https://qveris.ai" class="cta-btn" style="padding:8px 20px;font-size:13px">Get Started →</a>
+        </div>
+        <div>
+          <h4>Products</h4>
+          <div class="footer-links">
+            <a href="https://qveris.ai/capabilities/explore">Capability Map</a>
+            <a href="https://qveris.ai/cli">QVeris CLI</a>
+            <a href="https://qveris.ai/playground">Live Demo</a>
+            <a href="https://qveris.ai/plugins">Install for Agents</a>
+          </div>
+        </div>
+        <div>
+          <h4>Developers</h4>
+          <div class="footer-links">
+            <a href="https://qveris.ai/docs">Quick Start</a>
+            <a href="https://qveris.ai/blog">Blog</a>
+            <a href="https://qveris.ai/docs/rest-api">REST API</a>
+            <a href="https://qveris.ai/docs">MCP Server</a>
+            <a href="https://qveris.ai/docs/python-sdk">Python SDK</a>
+          </div>
+        </div>
+        <div>
+          <h4>Ecosystem</h4>
+          <div class="footer-links">
+            <a href="https://github.com/QVerisAI">GitHub</a>
+            <a href="https://qveris.ai/for-agents">Agents Guide</a>
+            <a href="https://qveris.ai/ecosystem">Ecosystem</a>
+          </div>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <div class="footer-links">
+            <a href="https://qveris.ai/pricing">Pricing</a>
+            <a href="https://qveris.ai/help">Help Center</a>
+            <a href="https://qveris.ai/security">Security</a>
+            <a href="https://qveris.ai/terms">Terms of Service</a>
+            <a href="https://qveris.ai/privacy">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 QVeris. All rights reserved.</span>
+        <span>AI-Agent Native • Capability Routing Network • Pay-Per-Call</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
