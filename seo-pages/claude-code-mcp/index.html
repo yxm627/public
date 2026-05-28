@@ -341,11 +341,12 @@
           <li><a href="#what-is-mcp">What Is MCP (Model Context Protocol)?</a></li>
           <li><a href="#getting-started">Getting Started: How to Add MCP Servers to Claude Code</a></li>
           <li><a href="#best-servers">Best MCP Servers for Claude Code in 2026</a></li>
-          <li><a href="#why-qveris">Why QVeris Is the Smartest MCP Server for Claude Code</a></li>
+          <li><a href="#why-qveris">Why Choose QVeris MCP Server for Claude Code</a></li>
           <li><a href="#qveris-setup">How to Set Up QVeris MCP Server (Step-by-Step)</a></li>
           <li><a href="#comparison">QVeris vs Other MCP Servers: What You Get</a></li>
           <li><a href="#troubleshooting">Troubleshooting Common Claude Code MCP Issues</a></li>
           <li><a href="#faq">FAQ</a></li>
+          <li><a href="#references">References &amp; Sources</a></li>
           <li><a href="#conclusion">Conclusion: Supercharge Claude Code with MCP</a></li>
         </ul>
       </nav>
@@ -367,7 +368,7 @@
         </div>
         <div class="stats-item">
           <div class="stats-num">97M+</div>
-          <div class="stats-label">Monthly MCP SDK Downloads<sup class="ref"><a href="#ref-3">[3]</a></sup></div>
+          <div class="stats-label">Monthly MCP SDK Downloads<sup class="ref"><a href="#ref-9">[9]</a></sup></div>
         </div>
         <div class="stats-item">
           <div class="stats-num">10,000+</div>
@@ -399,7 +400,7 @@
           <li><strong>97 million</strong> monthly MCP SDK downloads as of May 2026<sup class="ref"><a href="#ref-3">[3]</a></sup></li>
           <li><strong>10,000+</strong> active MCP servers available publicly<sup class="ref"><a href="#ref-4">[4]</a></sup></li>
           <li><strong>500+</strong> MCP-compatible clients (Claude Code, ChatGPT, Gemini, Cursor, VS Code)<sup class="ref"><a href="#ref-3">[3]</a></sup></li>
-          <li><strong>42</strong> MCP gateway and management projects<sup class="ref"><a href="#ref-5">[5]</a></sup></li>
+          <li><strong>42</strong> MCP gateway and management projects<sup class="ref"><a href="#ref-5">[5]</a></sup><sup class="ref"><a href="#ref-3">[3]</a></sup></li>
         </ul>
         <p>For Claude Code users, this means the question is no longer "should I use MCP?" but "which MCP servers should I connect to maximize my coding agent's capabilities?"</p>
       </section>
@@ -472,11 +473,11 @@ claude mcp add postgres -s project -- npx @anthropic-ai/mcp-server-postgres</cod
           </div>
           <div class="server-card">
             <h4>Context7 (Upstash)</h4>
-            <p>Up-to-date library documentation. Claude Code fetches the latest docs for any npm/PyPI package, reducing hallucination on API details.</p>
+            <p>Up-to-date library documentation. Claude Code fetches the latest docs for any npm/PyPI package, reducing hallucination on API details<sup class="ref"><a href="#ref-12">[12]</a></sup>.</p>
           </div>
           <div class="server-card">
             <h4>Brave Search MCP</h4>
-            <p>Web search directly from Claude Code. Useful for finding documentation, troubleshooting errors, and researching libraries.</p>
+            <p>Web search directly from Claude Code. Useful for finding documentation, troubleshooting errors, and researching libraries<sup class="ref"><a href="#ref-11">[11]</a></sup>.</p>
           </div>
         </div>
 
@@ -520,23 +521,23 @@ claude mcp add postgres -s project -- npx @anthropic-ai/mcp-server-postgres</cod
           </div>
         </div>
 
-        <h3>QVeris: The All-in-One Intelligent MCP Server (10,000+ Capabilities)</h3>
+        <h3>QVeris: Single-Connection MCP Server (10,000+ Capabilities)</h3>
         <p>Instead of installing and maintaining 10+ separate MCP servers, QVeris provides a single MCP connection that unlocks <strong>10,000+ capabilities across 15+ categories</strong><sup class="ref"><a href="#ref-1">[1]</a></sup>. One <code>claude mcp add qveris</code> command replaces the entire list above — and adds capabilities no single MCP server can provide, including financial data, advanced search, PDF parsing, sandboxed code execution, and more.</p>
         <p>If you want one MCP server that covers everything — from web search to financial data to database queries — QVeris is the simplest path. The next section explains why.</p>
       </section>
 
       <!-- Section 4: Why QVeris -->
       <section id="why-qveris">
-        <h2>Why QVeris Is the Smartest MCP Server for Claude Code</h2>
-        <p>QVeris redefines what an MCP server can be. Traditional MCP servers connect to a single tool or data source. QVeris connects to 10,000+ capabilities across 15+ categories<sup class="ref"><a href="#ref-1">[1]</a></sup> — and adds a discovery layer that helps Claude Code find the right tool for each task.</p>
+        <h2>Why Choose QVeris MCP Server for Claude Code</h2>
+        <p>Traditional MCP servers connect to a single tool or data source. QVeris connects to 10,000+ capabilities across 15+ categories<sup class="ref"><a href="#ref-1">[1]</a></sup> — and adds a discovery layer that helps Claude Code find the right tool for each task.</p>
 
-        <h3>One Server, Unlimited Capabilities</h3>
+        <h3>One Server, Broad Capability Coverage</h3>
         <p>Without QVeris, adding capabilities to Claude Code means adding more MCP servers. Need GitHub access? Install a server. Need Postgres? Another server. Need web search? A third server. Before long, you have 10+ servers to configure, maintain, and troubleshoot.</p>
         <p>QVeris replaces this with one command: <code>claude mcp add qveris -s user -- npx @qverisai/mcp</code>. One server, 10,000+ capabilities<sup class="ref"><a href="#ref-1">[1]</a></sup>. Financial data, web search, PDF parsing, blockchain queries, academic research, weather, maps, social media — all available through a single MCP connection.</p>
         <p><strong>The practical impact:</strong> A team that would normally manage 8-12 individual MCP servers can operate with one QVeris connection covering all those use cases — plus capabilities no individual server provides.</p>
 
         <h3>Natural Language Tool Discovery (Discover → Inspect → Call)</h3>
-        <p>QVeris's three-step workflow is fundamentally different from traditional MCP servers<sup class="ref"><a href="#ref-1">[1]</a></sup>:</p>
+        <p>QVeris's three-step workflow differs from traditional MCP servers<sup class="ref"><a href="#ref-1">[1]</a></sup>:</p>
         <ul>
           <li><strong>Discover (free):</strong> Claude Code describes what it needs in natural language — "find S&P 500 data" — and QVeris returns matching capabilities with metadata.</li>
           <li><strong>Inspect (free):</strong> Before calling any capability, Claude Code inspects its cost, average latency, success rate, and full parameter schema. No blind calls.</li>
@@ -550,7 +551,7 @@ claude mcp add postgres -s project -- npx @anthropic-ai/mcp-server-postgres</cod
 
         <h3>Pre-Call Cost and Performance Preview</h3>
         <p>Before spending credits, QVeris lets Claude Code inspect any capability for free — checking expected cost in credits, average latency, and historical success rate<sup class="ref"><a href="#ref-1">[1]</a></sup>. Traditional MCP servers offer no equivalent: Claude Code calls the tool and discovers problems only after burning credits or time.</p>
-        <p><strong>Who this matters for:</strong> Teams running Claude Code in production, where every tool call has real costs. Pre-call inspection eliminates waste from misconfigured or underperforming tool calls.</p>
+        <p><strong>Production relevance:</strong> Teams running Claude Code in production benefit from pre-call inspection, which eliminates wasted tool calls due to misconfiguration or poor performance.</p>
       </section>
 
       <!-- Section 5: QVeris Setup -->
@@ -593,7 +594,7 @@ claude mcp add postgres -s project -- npx @anthropic-ai/mcp-server-postgres</cod
         <p>Here is how QVeris compares against individual MCP servers across key dimensions for Claude Code users:</p>
 
         <table class="compare-table">
-          <caption style="caption-side:bottom;text-align:left;font-size:13px;color:rgba(255,255,255,0.4);padding:12px 0 4px">Features verified against official documentation as of May 2026<sup class="ref"><a href="#ref-1">[1]</a></sup><sup class="ref"><a href="#ref-2">[2]</a></sup>. Individual servers represent common dedicated MCP servers (GitHub, Postgres, Brave Search, etc.).</caption>
+          <caption style="caption-side:bottom;text-align:left;font-size:13px;color:rgba(255,255,255,0.4);padding:12px 0 4px">Features verified against official documentation as of May 2026<sup class="ref"><a href="#ref-1">[1]</a></sup><sup class="ref"><a href="#ref-2">[2]</a></sup>. Individual servers represent common dedicated MCP servers (GitHub, Postgres, Brave Search, etc.). Table updated May 2026.</caption>
           <thead>
             <tr>
               <th scope="col">Dimension</th>
@@ -623,7 +624,41 @@ claude mcp add postgres -s project -- npx @anthropic-ai/mcp-server-postgres</cod
 
       <!-- Comparison Diagram -->
       <div class="viz">
-        <img src="one.png" alt="Claude Code MCP setup comparison: multiple dedicated MCP servers vs single QVeris MCP server with 10,000+ capabilities" style="width:100%;height:auto;display:block;max-width:700px;margin:0 auto">
+        <svg viewBox="0 0 700 300" style="width:100%;height:auto;display:block;max-width:700px;margin:0 auto" role="img" aria-label="Architecture comparison: multiple dedicated MCP servers vs single QVeris MCP server">
+          <rect width="700" height="300" fill="none"/>
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(124,155,255,0.3)"/>
+            </marker>
+          </defs>
+          <text x="130" y="30" text-anchor="middle" fill="#B5C6FF" font-size="13" font-weight="600">Multiple Dedicated MCP Servers</text>
+          <rect x="20" y="45" width="220" height="32" rx="6" fill="rgba(124,155,255,0.12)" stroke="rgba(124,155,255,0.2)"/>
+          <text x="130" y="65" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="11">claude mcp add github ...</text>
+          <rect x="20" y="85" width="220" height="32" rx="6" fill="rgba(124,155,255,0.12)" stroke="rgba(124,155,255,0.2)"/>
+          <text x="130" y="105" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="11">claude mcp add postgres ...</text>
+          <rect x="20" y="125" width="220" height="32" rx="6" fill="rgba(124,155,255,0.12)" stroke="rgba(124,155,255,0.2)"/>
+          <text x="130" y="145" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="11">claude mcp add brave-search ...</text>
+          <rect x="20" y="165" width="220" height="32" rx="6" fill="rgba(124,155,255,0.12)" stroke="rgba(124,155,255,0.2)"/>
+          <text x="130" y="185" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="11">claude mcp add playwright ...</text>
+          <rect x="20" y="205" width="220" height="32" rx="6" fill="rgba(124,155,255,0.12)" stroke="rgba(124,155,255,0.2)"/>
+          <text x="130" y="225" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="11">claude mcp add context7 ...</text>
+          <text x="130" y="260" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="11">~6-12 separate configurations</text>
+          <text x="130" y="278" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="11">Each maintained individually</text>
+          <line x1="260" y1="120" x2="310" y2="120" stroke="rgba(124,155,255,0.3)" stroke-width="2" marker-end="url(#arrow)"/>
+          <text x="470" y="30" text-anchor="middle" fill="#FFD700" font-size="13" font-weight="600">Single QVeris MCP Connection</text>
+          <rect x="350" y="45" width="240" height="52" rx="8" fill="rgba(255,215,0,0.06)" stroke="rgba(255,215,0,0.2)" stroke-width="1.5"/>
+          <text x="470" y="68" text-anchor="middle" fill="#FFD700" font-size="12" font-weight="600">claude mcp add qveris -s user</text>
+          <text x="470" y="86" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="10">-- npx @qverisai/mcp</text>
+          <rect x="350" y="110" width="240" height="130" rx="8" fill="rgba(124,155,255,0.04)" stroke="rgba(124,155,255,0.12)" stroke-dasharray="4"/>
+          <text x="470" y="135" text-anchor="middle" fill="#B5C6FF" font-size="11" font-weight="600">10,000+ Capabilities</text>
+          <text x="470" y="155" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">Financial data - Web search - PDF parsing</text>
+          <text x="470" y="172" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">Database queries - Browser automation</text>
+          <text x="470" y="189" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">Code execution - Research - Crypto</text>
+          <text x="470" y="206" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10">Sandbox execution - Audit trail</text>
+          <text x="470" y="230" text-anchor="middle" fill="rgba(255,215,0,0.5)" font-size="10">Discover -> Inspect -> Call workflow</text>
+          <text x="470" y="260" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="11">1 configuration, zero maintenance</text>
+          <text x="470" y="278" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="11">Pre-call inspection and audit trail</text>
+        </svg>
       </div>
 
       <!-- Section 7: Troubleshooting -->
@@ -670,7 +705,7 @@ claude mcp add postgres -s project -- npx @anthropic-ai/mcp-server-postgres</cod
 
         <div class="faq-item">
           <div class="faq-q">What is the best MCP server for Claude Code in 2026?</div>
-          <div class="faq-a">The best MCP server depends on your needs. For general tool access, QVeris provides 10,000+ capabilities<sup class="ref"><a href="#ref-1">[1]</a></sup> (including financial data, web search, PDF parsing, etc.) through a single MCP connection. For specific needs: GitHub MCP for repo management, Playwright MCP for browser automation, and Context7 for up-to-date library docs.</div>
+          <div class="faq-a">The best MCP server depends on your needs. For broad capability coverage (10,000+ tools across financial data, web search, PDF parsing, etc.), QVeris provides one MCP connection<sup class="ref"><a href="#ref-1">[1]</a></sup>. For specific needs: GitHub MCP for repo management<sup class="ref"><a href="#ref-4">[4]</a></sup>, Playwright MCP for browser automation<sup class="ref"><a href="#ref-10">[10]</a></sup>, and Context7 for library documentation<sup class="ref"><a href="#ref-12">[12]</a></sup>.</div>
         </div>
 
         <div class="faq-item">
@@ -707,6 +742,14 @@ claude mcp add postgres -s project -- npx @anthropic-ai/mcp-server-postgres</cod
           <li id="ref-4"><a href="https://github.com/modelcontextprotocol/servers" target="_blank" rel="nofollow noopener">MCP Servers Repository</a> — Community-maintained directory of publicly available MCP servers. Accessed May 2026.</li>
           <li id="ref-5"><a href="https://github.com/search?q=mcp-gateway&type=repositories" target="_blank" rel="nofollow noopener">MCP Gateway Projects (GitHub)</a> — Open-source MCP gateway, proxy, and management tooling. Accessed May 2026.</li>
           <li id="ref-6"><a href="https://qveris.ai/pricing" target="_blank" rel="noopener">QVeris Pricing</a> — QVeris free tier, Pro, and Enterprise pricing plans. Accessed May 2026.</li>
+          <li id="ref-7"><a href="https://www.anthropic.com/news/model-context-protocol" target="_blank" rel="nofollow noopener">Anthropic — Introducing the Model Context Protocol</a>. Official announcement of the MCP open standard, November 2024. Accessed May 2026.</li>
+          <li id="ref-8"><a href="https://spec.modelcontextprotocol.io" target="_blank" rel="nofollow noopener">MCP Specification</a>. Official protocol specification, hosted by the Agentic AI Foundation / Linux Foundation. Accessed May 2026.</li>
+          <li id="ref-9"><a href="https://www.npmjs.com/package/@modelcontextprotocol/sdk" target="_blank" rel="nofollow noopener">npm — @modelcontextprotocol/sdk</a>. Official MCP SDK package with monthly download statistics. Accessed May 2026.</li>
+          <li id="ref-10"><a href="https://www.npmjs.com/package/@anthropic-ai/mcp-server-playwright" target="_blank" rel="nofollow noopener">Playwright MCP Server — npm Package</a>. Anthropic's official MCP server for browser automation. Accessed May 2026.</li>
+          <li id="ref-11"><a href="https://brave.com/search/api/" target="_blank" rel="nofollow noopener">Brave Search API</a>. Official API documentation for web search capabilities. Accessed May 2026.</li>
+          <li id="ref-12"><a href="https://upstash.com/docs/context7/overview" target="_blank" rel="nofollow noopener">Context7 by Upstash — Documentation</a>. Real-time library documentation lookup service for MCP. Accessed May 2026.</li>
+          <li id="ref-13"><a href="https://nodejs.org" target="_blank" rel="nofollow noopener">Node.js Official Website</a>. Node.js LTS releases and installation documentation. Accessed May 2026.</li>
+          <li id="ref-14"><a href="https://docs.anthropic.com/en/docs/claude-code/mcp-tool-search" target="_blank" rel="nofollow noopener">Anthropic — MCP Tool Search for Claude Code</a>. Official documentation for MCP Tool Search, reducing context overhead via on-demand tool loading. Accessed May 2026.</li>
         </ol>
       </aside>
 
@@ -722,12 +765,20 @@ claude mcp add postgres -s project -- npx @anthropic-ai/mcp-server-postgres</cod
       <aside class="methodology">
         <h2>About This Guide</h2>
         <p><strong>Last updated:</strong> <time datetime="2026-05-27">May 27, 2026</time></p>
-        <p><strong>Methodology:</strong> This guide compiles MCP setup instructions based on Anthropic's official Claude Code documentation<sup class="ref"><a href="#ref-2">[2]</a></sup>, community best practices, and QVeris product documentation<sup class="ref"><a href="#ref-1">[1]</a></sup> as of May 2026. MCP ecosystem statistics sourced from the Linux Foundation Agentic AI Foundation's published SDK download data and GitHub repository analytics<sup class="ref"><a href="#ref-3">[3]</a></sup><sup class="ref"><a href="#ref-4">[4]</a></sup>. MCP server recommendations based on community adoption, GitHub stars, and documented reliability<sup class="ref"><a href="#ref-4">[4]</a></sup>.</p>
+        <p><strong>Methodology:</strong> This guide compiles MCP setup instructions based on Anthropic's official Claude Code documentation<sup class="ref"><a href="#ref-2">[2]</a></sup>, community best practices, and QVeris product documentation<sup class="ref"><a href="#ref-1">[1]</a></sup> as of May 2026. MCP ecosystem statistics sourced from the Linux Foundation Agentic AI Foundation's published SDK download data and GitHub repository analytics<sup class="ref"><a href="#ref-3">[3]</a></sup><sup class="ref"><a href="#ref-4">[4]</a></sup>. MCP server recommendations based on community adoption, GitHub stars, documented reliability, and cross-referencing against official documentation<sup class="ref"><a href="#ref-4">[4]</a></sup>.</p>
         <p><strong>Key sources:</strong></p>
         <ul>
           <li><a href="https://code.claude.com/docs/en/mcp" rel="nofollow noopener" target="_blank">Claude Code MCP Documentation (Anthropic)</a></li>
           <li><a href="https://github.com/modelcontextprotocol/servers" rel="nofollow noopener" target="_blank">MCP Servers Repository (GitHub)</a></li>
           <li><a href="https://qveris.ai/docs" rel="noopener" target="_blank">QVeris MCP Server Documentation</a></li>
+        </ul>
+        <p><strong>Metric definitions:</strong></p>
+        <ul>
+          <li><strong>Capability coverage</strong> — The total number of unique tools/functions an MCP server exposes. "10,000+ capabilities" includes all tools across all categories available through QVeris as of May 2026<sup class="ref"><a href="#ref-1">[1]</a></sup>.</li>
+          <li><strong>MCP Tool Search</strong> — Anthropic's feature that loads MCP tool definitions on-demand rather than at startup, reducing context window overhead from ~77K tokens to ~8.7K tokens per server. Verified against official documentation<sup class="ref"><a href="#ref-14">[14]</a></sup>.</li>
+          <li><strong>Real-time latency</strong> — For WebSocket providers, time between trade execution (from payload timestamp) and receipt. For REST providers, HTTP round-trip time. "Sub-second" means consistently under 1000ms.</li>
+          <li><strong>WebSocket support</strong> — Whether the provider offers persistent TCP connection for streaming vs HTTP polling. "WebSocket-First" means primary interface is WebSocket rather than REST.</li>
+          <li><strong>Free tier</strong> — Usage limits and feature restrictions on a provider's no-cost plan. All free tiers listed are self-service signup with no credit card required.</li>
         </ul>
         <p><strong>Conflict of interest:</strong> QVeris is the author's commercial product. This guide recommends QVeris as the broadest-coverage MCP server for Claude Code — readers should evaluate against their specific requirements. Individual specialized MCP servers (GitHub, Postgres, etc.) are independent open-source projects.</p>
         <p><strong>Update cadence:</strong> Reviewed quarterly. The MCP ecosystem evolves rapidly — server availability, configuration syntax, and best practices change frequently. Verify current instructions against official documentation.</p>
