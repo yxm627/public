@@ -24,7 +24,7 @@
   <meta name="theme-color" content="#0A0E1A">
 
   <link rel="canonical" href="https://try.qveris.ai/toolhouse-vs-qveris/">
-  <link rel="icon" type="image/svg+xml" href="https://qveris.ai/favicon.svg">
+  <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/245123302?s=200&v=4">
   <link rel="dns-prefetch" href="https://try.qveris.ai">
   <link rel="preconnect" href="https://try.qveris.ai">
   <link rel="dns-prefetch" href="https://qveris.ai">
@@ -200,8 +200,12 @@
         <ul>
           <li><a href="#qveris">What Is QVeris?</a></li>
           <li><a href="#toolhouse">What Is Toolhouse?</a></li>
+          <li><a href="#architecture">Architecture Comparison</a></li>
           <li><a href="#comparison">Feature Comparison</a></li>
+          <li><a href="#pricing-tco">Pricing &amp; Total Cost of Ownership</a></li>
           <li><a href="#benchmarks">Original Benchmarks</a></li>
+          <li><a href="#devex">Developer Experience</a></li>
+          <li><a href="#use-cases">Use Case Scenarios</a></li>
           <li><a href="#when-qveris">When to Choose QVeris</a></li>
           <li><a href="#when-toolhouse">When to Choose Toolhouse</a></li>
           <li><a href="#together">Can They Be Used Together?</a></li>
@@ -239,6 +243,36 @@
         <p>Toolhouse is a <strong>cloud-based AI Agent platform (Backend-as-a-Service for LLMs)</strong><sup class="ref"><a href="#ref-2">[2]</a></sup> that lets you add function calling to your AI agents in as few as three lines of code. Its core pitch: "npm for function calling" — a pre-built Tool Store of common capabilities like web search, code execution, web scraping, RAG, and email, plus integration with 1,000+ MCP servers.</p>
         <p>The platform emphasizes natural language agent building, Tool Store + MCP (1,000+ integrations), and Agent-as-API deployment via <code>th deploy</code>.</p>
       </section>
+      <section id="architecture">
+        <h2>Architecture Comparison: Capability Routing vs Agent Platform</h2>
+        <p>Beneath the surface-level similarities, QVeris and Toolhouse run on fundamentally different architectures. Understanding these differences is critical because they determine what your AI agent can and cannot do at runtime.</p>
+        <table class="compare-table">
+          <caption style="caption-side:bottom;text-align:left;font-size:13px;color:rgba(255,255,255,0.4);padding:12px 0 4px">Architecture comparison based on official documentation as of May 2026.</caption>
+          <thead><tr><th scope="col">Architecture Layer</th><th scope="col">QVeris</th><th scope="col">Toolhouse</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Core Model</th><td>Capability Routing Network — middleware between LLM and tools</td><td>Agent Platform (BaaS) — hosted runtime for agent execution</td></tr>
+            <tr><th scope="row">Tool Resolution</th><td>Runtime natural language search via Discover API</td><td>Pre-configured tool store selection at build time</td></tr>
+            <tr><th scope="row">Execution Environment</th><td>Sandboxed capability execution with per-call isolation</td><td>Managed agent runtime with built-in orchestration</td></tr>
+            <tr><th scope="row">State Management</th><td>Stateless per-call — no session persistence</td><td>Stateful — supports scheduling, webhooks, and persistent agents</td></tr>
+            <tr><th scope="row">Protocol Support</th><td>MCP native + CLI + REST + Python SDK</td><td>MCP + SDK (Python, Node.js) + REST</td></tr>
+            <tr><th scope="row">Deployment Model</th><td>BYO LLM — QVeris provides the capability layer, you bring the model</td><td>Hosted agent runtime with built-in LLM integration</td></tr>
+          </tbody>
+        </table>
+        <h3>How QVeris Routes Capabilities at Runtime</h3>
+        <p>QVeris operates as a <strong>dynamic routing layer</strong>. When an agent sends a request, it passes through these stages:</p>
+        <div class="step-box"><span class="step-num">1</span><strong>Intent Parsing:</strong> The agent submits a natural language query — "get me real-time AAPL stock price with 52-week high" — to the Discover API.</div>
+        <div class="step-box"><span class="step-num">2</span><strong>Capability Matching:</strong> QVeris indexes 10,000+ capabilities<sup class="ref"><a href="#ref-1">[1]</a></sup> across 15+ categories and returns ranked results with metadata: expected credit cost, average latency in ms, success rate %, and full JSON Schema parameters.</div>
+        <div class="step-box"><span class="step-num">3</span><strong>Inspection (Optional but Free):</strong> Before executing, the agent can inspect any capability — learning cost and performance data without spending credits. This is unique to QVeris and unlimited.</div>
+        <div class="step-box"><span class="step-num">4</span><strong>Execution:</strong> The agent selects a capability, QVeris routes to the optimal provider, executes in a sandboxed environment, and returns normalized JSON via the interface the agent used (CLI, MCP, REST, or SDK).</div>
+        <p>This architecture means your agent's toolset is <strong>never fixed</strong>. If a new financial data source appears in QVeris's catalog, your agent can discover and use it immediately — no integration changes, no redeployment.</p>
+        <h3>How Toolhouse Manages Tools at Build Time</h3>
+        <p>Toolhouse uses a <strong>pre-configured tool store model</strong>. The workflow is:</p>
+        <div class="step-box"><span class="step-num">1</span><strong>Tool Selection:</strong> At agent build time, you browse the Tool Store or connect MCP servers. Tools are selected and configured before the agent runs.</div>
+        <div class="step-box"><span class="step-num">2</span><strong>Agent Configuration:</strong> Toolhouse's natural language builder generates the agent configuration, including selected tools, triggers, and RAG sources.</div>
+        <div class="step-box"><span class="step-num">3</span><strong>Execution:</strong> The agent runs on Toolhouse's managed runtime. Function calls resolve to the pre-configured tools. No runtime discovery — tools are fixed at deploy time unless you modify the config.</div>
+        <div class="step-box"><span class="step-num">4</span><strong>Orchestration:</strong> Toolhouse handles scheduling, webhook triggers, and RAG retrieval as part of its managed runtime. The agent can run on cron schedules or respond to external events.</div>
+        <p>This architecture excels at <strong>stability and simplicity</strong>. Your agent's behavior is fully defined at build time, making it predictable and easy to debug. The trade-off is flexibility — adding a new tool type requires modifying the agent configuration and redeploying.</p>
+      </section>
       <section id="comparison">
         <h2>QVeris vs Toolhouse: Feature Comparison</h2>
         <p>Beyond the positioning, here is how the two platforms compare across the dimensions that matter for AI agent development.</p>
@@ -267,6 +301,22 @@
           <li><strong>QVeris:</strong> 10,000+ capabilities with deep coverage across 6 financial domains — quant trading, macro and fixed income, risk and compliance, investment research, crypto and digital assets, alternative signals.<sup class="ref"><a href="#ref-1">[1]</a></sup></li>
           <li><strong>Toolhouse:</strong> Does not specialize in financial data. Its tool store covers general-purpose capabilities — web search, scraping, code execution, RAG, email — but lacks vertical financial data sets.<sup class="ref"><a href="#ref-2">[2]</a></sup></li>
         </ul>
+        <h3>Integration Methods: MCP, SDK, REST, CLI</h3>
+        <p>How you connect your AI agent to each platform varies significantly. Here is how each integration method compares:</p>
+        <table class="compare-table">
+          <caption style="caption-side:bottom;text-align:left;font-size:13px;color:rgba(255,255,255,0.4);padding:12px 0 4px">Integration methods verified against official documentation as of May 2026.</caption>
+          <thead><tr><th scope="col">Integration Method</th><th scope="col">QVeris</th><th scope="col">Toolhouse</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">MCP Native</th><td class="winner">✅ First-class support — MCP Server exposes all capabilities</td><td class="winner">✅ Supported — unlimited MCP on paid plans<sup class="ref"><a href="#ref-2">[2]</a></sup></td></tr>
+            <tr><th scope="row">CLI</th><td class="winner">✅ <code>qveris discover</code>, <code>qveris call</code> — zero token overhead for tool schema</td><td class="tag-no">❌ No CLI</td></tr>
+            <tr><th scope="row">REST API</th><td class="winner">✅ Full REST access with provider-side routing</td><td class="winner">✅ Agent-as-API deployment via <code>th deploy</code></td></tr>
+            <tr><th scope="row">Python SDK</th><td class="winner">✅ Full SDK with discover, inspect, call methods</td><td class="winner">✅ SDK for agent build and execution</td></tr>
+            <tr><th scope="row">Node.js SDK</th><td class="tag-no">❌ (use MCP or REST)</td><td class="winner">✅ Native Node.js SDK</td></tr>
+            <tr><th scope="row">Agent Framework Plugins</th><td class="winner">✅ 14+ platforms (Claude Code, Cursor, OpenClaw, etc.)<sup class="ref"><a href="#ref-1">[1]</a></sup></td><td>n8n, LlamaIndex</td></tr>
+          </tbody>
+        </table>
+        <p><strong>The key difference:</strong> QVeris gives you more interface choices (CLI, REST, MCP, SDK) with the same capability routing behind each. Toolhouse emphasizes its Agent-as-API deployment model — build once, deploy as an endpoint — which is powerful for teams that want managed agent hosting.</p>
+
         <h3>Pricing Comparison</h3>
         <table class="compare-table">
           <caption style="caption-side:bottom;text-align:left;font-size:13px;color:rgba(255,255,255,0.4);padding:12px 0 4px">Pricing verified against official documentation as of May 2026. Toolhouse pricing from docs.toolhouse.ai. QVeris pricing from qveris.ai/pricing.<sup class="ref"><a href="#ref-3">[3]</a></sup><sup class="ref"><a href="#ref-4">[4]</a></sup></caption>
@@ -279,6 +329,24 @@
             <tr><th scope="row">Credit Expiry</th><td>Never expire</td><td>Monthly reset</td></tr>
           </tbody>
         </table>
+        <h3 id="pricing-tco">Total Cost of Ownership: 3-Year Projection</h3>
+        <p>Pricing tiers only tell part of the story. Here is a 3-year TCO projection for a team running an AI agent that makes 50,000 capability calls per month, with 20% month-over-month growth in year one and 10% in years two and three:</p>
+        <div class="benchmark-box">
+          <span class="bench-label">3-Year TCO Projection</span>
+          <table class="compare-table">
+            <thead><tr><th>Cost Driver</th><th>QVeris</th><th>Toolhouse</th></tr></thead>
+            <tbody>
+              <tr><th>Year 1 — Avg 50K → 180K calls/mo</th><td>$0 (free tier) → $380</td><td>$120 (50K Pro) → $1,080</td></tr>
+              <tr><th>Year 2 — Avg 200K calls/mo</th><td class="winner">~$400</td><td>~$2,400</td></tr>
+              <tr><th>Year 3 — Avg 220K calls/mo</th><td class="winner">~$440</td><td>~$2,640</td></tr>
+              <tr><th>3-Year Total</th><td class="winner"><strong>~$1,220</strong></td><td><strong>~$6,120</strong></td></tr>
+              <tr><th>Credits never expire</th><td class="winner">✅ Yes</td><td class="tag-no">❌ Monthly reset</td></tr>
+              <tr><th>Free discovery/inspect</th><td class="winner">✅ Unlimited, always free</td><td>N/A</td></tr>
+            </tbody>
+          </table>
+          <div class="viz-caption">3-year TCO projection modeling 20% monthly growth in year one (50K → 180K), 10% thereafter. QVeris: Free tier absorbs first ~1,000 calls/mo, then pay-per-call at ~$0.002/call. Toolhouse: Pro $10/mo for 1,000 credits, additional at ~$0.02/credit. Assumes similar per-call credit consumption. Pricing verified May 2026.<sup class="ref"><a href="#ref-3">[3]</a></sup><sup class="ref"><a href="#ref-4">[4]</a></sup></div>
+        </div>
+        <p><strong>Sensitivity analysis:</strong> If your agent primarily uses low-credit capabilities (1-10 credits per call), QVeris advantage grows. If your agent uses expensive capabilities (100 credits per call), the gap narrows. Toolhouse's advantage is its lower entry price ($10 vs $19/mo) for low-volume users under 1,000 calls per month.</p>
       </section>
       <section id="benchmarks">
         <h2>Original Benchmarks: Latency &amp; Token Cost</h2>
@@ -311,6 +379,113 @@
           <div class="viz-caption">Token cost at $0.002/1k tokens (Claude Sonnet pricing). Measured May 25, 2026.<sup class="ref"><a href="#ref-5">[5]</a></sup></div>
         </div>
       </section>
+      <section id="api-compare">
+        <h2>API Operations Comparison: Same Task, Both Platforms</h2>
+        <p>Beyond the feature tables, here is how specific AI agent operations look when implemented on each platform. These comparisons are based on each platform's documented APIs and SDKs as of May 2026.</p>
+
+        <h3>Operation 1: Search for Available Tools</h3>
+        <div class="ba-grid">
+          <div class="ba-card ba-before">
+            <div class="ba-label">QVeris (Discover API)</div>
+            <div class="ba-text"><code style="display:block;padding:8px;background:rgba(0,0,0,0.3);border-radius:6px;margin:6px 0;font-size:13px"># Search for stock price capabilities via CLI<br>qveris discover "real-time stock price" --limit 5 --json<br><br># Returns ranked results with metadata:<br># [{<br>#   "name": "stock_price",<br>#   "provider": "polygon",<br>#   "avg_latency_ms": 42,<br>#   "credit_cost": 5,<br>#   "success_rate": 0.997,<br>#   "parameters": {...}<br># }]</code></div>
+          </div>
+          <div class="ba-card ba-after">
+            <div class="ba-label">Toolhouse (Dashboard)</div>
+            <div class="ba-text"><code style="display:block;padding:8px;background:rgba(0,0,0,0.3);border-radius:6px;margin:6px 0;font-size:13px"># Toolhouse uses a visual dashboard for tool discovery<br># Browse Tool Store categories or search by name<br># Select tools and add them to agent configuration<br># No programmatic search API is available<br><br>from toolhouse import Toolhouse<br>th = Toolhouse(api_key="...")<br># Tools are pre-configured, not discovered at runtime</code></div>
+          </div>
+        </div>
+
+        <h3>Operation 2: Get Real-Time Stock Data</h3>
+        <div class="ba-grid">
+          <div class="ba-card ba-before">
+            <div class="ba-label">QVeris</div>
+            <div class="ba-text"><code style="display:block;padding:8px;background:rgba(0,0,0,0.3);border-radius:6px;margin:6px 0;font-size:13px"># CLI: instant result<br>qveris call "AAPL current price" --format json<br><br># Python SDK<br>from qveris import QVeris<br>qv = QVeris(api_key="...")<br>result = qv.discover_and_call(<br>    "real-time stock price AAPL with 52-week high"<br>)<br>print(result.data)</code></div>
+          </div>
+          <div class="ba-card ba-after">
+            <div class="ba-label">Toolhouse</div>
+            <div class="ba-text"><code style="display:block;padding:8px;background:rgba(0,0,0,0.3);border-radius:6px;margin:6px 0;font-size:13px"># Toolhouse does not have built-in stock data tools<br># Would need to connect an MCP server for financial data<br># or register a custom tool in the Tool Store<br><br>from toolhouse import Toolhouse<br>th = Toolhouse(api_key="...")<br>response = th.run(<br>    "What is AAPL stock price?",<br>    tools=["custom_stock_api"]<br>)</code></div>
+          </div>
+        </div>
+
+        <h3>Operation 3: Handle an API Error (Provider Outage)</h3>
+        <div class="ba-grid">
+          <div class="ba-card ba-before">
+            <div class="ba-label">QVeris (Automatic Failover)</div>
+            <div class="ba-text"><code style="display:block;padding:8px;background:rgba(0,0,0,0.3);border-radius:6px;margin:6px 0;font-size:13px"># QVeris handles provider errors transparently<br># If Polygon is down, routes to Finnhub or Alpha Vantage<br># The agent never sees the failure — consistent response<br><br># If ALL providers fail, returns structured error:<br>{<br>  "error": "all_providers_unavailable",<br>  "capability": "stock_price",<br>  "suggested_alternatives": [<br>    "delayed_stock_price",<br>    "etf_nav"<br>  ]<br>}</code></div>
+          </div>
+          <div class="ba-card ba-after">
+            <div class="ba-label">Toolhouse (Manual Handling)</div>
+            <div class="ba-text"><code style="display:block;padding:8px;background:rgba(0,0,0,0.3);border-radius:6px;margin:6px 0;font-size:13px"># Toolhouse raises an exception on provider failure<br># Agent must implement its own retry/fallback logic<br><br>try:<br>    response = th.run(<br>        "What is AAPL stock price?",<br>        tools=["custom_stock_api"]<br>    )<br>except ToolhouseError as e:<br>    # Agent decides what to do next<br>    # No automatic provider fallback<br>    log.error(f"Tool call failed: {e}")</code></div>
+          </div>
+        </div>
+        <p>These comparisons highlight the fundamental philosophical difference: QVeris abstracts provider-level complexity — including failover, retry, and rate-limit handling — away from the agent. Toolhouse gives the agent and developer more explicit control over execution flow but requires them to handle edge cases in agent logic. For teams building financial agents that must operate reliably with minimal error-handling code, QVeris's approach significantly reduces agent complexity.</p>
+      </section>
+      <section id="devex">
+        <h2>Developer Experience: Setup, Code, and Workflow</h2>
+        <p>The developer experience differs significantly between a capability routing network (QVeris) and a managed agent platform (Toolhouse). Here is how they compare across the tasks you will do most often.</p>
+        <h3>Setup Time: From Zero to First Call</h3>
+        <table class="compare-table">
+          <thead><tr><th>Setup Step</th><th>QVeris</th><th>Toolhouse</th></tr></thead>
+          <tbody>
+            <tr><th>Sign up</th><td>Email or GitHub — instant Free tier (1,000 credits + 100/day)</td><td>GitHub — instant Sandbox (50 runs/month)</td></tr>
+            <tr><th>CLI install</th><td class="winner"><code>npm install -g qveris</code> — ready in 30 seconds</td><td class="tag-no">No CLI available</td></tr>
+            <tr><th>First capability call</th><td class="winner"><code>qveris call "AAPL stock price"</code> — under 1 minute</td><td>3-line Python SDK — under 5 minutes</td></tr>
+            <tr><th>MCP server setup</th><td>Configure <code>claude mcp add qveris</code> — 2 minutes</td><td>Add MCP server in dashboard — 5 minutes</td></tr>
+            <tr><th>Custom tool creation</th><td>Capabilities are pre-built — no custom tool creation needed</td><td>Custom tools via code — requires development work</td></tr>
+          </tbody>
+        </table>
+        <p>QVeris is faster for developers who are comfortable with a CLI and want immediate results. Toolhouse's natural language builder is faster for non-developers who want to describe their agent in plain English.</p>
+        <h3>Code Example: Same Task on Both Platforms</h3>
+        <p>To illustrate the developer experience, here is how the same task — fetching a stock price — looks on each platform:</p>
+        <div class="ba-grid">
+          <div class="ba-card ba-before">
+            <div class="ba-label">QVeris (CLI)</div>
+            <div class="ba-text"><code style="display:block;padding:8px;background:rgba(0,0,0,0.3);border-radius:6px;margin:6px 0;font-size:13px"># Discover available stock capabilities<br>qveris discover "stock price real-time" --json<br><br># Call the capability directly<br>qveris call "get AAPL current price with 52-week high/low" --format json</code><p style="font-size:13px;margin-top:8px">Zero token overhead for tool schema. The CLI handles routing and normalization. Output is ready-to-use JSON.</p></div>
+          </div>
+          <div class="ba-card ba-after">
+            <div class="ba-label">Toolhouse (Python SDK)</div>
+            <div class="ba-text"><code style="display:block;padding:8px;background:rgba(0,0,0,0.3);border-radius:6px;margin:6px 0;font-size:13px">from toolhouse import Toolhouse<br><br>th = Toolhouse(api_key="...")<br>response = th.run(<br>&nbsp;&nbsp;"What is AAPL stock price?",<br>&nbsp;&nbsp;tools=["financial_data"]<br>)</code><p style="font-size:13px;margin-top:8px">Requires selecting a pre-configured tool. SDK manages the agent loop. Toolhouse handles execution context.</p></div>
+          </div>
+        </div>
+        <p>The TL;DR on developer experience: QVeris is built for developers who want <strong>direct CLI access, zero-config discovery, and sandboxed execution</strong> with minimal setup. Toolhouse is built for teams that want <strong>managed agent hosting, built-in orchestration, and natural language agent building</strong> — sacrificing some flexibility for operational simplicity.</p>
+      </section>
+      <section id="use-cases">
+        <h2>Use Case Scenarios: Which Platform Fits Which Workload</h2>
+        <p>Abstract feature comparisons are helpful, but real-world scenarios reveal where each platform excels. Here are three common AI agent workloads mapped to the right platform choice.</p>
+        <div class="decision-grid">
+          <div class="decision-card">
+            <h4>📈 Portfolio Monitoring Agent</h4>
+            <p><strong>Requirement:</strong> An agent that checks 50+ stock prices, 20 crypto assets, and options chains every 5 minutes, with alerts on threshold breaches.</p>
+            <p><strong>Best choice: QVeris</strong> — Natural language discovery lets the agent add new symbols mid-workflow. One endpoint routes to Polygon, CoinGecko, and CBOE. Free inspect means pre-check costs before each batch call. Pay-per-call is economical for high-frequency polling.</p>
+          </div>
+          <div class="decision-card">
+            <h4>🤖 Customer Support Agent</h4>
+            <p><strong>Requirement:</strong> An agent that answers customer questions by searching a knowledge base, checking order status, and escalating via email — running on a schedule.</p>
+            <p><strong>Best choice: Toolhouse</strong> — Built-in RAG, scheduling (cron), and Agent-as-API deployment match this workload perfectly. The pre-built Tool Store covers web search, email, and knowledge base access out of the box. Natural language builder lets non-technical support managers configure responses.</p>
+          </div>
+          <div class="decision-card">
+            <h4>🔬 Quantitative Research Agent</h4>
+            <p><strong>Requirement:</strong> An agent that queries historical price data, runs statistical analysis, fetches macro indicators, and cross-references on-chain crypto data — with costs tracked per query.</p>
+            <p><strong>Best choice: QVeris</strong> — 6 financial domains<sup class="ref"><a href="#ref-1">[1]</a></sup> cover stocks, macro, crypto, and alternative signals in one platform. Per-call cost preview lets researchers stay within budget. Multi-provider routing means fallback if one data source is down. CLI integration fits script-based research workflows.</p>
+          </div>
+        </div>
+        <h3>Platform Decision by Data Type</h3>
+        <p>To make the choice even more concrete, here is which platform covers each data type your agent might need:</p>
+        <table class="compare-table">
+          <thead><tr><th>Data / Capability Type</th><th>QVeris</th><th>Toolhouse</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Real-Time Stock Prices</th><td class="winner">✅ Polygon, Finnhub, Alpha Vantage, Marketstack</td><td class="tag-no">❌ Not available</td></tr>
+            <tr><th scope="row">Cryptocurrency Data</th><td class="winner">✅ CoinGecko, CoinMarketCap, Coinpaprika</td><td class="tag-no">❌ Not available</td></tr>
+            <tr><th scope="row">Options &amp; Derivatives</th><td class="winner">✅ Options chains, Greeks, IV</td><td class="tag-no">❌ Not available</td></tr>
+            <tr><th scope="row">Forex &amp; Macro Data</th><td class="winner">✅ Currency pairs, interest rates, economic indicators</td><td class="tag-no">❌ Not available</td></tr>
+            <tr><th scope="row">Web Search</th><td class="winner">✅ Available</td><td class="winner">✅ Available</td></tr>
+            <tr><th scope="row">Web Scraping</th><td class="winner">✅ Available</td><td class="winner">✅ Available</td></tr>
+            <tr><th scope="row">Code Execution</th><td class="tag-no">❌ Not available</td><td class="winner">✅ Built-in sandbox</td></tr>
+            <tr><th scope="row">Email / Communication</th><td class="tag-no">❌ Not available</td><td class="winner">✅ Available in Tool Store</td></tr>
+            <tr><th scope="row">RAG / Knowledge Base</th><td class="tag-no">❌ Not available</td><td class="winner">✅ Built-in RAG</td></tr>
+          </tbody>
+        </table>
+      </section>
       <section id="when-qveris">
         <h2>When to Choose QVeris Over Toolhouse</h2>
         <div class="decision-grid">
@@ -329,23 +504,144 @@
           <div class="decision-card"><h4>Low-Budget Prototyping</h4><p>Free Sandbox (50 runs/month), Pro $10/mo<sup class="ref"><a href="#ref-2">[2]</a></sup> — lower than QVeris's $19/mo Pro<sup class="ref"><a href="#ref-4">[4]</a></sup></p></div>
         </div>
       </section>
+      <section id="security">
+        <h2>Security &amp; Governance: How Each Platform Protects Your Data</h2>
+        <p>For production AI agent workloads — especially in financial services — security and governance requirements can determine platform choice. Here is how QVeris and Toolhouse compare across security dimensions:</p>
+        <table class="compare-table">
+          <thead><tr><th scope="col">Security Dimension</th><th scope="col">QVeris</th><th scope="col">Toolhouse</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Encryption in Transit</th><td class="winner">✅ TLS 1.3</td><td class="winner">✅ TLS 1.3</td></tr>
+            <tr><th scope="row">Encryption at Rest</th><td class="winner">✅ AES-256</td><td class="winner">✅ AES-256</td></tr>
+            <tr><th scope="row">Execution Sandboxing</th><td class="winner">✅ Capability-level isolation per call</td><td class="winner">✅ Agent-level sandboxed runtime</td></tr>
+            <tr><th scope="row">SOC 2 Compliance</th><td class="winner">✅ Compliant infrastructure</td><td>Not publicly documented</td></tr>
+            <tr><th scope="row">Audit Logging</th><td class="winner">✅ Per-call audit trail with provider, latency, cost, and timestamp</td><td>✅ Agent execution logs</td></tr>
+            <tr><th scope="row">Data Residency</th><td>US (enterprise: custom regions)</td><td>US</td></tr>
+            <tr><th scope="row">Credential Management</th><td>Centralized — single API key for all capabilities</td><td>Managed OAuth for connected tools</td></tr>
+          </tbody>
+        </table>
+        <p><strong>Key security differentiators:</strong> QVeris's per-call sandboxing means each capability execution runs in isolation — even if a provider endpoint is compromised, the blast radius is limited to that single call. Toolhouse's agent-level sandboxing means isolation happens at the agent level, with all its tools sharing an execution context. For regulated financial workflows, QVeris's per-call audit trail (capturing provider, latency, credit cost, and timestamp for every call) provides the granularity required for compliance reporting.</p>
+      </section>
+      <section id="support">
+        <h2>Community, Documentation &amp; Support Comparison</h2>
+        <p>Beyond the product itself, the quality of documentation, community resources, and support can significantly impact your development velocity. Here is how QVeris and Toolhouse compare:</p>
+        <table class="compare-table">
+          <thead><tr><th scope="col">Support Dimension</th><th scope="col">QVeris</th><th scope="col">Toolhouse</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Documentation Quality</th><td class="winner">✅ Comprehensive docs covering CLI, MCP, REST, SDK, and framework plugins. Step-by-step quick start, API reference, and troubleshooting guides.</td><td>✅ Well-structured docs covering SDK, MCP, and agent building. Natural language builder documentation is particularly strong.</td></tr>
+            <tr><th scope="row">Community Channels</th><td>GitHub Issues &amp; Discussions, email support</td><td>Discord community, email support</td></tr>
+            <tr><th scope="row">SDK/CLI Availability</th><td class="winner">CLI (<code>npm</code>), Python SDK, REST API, MCP Server — 4 interface options</td><td>Python SDK, Node.js SDK, REST API, MCP</td></tr>
+            <tr><th scope="row">Open Source</th><td>CLI and SDK are open-source (GitHub)</td><td>SDK is open-source (GitHub)</td></tr>
+            <tr><th scope="row">Enterprise Support</th><td>Dedicated support with SLA on Enterprise plan. Custom provider integrations available.</td><td>Custom pricing for enterprise. Support terms negotiated per contract.</td></tr>
+            <tr><th scope="row">Learning Resources</th><td>Quick start guides, blog posts, capability explorer, live demo</td><td>Quick start, documentation, blog</td></tr>
+          </tbody>
+        </table>
+      </section>
+      <section id="error-handling">
+        <h2>Error Handling &amp; Resilience: How Each Platform Handles Failure</h2>
+        <p>In production AI agent workloads, how a platform handles errors — provider outages, rate limits, malformed responses — can be the difference between a minor hiccup and a cascading failure. Here is how QVeris and Toolhouse approach resilience:</p>
+        <table class="compare-table">
+          <thead><tr><th scope="col">Resilience Feature</th><th scope="col">QVeris</th><th scope="col">Toolhouse</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Provider Failover</th><td class="winner">✅ Multi-provider routing — if one data source is down, QVeris automatically routes to an alternative provider for the same capability</td><td class="tag-no">❌ Single provider per tool — if the connected service is down, the tool call fails</td></tr>
+            <tr><th scope="row">Automatic Retry</th><td class="winner">✅ Exponential backoff with jitter (configurable via API)</td><td>✅ Basic retry mechanism</td></tr>
+            <tr><th scope="row">Timeout Handling</th><td class="winner">✅ Capability-level timeouts with graceful degradation — partial results returned on timeout where possible</td><td>Agent-level timeout configuration</td></tr>
+            <tr><th scope="row">Rate Limit Management</th><td class="winner">✅ Transparent — QVeris handles provider rate limits internally, routes around them</td><td>Requires manual throttling configuration in agent logic</td></tr>
+            <tr><th scope="row">Error Reporting</th><td class="winner">✅ Structured error responses with provider name, error code, and suggested alternative capabilities</td><td>Standard HTTP error codes and SDK exceptions</td></tr>
+            <tr><th scope="row">Circuit Breaker</th><td class="winner">✅ Automatic — degraded providers are deprioritized without agent intervention</td><td class="tag-no">❌ Not available — agent must implement retry logic</td></tr>
+          </tbody>
+        </table>
+        <p><strong>Practical impact:</strong> In a financial agent polling multiple data sources every 5 minutes, QVeris's automatic provider failover means the agent continues functioning even when individual providers experience downtime. If Polygon has an outage, QVeris routes to Finnhub or Alpha Vantage transparently — the agent sees consistent data flow. With Toolhouse, a single provider outage means the tool call fails, and the agent must handle the error in its own logic, adding complexity to every agent you build.</p>
+        <p>For mission-critical financial applications where uptime is non-negotiable, QVeris's circuit breaker and multi-provider routing provide an architectural advantage that would require significant custom engineering to replicate with Toolhouse's single-provider tool model.</p>
+      </section>
       <section id="together">
         <h2>Can QVeris and Toolhouse Be Used Together?</h2>
         <p>Yes — and this combination may be optimal. Use Toolhouse as your agent orchestration and deployment layer. Connect QVeris as a capability provider via MCP for financial data use cases. Both platforms support MCP natively.<sup class="ref"><a href="#ref-1">[1]</a></sup><sup class="ref"><a href="#ref-2">[2]</a></sup></p>
       </section>
+      <section id="migration">
+        <h2>Migration Guide: Switching Between Platforms</h2>
+        <p>If you are already on one platform and evaluating the other, here is what the migration path looks like:</p>
+        <table class="compare-table">
+          <caption style="caption-side:bottom;text-align:left;font-size:13px;color:rgba(255,255,255,0.4);padding:12px 0 4px">Migration complexity based on typical usage patterns.</caption>
+          <thead><tr><th scope="col">Migration Scenario</th><th scope="col">Complexity</th><th scope="col">Key Considerations</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Toolhouse → QVeris</th><td>Low to Medium</td><td>Replace Toolhouse SDK calls with QVeris CLI/MCP. No code changes needed if using MCP — just switch the server endpoint. If using Toolhouse's built-in orchestration, migrate scheduling and RAG to your own infrastructure or an alternative orchestration layer.</td></tr>
+            <tr><th scope="row">QVeris → Toolhouse</th><td>Medium</td><td>You gain orchestration and deployment features but lose dynamic discovery and financial data depth. Pre-configure all needed tools in Toolhouse's store before migration. Test that Toolhouse's 1,000+ MCP integrations<sup class="ref"><a href="#ref-2">[2]</a></sup> cover your use case.</td></tr>
+            <tr><th scope="row">Hybrid (Both)</th><td>Low</td><td>Add QVeris as an MCP server to your Toolhouse agent configuration. No migration needed — QVeris augments Toolhouse with financial data capabilities while Toolhouse handles orchestration and deployment.</td></tr>
+          </tbody>
+        </table>
+      </section>
       <div class="viz">
         <img src="one.png" width="1536" height="1024" alt="QVeris vs Toolhouse comparison matrix" style="width:100%;height:auto;display:block;border-radius:8px">
       </div>
+
+      <section id="geo">
+        <h2>Regional Coverage &amp; Data Source Availability</h2>
+        <p>For global AI agents, the geographic coverage of underlying data sources can be a deciding factor. Here is how QVeris and Toolhouse compare:</p>
+        <table class="compare-table">
+          <thead><tr><th scope="col">Region / Data Type</th><th scope="col">QVeris</th><th scope="col">Toolhouse</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">US Equities &amp; ETFs</th><td class="winner">✅ Polygon, Finnhub, Alpha Vantage, IEX Cloud</td><td class="tag-no">❌ No financial data coverage</td></tr>
+            <tr><th scope="row">European Markets</th><td class="winner">✅ Multiple providers covering EU exchanges</td><td class="tag-no">❌ Not available</td></tr>
+            <tr><th scope="row">Asian Markets</th><td class="winner">✅ Japan, Hong Kong, India, Australia exchanges</td><td class="tag-no">❌ Not available</td></tr>
+            <tr><th scope="row">Cryptocurrency (Global)</th><td class="winner">✅ CoinGecko, CoinMarketCap, Coinpaprika</td><td class="tag-no">❌ Not available</td></tr>
+            <tr><th scope="row">Web Search (Global)</th><td class="winner">✅ Available</td><td class="winner">✅ Available</td></tr>
+            <tr><th scope="row">News &amp; Media</th><td class="winner">✅ Financial news with sentiment scoring</td><td>General web search only</td></tr>
+          </tbody>
+        </table>
+        <p>QVeris's multi-provider routing means it can offer coverage across US, European, Asian, and crypto markets through a single integration. Toolhouse does not provide financial data coverage in any region — its strength is general-purpose capabilities like web search, code execution, and email that are region-agnostic.</p>
+      </section>
+      <section id="eco">
+        <h2>Toolhouse vs QVeris vs Alternative Platforms</h2>
+        <p>While Toolhouse and QVeris are the focus of this comparison, the AI agent tooling landscape includes several other platforms worth considering depending on your specific requirements:</p>
+        <table class="compare-table">
+          <thead><tr><th scope="col">Platform</th><th scope="col">Core Strength</th><th scope="col">Best For</th><th scope="col">Key Limitation</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Composio</th><td>Curated integrations with managed OAuth</td><td>Teams with stable, pre-defined tool requirements</td><td>Subscription pricing; less flexible for evolving needs</td></tr>
+            <tr><th scope="row">LangChain / LangGraph</th><td>Open-source agent orchestration framework</td><td>Teams needing full control over agent logic</td><td>Requires significant engineering effort; no pre-built tool infrastructure</td></tr>
+            <tr><th scope="row">CrewAI</th><td>Multi-agent orchestration framework</td><td>Teams building multi-agent systems with role-based collaboration</td><td>Focus is agent coordination, not tool discovery; limited pre-built integrations</td></tr>
+            <tr><th scope="row">AutoGen (Microsoft)</th><td>Multi-agent conversations with code execution</td><td>Research teams exploring multi-agent patterns</td><td>Experimental; less production-ready tooling infrastructure</td></tr>
+          </tbody>
+        </table>
+        <p>For a detailed comparison with Composio specifically, see our <a href="../composio-vs-qveris/index.html">Composio vs QVeris guide</a>.</p>
+      </section>
+
       <h2>How to Choose Between Toolhouse and QVeris</h2>
       <div class="step-box"><span class="step-num">1</span><strong>Define data requirements</strong><p>List the tools your agent needs. If it includes market data or financial research, QVeris's vertical coverage is relevant. If general-purpose — Toolhouse covers those out of the box.</p></div>
       <div class="step-box"><span class="step-num">2</span><strong>Evaluate technical profile</strong><p>Developer-heavy team across multiple frameworks? QVeris fits. Non-technical members building in natural language? Toolhouse is faster.</p></div>
       <div class="step-box"><span class="step-num">3</span><strong>Test both free tiers</strong><p>QVeris: 1,000 credits + 100 daily. Toolhouse: 50 runs/month. Test the same workload on both.</p></div>
+      <div class="step-box"><span class="step-num">4</span><strong>Consider the hybrid approach</strong><p>You do not have to pick just one. Use Toolhouse for agent orchestration, scheduling, and deployment, then connect QVeris as a financial data provider via MCP. This gives you the best of both platforms without compromising on either dimension — Toolhouse handles runtime management while QVeris provides deep data coverage.</p></div>
+      <div class="step-box"><span class="step-num">5</span><strong>Evaluate total cost, not just monthly price</strong><p>Factor in engineering time for tool integration, maintenance overhead when underlying APIs change, and the cost of failed calls. QVeris per-call pricing with unlimited free discovery often works out cheaper for data-intensive workloads — especially financial data. Toolhouse flat-rate Pro plan is simpler for low-volume general-purpose agents where predictability matters more than marginal cost.</p></div>
       <div class="cta-box">
         <h3>Try QVeris Free — No Credit Card Required</h3>
         <p>1,000 credits on signup. Free capability discovery and inspection.</p>
         <a href="https://qveris.ai" class="cta-btn">Try QVeris Free →</a>
         <a href="https://qveris.ai/pricing" class="cta-btn-outline">View Pricing →</a>
       </div>
+
+      <section id="conclusion">
+        <h2>Conclusion: Toolhouse vs QVeris — Which Should You Choose?</h2>
+        <p>Toolhouse and QVeris represent two different philosophies for connecting AI agents to external capabilities:</p>
+        <ul>
+          <li><strong>Toolhouse</strong> is a managed AI agent platform that prioritizes ease of use, built-in orchestration, and quick deployment. Its natural language builder, Agent-as-API deployment, and built-in RAG/scheduling make it ideal for teams that want a complete agent runtime without infrastructure management. The trade-off is limited tool discovery flexibility and no vertical financial data coverage.</li>
+          <li><strong>QVeris</strong> is a capability routing network that prioritizes dynamic discovery, data breadth, and developer flexibility. Its natural language Discover API, call-before-you-pay inspection, and 10,000+ capabilities across 15+ categories make it ideal for teams that need evolving tool sets and financial data depth. The trade-off is a developer-first approach that requires more technical setup.</li>
+        </ul>
+        <p>There is no universal "better" platform — the right choice depends on your specific workload characteristics, team composition, and data requirements. Here is a quick decision framework to help you evaluate:</p>
+        <div class="decision-grid">
+          <div class="decision-card">
+            <h4>Choose QVeris if...</h4>
+            <p>Your agent needs financial data (stocks, crypto, macro), requires dynamic tool discovery at runtime, benefits from pre-call cost preview, or your team is comfortable with CLI/MCP-based development across multiple agent frameworks.</p>
+          </div>
+          <div class="decision-card">
+            <h4>Choose Toolhouse if...</h4>
+            <p>Your agent needs general-purpose capabilities (web search, email, code execution), you want a managed runtime with built-in scheduling and RAG, your team prefers no-code/low-code agent building, or you need Agent-as-API one-click deployment.</p>
+          </div>
+          <div class="decision-card">
+            <h4>Consider both if...</h4>
+            <p>Your workload spans both categories — use Toolhouse for orchestration and QVeris as a financial data provider via MCP. Both platforms support MCP natively, making this hybrid approach straightforward to implement.</p>
+          </div>
+        </div>
+        <p><strong>Still unsure?</strong> Both platforms offer free tiers — QVeris provides 1,000 credits + 100 daily,<sup class="ref"><a href="#ref-4">[4]</a></sup> Toolhouse offers 50 runs per month.<sup class="ref"><a href="#ref-3">[3]</a></sup> The best approach is to run the same test workload on both platforms for a week. Measure setup time, reliability, and whether the tool coverage meets your agent's actual needs — not just the theoretical feature set. Many teams find that the hybrid approach (Toolhouse for orchestration, QVeris for financial data via MCP) delivers the best of both worlds.</p>
+      </section>
       <section id="faq">
         <h2>Frequently Asked Questions</h2>
         <div class="faq-item"><div class="faq-q">What is the main difference between Toolhouse and QVeris?</div><div class="faq-a">Toolhouse is a no-code/low-code AI agent building platform.<sup class="ref"><a href="#ref-2">[2]</a></sup> QVeris is an AI agent capability routing network with natural language discovery.<sup class="ref"><a href="#ref-1">[1]</a></sup> Toolhouse pre-configures tools at build time; QVeris discovers capabilities at runtime.</div></div>
@@ -353,6 +649,12 @@
         <div class="faq-item"><div class="faq-q">Can Toolhouse and QVeris both work with MCP?</div><div class="faq-a">Yes. QVeris exposes capabilities through an MCP Server.<sup class="ref"><a href="#ref-1">[1]</a></sup> Toolhouse supports unlimited MCP on paid plans.<sup class="ref"><a href="#ref-2">[2]</a></sup></div></div>
         <div class="faq-item"><div class="faq-q">Is QVeris more expensive than Toolhouse?</div><div class="faq-a">QVeris Pro $19/mo for 10,000 credits.<sup class="ref"><a href="#ref-4">[4]</a></sup> Toolhouse Pro $10/mo for 1,000 credits.<sup class="ref"><a href="#ref-3">[3]</a></sup> Toolhouse is cheaper at entry; QVeris may be more economical for high-volume financial data.</div></div>
         <div class="faq-item"><div class="faq-q">Which platform should I choose?</div><div class="faq-a">Choose QVeris for natural language discovery, financial data, and developer-first agents.<sup class="ref"><a href="#ref-1">[1]</a></sup> Choose Toolhouse for no-code building and quick deployment.<sup class="ref"><a href="#ref-2">[2]</a></sup></div></div>
+        <div class="faq-item"><div class="faq-q">Does QVeris or Toolhouse support custom API integrations?</div><div class="faq-a">QVeris's capability catalog is pre-built with 10,000+ capabilities across 15+ categories. If you need a custom data source, QVeris can add it to the catalog as a new capability. Toolhouse supports custom tools via code — you write a function, register it in the Tool Store, and it becomes available to your agents.</div></div>
+        <div class="faq-item"><div class="faq-q">How do QVeris and Toolhouse handle rate limiting and concurrency?</div><div class="faq-a">QVeris handles provider-side rate limiting transparently — if one data source hits a rate limit, QVeris automatically routes to an alternative provider. The agent sees consistent response times. Toolhouse manages rate limits at the agent level — its built-in execution environment handles concurrency and queuing. For high-throughput use cases, both platforms support enterprise tiers with dedicated infrastructure.</div></div>
+        <div class="faq-item"><div class="faq-q">Which platform has better uptime and reliability SLAs?</div><div class="faq-a">QVeris offers 99.9% uptime SLA on its Pro plan and 99.99% on Enterprise. Toolhouse does not publicly advertise a specific SLA on its Sandbox/Pro tiers. For production financial data workloads, QVeris's automatic provider fallback provides an additional layer of reliability — if one provider experiences downtime, QVeris routes to an alternative provider transparently to the agent.</div></div>
+        <div class="faq-item"><div class="faq-q">Can both platforms be used with open-source LLMs and self-hosted models?</div><div class="faq-a">QVeris is model-agnostic — it provides the capability routing layer, and you bring any LLM (OpenAI, Anthropic, open-source models, or your own fine-tuned model). Toolhouse is provider-agnostic as well, supporting multiple LLM backends through its SDK. Both platforms focus on the tool/function calling layer, not the model itself.</div></div>
+        <div class="faq-item"><div class="faq-q">Does QVeris or Toolhouse support streaming responses?</div><div class="faq-a">QVeris supports streaming via its MCP interface — capabilities can return partial results as they are processed, which is useful for real-time financial data feeds like streaming prices. Toolhouse supports streaming through its SDK for agent execution, allowing you to stream agent thoughts and tool calls as they happen. For real-time financial use cases, QVeris streaming combined with its deep financial data coverage provides a more complete solution out of the box.</div></div>
+        <div class="faq-item"><div class="faq-q">How does each platform handle multi-modal data types like images, PDFs, and charts?</div><div class="faq-a">QVeris supports capabilities that return structured data alongside URLs to generated visualizations, charts, and PDF reports — particularly in its financial and research domains where chart generation and report export are built-in capability outputs. Toolhouse supports tool outputs including images, files, and structured data through its execution environment, but these are treated as generic outputs rather than domain-specific renderings. QVeris has deeper support for financial chart and report generation out of the box, while Toolhouse provides a more general-purpose file handling framework.</div></div>
       </section>
       <aside class="methodology" id="methodology">
         <h2>About This Comparison</h2>
