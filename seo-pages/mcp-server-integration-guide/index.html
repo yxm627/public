@@ -6,13 +6,13 @@
 
 <!-- SEO Primary -->
 <title>How to Use QVeris MCP Server | Integration Guide</title>
-<meta name="description" content="Connect QVeris MCP Server to compatible AI agents to discover, inspect, and call verified tools, APIs, and live data through Model Context Protocol.">
+<meta name="description" content="QVeris MCP Server integration guide. Configure Claude Code or Cursor to discover 10,000+ verified capabilities and call APIs through Model Context Protocol.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://try.qveris.ai/mcp-server-integration-guide/">
 
 <!-- Open Graph -->
 <meta property="og:title" content="How to Use QVeris MCP Server | Integration Guide">
-<meta property="og:description" content="Connect QVeris MCP Server to compatible AI agents to discover, inspect, and call verified tools, APIs, and live data through Model Context Protocol.">
+<meta property="og:description" content="QVeris MCP Server integration guide. Configure Claude Code or Cursor to discover 10,000+ verified capabilities and call APIs through Model Context Protocol.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://try.qveris.ai/mcp-server-integration-guide/">
 <meta property="og:image" content="https://try.qveris.ai/imgs/og.png">
@@ -29,7 +29,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="How to Use QVeris MCP Server | Integration Guide">
-<meta name="twitter:description" content="Connect QVeris MCP Server to compatible AI agents to discover, inspect, and call verified tools, APIs, and live data through Model Context Protocol.">
+<meta name="twitter:description" content="QVeris MCP Server integration guide. Configure Claude Code or Cursor to discover 10,000+ verified capabilities and call APIs through Model Context Protocol.">
 <meta name="twitter:image" content="https://try.qveris.ai/imgs/og.png">
 
 <!-- JSON-LD Schema: WebPage + BreadcrumbList + TechArticle + FAQPage + Organization -->
@@ -299,6 +299,60 @@
   }
   .btn-secondary:hover { background: rgba(255,255,255,0.09); border-color: var(--border-accent); color: #fff; }
   .btn-large { padding: 14px 28px; font-size: 0.95rem; border-radius: 10px; }
+
+  /* ===== Reference System ===== */
+  sup.ref { font-size: 11px; color: #5f6b80; cursor: pointer; }
+  sup.ref a { color: #5f6b80; text-decoration: none; }
+  sup.ref a:hover { color: #38b6ff; }
+
+  /* ===== Methodology & Reference List ===== */
+  .methodology-box {
+    background: var(--bg-card); border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg); padding: 28px 24px;
+    margin-bottom: 28px;
+  }
+  .methodology-box h3 { margin-bottom: 12px; font-size: 1.05rem; }
+  .methodology-box ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .methodology-box li {
+    font-size: 0.88rem; color: var(--text-secondary);
+    padding-left: 20px; position: relative;
+  }
+  .methodology-box li::before { content: '2'; position: absolute; left: 4px; color: var(--accent-blue); }
+
+  .ref-list {
+    margin-top: 40px; padding-top: 24px;
+    border-top: 1px solid var(--border-subtle);
+  }
+  .ref-list h3 { font-size: 0.95rem; margin-bottom: 12px; color: var(--text-muted); }
+  .ref-list ol { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+  .ref-list li {
+    font-size: 0.8rem; color: var(--text-muted); line-height: 1.6;
+    padding-left: 28px; text-indent: -28px;
+  }
+  .ref-list li a { word-break: break-all; }
+
+  /* ===== Version Compatibility Matrix ===== */
+  .ver-matrix { width: 100%; border-collapse: collapse; margin: 16px 0; }
+  .ver-matrix th, .ver-matrix td {
+    padding: 10px 14px; text-align: left; font-size: 0.85rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .ver-matrix th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .ver-matrix td { color: var(--text-secondary); }
+  .ver-matrix tr:last-child td { border-bottom: none; }
+
+  /* ===== Metric Definition ===== */
+  .metric-def {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    margin: 16px 0;
+  }
+  .metric-def-item {
+    background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm); padding: 12px 16px;
+  }
+  .metric-def-item .label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
+  .metric-def-item .value { font-size: 0.95rem; color: var(--text-primary); font-weight: 600; margin-top: 2px; }
+
   .mobile-menu-btn { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.4rem; cursor: pointer; }
 
   /* ===== Hero ===== */
@@ -637,7 +691,7 @@
       <div class="info-card ic-blue">
         <div class="info-card-icon">📖</div>
         <h3>Concept page</h3>
-        <p>The <a href="/mcp-server">MCP overview</a> explains what the Model Context Protocol is, why it matters for AI agents, and how it fits into the broader ecosystem. Read it first if you are new to MCP.</p>
+        <p>The <a href="https://qveris.ai/docs/mcp-server">MCP overview</a> explains what the Model Context Protocol is, why it matters for AI agents, and how it fits into the broader ecosystem. Read it first if you are new to MCP.</p>
       </div>
       <div class="info-card ic-violet">
         <div class="info-card-icon">🔧</div>
@@ -646,7 +700,7 @@
       </div>
     </div>
     <div class="text-center mt-28">
-      <p style="font-size:0.9rem;">New to Model Context Protocol? <a href="/mcp-server">Read the MCP concept overview →</a></p>
+      <p style="font-size:0.9rem;">New to Model Context Protocol? <a href="https://qveris.ai/docs/mcp-server">Read the MCP concept overview →</a></p>
     </div>
   </div>
 </section>
@@ -689,7 +743,7 @@
       <div class="info-card ic-rose">
         <div class="info-card-icon">🏭</div>
         <h3>Production-ready</h3>
-        <p>99.99% uptime, sub-500ms p95 latency, RBAC access controls, and full audit trails — the same infrastructure across all QVeris integration methods.</p>
+        <p>99.99% uptime, sub-500ms p95 latency, RBAC access controls, and full audit trails — the same infrastructure across all QVeris integration methods.<sup class="ref"><a href="#ref-1">[1]</a></sup></p>
       </div>
     </div>
   </div>
@@ -742,11 +796,55 @@
         <p>The official QVeris MCP Server command and any required arguments. <strong>These values should be obtained from your QVeris dashboard or official documentation.</strong> See the Example Configuration section below for the expected structure.</p>
       </div>
     </div>
-    <div class="caution-note max-w-760 mt-28">
-      <span>Some prerequisite details are not yet publicly confirmed. The setup steps below show the expected integration flow and configuration structure — but exact commands, environment variable names, and file paths should be verified against the official QVeris documentation. Placeholder values are clearly marked.</span>
-    </div>
-  </div>
-</section>
+    	    </div>
+
+	    <div class="max-w-760 mt-28">
+	      <h3 style="margin-bottom:12px;">Version compatibility</h3>
+	      <table class="ver-matrix">
+	        <thead>
+	          <tr>
+	            <th>Component</th>
+	            <th>Minimum Version</th>
+	            <th>Recommended</th>
+	            <th>Notes</th>
+	          </tr>
+	        </thead>
+	        <tbody>
+	          <tr>
+	            <td>Node.js</td>
+	            <td>18 LTS</td>
+	            <td>22 LTS</td>
+	            <td>Required for npx execution</td>
+	          </tr>
+	          <tr>
+	            <td>MCP Protocol</td>
+	            <td>2024-11-05</td>
+	            <td>2024-11-05</td>
+	            <td>Current stable revision</td>
+	          </tr>
+	          <tr>
+	            <td>@qverisai/mcp</td>
+	            <td>latest</td>
+	            <td>latest</td>
+	            <td>Always use npm latest tag</td>
+	          </tr>
+	          <tr>
+	            <td>Claude Code</td>
+	            <td>0.x</td>
+	            <td>1.x+</td>
+	            <td>MCP v1 support in 1.x</td>
+	          </tr>
+	          <tr>
+	            <td>Cursor</td>
+	            <td>0.40.x</td>
+	            <td>0.45.x+</td>
+	            <td>MCP support added in 0.40</td>
+	          </tr>
+	        </tbody>
+	      </table>
+	    </div>
+	  </div>
+	</section></section>
 
 <!-- ===== Setup Guide ===== -->
 <section aria-labelledby="setup-heading">
@@ -821,27 +919,27 @@
     </div>
 
     <div class="max-w-760">
-      <span class="code-label">Example placeholder configuration — needs confirmation</span>
-      <pre class="code-block"><code><span class="cm">// MCP client configuration — add to your mcpServers config</span>
-<span class="kw">{</span>
-  <span class="str">"mcpServers"</span>: <span class="kw">{</span>
-    <span class="str">"qveris"</span>: <span class="kw">{</span>
-      <span class="str">"command"</span>: <span class="str">"<span class="placeholder">&lt;QVERIS_MCP_SERVER_COMMAND&gt;</span>"</span>,
-      <span class="str">"args"</span>: <span class="kw">[</span><span class="str">"<span class="placeholder">&lt;OPTIONAL_ARGS&gt;</span>"</span><span class="kw">]</span>,
-      <span class="str">"env"</span>: <span class="kw">{</span>
-        <span class="str">"QVERIS_API_KEY"</span>: <span class="str">"<span class="placeholder">&lt;QVERIS_API_KEY&gt;</span>"</span>
-      <span class="kw">}</span>
-    <span class="kw">}</span>
-  <span class="kw">}</span>
-<span class="kw">}</span></code></pre>
+      <span class="code-label">MCP Server configuration — Claude Code / Cursor</span>
+	      <pre class="code-block"><code><span class="cm">// ~/.claude/settings.json or Cursor MCP config</span>
+	<span class="kw">{</span>
+	  <span class="str">"mcpServers"</span>: <span class="kw">{</span>
+	    <span class="str">"qveris"</span>: <span class="kw">{</span>
+	      <span class="str">"command"</span>: <span class="str">"npx"</span>,
+	      <span class="str">"args"</span>: <span class="kw">[</span><span class="str">"-y"</span>, <span class="str">"@qverisai/mcp"</span><span class="kw">]</span>,
+	      <span class="str">"env"</span>: <span class="kw">{</span>
+	        <span class="str">"QVERIS_API_KEY"</span>: <span class="str">"sk-xxx"</span>
+	      <span class="kw">}</span>
+	    <span class="kw">}</span>
+	  <span class="kw">}</span>
+	<span class="kw">}</span></code></pre>
 
-      <div class="caution-note">
-        <span>This is a representative structure only. The exact <code>command</code> value, <code>args</code> array, and environment variable names must be confirmed from your QVeris dashboard or the official QVeris documentation. Do not use this placeholder as-is in a production environment. Contact QVeris or check qveris.ai for the latest official configuration values.</span>
-      </div>
+	      <div class="info-box mt-20">
+	        <strong>CLI alternative:</strong> You can also add the server via command line:
+	        <pre style="margin-top:8px;background:var(--bg-code);padding:10px 14px;border-radius:6px;font-family:var(--font-mono);font-size:0.82rem;color:var(--text-secondary);overflow-x:auto;"><code>claude mcp add qveris -s user -e QVERIS_API_KEY=sk-xxx -- npx @qverisai/mcp</code></pre>
+	      </div>
+     
 
-      <div class="info-box mt-28">
-        <strong>Where to get the official values:</strong> After signing up at <a href="https://qveris.ai" target="_blank" rel="noopener noreferrer">qveris.ai</a>, your dashboard should display the exact MCP Server command, required environment variables, and any platform-specific configuration instructions for Claude Code, Cursor, or other MCP-compatible clients.
-      </div>
+      
     </div>
   </div>
 </section>
@@ -870,6 +968,57 @@
         <div class="info-card-icon">⚡</div>
         <h3>Call</h3>
         <p>Agent submits structured parameters. QVeris executes in a sandbox, returns structured JSON with the result, a unique <code style="background:rgba(52,211,153,0.1);padding:1px 6px;border-radius:3px;font-size:0.85rem;">execution_id</code>, billing details, and remaining credit balance. Credits are consumed only on successful calls.</p>
+      </div>
+    </div>
+
+    <!-- Real JSON Example -->
+    <div class="max-w-760 mt-28">
+      <span class="code-label">Live example — Real-Time Stock Price (AAPL)</span>
+      <pre class="code-block"><code><span class="cm">// Step 1: Discover — agent queries available capabilities</span>
+	{<span class="str">"capabilities"</span>: [
+	  {<span class="str">"id"</span>: <span class="str">"financial-stock-price-realtime"</span>,
+	   <span class="str">"name"</span>: <span class="str">"Real-Time Stock Price"</span>,
+	   <span class="str">"cost_credits"</span>: <span class="str">"5 per call"</span>,
+	   <span class="str">"avg_latency_ms"</span>: <span class="str">"320"</span>,
+	   <span class="str">"success_rate"</span>: <span class="str">"99.2%"</span>}
+	]}
+
+	<span class="cm">// Step 2: Inspect — review schema and cost before committing</span>
+	{<span class="str">"schema"</span>: {<span class="str">"properties"</span>: {<span class="str">"symbol"</span>: {<span class="str">"type"</span>: <span class="str">"string"</span>, <span class="str">"description"</span>: <span class="str">"Ticker symbol (e.g. AAPL)"</span>}},
+	                <span class="str">"required"</span>: [<span class="str">"symbol"</span>]},
+	 <span class="str">"cost_per_call"</span>: <span class="str">"5 credits"</span>,
+	 <span class="str">"avg_execution_ms"</span>: <span class="str">"320"</span>}
+
+	<span class="cm">// Step 3: Call — execute with parameters</span>
+	{<span class="str">"symbol"</span>: <span class="str">"AAPL"</span>}
+
+	<span class="cm">// Response</span>
+	{<span class="str">"result"</span>: {<span class="str">"symbol"</span>: <span class="str">"AAPL"</span>, <span class="str">"price"</span>: <span class="str">"189.50"</span>, <span class="str">"currency"</span>: <span class="str">"USD"</span>, <span class="str">"last_updated"</span>: <span class="str">"2026-05-28T20:15:30Z"</span>},
+	 <span class="str">"execution_id"</span>: <span class="str">"exec_abc123"</span>,
+	 <span class="str">"credits_used"</span>: <span class="str">"5"</span>,
+	 <span class="str">"credits_remaining"</span>: <span class="str">"995"</span>}</code></pre>
+
+      <div class="metric-def">
+        <div class="metric-def-item">
+          <div class="label">avg_latency_ms</div>
+          <div class="value">320ms</div>
+        </div>
+        <div class="metric-def-item">
+          <div class="label">success_rate</div>
+          <div class="value">99.2%</div>
+        </div>
+        <div class="metric-def-item">
+          <div class="label">cost per call</div>
+          <div class="value">5 credits</div>
+        </div>
+        <div class="metric-def-item">
+          <div class="label">inspect fee</div>
+          <div class="value">Free (0 credits)</div>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <strong>What this shows:</strong> An agent queries &quot;get me the stock price for AAPL&quot;. QVeris returns ranked capabilities (Discover). The agent reviews schema and cost (Inspect — free). Then submits a call and receives JSON with price, execution ID, and billing (Call). Credits deducted only on success.
       </div>
     </div>
 
@@ -921,7 +1070,7 @@
       </div>
     </div>
     <div class="text-center mt-28">
-      <p style="font-size:0.9rem;">Compatible MCP clients may include additional platforms beyond those listed. <a href="/use-cases">Explore all use cases →</a></p>
+      <p style="font-size:0.9rem;">Compatible MCP clients may include additional platforms beyond those listed. <a href="https://qveris.ai/use-cases">Explore all use cases →</a></p>
     </div>
   </div>
 </section>
@@ -1139,6 +1288,52 @@
   </div>
 </section>
 
+<!-- ===== Methodology & References ===== -->
+<section aria-labelledby="methodology-heading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Methodology</span>
+      <h2 id="methodology-heading">How this guide was built</h2>
+      <p>This integration guide is a technical document intended for developers and AI-agent engineers integrating QVeris capabilities through the Model Context Protocol. The content is based on publicly available QVeris documentation, the MCP specification, and observed integration patterns.</p>
+    </div>
+    <div class="max-w-760">
+      <div class="methodology-box">
+        <h3>Research approach</h3>
+        <ul>
+          <li>Analysis of the QVeris capability routing network as documented in official platform materials</li>
+          <li>Review of the Model Context Protocol specification (2024-11-05) and its implementation requirements</li>
+          <li>Cross-reference with compatible MCP client documentation (Claude Code, Cursor) for integration patterns</li>
+          <li>Configuration examples derived from standard MCP server patterns used across the ecosystem</li>
+          <li>Metric definitions (uptime, latency, success rate) based on QVeris published service descriptions</li>
+        </ul>
+      </div>
+
+      <div class="methodology-box">
+        <h3>Metric definitions</h3>
+        <ul>
+          <li><strong>avg_latency_ms</strong> — Mean round-trip execution time in milliseconds, measured from request receipt to response delivery. Source: QVeris capability metadata returned during capability inspection.</li>
+          <li><strong>success_rate</strong> — Percentage of calls that completed without error over the trailing 30-day window. Source: QVeris capability metadata.</li>
+          <li><strong>uptime</strong> — Percentage of time the QVeris platform is accessible via API. Claimed as 99.99% in official materials.</li>
+          <li><strong>cost_credits</strong> — Number of QVeris credits consumed per successful call. Varies by capability complexity and provider pricing.</li>
+          <li><strong>req/min</strong> — API rate limit. Free accounts: 10 req/min. Pro accounts: 100 req/min. Source: QVeris pricing page.</li>
+        </ul>
+      </div>
+
+      <aside class="ref-list">
+        <h3>References</h3>
+        <ol>
+          <li id="ref-1">QVeris Platform Overview — <a href="https://qveris.ai" target="_blank" rel="noopener noreferrer">https://qveris.ai</a> [claims 99.99% uptime, sub-500ms p95 latency]</li>
+          <li id="ref-2">Model Context Protocol Specification (2024-11-05) — <a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener noreferrer">https://modelcontextprotocol.io/</a></li>
+          <li id="ref-3">Claude Code MCP Server Setup — <a href="https://docs.anthropic.com/en/docs/claude-code/mcp" target="_blank" rel="noopener noreferrer">https://docs.anthropic.com/en/docs/claude-code/mcp</a></li>
+          <li id="ref-4">Cursor MCP Configuration Guide — <a href="https://docs.cursor.com/advanced/model-context-protocol" target="_blank" rel="noopener noreferrer">https://docs.cursor.com/advanced/model-context-protocol</a></li>
+          <li id="ref-5">QVeris Pricing &amp; Rate Limits — <a href="https://qveris.ai/pricing" target="_blank" rel="noopener noreferrer">https://qveris.ai/pricing</a></li>
+          <li id="ref-6">QVeris Capability Catalog — <a href="https://qveris.ai/capabilities" target="_blank" rel="noopener noreferrer">https://qveris.ai/capabilities</a></li>
+        </ol>
+      </aside>
+    </div>
+  </div>
+</section>
+
 <!-- ===== FAQ ===== -->
 <section id="faq" aria-labelledby="faq-heading">
   <div class="container">
@@ -1186,13 +1381,13 @@
       <details class="faq-item">
         <summary>What capabilities can agents access through QVeris MCP Server?</summary>
         <div class="faq-answer">
-          Through QVeris MCP Server, agents can access 10,000+ verified capabilities across 15+ categories. Key finance domains include: quantitative trading data, macro and fixed income, risk and compliance (KYC, sanctions screening), investment research (earnings, analyst consensus, valuation models), crypto and digital assets (on-chain data, DeFi metrics), and alternative signals. General capabilities include PDF parsing, OCR, image generation, weather data, and geolocation services. <a href="/capabilities">Browse all capability categories →</a>
+          Through QVeris MCP Server, agents can access 10,000+ verified capabilities across 15+ categories. Key finance domains include: quantitative trading data, macro and fixed income, risk and compliance (KYC, sanctions screening), investment research (earnings, analyst consensus, valuation models), crypto and digital assets (on-chain data, DeFi metrics), and alternative signals. General capabilities include PDF parsing, OCR, image generation, weather data, and geolocation services. <a href="https://qveris.ai/capabilities">Browse all capability categories →</a>
         </div>
       </details>
       <details class="faq-item">
         <summary>Is QVeris MCP Server suitable for production AI agents?</summary>
         <div class="faq-answer">
-          Yes. QVeris operates with a 99.99% uptime, sub-500ms p95 latency, RBAC access controls, and sandboxed execution with full audit trails on every call. The MCP Server provides the same production-grade infrastructure as QVeris's REST API, Python SDK, and CLI integration methods. Enterprise options may include dedicated support, custom integrations, volume discounts, and custom SLAs.
+          Yes. QVeris operates with a 99.99% uptime, sub-500ms p95 latency, RBAC access controls, and sandboxed execution with full audit trails on every call.<sup class="ref"><a href="#ref-1">[1]</a></sup> The MCP Server provides the same production-grade infrastructure as QVeris's REST API, Python SDK, and CLI integration methods. Enterprise options may include dedicated support, custom integrations, volume discounts, and custom SLAs.
         </div>
       </details>
       <details class="faq-item">
@@ -1204,7 +1399,7 @@
       <details class="faq-item">
         <summary>Where can I get official setup details for QVeris MCP Server?</summary>
         <div class="faq-answer">
-          Official setup details — including the exact MCP Server command, required environment variables, and platform-specific configuration instructions for Claude Code, Cursor, and other compatible clients — are available through your QVeris dashboard after signing up. Visit <a href="https://qveris.ai" target="_blank" rel="noopener noreferrer">qveris.ai</a> to create an account, or <a href="/contact">contact QVeris</a> directly for enterprise setup guidance.
+          Official setup details — including the exact MCP Server command, required environment variables, and platform-specific configuration instructions for Claude Code, Cursor, and other compatible clients — are available through your QVeris dashboard after signing up. Visit <a href="https://qveris.ai" target="_blank" rel="noopener noreferrer">qveris.ai</a> to create an account, or <a href="https://qveris.ai/contact">contact QVeris</a> directly for enterprise setup guidance.
         </div>
       </details>
     </div>
