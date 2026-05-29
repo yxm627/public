@@ -11,10 +11,11 @@
   <meta property="og:description" content="Compare function calling across OpenAI, Anthropic & Google Gemini. API schemas, code examples, reliability benchmarks & how MCP standardizes the pattern.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://try.qveris.ai/function-calling/">
-  <meta property="og:image" content="https://try.qveris.ai/og.png">
+  <meta property="og:image" content="https://try.qveris.ai/imgs/og.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Function Calling: OpenAI vs Anthropic vs Google (2026)">
   <meta name="twitter:description" content="Compare function calling across OpenAI, Anthropic & Google Gemini. API schemas, code examples, reliability benchmarks & how MCP standardizes the pattern.">
+  <meta name="twitter:image" content="https://try.qveris.ai/imgs/og.png">
   <meta name="theme-color" content="#0A0E1A">
   <link rel="canonical" href="https://try.qveris.ai/function-calling/">
   <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/245123302?s=200&v=4">
@@ -358,7 +359,7 @@
 
         <!-- BLOCK 3: BREADCRUMB -->
         <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Home</a><span>›</span><a href="/concepts">Concepts</a><span>›</span>Function Calling
+          <a href="https://qveris.ai">Home</a><span>›</span><span>Concepts</span><span>›</span>Function Calling
         </nav>
 
         <!-- BLOCK 4: BADGES -->
@@ -738,7 +739,7 @@ response = model.generate_content(
           <h3>What MCP provides</h3>
           <p>MCP standardizes three aspects of tool integration:</p>
 
-          <p><strong>Tool discovery:</strong> MCP clients query available tools from MCP servers using a standardized protocol. Rather than embedding tool definitions directly in your API request (as you do with native function calling), you query the <text href="/mcp-registry">MCP registry</a> for available tools, which returns metadata including name, description, input schema, and capabilities. This separation allows tool registries to be shared across applications and updated without redeploying your code.</p>
+          <p><strong>Tool discovery:</strong> MCP clients query available tools from MCP servers using a standardized protocol. Rather than embedding tool definitions directly in your API request (as you do with native function calling), you query the <a href="../mcp-registry/index.html">MCP registry</a> for available tools, which returns metadata including name, description, input schema, and capabilities. This separation allows tool registries to be shared across applications and updated without redeploying your code.</p>
 
           <p><strong>Tool execution:</strong> A single call format works regardless of which LLM provider you're using. When the LLM outputs a tool call, your MCP client translates it into the provider-specific format, executes the call via the MCP protocol, and returns the result. <strong>QVeris</strong> MCP clients handle this translation automatically — your application code sends a single format to <code>client.execute_tool()</code>, and QVeris handles routing to OpenAI, Anthropic, or Google based on the tool's requirements. The translation layer is invisible to your application code — you interact with one interface regardless of which provider you're targeting.</p>
 
@@ -852,7 +853,7 @@ client = MCPClient(api_key=<span class="string">"your-qveris-key"</span>)
           <p>QVeris MCP client handles function calling across OpenAI, Anthropic, and Google — so you can add capabilities without rewriting integrations.</p>
           <a href="https://qveris.ai" class="cta-btn">Get Started with QVeris →</a>
           <div style="margin-top:12px">
-            <a href="/docs/cli" style="font-size:13px;color:rgba(255,255,255,0.5);">Or explore the QVeris CLI for function calling alternatives →</a>
+            <a href="https://qveris.ai/docs/cli" style="font-size:13px;color:rgba(255,255,255,0.5);">Or explore the QVeris CLI for function calling alternatives →</a>
           </div>
         </div>
 

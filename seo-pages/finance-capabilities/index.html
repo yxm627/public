@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO Primary -->
+<title>Finance AI Agent Tools | QVeris Capability Router</title>
+<meta name="description" content="QVeris gives AI agents access to verified finance tools, market data, investment research, and compliance data through one unified capability routing protocol.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://try.qveris.ai/finance-capabilities/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Finance AI Agent Tools | QVeris Capability Router">
+<meta property="og:description" content="QVeris gives AI agents access to verified finance tools, market data, investment research, and compliance data through one unified capability routing protocol.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://try.qveris.ai/finance-capabilities/">
+<meta property="og:image" content="https://try.qveris.ai/imgs/og.png">
+<meta property="og:site_name" content="QVeris">
+
+<!-- Favicon & Preconnect -->
+<link rel="icon" type="image/png" href="https://qveris.ai/icon.png">
+<link rel="apple-touch-icon" href="https://qveris.ai/icon.png">
+<link rel="preconnect" href="https://try.qveris.ai">
+<link rel="preconnect" href="https://qveris.ai">
+<link rel="dns-prefetch" href="https://try.qveris.ai">
+<link rel="dns-prefetch" href="https://qveris.ai">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Finance AI Agent Tools | QVeris Capability Router">
+<meta name="twitter:description" content="QVeris gives AI agents access to verified finance tools, market data, investment research, and compliance data through one unified capability routing protocol.">
+<meta name="twitter:image" content="https://try.qveris.ai/imgs/og.png">
+
+<!-- JSON-LD Schema: WebPage + BreadcrumbList + FAQPage + Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Finance AI Agent Tools | QVeris Capability Router",
+  "description": "QVeris gives AI agents access to verified finance tools, market data, investment research, and compliance data through one unified capability routing protocol.",
+  "url": "https://try.qveris.ai/finance-capabilities/",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://try.qveris.ai/" },
+      { "@type": "ListItem", "position": 2, "name": "Finance AI Agents", "item": "https://try.qveris.ai/finance-capabilities/" }
+    ]
+  },
+  "about": {
+    "@type": "Organization",
+    "name": "QVeris AI, LLC",
+    "url": "https://qveris.ai"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are finance AI agent tools?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Finance AI agent tools are verified capabilities that AI agents can discover, inspect, and call to access financial data and execute finance workflows. These include market data, investment research, risk and compliance data, crypto and on-chain data, macro indicators, and alternative signals. QVeris provides these through a unified capability routing network rather than requiring agents to integrate with each financial data source individually."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does QVeris help finance AI agents?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "QVeris acts as a capability routing layer between AI agents and financial data sources. Agents describe what finance data or capability they need in natural language, QVeris discovers matching verified tools, the agent can inspect schemas and costs before committing, and then calls the selected capability with structured parameters. This replaces manual per-API integration with a unified discover-inspect-call workflow."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is QVeris a financial data provider?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. QVeris is not a financial data provider. It is a capability routing network that connects AI agents to verified finance tools, APIs, and data sources from multiple providers through one unified protocol. QVeris handles discovery, inspection, routing, structured execution, and auditability — but the underlying data and capabilities come from a range of verified third-party sources."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is QVeris different from a finance API marketplace?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Unlike a finance API marketplace where developers manually search, read documentation, and integrate each API separately, QVeris is agent-native. AI agents discover finance capabilities using natural language, inspect costs and quality before calling, and execute through one unified API. QVeris also provides structured execution with audit trails, execution IDs, and session tracing — capabilities not offered by standard API marketplaces."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can QVeris support investment research workflows?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. QVeris supports investment research workflows by giving AI agents access to verified capabilities for earnings data, analyst consensus, valuation models, fundamentals, and market intelligence. Agents can discover and call the right data sources dynamically as research questions evolve, with structured JSON responses suitable for downstream analysis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can QVeris support risk and compliance workflows?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. QVeris includes verified capabilities for KYC verification, sanctions screening, regulatory data. Every compliance-related call produces a unique execution ID linked to a search session and agent session, providing a full audit trail suitable for compliance-aware workflows. Enterprise options may include dedicated support, custom integrations, governance needs, and custom SLAs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does QVeris support crypto and on-chain data workflows?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. QVeris offers verified capabilities for blockchain data, DeFi metrics, stablecoin flows, and on-chain signals with access to blockchain data and on-chain metrics. AI agents can discover and call these capabilities through the same unified protocol used for traditional financial data, enabling cross-asset workflows spanning crypto and traditional markets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do AI agents call finance capabilities through QVeris?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI agents call finance capabilities through QVeris in three steps: Discover — the agent describes what it needs in natural language and QVeris returns ranked capability matches with cost, latency, and success rate. Inspect — the agent reviews the full parameter schema, billing rules, and quality metrics at zero cost. Call — the agent submits structured parameters and QVeris executes in a sandboxed environment, returning structured JSON with an execution ID and billing details."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does QVeris support MCP, CLI, Python SDK, or REST API?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. QVeris provides multiple integration options: a native MCP server for Model Context Protocol compatible agents, a CLI for terminal-native workflows, a Python SDK with async support and auto-retry, and a standard REST API at api.qveris.ai/v1. All integration methods provide access to the same finance capabilities, and pricing is based on capability calls, not the interface used."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can a team get access to QVeris finance capabilities?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Teams can start with a free QVeris account that includes 1,000 credits on signup plus 100 daily credits. The Pro plan at $19/month provides 10,000 credits and access to all 10,000+ verified capabilities. For enterprise teams needing dedicated support, custom integrations, volume discounts, or custom SLAs, contact QVeris sales to discuss an Enterprise plan tailored to your finance workflows."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+  /* ===== CSS Custom Properties ===== */
+  :root {
+    --bg-deep: #06080f;
+    --bg-primary: #0a0e17;
+    --bg-secondary: #0f1420;
+    --bg-card: rgba(15, 20, 35, 0.65);
+    --bg-card-hover: rgba(18, 24, 42, 0.82);
+    --border-subtle: rgba(255, 255, 255, 0.06);
+    --border-card: rgba(255, 255, 255, 0.08);
+    --border-accent: rgba(56, 182, 255, 0.18);
+    --text-primary: #e8ecf2;
+    --text-secondary: #9aa4b8;
+    --text-muted: #5f6b80;
+    --accent-blue: #38b6ff;
+    --accent-cyan: #22d3ee;
+    --accent-violet: #8b5cf6;
+    --accent-violet-light: #a78bfa;
+    --accent-green: #34d399;
+    --accent-amber: #fbbf24;
+    --glass-blur: blur(24px);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+    --max-width: 1200px;
+    --transition-fast: 160ms ease;
+    --transition-smooth: 280ms ease;
+  }
+
+  /* ===== Reset ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: -2;
+    background: var(--bg-deep);
+  }
+  body::after {
+    content: '';
+    position: fixed; top: -40%; left: -20%; width: 140%; height: 140%; z-index: -1;
+    background:
+      radial-gradient(ellipse 50% 40% at 15% 0%, rgba(56, 182, 255, 0.04) 0%, transparent 55%),
+      radial-gradient(ellipse 45% 35% at 85% 20%, rgba(139, 92, 246, 0.04) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 50% at 50% 100%, rgba(34, 211, 238, 0.02) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .grid-bg {
+    position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.028;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  /* ===== Typography ===== */
+  h1, h2, h3, h4 { font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; }
+  h1 { font-size: clamp(2.2rem, 4vw, 3.5rem); letter-spacing: -0.03em; }
+  h2 { font-size: clamp(1.65rem, 2.8vw, 2.25rem); }
+  h3 { font-size: 1.175rem; letter-spacing: -0.01em; }
+  p { color: var(--text-secondary); }
+  a { color: var(--accent-blue); text-decoration: none; transition: color var(--transition-fast); }
+  a:hover { color: var(--accent-cyan); }
+
+  /* ===== Layout ===== */
+  .container { width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+  section { padding: 90px 0; position: relative; }
+  .section-label {
+    display: inline-block;
+    font-size: 0.8rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--accent-blue); margin-bottom: 12px;
+  }
+  .section-header { text-align: center; margin-bottom: 56px; }
+  .section-header h2 { margin-bottom: 12px; }
+  .section-header p { max-width: 620px; margin: 0 auto; font-size: 1.05rem; }
+
+  /* ===== Header / Navigation ===== */
+  .site-header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(6, 8, 15, 0.78);
+    backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .header-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    max-width: var(--max-width); margin: 0 auto; padding: 0 24px; height: 60px;
+  }
+  .logo {
+    display: flex; align-items: center; gap: 9px;
+    font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text-primary);
+    text-decoration: none;
+  }
+  .logo-icon {
+    width: 30px; height: 30px; border-radius: 7px;
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-violet) 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.95rem; color: #fff; font-weight: 800;
+  }
+  .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+  .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--text-secondary); transition: color var(--transition-fast); }
+  .nav-links a:hover { color: var(--text-primary); }
+  .nav-links a.nav-active { color: var(--accent-blue); }
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 10px 20px; border-radius: 8px; font-size: 0.875rem; font-weight: 600;
+    border: none; cursor: pointer; transition: all var(--transition-fast);
+    text-decoration: none; white-space: nowrap;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--accent-blue) 0%, #2b8fd9 100%);
+    color: #fff; box-shadow: 0 2px 14px rgba(56, 182, 255, 0.25);
+  }
+  .btn-primary:hover { box-shadow: 0 4px 22px rgba(56, 182, 255, 0.40); color: #fff; transform: translateY(-1px); }
+  .btn-secondary {
+    background: rgba(255,255,255,0.05); color: var(--text-primary);
+    border: 1px solid var(--border-card);
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.09); border-color: var(--border-accent); color: #fff; }
+  .btn-large { padding: 14px 28px; font-size: 0.95rem; border-radius: 10px; }
+
+  /* ===== Hero ===== */
+  .hero { padding: 140px 0 80px; text-align: center; position: relative; }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 400px;
+    background: radial-gradient(ellipse 70% 60% at 50% 10%, rgba(56, 182, 255, 0.10) 0%, transparent 65%),
+                radial-gradient(ellipse 50% 60% at 80% 50%, rgba(139, 92, 246, 0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(56, 182, 255, 0.08); border: 1px solid var(--border-accent);
+    border-radius: 50px; padding: 6px 16px; font-size: 0.8rem; font-weight: 500;
+    color: var(--accent-cyan); margin-bottom: 28px;
+  }
+  .hero-badge-dot {
+    width: 7px; height: 7px; border-radius: 50%; background: var(--accent-green);
+    box-shadow: 0 0 8px rgba(52, 211, 153, 0.6);
+    animation: pulse-dot 2.2s ease-in-out infinite;
+  }
+  @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+  .hero h1 { max-width: 780px; margin: 0 auto 18px; }
+  .hero-subtitle { max-width: 680px; margin: 0 auto 36px; font-size: 1.1rem; }
+  .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 50px; }
+
+  /* ===== Card Grids ===== */
+  .card-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .card-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .card-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .card-grid-6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+  .info-card {
+    background: var(--bg-card); border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg); padding: 28px 24px;
+    backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+    transition: border-color var(--transition-smooth), transform var(--transition-smooth);
+  }
+  .info-card:hover { border-color: var(--border-accent); transform: translateY(-2px); }
+  .info-card-icon {
+    width: 42px; height: 42px; border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.25rem; margin-bottom: 16px;
+  }
+  .info-card h3 { margin-bottom: 8px; font-size: 1.05rem; }
+  .info-card p { font-size: 0.88rem; }
+
+  .ic-blue .info-card-icon { background: rgba(56,182,255,0.12); color: var(--accent-blue); }
+  .ic-violet .info-card-icon { background: rgba(139,92,246,0.12); color: var(--accent-violet-light); }
+  .ic-cyan .info-card-icon { background: rgba(34,211,238,0.12); color: var(--accent-cyan); }
+  .ic-green .info-card-icon { background: rgba(52,211,153,0.12); color: var(--accent-green); }
+  .ic-amber .info-card-icon { background: rgba(251,191,36,0.12); color: var(--accent-amber); }
+
+  /* ===== Flow Cards (Discover / Inspect / Call) ===== */
+  .flow-cards {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 820px;
+    margin: 0 auto;
+  }
+  .flow-card {
+    background: var(--bg-card); border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg); padding: 26px 22px; text-align: left;
+    backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+    transition: border-color var(--transition-smooth), transform var(--transition-smooth);
+    position: relative; overflow: hidden;
+  }
+  .flow-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
+  .flow-card:nth-child(1)::before { background: linear-gradient(90deg, var(--accent-blue), transparent); }
+  .flow-card:nth-child(2)::before { background: linear-gradient(90deg, var(--accent-violet), transparent); }
+  .flow-card:nth-child(3)::before { background: linear-gradient(90deg, var(--accent-cyan), transparent); }
+  .flow-card:hover { border-color: var(--border-accent); transform: translateY(-2px); }
+  .flow-card-icon {
+    width: 40px; height: 40px; border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; margin-bottom: 14px;
+  }
+  .fc-discover .flow-card-icon { background: rgba(56,182,255,0.12); color: var(--accent-blue); }
+  .fc-inspect .flow-card-icon { background: rgba(139,92,246,0.12); color: var(--accent-violet-light); }
+  .fc-call .flow-card-icon { background: rgba(34,211,238,0.12); color: var(--accent-cyan); }
+  .flow-card .flow-card-title { font-size: 1rem; margin-bottom: 4px; font-weight: 600; display: block; }
+  .flow-card .flow-badge {
+    display: inline-block; font-size: 0.68rem; font-weight: 600;
+    padding: 2px 8px; border-radius: 50px; margin-bottom: 10px;
+  }
+  .fc-discover .flow-badge { background: rgba(56,182,255,0.12); color: var(--accent-blue); }
+  .fc-inspect .flow-badge { background: rgba(139,92,246,0.12); color: var(--accent-violet-light); }
+  .fc-call .flow-badge { background: rgba(34,211,238,0.12); color: var(--accent-cyan); }
+  .flow-card p { font-size: 0.85rem; }
+
+  /* ===== Comparison Table ===== */
+  .compare-table-wrap { overflow-x: auto; }
+  .compare-table {
+    width: 100%; border-collapse: separate; border-spacing: 0;
+    border: 1px solid var(--border-card); border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .compare-table thead th {
+    background: rgba(15,20,35,0.9); padding: 16px 18px; text-align: left;
+    font-weight: 600; font-size: 0.85rem; border-bottom: 1px solid var(--border-card);
+  }
+  .compare-table tbody td {
+    padding: 14px 18px; font-size: 0.84rem; color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .compare-table tbody tr:last-child td { border-bottom: none; }
+  .compare-table tbody td:first-child { font-weight: 500; color: var(--text-primary); }
+  .compare-table .highlight-col { background: rgba(56,182,255,0.025); }
+  .compare-table .yes { color: var(--accent-green); font-weight: 600; }
+  .compare-table .no { color: var(--text-muted); }
+  .compare-table .partial { color: var(--accent-amber); }
+
+  /* ===== FAQ ===== */
+  .faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+  details.faq-item {
+    background: var(--bg-card); border: 1px solid var(--border-card);
+    border-radius: var(--radius-md); overflow: hidden;
+    backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+    transition: border-color var(--transition-fast);
+  }
+  details.faq-item:hover { border-color: var(--border-accent); }
+  details.faq-item summary {
+    padding: 18px 22px; font-weight: 600; font-size: 0.95rem;
+    cursor: pointer; list-style: none;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  details.faq-item summary::-webkit-details-marker { display: none; }
+  details.faq-item summary::after {
+    content: '+'; font-size: 1.3rem; font-weight: 300; color: var(--text-muted);
+    transition: transform var(--transition-fast);
+  }
+  details.faq-item[open] summary::after { content: '−'; transform: rotate(180deg); }
+  .faq-answer { padding: 0 22px 20px; font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; }
+
+  /* ===== CTA Section ===== */
+  .cta-section { text-align: center; padding: 100px 0; position: relative; }
+  .cta-section::before {
+    content: '';
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 300px;
+    background: radial-gradient(ellipse 60% 70% at 50% 20%, rgba(56,182,255,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-card {
+    background: var(--bg-card); border: 1px solid var(--border-card);
+    border-radius: var(--radius-xl); padding: 52px 36px; max-width: 620px; margin: 0 auto;
+    backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+  }
+  .cta-card h2 { margin-bottom: 12px; }
+  .cta-card p { margin-bottom: 28px; font-size: 1.02rem; }
+  .cta-card .btn-group { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  /* ===== Footer ===== */
+  .site-footer { border-top: 1px solid var(--border-subtle); padding: 48px 0 32px; }
+  .footer-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
+    max-width: var(--max-width); margin: 0 auto; padding: 0 24px;
+  }
+  .footer-col h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 16px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-col a { font-size: 0.875rem; color: var(--text-secondary); }
+  .footer-col a:hover { color: var(--text-primary); }
+  .footer-bottom {
+    max-width: var(--max-width); margin: 36px auto 0; padding: 20px 24px 0;
+    border-top: 1px solid var(--border-subtle);
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 0.8rem; color: var(--text-muted);
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 1024px) {
+    .card-grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .card-grid-6 { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero { padding: 120px 0 60px; }
+    .flow-cards { grid-template-columns: 1fr; max-width: 380px; }
+    .card-grid-2, .card-grid-3, .card-grid-4, .card-grid-6 { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    section { padding: 60px 0; }
+    .compare-table thead th, .compare-table tbody td { padding: 12px 14px; font-size: 0.76rem; }
+  }
+  @media (max-width: 480px) {
+    .hero-actions { flex-direction: column; align-items: center; }
+    .hero-actions .btn { width: 100%; justify-content: center; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+  }
+
+/* Modal */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+.modal-dialog {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  max-width: 440px;
+  width: 90%;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
+.modal-dialog h2 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+.modal-dialog p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.modal-close {
+  position: absolute;
+  top: 10px; right: 14px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.6rem;
+  cursor: pointer;
+  line-height: 1;
+}
+.modal-close:hover {
+  color: var(--text-primary);
+}
+.modal-email {
+  display: inline-block;
+  color: var(--accent-primary);
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px 24px;
+  border: 1px solid rgba(56,182,255,0.3);
+  border-radius: var(--radius);
+  transition: background 0.2s;
+}
+.modal-email:hover {
+  background: rgba(56,182,255,0.08);
+}
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<!-- ===== Header / Navigation ===== -->
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="https://qveris.ai" class="logo" aria-label="QVeris Home">
+      <img src="https://qveris.ai/logo-color.png" alt="QVeris AI" class="logo-img" width="28" height="28" style="border-radius:6px;vertical-align:middle;display:inline-block">
+      <span>QVeris</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links">
+        <li><a href="../platform/index.html">Platform</a></li>
+        <li><a href="#why-qveris-for-finance-ai-agents" class="nav-active">Finance Capabilities</a></li>
+        <li><a href="../finance-capabilities/index.html">Capabilities</a></li>
+        <li><a href="https://qveris.ai/pricing">Pricing</a></li>
+        <li><a href="#finance-use-cases">Use Cases</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== Breadcrumb ===== -->
+<nav aria-label="Breadcrumb" style="padding-top:72px;background:var(--bg-deep);">
+  <div class="container">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList" style="list-style:none;display:flex;gap:8px;font-size:0.8rem;color:var(--text-muted);padding:12px 0 0;margin:0;">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="https://qveris.ai" style="color:var(--text-muted);"><span itemprop="name">Home</span></a>
+        <meta itemprop="position" content="1">
+        <span style="margin-left:8px;">/</span>
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span itemprop="name" style="color:var(--text-secondary);">Finance AI Agents</span>
+        <meta itemprop="position" content="2">
+      </li>
+    </ol>
+  </div>
+</nav>
+
+<!-- ===== Main Content ===== -->
+<main>
+
+  <!-- Hero Section -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="container">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Finance Capability Routing
+      </div>
+      <h1 id="hero-heading">Finance AI Agent Tools, Routed Through QVeris</h1>
+      <p class="hero-subtitle">
+        QVeris helps AI agents discover, inspect, and call verified finance-related tools, APIs, live data, and external services through one unified capability routing layer. Not a single API. Not a static directory. An agent-native routing network built for finance workflows.
+      </p>
+      <div class="hero-actions">
+        <a href="https://qveris.ai/capabilities/explore?domain=quant-trading" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">Explore Finance Capabilities</a>
+        <a href="#" class="btn btn-secondary btn-large" onclick="document.getElementById('contact-modal').style.display='flex';return false;">Contact QVeris</a>
+      </div>
+
+      <!-- Finance Routing Network Visual -->
+      <div style="text-align:center;">
+        <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20160%22%3E%3Crect%20width%3D%22400%22%20height%3D%22160%22%20fill%3D%22%230a0e17%22%20rx%3D%2212%22%2F%3E%3Crect%20x%3D%22140%22%20y%3D%2240%22%20width%3D%22120%22%20height%3D%2280%22%20rx%3D%2212%22%20fill%3D%22rgba%2856%2C182%2C255%2C0.1%29%22%20stroke%3D%22rgba%2856%2C182%2C255%2C0.25%29%22%20stroke-width%3D%221%22%2F%3E%3Ctext%20x%3D%22200%22%20y%3D%2272%22%20text-anchor%3D%22middle%22%20fill%3D%22%2338b6ff%22%20font-size%3D%2212%22%20font-weight%3D%22700%22%20font-family%3D%22sans-serif%22%3EQVeris%3C%2Ftext%3E%3Ctext%20x%3D%22200%22%20y%3D%2292%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3ECapability%20Router%3C%2Ftext%3E%3Ctext%20x%3D%22200%22%20y%3D%22108%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3EFinance%20Layer%3C%2Ftext%3E%3Crect%20x%3D%2212%22%20y%3D%2220%22%20width%3D%2255%22%20height%3D%2224%22%20rx%3D%225%22%20fill%3D%22rgba%2856%2C182%2C255%2C0.08%29%22%20stroke%3D%22rgba%2856%2C182%2C255%2C0.2%29%22%20stroke-width%3D%220.5%22%2F%3E%3Ctext%20x%3D%2239%22%20y%3D%2236%22%20text-anchor%3D%22middle%22%20fill%3D%22%239aa4b8%22%20font-size%3D%227%22%20font-family%3D%22sans-serif%22%3EMarket%20Data%3C%2Ftext%3E%3Cline%20x1%3D%2267%22%20y1%3D%2232%22%20x2%3D%22140%22%20y2%3D%2265%22%20stroke%3D%22rgba%2856%2C182%2C255%2C0.2%29%22%20stroke-width%3D%220.5%22%2F%3E%3Crect%20x%3D%2212%22%20y%3D%2255%22%20width%3D%2255%22%20height%3D%2224%22%20rx%3D%225%22%20fill%3D%22rgba%28139%2C92%2C246%2C0.08%29%22%20stroke%3D%22rgba%28139%2C92%2C246%2C0.2%29%22%20stroke-width%3D%220.5%22%2F%3E%3Ctext%20x%3D%2239%22%20y%3D%2271%22%20text-anchor%3D%22middle%22%20fill%3D%22%239aa4b8%22%20font-size%3D%227%22%20font-family%3D%22sans-serif%22%3EResearch%3C%2Ftext%3E%3Cline%20x1%3D%2267%22%20y1%3D%2267%22%20x2%3D%22140%22%20y2%3D%2280%22%20stroke%3D%22rgba%28139%2C92%2C246%2C0.2%29%22%20stroke-width%3D%220.5%22%2F%3E%3Crect%20x%3D%2212%22%20y%3D%2290%22%20width%3D%2255%22%20height%3D%2224%22%20rx%3D%225%22%20fill%3D%22rgba%2834%2C211%2C238%2C0.08%29%22%20stroke%3D%22rgba%2834%2C211%2C238%2C0.2%29%22%20stroke-width%3D%220.5%22%2F%3E%3Ctext%20x%3D%2239%22%20y%3D%22106%22%20text-anchor%3D%22middle%22%20fill%3D%22%239aa4b8%22%20font-size%3D%227%22%20font-family%3D%22sans-serif%22%3ECompliance%3C%2Ftext%3E%3Cline%20x1%3D%2267%22%20y1%3D%22102%22%20x2%3D%22140%22%20y2%3D%2295%22%20stroke%3D%22rgba%2834%2C211%2C238%2C0.2%29%22%20stroke-width%3D%220.5%22%2F%3E%3Crect%20x%3D%22333%22%20y%3D%2220%22%20width%3D%2255%22%20height%3D%2224%22%20rx%3D%225%22%20fill%3D%22rgba%2852%2C211%2C153%2C0.08%29%22%20stroke%3D%22rgba%2852%2C211%2C153%2C0.2%29%22%20stroke-width%3D%220.5%22%2F%3E%3Ctext%20x%3D%22360%22%20y%3D%2236%22%20text-anchor%3D%22middle%22%20fill%3D%22%239aa4b8%22%20font-size%3D%227%22%20font-family%3D%22sans-serif%22%3ECrypto%3C%2Ftext%3E%3Cline%20x1%3D%22260%22%20y1%3D%2265%22%20x2%3D%22333%22%20y2%3D%2232%22%20stroke%3D%22rgba%2852%2C211%2C153%2C0.2%29%22%20stroke-width%3D%220.5%22%2F%3E%3Crect%20x%3D%22333%22%20y%3D%2255%22%20width%3D%2255%22%20height%3D%2224%22%20rx%3D%225%22%20fill%3D%22rgba%28251%2C191%2C36%2C0.08%29%22%20stroke%3D%22rgba%28251%2C191%2C36%2C0.2%29%22%20stroke-width%3D%220.5%22%2F%3E%3Ctext%20x%3D%22360%22%20y%3D%2271%22%20text-anchor%3D%22middle%22%20fill%3D%22%239aa4b8%22%20font-size%3D%227%22%20font-family%3D%22sans-serif%22%3EAlt%20Data%3C%2Ftext%3E%3Cline%20x1%3D%22260%22%20y1%3D%2280%22%20x2%3D%22333%22%20y2%3D%2267%22%20stroke%3D%22rgba%28251%2C191%2C36%2C0.2%29%22%20stroke-width%3D%220.5%22%2F%3E%3Crect%20x%3D%22333%22%20y%3D%2290%22%20width%3D%2255%22%20height%3D%2224%22%20rx%3D%225%22%20fill%3D%22rgba%28167%2C139%2C250%2C0.08%29%22%20stroke%3D%22rgba%28167%2C139%2C250%2C0.2%29%22%20stroke-width%3D%220.5%22%2F%3E%3Ctext%20x%3D%22360%22%20y%3D%22106%22%20text-anchor%3D%22middle%22%20fill%3D%22%239aa4b8%22%20font-size%3D%227%22%20font-family%3D%22sans-serif%22%3EMacro%3C%2Ftext%3E%3Cline%20x1%3D%22260%22%20y1%3D%2295%22%20x2%3D%22333%22%20y2%3D%22102%22%20stroke%3D%22rgba%28167%2C139%2C250%2C0.2%29%22%20stroke-width%3D%220.5%22%2F%3E%3Ctext%20x%3D%22200%22%20y%3D%22150%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3EDiscover%20%C2%B7%20Inspect%20%C2%B7%20Call%20%E2%80%94%20One%20Unified%20Protocol%3C%2Ftext%3E%3C%2Fsvg%3E" alt="QVeris finance capability routing network connecting Market Data, Research, Compliance, Crypto, Alt Data, and Macro data sources through one unified protocol" style="width:100%;max-width:500px;height:auto;" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Differentiation Section -->
+  <section id="why-qveris-for-finance-ai-agents" aria-labelledby="why-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Why QVeris</span>
+        <h2 id="why-heading">Why QVeris for finance AI agents</h2>
+        <p>QVeris is not a single finance API, a generic marketplace, or a static directory. It is an agent-native capability routing layer purpose-built for how AI agents discover and use financial data.</p>
+      </div>
+      <div class="card-grid-4">
+        <div class="info-card ic-blue">
+          <div class="info-card-icon">🤖</div>
+          <h3>Agent-native discovery</h3>
+          <p>Agents describe what finance data they need in natural language. QVeris returns ranked, verified matches — no pre-coded endpoints, no hardcoded provider logic.</p>
+        </div>
+        <div class="info-card ic-violet">
+          <div class="info-card-icon">✅</div>
+          <h3>Verified finance capabilities</h3>
+          <p>Every capability includes quality signals — success rate, average latency, and estimated cost. Agents inspect before committing. Zero-cost decision-making.</p>
+        </div>
+        <div class="info-card ic-cyan">
+          <div class="info-card-icon">🔗</div>
+          <h3>Unified routing layer</h3>
+          <p>One API key. One protocol. Market data, research, compliance, crypto, macro, and alt signals all routed through the same discover-inspect-call workflow.</p>
+        </div>
+        <div class="info-card ic-green">
+          <div class="info-card-icon">⚡</div>
+          <h3>Production-ready execution</h3>
+          <p>Sandboxed runtime, structured JSON responses, unique execution IDs, and full session tracing. Built for teams running finance agents in production.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Finance Capability Categories -->
+  <section id="finance-categories" aria-labelledby="categories-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Finance Capabilities</span>
+        <h2 id="categories-heading">Finance capability categories</h2>
+        <p>QVeris provides verified access across six finance domains. Each category includes capabilities sourced from multiple providers, with transparent quality metrics.</p>
+      </div>
+      <div class="card-grid-3">
+        <div class="info-card ic-blue">
+          <div class="info-card-icon">📈</div>
+          <h3>Market data &amp; price intelligence</h3>
+          <p>Access verified capabilities for equities, FX, commodities, and index data. Built for quantitative workflows, trading agents, and market monitoring systems.</p>
+        </div>
+        <div class="info-card ic-violet">
+          <div class="info-card-icon">📊</div>
+          <h3>Investment research</h3>
+          <p>Earnings data, analyst consensus, valuation models, and fundamentals. Give your research agent a complete data foundation for company and sector analysis.</p>
+        </div>
+        <div class="info-card ic-amber">
+          <div class="info-card-icon">🏦</div>
+          <h3>Macro &amp; fixed income</h3>
+          <p>Interest rates, yield curves, inflation data, and macroeconomic indicators. Support for fixed income analysis and top-down research workflows.</p>
+        </div>
+        <div class="info-card ic-green">
+          <div class="info-card-icon">🛡️</div>
+          <h3>Risk &amp; compliance</h3>
+          <p>KYC verification, sanctions screening, regulatory data. Full audit trail for every call — built for compliance-aware workflows.</p>
+        </div>
+        <div class="info-card ic-cyan">
+          <div class="info-card-icon">₿</div>
+          <h3>Crypto &amp; on-chain data</h3>
+          <p>Blockchain data, DeFi metrics, stablecoin flows, and on-chain signals. Access blockchain data and on-chain metrics for cross-asset workflows.</p>
+        </div>
+        <div class="info-card ic-amber">
+          <div class="info-card-icon">📡</div>
+          <h3>Alternative data &amp; signals</h3>
+          <p>News sentiment, social media analytics, event-driven indicators, and macroeconomic surprise data. Go beyond standard datasets for alpha generation.</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:32px;">
+        <a href="https://qveris.ai/pricing" class="btn btn-secondary">See Pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Discover / Inspect / Call for Finance -->
+  <section aria-labelledby="workflow-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Workflow</span>
+        <h2 id="workflow-heading">Discover. Inspect. Call. — for finance workflows</h2>
+        <p>Three steps. Discovery and inspection are always free. You only spend credits when your agent makes a call.</p>
+      </div>
+
+      <div style="text-align:center;margin-bottom:36px;">
+        <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20150%22%3E%3Crect%20width%3D%22400%22%20height%3D%22150%22%20fill%3D%22%230a0e17%22%20rx%3D%2212%22%2F%3E%3Crect%20x%3D%2218%22%20y%3D%2230%22%20width%3D%22100%22%20height%3D%2290%22%20rx%3D%228%22%20fill%3D%22rgba%2856%2C182%2C255%2C0.1%29%22%20stroke%3D%22rgba%2856%2C182%2C255%2C0.25%29%22%20stroke-width%3D%221%22%2F%3E%3Ctext%20x%3D%2268%22%20y%3D%2265%22%20text-anchor%3D%22middle%22%20fill%3D%22%2338b6ff%22%20font-size%3D%2212%22%20font-weight%3D%22700%22%20font-family%3D%22sans-serif%22%3EDiscover%3C%2Ftext%3E%3Ctext%20x%3D%2268%22%20y%3D%2285%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3ENatural%20Language%3C%2Ftext%3E%3Ctext%20x%3D%2268%22%20y%3D%22100%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3ERanked%20Matches%3C%2Ftext%3E%3Ctext%20x%3D%2268%22%20y%3D%22115%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3EAlways%20Free%3C%2Ftext%3E%3Cline%20x1%3D%22118%22%20y1%3D%2275%22%20x2%3D%22143%22%20y2%3D%2275%22%20stroke%3D%22rgba%2856%2C182%2C255%2C0.3%29%22%20stroke-width%3D%221%22%2F%3E%3Cpolygon%20points%3D%22143%2C71%20150%2C75%20143%2C79%22%20fill%3D%22rgba%2856%2C182%2C255%2C0.35%29%22%2F%3E%3Crect%20x%3D%22153%22%20y%3D%2230%22%20width%3D%22100%22%20height%3D%2290%22%20rx%3D%228%22%20fill%3D%22rgba%28139%2C92%2C246%2C0.1%29%22%20stroke%3D%22rgba%28139%2C92%2C246%2C0.25%29%22%20stroke-width%3D%221%22%2F%3E%3Ctext%20x%3D%22203%22%20y%3D%2265%22%20text-anchor%3D%22middle%22%20fill%3D%22%23a78bfa%22%20font-size%3D%2212%22%20font-weight%3D%22700%22%20font-family%3D%22sans-serif%22%3EInspect%3C%2Ftext%3E%3Ctext%20x%3D%22203%22%20y%3D%2285%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3ESchema%20Review%3C%2Ftext%3E%3Ctext%20x%3D%22203%22%20y%3D%22100%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3ECost%20Preview%3C%2Ftext%3E%3Ctext%20x%3D%22203%22%20y%3D%22115%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3EAlways%20Free%3C%2Ftext%3E%3Cline%20x1%3D%22253%22%20y1%3D%2275%22%20x2%3D%22278%22%20y2%3D%2275%22%20stroke%3D%22rgba%28139%2C92%2C246%2C0.3%29%22%20stroke-width%3D%221%22%2F%3E%3Cpolygon%20points%3D%22278%2C71%20285%2C75%20278%2C79%22%20fill%3D%22rgba%28139%2C92%2C246%2C0.35%29%22%2F%3E%3Crect%20x%3D%22288%22%20y%3D%2230%22%20width%3D%22100%22%20height%3D%2290%22%20rx%3D%228%22%20fill%3D%22rgba%2852%2C211%2C153%2C0.1%29%22%20stroke%3D%22rgba%2852%2C211%2C153%2C0.25%29%22%20stroke-width%3D%221%22%2F%3E%3Ctext%20x%3D%22338%22%20y%3D%2265%22%20text-anchor%3D%22middle%22%20fill%3D%22%2334d399%22%20font-size%3D%2212%22%20font-weight%3D%22700%22%20font-family%3D%22sans-serif%22%3ECall%3C%2Ftext%3E%3Ctext%20x%3D%22338%22%20y%3D%2285%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3EStructured%20JSON%3C%2Ftext%3E%3Ctext%20x%3D%22338%22%20y%3D%22100%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3EExecution%20ID%3C%2Ftext%3E%3Ctext%20x%3D%22338%22%20y%3D%22115%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3ECredits-Based%3C%2Ftext%3E%3Ctext%20x%3D%22203%22%20y%3D%22143%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3EFinancial%20Data%20%C2%B7%20Research%20%C2%B7%20Compliance%20%C2%B7%20Crypto%20%C2%B7%20Macro%20%C2%B7%20Alt%20Signals%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Finance agent workflow: Discover finance capabilities through natural language, Inspect schemas and costs before committing, Call with structured execution and audit trail" style="width:100%;max-width:520px;height:auto;" loading="lazy">
+      </div>
+
+      <div class="flow-cards">
+        <div class="flow-card fc-discover">
+          <span class="flow-badge">Always Free</span>
+          <div class="flow-card-icon">🔍</div>
+          <span class="flow-card-title">Discover finance capabilities</span>
+          <p>Your agent describes the finance data it needs — "today's S&P 500 movers" or "KYC check on this entity" — and QVeris returns ranked, verified matches with cost, latency, and success rate. No hardcoded endpoints needed.</p>
+        </div>
+        <div class="flow-card fc-inspect">
+          <span class="flow-badge">Always Free</span>
+          <div class="flow-card-icon">⚙️</div>
+          <span class="flow-card-title">Inspect before committing</span>
+          <p>Review the full parameter schema, billing rules, provider information, and quality metrics of any finance capability before your agent commits. Zero-cost decision-making with full transparency.</p>
+        </div>
+        <div class="flow-card fc-call">
+          <span class="flow-badge">Credits-Based</span>
+          <div class="flow-card-icon">⚡</div>
+          <span class="flow-card-title">Call with structured execution</span>
+          <p>Execute through a sandboxed environment. Structured JSON response with execution ID, billing details, and credit balance — fully auditable and ready for downstream finance workflows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section id="finance-use-cases" aria-labelledby="usecases-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Use Cases</span>
+        <h2 id="usecases-heading">Finance use cases</h2>
+        <p>From stock research agents to compliance automation, QVeris powers the tool-calling layer behind production finance AI agents.</p>
+      </div>
+      <div class="card-grid-3">
+        <div class="info-card ic-blue">
+          <div class="info-card-icon">📊</div>
+          <h3>Stock research AI agents</h3>
+          <p>Give equity research agents on-demand access to market data, fundamentals, and earnings data through one unified API. Agents discover the right data source dynamically.</p>
+        </div>
+        <div class="info-card ic-violet">
+          <div class="info-card-icon">🔬</div>
+          <h3>Investment research automation</h3>
+          <p>Automate earnings analysis, peer comparison, and macro research. Agents discover and call the right data sources as research questions evolve — no pre-wired integrations.</p>
+        </div>
+        <div class="info-card ic-cyan">
+          <div class="info-card-icon">🧠</div>
+          <h3>Market intelligence workflows</h3>
+          <p>Power market monitoring agents with real-time data, sentiment signals, and cross-asset intelligence. Combine traditional and alternative data through one protocol.</p>
+        </div>
+        <div class="info-card ic-green">
+          <div class="info-card-icon">✅</div>
+          <h3>Risk &amp; compliance monitoring</h3>
+          <p>Embed KYC, sanctions screening, and regulatory checks into agent workflows. Full audit trail with execution IDs for every compliance-related call.</p>
+        </div>
+        <div class="info-card ic-amber">
+          <div class="info-card-icon">₿</div>
+          <h3>Crypto &amp; on-chain analysis</h3>
+          <p>Build agents that monitor DeFi metrics, track stablecoin flows, and analyze wallet activity. Cross-asset workflows spanning crypto and traditional markets.</p>
+        </div>
+        <div class="info-card ic-blue">
+          <div class="info-card-icon">🏗️</div>
+          <h3>Finance-enabled SaaS agents</h3>
+          <p>Ship AI-native finance products where agents dynamically discover and call finance capabilities at runtime. Outsource the tool-integration layer to QVeris.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Section -->
+  <section aria-labelledby="compare-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Compare</span>
+        <h2 id="compare-heading">How QVeris compares</h2>
+        <p>QVeris sits at a different layer of the finance data stack. Here is how it relates to other approaches.</p>
+      </div>
+      <div class="compare-table-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Capability</th>
+              <th class="highlight-col">QVeris</th>
+              <th>Manual Finance API Integration</th>
+              <th>Generic API Marketplace</th>
+              <th>Static Tool Directory</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Agent-native discovery</td>
+              <td class="highlight-col yes">Natural language, dynamic</td>
+              <td class="no">Must pre-code each endpoint</td>
+              <td class="no">Keyword search, human-driven</td>
+              <td class="no">Browse by category</td>
+            </tr>
+            <tr>
+              <td>Cost &amp; quality preview</td>
+              <td class="highlight-col yes">Cost, latency, success rate before calling</td>
+              <td class="no">No preview — call and see</td>
+              <td class="partial">Pricing page, not programmatic</td>
+              <td class="no">Not available</td>
+            </tr>
+            <tr>
+              <td>Unified protocol</td>
+              <td class="highlight-col yes">One API for all finance capabilities</td>
+              <td class="no">N different APIs, auth, schemas</td>
+              <td class="partial">Aggregated, limited depth</td>
+              <td class="no">No protocol — links only</td>
+            </tr>
+            <tr>
+              <td>Provider transparency</td>
+              <td class="highlight-col yes">Full provider visibility per capability</td>
+              <td class="yes">Full visibility</td>
+              <td class="no">Often opaque</td>
+              <td class="no">Listed but unverified</td>
+            </tr>
+            <tr>
+              <td>Structured execution</td>
+              <td class="highlight-col yes">Sandboxed, JSON, execution ID, audit trail</td>
+              <td class="no">Direct call, provider-dependent</td>
+              <td class="no">Varies by provider</td>
+              <td class="no">None</td>
+            </tr>
+            <tr>
+              <td>Finance capability breadth</td>
+              <td class="highlight-col yes">6 domains, 10,000+ capabilities</td>
+              <td class="partial">Limited to integrated APIs</td>
+              <td class="partial">Broad but shallow</td>
+              <td class="no">Listings only</td>
+            </tr>
+            <tr>
+              <td>MCP server support</td>
+              <td class="highlight-col yes">Native MCP server</td>
+              <td class="no">None</td>
+              <td class="no">None</td>
+              <td class="no">None</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Integration Options -->
+  <section aria-labelledby="integrations-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Integration</span>
+        <h2 id="integrations-heading">Integration options</h2>
+        <p>QVeris meets your finance agent where it runs. All integration methods provide access to the same verified finance capabilities.</p>
+      </div>
+      <div class="card-grid-4">
+        <div class="info-card ic-blue">
+          <div class="info-card-icon">🔖</div>
+          <h3>MCP Server</h3>
+          <p>Native <a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener noreferrer">Model Context Protocol</a> support. If your agent speaks MCP — Claude Code, Cursor, and others — QVeris appears as an MCP server with 10,000+ discoverable finance tools.</p>
+        </div>
+        <div class="info-card ic-violet">
+          <div class="info-card-icon">🐍</div>
+          <h3>Python SDK</h3>
+          <p>Typed client library with automatic retry, session management, and async support. Install in one command and start discovering finance capabilities from Python agents.</p>
+        </div>
+        <div class="info-card ic-cyan">
+          <div class="info-card-icon">🌐</div>
+          <h3>REST API</h3>
+          <p>Standard HTTP interface. Three endpoints: discover, inspect, call. Works from any language, any runtime. Finance data access without framework lock-in.</p>
+        </div>
+        <div class="info-card ic-green">
+          <div class="info-card-icon">⌨️</div>
+          <h3>CLI</h3>
+          <p>Terminal-native workflow for scripting, CI/CD, and local development. Discover, inspect, and call finance capabilities without leaving the command line.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Production Readiness -->
+  <section aria-labelledby="production-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Production Ready</span>
+        <h2 id="production-heading">Built for production finance workflows</h2>
+        <p>QVeris is designed for teams running finance agents in production — not just prototyping.</p>
+      </div>
+      <div class="card-grid-3">
+        <div class="info-card ic-blue">
+          <div class="info-card-icon">🛡️</div>
+          <h3>Structured execution</h3>
+          <p>Every finance capability call executes in a sandboxed environment with structured JSON output, full parameter validation, and consistent response schemas your agent can parse reliably.</p>
+        </div>
+        <div class="info-card ic-violet">
+          <div class="info-card-icon">📋</div>
+          <h3>Auditability</h3>
+          <p>Every call produces a unique execution ID linked to a search session and agent session. Full trace from intent to result — built for debugging, compliance, and cost analysis in finance workflows.</p>
+        </div>
+        <div class="info-card ic-cyan">
+          <div class="info-card-icon">📡</div>
+          <h3>Observability</h3>
+          <p>Monitor success rates, execution latency, and credit consumption per capability, per session, and per agent. Make data-driven decisions about which finance capabilities your agents depend on.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Internal Conversion Section -->
+  <section aria-labelledby="next-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Next Steps</span>
+        <h2 id="next-heading">Where to go from here</h2>
+        <p>This page covers QVeris finance capabilities. Explore related product pages to learn more or contact us to discuss your team's finance AI agent needs.</p>
+      </div>
+      <div class="card-grid-4">
+        <div class="info-card ic-blue">
+          <div class="info-card-icon">🏠</div>
+          <h3>Platform Overview</h3>
+          <p>See the full QVeris capability routing network and how it connects AI agents to verified real-world tools.</p>
+          <p style="margin-top:12px;"><a href="../platform/index.html">Explore Platform →</a></p>
+        </div>
+        <div class="info-card ic-violet">
+          <div class="info-card-icon">💎</div>
+          <h3>Pricing</h3>
+          <p>Understand QVeris plans, credit packages, and how pricing scales with your team's finance capability usage.</p>
+          <p style="margin-top:12px;"><a href="/pricing">View Pricing →</a></p>
+        </div>
+        <div class="info-card ic-cyan">
+          <div class="info-card-icon">📂</div>
+          <h3>All Capabilities</h3>
+          <p>Browse all 15+ capability categories beyond finance, including developer tools, document processing, and more.</p>
+          <p style="margin-top:12px;"><a href="/capabilities">Browse Capabilities →</a></p>
+        </div>
+        <div class="info-card ic-green">
+          <div class="info-card-icon">💬</div>
+          <h3>Contact QVeris</h3>
+          <p>Discuss your team's finance AI agent requirements, enterprise needs, or custom capability access with our team.</p>
+          <p style="margin-top:12px;"><a href="#" onclick="document.getElementById('contact-modal').style.display='flex';return false;">Contact Us →</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" aria-labelledby="faq-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">FAQ</span>
+        <h2 id="faq-heading">Frequently asked questions</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What are finance AI agent tools?</summary>
+          <div class="faq-answer">
+            Finance AI agent tools are verified capabilities that AI agents can discover, inspect, and call to access financial data and execute finance workflows. These include market data, investment research, risk and compliance data, crypto and on-chain data, macro indicators, and alternative signals. QVeris provides these through a unified capability routing network rather than requiring agents to integrate with each financial data source individually.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How does QVeris help finance AI agents?</summary>
+          <div class="faq-answer">
+            QVeris acts as a capability routing layer between AI agents and financial data sources. Agents describe what finance data or capability they need in natural language, QVeris discovers matching verified tools, the agent can inspect schemas and costs before committing, and then calls the selected capability with structured parameters. This replaces manual per-API integration with a unified discover-inspect-call workflow across all finance capability categories.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Is QVeris a financial data provider?</summary>
+          <div class="faq-answer">
+            No. QVeris is not a financial data provider. It is a capability routing network that connects AI agents to verified finance tools, APIs, and data sources from multiple providers through one unified protocol. QVeris handles discovery, inspection, routing, structured execution, and auditability — but the underlying data and capabilities come from a range of verified third-party sources. QVeris makes it easy for agents to find and use finance capabilities without managing each provider separately.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How is QVeris different from a finance API marketplace?</summary>
+          <div class="faq-answer">
+            Unlike a finance API marketplace where developers manually search, read documentation, and integrate each API separately, QVeris is agent-native. AI agents discover finance capabilities using natural language, inspect costs and quality metrics before calling, and execute through one unified API. QVeris also provides structured execution with audit trails, execution IDs, and session tracing — capabilities not offered by standard API marketplaces that are designed for human developers rather than AI agents.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Can QVeris support investment research workflows?</summary>
+          <div class="faq-answer">
+            Yes. QVeris supports investment research workflows by giving AI agents access to verified capabilities for earnings data, analyst consensus, valuation models, fundamentals, and market intelligence. Agents can discover and call the right data sources dynamically as research questions evolve, with structured JSON responses suitable for downstream analysis, modeling, and reporting.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Can QVeris support risk and compliance workflows?</summary>
+          <div class="faq-answer">
+            Yes. QVeris includes verified capabilities for KYC verification, sanctions screening, regulatory data. Every compliance-related call produces a unique execution ID linked to a search session and agent session, providing a full audit trail suitable for compliance-aware environments. Enterprise plans add advanced RBAC. Enterprise options may include dedicated support, custom integrations, volume discounts, and custom SLAs.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Does QVeris support crypto and on-chain data workflows?</summary>
+          <div class="faq-answer">
+            Yes. QVeris offers verified capabilities for blockchain data, DeFi metrics, stablecoin flows, and on-chain signals with access to blockchain data and on-chain metrics. AI agents can discover and call these capabilities through the same unified protocol used for traditional financial data, enabling cross-asset workflows that span both crypto and traditional markets in a single agent session.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How do AI agents call finance capabilities through QVeris?</summary>
+          <div class="faq-answer">
+            AI agents call finance capabilities through QVeris in three steps: Discover — the agent describes what it needs in natural language ("today's sector ETF flows" or "earnings surprise for this ticker") and QVeris returns ranked capability matches with cost, latency, and success rate. Inspect — the agent reviews the full parameter schema, billing rules, and quality metrics at zero cost before committing. Call — the agent submits structured parameters and QVeris executes in a sandboxed environment, returning structured JSON with a unique execution ID, billing details, and remaining credit balance.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Does QVeris support MCP, CLI, Python SDK, or REST API?</summary>
+          <div class="faq-answer">
+            Yes. QVeris provides multiple integration options that all provide access to the same finance capabilities: a native MCP server for <a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener noreferrer">Model Context Protocol</a> compatible agents, a CLI for terminal-native scripting and CI/CD workflows, a Python SDK with typed client, async support, and auto-retry, and a standard REST API at api.qveris.ai/v1. Pricing is based on capability calls, not which interface your agent uses.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How can a team get access to QVeris finance capabilities?</summary>
+          <div class="faq-answer">
+            Teams can start with a free QVeris account that includes 1,000 credits on signup plus 100 daily credits. The Pro plan at $19/month provides 10,000 credits and access to all 10,000+ verified capabilities including full finance domain coverage. Scale On-Demand credit packages are available from $1 with volume bonuses. For enterprise teams needing dedicated support, custom integrations, volume discounts, or custom SLAs, contact QVeris sales to discuss an Enterprise plan tailored to your finance workflows.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>EXPLORE</h4>
+      <ul>
+        <li><a href="https://qveris.ai/search" target="_blank" rel="noopener noreferrer">Tool Finder</a></li>
+        <li><a href="https://qveris.ai/capabilities/explore" target="_blank" rel="noopener noreferrer">Capability Map</a></li>
+        <li><a href="https://qveris.ai/providers" target="_blank" rel="noopener noreferrer">Provider Hub</a></li>
+        <li><a href="https://qveris.ai/playground" target="_blank" rel="noopener noreferrer">Live Demo</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>USE</h4>
+      <ul>
+        <li><a href="https://qveris.ai/qverisbot" target="_blank" rel="noopener noreferrer">QVerisBot</a></li>
+        <li><a href="https://qveris.ai/plugins" target="_blank" rel="noopener noreferrer">Agent Setup</a></li>
+        <li><a href="https://qveris.ai/cli" target="_blank" rel="noopener noreferrer">CLI</a></li>
+        <li><a href="https://qveris.ai/skills" target="_blank" rel="noopener noreferrer">Skill Hub</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>DEVELOPERS</h4>
+      <ul>
+        <li><a href="https://qveris.ai/docs/rest-api" target="_blank" rel="noopener noreferrer">API Reference</a></li>
+        <li><a href="https://qveris.ai/docs/mcp-server" target="_blank" rel="noopener noreferrer">MCP Server</a></li>
+        <li><a href="https://qveris.ai/docs/python-sdk" target="_blank" rel="noopener noreferrer">Python SDK</a></li>
+        <li><a href="https://qveris.ai/docs/cli" target="_blank" rel="noopener noreferrer">CLI Reference</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>COMPANY</h4>
+      <ul>
+        <li><a href="https://qveris.ai/help" target="_blank" rel="noopener noreferrer">Help Center</a></li>
+        <li><a href="https://qveris.ai/privacy" target="_blank" rel="noopener noreferrer">Privacy</a></li>
+        <li><a href="https://qveris.ai/ecosystem" target="_blank" rel="noopener noreferrer">Ecosystem</a></li>
+        <li><a href="https://qveris.ai/security" target="_blank" rel="noopener noreferrer">Security</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 QVeris AI, LLC. All rights reserved.</span>
+    <span>Every capability, one call away.</span>
+  </div>
+</footer>
+
+
+<!-- Contact QVeris Modal -->
+<div class="modal-overlay" id="contact-modal" onclick="if(event.target===this)this.style.display='none'">
+  <div class="modal-dialog">
+    <button class="modal-close" onclick="document.getElementById('contact-modal').style.display='none'" aria-label="Close modal">&times;</button>
+    <h2>Contact QVeris</h2>
+    <p>Please send an email with payment instructions, and we will contact you as soon as possible.</p>
+    <a href="mailto:support@qveris.ai" class="modal-email">support@qveris.ai</a>
+  </div>
+</div>
+<script>
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    var modal = document.getElementById('contact-modal');
+    if (modal) modal.style.display = 'none';
+  }
+});
+</script>
+</body>
+</html>

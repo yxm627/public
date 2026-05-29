@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO Primary -->
+<title>What Is a Capability Routing Network? | QVeris</title>
+<meta name="description" content="Learn what a capability routing network is and how AI agents discover, inspect, and call verified tools, APIs, and live data through one protocol.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://try.qveris.ai/capability-routing-network/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="What Is a Capability Routing Network? | QVeris">
+<meta property="og:description" content="Learn what a capability routing network is and how AI agents discover, inspect, and call verified tools, APIs, and live data through one protocol.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://try.qveris.ai/capability-routing-network/">
+<meta property="og:image" content="https://try.qveris.ai/imgs/og.png">
+<meta property="og:site_name" content="QVeris">
+
+<!-- Favicon & Preconnect -->
+<link rel="icon" type="image/png" href="https://qveris.ai/icon.png">
+<link rel="apple-touch-icon" href="https://qveris.ai/icon.png">
+<link rel="preconnect" href="https://try.qveris.ai">
+<link rel="preconnect" href="https://qveris.ai">
+<link rel="dns-prefetch" href="https://try.qveris.ai">
+<link rel="dns-prefetch" href="https://qveris.ai">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What Is a Capability Routing Network? | QVeris">
+<meta name="twitter:description" content="Learn what a capability routing network is and how AI agents discover, inspect, and call verified tools, APIs, and live data through one protocol.">
+<meta name="twitter:image" content="https://try.qveris.ai/imgs/og.png">
+
+<!-- JSON-LD Schema: WebPage + BreadcrumbList + TechArticle + FAQPage + Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "What Is a Capability Routing Network? | QVeris",
+  "description": "A capability routing network is an infrastructure layer that lets AI agents discover, inspect, and call verified tools, APIs, and live data through one unified protocol. Learn how it works.",
+  "url": "https://try.qveris.ai/capability-routing-network/",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://try.qveris.ai/" },
+      { "@type": "ListItem", "position": 2, "name": "Capability Routing Network", "item": "https://try.qveris.ai/capability-routing-network/" }
+    ]
+  },
+  "mainEntity": [
+    {
+      "@type": "TechArticle",
+      "headline": "What Is a Capability Routing Network?",
+      "description": "An in-depth explanation of capability routing networks — an agent-native infrastructure layer that lets AI agents discover, inspect, and call verified real-world capabilities through one unified protocol.",
+      "proficiencyLevel": "Beginner",
+      "about": {
+        "@type": "Thing",
+        "name": "Capability Routing Network",
+        "description": "An agent-native infrastructure layer that routes AI agents to the right external capabilities — tools, APIs, live data, and external services — based on task, schema, provider, availability, and execution requirements."
+      },
+      "datePublished": "2026-05-28"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a capability routing network?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A capability routing network is an agent-native infrastructure layer that lets AI agents discover, inspect, and call verified real-world capabilities — tools, APIs, live data, and external services — through one unified protocol. Instead of requiring developers to hardcode each integration, the network dynamically routes agent requests to the best-matching capability based on task, parameters, provider availability, cost, latency, and quality signals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do AI agents need capability routing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI agents need capability routing because manually integrating each external tool or data source does not scale. Each API requires separate authentication, error handling, and maintenance. Static tool directories lack execution context. A capability routing network provides dynamic discovery, pre-call inspection, structured execution, and auditability — letting agents focus on task completion rather than integration management."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is capability routing different from tool calling?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tool calling is the mechanism by which an LLM invokes a pre-registered function. Capability routing is the infrastructure layer that sits before tool calling — it handles discovery (finding the right tool dynamically), inspection (reviewing schema and cost before calling), provider selection (routing to the best available provider), and execution (sandboxed, auditable, with structured output). Tool calling is one step; capability routing is the full workflow."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is capability routing different from an API marketplace?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An API marketplace lists APIs for human developers to browse, evaluate, and manually integrate. A capability routing network is agent-native — AI agents discover capabilities using natural language, inspect costs and quality metrics before calling, and execute through one unified protocol. Marketplaces are built for human developers; capability routing networks are built for AI agents to use dynamically at runtime."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is MCP the same as a capability routing network?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The Model Context Protocol (MCP) is a protocol standard that defines how AI agents connect to tools. A capability routing network is an infrastructure layer that can use MCP as one of its integration paths. MCP provides the connection protocol; a capability routing network adds discovery, inspection, provider routing, quality signals, structured execution, and audit trails on top of the protocol layer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does QVeris use capability routing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "QVeris is a capability routing network for AI agents. It provides a three-step workflow: Discover (agents find capabilities using natural language), Inspect (agents review schemas, costs, and quality metrics before committing — always free), and Call (structured execution with audit trails and billing). QVeris supports integration through MCP Server, REST API, Python SDK, and CLI, with 10,000+ verified capabilities across 15+ categories."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What kinds of capabilities can be routed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A capability routing network can route AI agent requests to a wide range of verified capabilities across categories including: quantitative trading data, macro and fixed income, risk and compliance (KYC, sanctions screening), investment research, crypto and on-chain data, alternative signals, PDF parsing, OCR, image generation, weather data, geolocation services, and more. QVeris currently spans 15+ categories with 10,000+ individual capabilities."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can capability routing support finance AI agents?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Finance is one of the strongest use cases for capability routing. QVeris includes verified capabilities across six finance domains: quantitative trading, macro and fixed income, risk and compliance, investment research, crypto and digital assets, and alternative signals. Finance agents can discover and call market data, earnings reports, KYC checks, on-chain data, and more through one unified protocol."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is a capability routing network useful for production AI agents?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Production AI agents benefit from capability routing because it provides structured execution with unique execution IDs, session-level tracing, and full audit trails for every call. QVeris operates with a 99.99% uptime, sub-500ms p95 latency, RBAC access controls, and sandboxed execution — infrastructure characteristics that production workflows require."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can a team get started with capability routing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Teams can get started by exploring the QVeris platform at qveris.ai. QVeris offers a free tier with 1,000 credits on signup plus 100 daily credits, a Pro plan at $19/month for 10,000 credits, and Scale On-Demand options. For enterprise teams, custom plans with dedicated capacity and enterprise support options are available. Start by exploring the platform to understand how capability routing fits your AI agent workflow."
+          }
+        }
+      ]
+    }
+  ],
+  "about": {
+    "@type": "Organization",
+    "name": "QVeris AI, LLC",
+    "url": "https://qveris.ai"
+  }
+}
+</script>
+
+<style>
+  /* ===== CSS Custom Properties ===== */
+  :root {
+    --bg-deep: #06080f;
+    --bg-primary: #0a0e17;
+    --bg-secondary: #0f1420;
+    --bg-card: rgba(15, 20, 35, 0.65);
+    --bg-card-hover: rgba(18, 24, 42, 0.82);
+    --bg-code: rgba(0, 0, 0, 0.45);
+    --border-subtle: rgba(255, 255, 255, 0.06);
+    --border-card: rgba(255, 255, 255, 0.08);
+    --border-accent: rgba(56, 182, 255, 0.18);
+    --text-primary: #e8ecf2;
+    --text-secondary: #9aa4b8;
+    --text-muted: #5f6b80;
+    --accent-blue: #38b6ff;
+    --accent-cyan: #22d3ee;
+    --accent-violet: #8b5cf6;
+    --accent-violet-light: #a78bfa;
+    --accent-green: #34d399;
+    --accent-amber: #fbbf24;
+    --accent-rose: #f472b6;
+    --gradient-hero: radial-gradient(ellipse 70% 60% at 50% 10%, rgba(56, 182, 255, 0.10) 0%, transparent 65%),
+                       radial-gradient(ellipse 50% 60% at 80% 50%, rgba(139, 92, 246, 0.06) 0%, transparent 60%);
+    --glass-blur: blur(24px);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+    --max-width: 1200px;
+    --transition-fast: 160ms ease;
+    --transition-smooth: 280ms ease;
+  }
+
+  /* ===== Reset ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: -2;
+    background: var(--bg-deep);
+  }
+  body::after {
+    content: '';
+    position: fixed; top: -40%; left: -20%; width: 140%; height: 140%; z-index: -1;
+    background:
+      radial-gradient(ellipse 50% 40% at 15% 0%, rgba(56, 182, 255, 0.04) 0%, transparent 55%),
+      radial-gradient(ellipse 45% 35% at 85% 20%, rgba(139, 92, 246, 0.04) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 50% at 50% 100%, rgba(34, 211, 238, 0.02) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .grid-bg {
+    position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.028;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  /* ===== Typography ===== */
+  h1, h2, h3, h4 { font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; }
+  h1 { font-size: clamp(2.2rem, 4vw, 3.2rem); letter-spacing: -0.03em; }
+  h2 { font-size: clamp(1.65rem, 2.8vw, 2.25rem); }
+  h3 { font-size: 1.15rem; letter-spacing: -0.01em; }
+  p { color: var(--text-secondary); }
+  a { color: var(--accent-blue); text-decoration: none; transition: color var(--transition-fast); }
+  a:hover { color: var(--accent-cyan); }
+
+  /* ===== Layout ===== */
+  .container { width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+  section { padding: 90px 0; position: relative; }
+  .section-label {
+    display: inline-block;
+    font-size: 0.8rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--accent-blue); margin-bottom: 12px;
+  }
+  .section-header { text-align: center; margin-bottom: 56px; }
+  .section-header h2 { margin-bottom: 12px; }
+  .section-header p { max-width: 620px; margin: 0 auto; font-size: 1.05rem; }
+
+  /* ===== Header ===== */
+  .site-header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(6, 8, 15, 0.78);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .header-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    max-width: var(--max-width); margin: 0 auto; padding: 0 24px; height: 60px;
+  }
+  .logo {
+    display: flex; align-items: center; gap: 9px;
+    font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text-primary);
+    text-decoration: none;
+  }
+  .logo-icon {
+    width: 30px; height: 30px; border-radius: 7px;
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-violet) 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.95rem; color: #fff; font-weight: 800;
+  }
+  .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+  .nav-links a {
+    font-size: 0.875rem; font-weight: 500; color: var(--text-secondary);
+    transition: color var(--transition-fast);
+  }
+  .nav-links a:hover { color: var(--text-primary); }
+  .nav-active { color: var(--accent-blue) !important; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 10px 20px; border-radius: 8px; font-size: 0.875rem; font-weight: 600;
+    border: none; cursor: pointer; transition: all var(--transition-fast);
+    text-decoration: none; white-space: nowrap;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--accent-blue) 0%, #2b8fd9 100%);
+    color: #fff; box-shadow: 0 2px 14px rgba(56, 182, 255, 0.25);
+  }
+  .btn-primary:hover { box-shadow: 0 4px 22px rgba(56, 182, 255, 0.40); color: #fff; transform: translateY(-1px); }
+  .btn-secondary {
+    background: rgba(255,255,255,0.05); color: var(--text-primary);
+    border: 1px solid var(--border-card);
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.09); border-color: var(--border-accent); color: #fff; }
+  .btn-large { padding: 14px 28px; font-size: 0.95rem; border-radius: 10px; }
+  .mobile-menu-btn { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.4rem; cursor: pointer; }
+
+  /* ===== Hero ===== */
+  .hero { padding: 140px 0 90px; text-align: center; position: relative; }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 400px;
+    background: var(--gradient-hero);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(139, 92, 246, 0.08); border: 1px solid rgba(139, 92, 246, 0.18);
+    border-radius: 50px; padding: 6px 16px; font-size: 0.8rem; font-weight: 500;
+    color: var(--accent-violet-light); margin-bottom: 28px;
+  }
+  .hero h1 { max-width: 820px; margin: 0 auto 18px; }
+  .hero h1 .highlight {
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-cyan) 50%, var(--accent-violet-light) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-subtitle { max-width: 680px; margin: 0 auto 36px; font-size: 1.1rem; }
+  .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  /* ===== Definition Box ===== */
+  .definition-box {
+    background: rgba(56, 182, 255, 0.04);
+    border: 1px solid rgba(56, 182, 255, 0.18);
+    border-left: 3px solid var(--accent-blue);
+    border-radius: var(--radius-lg);
+    padding: 28px 32px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .definition-box .def-label {
+    font-size: 0.75rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--accent-blue); margin-bottom: 12px;
+  }
+  .definition-box p {
+    font-size: 1.08rem; line-height: 1.75; color: var(--text-primary);
+    margin-bottom: 0;
+  }
+  .definition-box p strong { color: var(--accent-cyan); }
+
+  /* ===== Card Grids ===== */
+  .card-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .card-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .card-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+  .info-card {
+    background: var(--bg-card); border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg); padding: 28px 24px;
+    backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+    transition: border-color var(--transition-smooth), transform var(--transition-smooth);
+  }
+  .info-card:hover { border-color: var(--border-accent); transform: translateY(-2px); }
+  .info-card-icon {
+    width: 42px; height: 42px; border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.25rem; margin-bottom: 16px;
+  }
+  .info-card h3 { margin-bottom: 8px; font-size: 1.05rem; }
+  .info-card p { font-size: 0.88rem; }
+
+  .ic-blue .info-card-icon { background: rgba(56,182,255,0.12); color: var(--accent-blue); }
+  .ic-violet .info-card-icon { background: rgba(139,92,246,0.12); color: var(--accent-violet-light); }
+  .ic-cyan .info-card-icon { background: rgba(34,211,238,0.12); color: var(--accent-cyan); }
+  .ic-green .info-card-icon { background: rgba(52,211,153,0.12); color: var(--accent-green); }
+  .ic-amber .info-card-icon { background: rgba(251,191,36,0.12); color: var(--accent-amber); }
+  .ic-rose .info-card-icon { background: rgba(244,114,182,0.12); color: var(--accent-rose); }
+
+  /* ===== Steps ===== */
+  .steps-list { display: flex; flex-direction: column; gap: 28px; max-width: 800px; margin: 0 auto; }
+  .step-item { display: flex; gap: 20px; }
+  .step-number {
+    flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 1.05rem;
+  }
+  .step-item:nth-child(1) .step-number { background: rgba(56,182,255,0.14); color: var(--accent-blue); }
+  .step-item:nth-child(2) .step-number { background: rgba(139,92,246,0.14); color: var(--accent-violet-light); }
+  .step-item:nth-child(3) .step-number { background: rgba(34,211,238,0.14); color: var(--accent-cyan); }
+  .step-item:nth-child(4) .step-number { background: rgba(52,211,153,0.14); color: var(--accent-green); }
+  .step-item:nth-child(5) .step-number { background: rgba(251,191,36,0.14); color: var(--accent-amber); }
+  .step-content h3 { margin-bottom: 6px; font-size: 1.05rem; }
+  .step-content p { font-size: 0.9rem; }
+
+  /* ===== Comparison Table ===== */
+  .compare-table-wrap { overflow-x: auto; }
+  .compare-table {
+    width: 100%; border-collapse: separate; border-spacing: 0;
+    border: 1px solid var(--border-card); border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .compare-table thead th {
+    background: rgba(15,20,35,0.9); padding: 18px 20px; text-align: left;
+    font-weight: 600; font-size: 0.88rem; border-bottom: 1px solid var(--border-card);
+  }
+  .compare-table thead th:first-child { border-radius: var(--radius-lg) 0 0 0; }
+  .compare-table thead th:last-child { border-radius: 0 var(--radius-lg) 0 0; }
+  .compare-table tbody td {
+    padding: 16px 20px; font-size: 0.88rem; color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .compare-table tbody tr:last-child td { border-bottom: none; }
+  .compare-table tbody td:first-child { font-weight: 500; color: var(--text-primary); }
+  .compare-table .check { color: var(--accent-green); font-weight: 600; }
+  .compare-table .cross { color: var(--text-muted); }
+  .compare-table .partial { color: var(--accent-amber); }
+  .compare-table .highlight-col { background: rgba(56,182,255,0.03); }
+
+  /* ===== FAQ ===== */
+  .faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+  details.faq-item {
+    background: var(--bg-card); border: 1px solid var(--border-card);
+    border-radius: var(--radius-md); overflow: hidden;
+    backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+    transition: border-color var(--transition-fast);
+  }
+  details.faq-item:hover { border-color: var(--border-accent); }
+  details.faq-item summary {
+    padding: 18px 22px; font-weight: 600; font-size: 0.95rem;
+    cursor: pointer; list-style: none;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  details.faq-item summary::-webkit-details-marker { display: none; }
+  details.faq-item summary::after {
+    content: '+'; font-size: 1.3rem; font-weight: 300; color: var(--text-muted);
+    transition: transform var(--transition-fast);
+  }
+  details.faq-item[open] summary::after { content: '−'; transform: rotate(180deg); }
+  .faq-answer { padding: 0 22px 20px; font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; }
+  .faq-answer a { color: var(--accent-cyan); }
+
+  /* ===== CTA Section ===== */
+  .cta-section {
+    text-align: center; padding: 100px 0;
+    position: relative;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 300px;
+    background: radial-gradient(ellipse 60% 70% at 50% 20%, rgba(56,182,255,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-card {
+    background: var(--bg-card); border: 1px solid var(--border-card);
+    border-radius: var(--radius-xl); padding: 52px 36px; max-width: 620px; margin: 0 auto;
+    backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+  }
+  .cta-card h2 { margin-bottom: 12px; }
+  .cta-card p { margin-bottom: 28px; font-size: 1.02rem; }
+  .cta-card .btn-group { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  /* ===== Footer ===== */
+  .site-footer {
+    border-top: 1px solid var(--border-subtle); padding: 48px 0 32px;
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
+    max-width: var(--max-width); margin: 0 auto; padding: 0 24px;
+  }
+  .footer-col h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 16px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-col a { font-size: 0.875rem; color: var(--text-secondary); }
+  .footer-col a:hover { color: var(--text-primary); }
+  .footer-bottom {
+    max-width: var(--max-width); margin: 36px auto 0; padding: 20px 24px 0;
+    border-top: 1px solid var(--border-subtle);
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 0.8rem; color: var(--text-muted);
+  }
+
+  /* ===== Utility ===== */
+  .text-center { text-align: center; }
+  .mt-12 { margin-top: 12px; }
+  .mt-20 { margin-top: 20px; }
+  .mt-28 { margin-top: 28px; }
+  .mt-40 { margin-top: 40px; }
+  .mb-20 { margin-bottom: 20px; }
+  .mb-40 { margin-bottom: 40px; }
+  .max-w-760 { max-width: 760px; margin-left: auto; margin-right: auto; }
+  .max-w-860 { max-width: 860px; margin-left: auto; margin-right: auto; }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 1024px) {
+    .card-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .mobile-menu-btn { display: block; }
+    .hero { padding: 120px 0 70px; }
+    .card-grid-3, .card-grid-2 { grid-template-columns: 1fr; }
+    .card-grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    .steps-list { gap: 20px; }
+    section { padding: 60px 0; }
+    .definition-box { padding: 22px 20px; }
+    .definition-box p { font-size: 0.98rem; }
+  }
+  @media (max-width: 480px) {
+    .card-grid-4 { grid-template-columns: 1fr; }
+    .hero-actions { flex-direction: column; align-items: center; }
+    .hero-actions .btn { width: 100%; justify-content: center; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+    .compare-table thead th, .compare-table tbody td { padding: 12px 14px; font-size: 0.78rem; }
+  }
+
+  #mobile-menu-toggle { display: none; }
+  @media (max-width: 768px) {
+    #mobile-menu-toggle:checked ~ .nav-links {
+      display: flex; flex-direction: column; position: absolute;
+      top: 60px; left: 0; right: 0;
+      background: rgba(10, 14, 23, 0.96); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle); padding: 20px 24px; gap: 16px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<!-- ===== Header ===== -->
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="https://qveris.ai" class="logo" aria-label="QVeris Home">
+      <img src="https://qveris.ai/logo-color.png" alt="QVeris AI" class="logo-img" width="28" height="28" style="border-radius:6px;vertical-align:middle;display:inline-block">
+      <span>QVeris</span>
+    </a>
+    <input type="checkbox" id="mobile-menu-toggle">
+    <nav aria-label="Main navigation">
+      <ul class="nav-links">
+        <li><a href="../platform/index.html">Platform</a></li>
+        <li><a href="#what-is-a-capability-routing-network" class="nav-active">Concepts</a></li>
+        <li><a href="../finance-capabilities/index.html">Capabilities</a></li>
+        <li><a href="https://qveris.ai/pricing">Pricing</a></li>
+        <li><a href="#example-use-cases">Use Cases</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+    <label class="mobile-menu-btn" for="mobile-menu-toggle" aria-label="Toggle menu">☰</label>
+  </div>
+</header>
+
+<!-- ===== Breadcrumb ===== -->
+<nav aria-label="Breadcrumb" style="padding-top:72px;background:var(--bg-deep);">
+  <div class="container">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList" style="list-style:none;display:flex;gap:8px;font-size:0.8rem;color:var(--text-muted);padding:12px 0 0;margin:0;">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="https://qveris.ai" style="color:var(--text-muted);"><span itemprop="name">Home</span></a>
+        <meta itemprop="position" content="1">
+        <span style="margin-left:8px;">/</span>
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span itemprop="name" style="color:var(--text-secondary);">Capability Routing Network</span>
+        <meta itemprop="position" content="2">
+      </li>
+    </ol>
+  </div>
+</nav>
+
+<!-- ===== Hero ===== -->
+<section id="what-is-a-capability-routing-network" class="hero" aria-labelledby="hero-heading">
+  <div class="container">
+    <span class="hero-badge">Core Concept</span>
+    <h1 id="hero-heading">What Is a <span class="highlight">Capability Routing Network</span>?</h1>
+    <p class="hero-subtitle">
+      An agent-native infrastructure layer that lets AI agents discover, inspect, and call verified real-world capabilities — tools, APIs, live data, and external services — through one unified protocol. Reduce per-provider integration work through one unified protocol.
+    </p>
+    <div class="hero-actions">
+      <a href="https://qveris.ai" class="btn btn-primary btn-large">Explore QVeris Platform</a>
+      <a href="../finance-capabilities/index.html" class="btn btn-secondary btn-large">See Finance Capabilities</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Short Definition ===== -->
+<section aria-labelledby="definition-heading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Definition</span>
+      <h2 id="definition-heading">In short</h2>
+    </div>
+    <div class="definition-box">
+      <div class="def-label">Definition</div>
+      <p>A <strong>capability routing network</strong> is an agent-native infrastructure layer that routes AI agents to the right external capabilities — tools, APIs, live data, and services — based on the task, parameters, provider availability, cost, latency, and quality signals. It replaces manual per-API integration with a unified <strong>Discover → Inspect → Call</strong> workflow that agents use dynamically at runtime.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Why AI Agents Need Capability Routing ===== -->
+<section aria-labelledby="why-heading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">The Problem</span>
+      <h2 id="why-heading">Why AI agents need capability routing</h2>
+      <p>Modern AI agents need to interact with the real world — but connecting them to external tools and data remains the hardest part of building agentic systems.</p>
+    </div>
+    <div class="card-grid-2 max-w-860">
+      <div class="info-card ic-blue">
+        <div class="info-card-icon">🔌</div>
+        <h3>Manual API wiring does not scale</h3>
+        <p>Each external tool or data source requires separate authentication, error handling, rate limit management, and ongoing maintenance. A single agent might need dozens of integrations — each one hand-coded and fragile.</p>
+      </div>
+      <div class="info-card ic-violet">
+        <div class="info-card-icon">📂</div>
+        <h3>Static tool directories lack context</h3>
+        <p>A list of available tools tells an agent what exists — but not which tool is best for a specific task, what it costs, how reliable it is, or what parameters it expects. Agents need execution context, not just a catalog.</p>
+      </div>
+      <div class="info-card ic-cyan">
+        <div class="info-card-icon">🔍</div>
+        <h3>Agents need dynamic discovery</h3>
+        <p>Agent tasks are unpredictable by nature. Hardcoding which tools to use for which queries breaks when the agent encounters a new scenario. Capability routing lets agents discover the right tool at runtime based on intent.</p>
+      </div>
+      <div class="info-card ic-green">
+        <div class="info-card-icon">🏭</div>
+        <h3>Production requires structure</h3>
+        <p>Production AI workflows need structured execution with unique execution IDs, session-level tracing, audit trails, and consistent output formats. Direct API calls offer none of these guarantees out of the box.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== How It Works ===== -->
+<section aria-labelledby="how-heading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">The Workflow</span>
+      <h2 id="how-heading">How a capability routing network works</h2>
+      <p>Five steps from agent intent to structured execution — with discovery and inspection always free.</p>
+    </div>
+
+    <!-- Architecture Flow SVG -->
+    <div style="text-align:center;margin-bottom:40px;">
+      <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20550%20120%22%3E%0A%20%20%3Crect%20width%3D%22550%22%20height%3D%22120%22%20fill%3D%22%230a0e17%22%20rx%3D%2212%22%2F%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22g1%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%220%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2338b6ff%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23fbbf24%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%3C%2Fdefs%3E%0A%0A%20%20%3Crect%20x%3D%2210%22%20y%3D%2225%22%20width%3D%2290%22%20height%3D%2270%22%20rx%3D%228%22%20fill%3D%22rgba%2856%2C182%2C255%2C0.1%29%22%20stroke%3D%22rgba%2856%2C182%2C255%2C0.3%29%22%20stroke-width%3D%221.5%22%2F%3E%0A%20%20%3Ctext%20x%3D%2255%22%20y%3D%2252%22%20text-anchor%3D%22middle%22%20fill%3D%22%2338b6ff%22%20font-size%3D%2211%22%20font-weight%3D%22700%22%20font-family%3D%22sans-serif%22%3EDiscover%3C%2Ftext%3E%0A%20%20%3Ctext%20x%3D%2255%22%20y%3D%2270%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3EFind%20Tools%3C%2Ftext%3E%0A%20%20%3Ctext%20x%3D%2255%22%20y%3D%2284%22%20text-anchor%3D%22middle%22%20fill%3D%22%2338b6ff%22%20font-size%3D%227%22%20font-family%3D%22sans-serif%22%3EAlways%20Free%3C%2Ftext%3E%0A%0A%20%20%3Cline%20x1%3D%22100%22%20y1%3D%2260%22%20x2%3D%22114%22%20y2%3D%2260%22%20stroke%3D%22rgba%2856%2C182%2C255%2C0.35%29%22%20stroke-width%3D%221.5%22%2F%3E%0A%20%20%3Cpolygon%20points%3D%22114%2C55%20123%2C60%20114%2C65%22%20fill%3D%22rgba%2856%2C182%2C255%2C0.4%29%22%2F%3E%0A%0A%20%20%3Crect%20x%3D%22126%22%20y%3D%2225%22%20width%3D%2290%22%20height%3D%2270%22%20rx%3D%228%22%20fill%3D%22rgba%28139%2C92%2C246%2C0.1%29%22%20stroke%3D%22rgba%28139%2C92%2C246%2C0.3%29%22%20stroke-width%3D%221.5%22%2F%3E%0A%20%20%3Ctext%20x%3D%22171%22%20y%3D%2252%22%20text-anchor%3D%22middle%22%20fill%3D%22%23a78bfa%22%20font-size%3D%2211%22%20font-weight%3D%22700%22%20font-family%3D%22sans-serif%22%3EInspect%3C%2Ftext%3E%0A%20%20%3Ctext%20x%3D%22171%22%20y%3D%2270%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3ESchema%20%2B%20Cost%3C%2Ftext%3E%0A%20%20%3Ctext%20x%3D%22171%22%20y%3D%2284%22%20text-anchor%3D%22middle%22%20fill%3D%22%23a78bfa%22%20font-size%3D%227%22%20font-family%3D%22sans-serif%22%3EAlways%20Free%3C%2Ftext%3E%0A%0A%20%20%3Cline%20x1%3D%22216%22%20y1%3D%2260%22%20x2%3D%22230%22%20y2%3D%2260%22%20stroke%3D%22rgba%28139%2C92%2C246%2C0.35%29%22%20stroke-width%3D%221.5%22%2F%3E%0A%20%20%3Cpolygon%20points%3D%22230%2C55%20239%2C60%20230%2C65%22%20fill%3D%22rgba%28139%2C92%2C246%2C0.4%29%22%2F%3E%0A%0A%20%20%3Crect%20x%3D%22242%22%20y%3D%2225%22%20width%3D%2290%22%20height%3D%2270%22%20rx%3D%228%22%20fill%3D%22rgba%2834%2C211%2C238%2C0.1%29%22%20stroke%3D%22rgba%2834%2C211%2C238%2C0.3%29%22%20stroke-width%3D%221.5%22%2F%3E%0A%20%20%3Ctext%20x%3D%22287%22%20y%3D%2252%22%20text-anchor%3D%22middle%22%20fill%3D%22%2322d3ee%22%20font-size%3D%2211%22%20font-weight%3D%22700%22%20font-family%3D%22sans-serif%22%3ERoute%3C%2Ftext%3E%0A%20%20%3Ctext%20x%3D%22287%22%20y%3D%2270%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3EBest%20Provider%3C%2Ftext%3E%0A%20%20%3Ctext%20x%3D%22287%22%20y%3D%2284%22%20text-anchor%3D%22middle%22%20fill%3D%22%2322d3ee%22%20font-size%3D%227%22%20font-family%3D%22sans-serif%22%3ELatency%20%2F%20Cost%3C%2Ftext%3E%0A%0A%20%20%3Cline%20x1%3D%22332%22%20y1%3D%2260%22%20x2%3D%22346%22%20y2%3D%2260%22%20stroke%3D%22rgba%2834%2C211%2C238%2C0.35%29%22%20stroke-width%3D%221.5%22%2F%3E%0A%20%20%3Cpolygon%20points%3D%22346%2C55%20355%2C60%20346%2C65%22%20fill%3D%22rgba%2834%2C211%2C238%2C0.4%29%22%2F%3E%0A%0A%20%20%3Crect%20x%3D%22358%22%20y%3D%2225%22%20width%3D%2290%22%20height%3D%2270%22%20rx%3D%228%22%20fill%3D%22rgba%2852%2C211%2C153%2C0.1%29%22%20stroke%3D%22rgba%2852%2C211%2C153%2C0.3%29%22%20stroke-width%3D%221.5%22%2F%3E%0A%20%20%3Ctext%20x%3D%22403%22%20y%3D%2252%22%20text-anchor%3D%22middle%22%20fill%3D%22%2334d399%22%20font-size%3D%2211%22%20font-weight%3D%22700%22%20font-family%3D%22sans-serif%22%3ECall%3C%2Ftext%3E%0A%20%20%3Ctext%20x%3D%22403%22%20y%3D%2270%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3EStructured%20Exec%3C%2Ftext%3E%0A%20%20%3Ctext%20x%3D%22403%22%20y%3D%2284%22%20text-anchor%3D%22middle%22%20fill%3D%22%2334d399%22%20font-size%3D%227%22%20font-family%3D%22sans-serif%22%3ECredits-Based%3C%2Ftext%3E%0A%0A%20%20%3Cline%20x1%3D%22448%22%20y1%3D%2260%22%20x2%3D%22462%22%20y2%3D%2260%22%20stroke%3D%22rgba%2852%2C211%2C153%2C0.35%29%22%20stroke-width%3D%221.5%22%2F%3E%0A%20%20%3Cpolygon%20points%3D%22462%2C55%20471%2C60%20462%2C65%22%20fill%3D%22rgba%2852%2C211%2C153%2C0.4%29%22%2F%3E%0A%0A%20%20%3Crect%20x%3D%22474%22%20y%3D%2225%22%20width%3D%2266%22%20height%3D%2270%22%20rx%3D%228%22%20fill%3D%22rgba%28251%2C191%2C36%2C0.1%29%22%20stroke%3D%22rgba%28251%2C191%2C36%2C0.3%29%22%20stroke-width%3D%221.5%22%2F%3E%0A%20%20%3Ctext%20x%3D%22507%22%20y%3D%2252%22%20text-anchor%3D%22middle%22%20fill%3D%22%23fbbf24%22%20font-size%3D%2211%22%20font-weight%3D%22700%22%20font-family%3D%22sans-serif%22%3EReturn%3C%2Ftext%3E%0A%20%20%3Ctext%20x%3D%22507%22%20y%3D%2270%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3EJSON%20%2B%20Audit%3C%2Ftext%3E%0A%20%20%3Ctext%20x%3D%22507%22%20y%3D%2284%22%20text-anchor%3D%22middle%22%20fill%3D%22%23fbbf24%22%20font-size%3D%227%22%20font-family%3D%22sans-serif%22%3ETraced%3C%2Ftext%3E%0A%0A%20%20%3Ctext%20x%3D%22275%22%20y%3D%22112%22%20text-anchor%3D%22middle%22%20fill%3D%22%233a4458%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3EOne%20Unified%20Protocol%20%E2%80%94%20Agent-Native%20Infrastructure%3C%2Ftext%3E%0A%3C%2Fsvg%3E" alt="Five-step capability routing flow from agent intent to structured execution" style="width:100%;max-width:560px;height:auto;" loading="lazy">
+    </div>
+
+    <div class="steps-list">
+      <div class="step-item">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Discover — find the right capability</h3>
+          <p>The agent describes what it needs in natural language. The routing network searches across its verified capability catalog and returns ranked matches with tool IDs, expected costs, latency estimates, and success rates. Discovery is always free.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Inspect — review before committing</h3>
+          <p>The agent reviews the full parameter schema, billing rules, example usage, and quality metrics for candidate capabilities. This is a zero-cost decision point — the agent can compare multiple options before committing credits.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Route — select the best provider</h3>
+          <p>Based on task requirements, provider availability, cost, latency, and quality signals, the network routes the request to the best-matching capability provider. Routing logic abstracts provider selection away from the agent.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3>Call — execute with structure</h3>
+          <p>The agent submits structured parameters. The network executes the call in a sandboxed environment, enforcing parameter validation, authentication, and rate limiting. Credits are consumed only on successful execution.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <h3>Return — structured output and audit trail</h3>
+          <p>The network returns a structured JSON response containing the result data, a unique execution ID, billing details, and remaining credit balance. Every call is traceable through session-level identifiers for full auditability.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Core Components ===== -->
+<section aria-labelledby="components-heading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Architecture</span>
+      <h2 id="components-heading">Core components of a capability routing network</h2>
+      <p>The building blocks that make capability routing work for AI agents at scale.</p>
+    </div>
+    <div class="card-grid-4">
+      <div class="info-card ic-blue">
+        <div class="info-card-icon">🔍</div>
+        <h3>Capability discovery</h3>
+        <p>Natural language search across the verified capability catalog. Returns ranked matches with relevance scores, costs, and performance metrics — no pre-coded endpoints needed.</p>
+      </div>
+      <div class="info-card ic-violet">
+        <div class="info-card-icon">📐</div>
+        <h3>Schema inspection</h3>
+        <p>Full parameter schema, billing rules, and quality metrics available before every call. Agents make informed decisions at zero cost — always free to inspect.</p>
+      </div>
+      <div class="info-card ic-cyan">
+        <div class="info-card-icon">🔀</div>
+        <h3>Routing and selection</h3>
+        <p>Dynamic provider selection based on task requirements, availability, cost, latency, success rate, and regional considerations. The agent asks; the network routes.</p>
+      </div>
+      <div class="info-card ic-green">
+        <div class="info-card-icon">⚡</div>
+        <h3>Structured tool calling</h3>
+        <p>Sandboxed execution with parameter validation, authentication handling, rate limiting, and consistent JSON response formatting. One protocol for all capabilities.</p>
+      </div>
+      <div class="info-card ic-amber">
+        <div class="info-card-icon">📋</div>
+        <h3>Auditability and observability</h3>
+        <p>Unique execution IDs, session-level tracing, and full call records for debugging, cost tracking, and compliance. Every interaction leaves a traceable record.</p>
+      </div>
+      <div class="info-card ic-rose">
+        <div class="info-card-icon">🔗</div>
+        <h3>Integration layer</h3>
+        <p>Multiple integration paths — MCP Server, REST API, Python SDK, CLI — so agents can connect through their preferred protocol without changing how capabilities work.</p>
+      </div>
+      <div class="info-card ic-blue">
+        <div class="info-card-icon">✅</div>
+        <h3>Verified capability catalog</h3>
+        <p>Pre-verified capabilities with quality signals (success rate, latency, cost) from multiple providers. Not a static list — a dynamic, quality-scored catalog that agents can trust.</p>
+      </div>
+      <div class="info-card ic-violet">
+        <div class="info-card-icon">🛡️</div>
+        <h3>Provider and execution context</h3>
+        <p>Transparent provider attribution, execution sandboxing, and session-scoped configuration. Agents know which provider executed each call and can track performance over time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Capability Routing vs Related Concepts ===== -->
+<section aria-labelledby="compare-heading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Comparison</span>
+      <h2 id="compare-heading">Capability routing network vs related concepts</h2>
+      <p>How capability routing differs from other approaches to connecting AI agents with external tools and data.</p>
+    </div>
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th class="highlight-col">Capability Routing Network</th>
+            <th>API Marketplace</th>
+            <th>Static Tool Directory</th>
+            <th>Manual API Integration</th>
+            <th>MCP Server Alone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Discovery</td>
+            <td class="highlight-col"><span class="check">✓</span> Natural language, dynamic</td>
+            <td><span class="partial">◐</span> Keyword search, human-driven</td>
+            <td><span class="partial">◐</span> Browse by category</td>
+            <td><span class="cross">✗</span> Must know endpoints in advance</td>
+            <td><span class="partial">◐</span> Protocol-level connection only</td>
+          </tr>
+          <tr>
+            <td>Pre-call inspection</td>
+            <td class="highlight-col"><span class="check">✓</span> Schema, cost, quality — always free</td>
+            <td><span class="cross">✗</span> Pricing page only</td>
+            <td><span class="cross">✗</span> Unverified listings</td>
+            <td><span class="cross">✗</span> No preview</td>
+            <td><span class="cross">✗</span> Not included</td>
+          </tr>
+          <tr>
+            <td>Provider routing</td>
+            <td class="highlight-col"><span class="check">✓</span> Dynamic, quality-based</td>
+            <td><span class="cross">✗</span> Manual selection</td>
+            <td><span class="cross">✗</span> No routing</td>
+            <td><span class="cross">✗</span> Hardcoded</td>
+            <td><span class="cross">✗</span> Not included</td>
+          </tr>
+          <tr>
+            <td>Protocol</td>
+            <td class="highlight-col"><span class="check">✓</span> One unified protocol</td>
+            <td><span class="cross">✗</span> Many different APIs</td>
+            <td><span class="cross">✗</span> No protocol</td>
+            <td><span class="cross">✗</span> One per API</td>
+            <td><span class="check">✓</span> Standard MCP protocol</td>
+          </tr>
+          <tr>
+            <td>Audit trail</td>
+            <td class="highlight-col"><span class="check">✓</span> execution_id, session tracing</td>
+            <td><span class="cross">✗</span> Provider-dependent</td>
+            <td><span class="cross">✗</span> None</td>
+            <td><span class="cross">✗</span> Self-built</td>
+            <td><span class="cross">✗</span> Not included</td>
+          </tr>
+          <tr>
+            <td>Designed for</td>
+            <td class="highlight-col"><span class="check">✓</span> AI agents (agent-native)</td>
+            <td><span class="cross">✗</span> Human developers</td>
+            <td><span class="cross">✗</span> Human developers</td>
+            <td><span class="cross">✗</span> Human developers</td>
+            <td><span class="check">✓</span> AI agents (protocol layer)</td>
+          </tr>
+          <tr>
+            <td>Quality signals</td>
+            <td class="highlight-col"><span class="check">✓</span> Success rate, latency, cost</td>
+            <td><span class="cross">✗</span> Provider claims only</td>
+            <td><span class="cross">✗</span> Unverified</td>
+            <td><span class="cross">✗</span> Self-monitored</td>
+            <td><span class="cross">✗</span> Not included</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="text-center mt-28">
+      <p style="font-size:0.9rem;">MCP provides the connection protocol. A capability routing network adds discovery, inspection, routing, quality signals, and audit trails on top. <a href="../mcp-server-integration-guide/index.html">Learn about QVeris MCP Server →</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Where QVeris Fits ===== -->
+<section aria-labelledby="qveris-heading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">QVeris</span>
+      <h2 id="qveris-heading">Where QVeris fits</h2>
+      <p>QVeris applies the capability routing network concept to real-world AI agent workflows — with verified capabilities, multiple integration paths, and production-grade infrastructure.</p>
+    </div>
+    <div class="card-grid-3">
+      <div class="info-card ic-blue">
+        <div class="info-card-icon">🔍</div>
+        <h3>Discover. Inspect. Call.</h3>
+        <p>The core QVeris workflow embodies capability routing: agents discover capabilities with natural language, inspect schemas and costs for free, and call with structured execution and audit trails.</p>
+      </div>
+      <div class="info-card ic-violet">
+        <div class="info-card-icon">📊</div>
+        <h3>10,000+ verified capabilities</h3>
+        <p>15+ categories spanning finance, compliance, crypto, research, document processing, and developer tools — all with quality signals (success rate, latency, cost) visible before every call.</p>
+      </div>
+      <div class="info-card ic-cyan">
+        <div class="info-card-icon">🔗</div>
+        <h3>Multiple integration paths</h3>
+        <p>Connect through <a href="../mcp-server-integration-guide/index.html">MCP Server</a>, REST API, Python SDK, or CLI. All paths provide the same capability routing functionality — choose what fits your agent stack.</p>
+      </div>
+      <div class="info-card ic-green">
+        <div class="info-card-icon">📈</div>
+        <h3>Finance and beyond</h3>
+        <p>Deep finance domain coverage: quantitative trading, macro/fixed income, risk/compliance, investment research, crypto/digital assets, and alternative signals. <a href="../finance-capabilities/index.html">Explore finance capabilities →</a></p>
+      </div>
+      <div class="info-card ic-amber">
+        <div class="info-card-icon">🏭</div>
+        <h3>Production infrastructure</h3>
+        <p>99.99% uptime, sub-500ms p95 latency, RBAC access controls, sandboxed execution, and full audit trails — built for production AI agent workflows from day one.</p>
+      </div>
+      <div class="info-card ic-rose">
+        <div class="info-card-icon">💡</div>
+        <h3>Agent-native design</h3>
+        <p>Not an adapted API gateway. QVeris was built for how AI agents actually work — discover-by-intent, inspect-before-commit, and call-with-structure across all capabilities.</p>
+      </div>
+    </div>
+    <div class="text-center mt-28">
+      <a href="https://qveris.ai" class="btn btn-primary btn-large">Explore QVeris Platform</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Use Cases Visual ===== -->
+<section id="example-use-cases" aria-labelledby="usecases-heading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Applications</span>
+      <h2 id="usecases-heading">Example use cases</h2>
+      <p>Where capability routing networks add the most value for AI agent workflows.</p>
+    </div>
+
+    <!-- Use Cases SVG -->
+    <div style="text-align:center;margin-bottom:36px;">
+      <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20480%20145%22%3E%3Crect%20width%3D%22480%22%20height%3D%22145%22%20fill%3D%22%230a0e17%22%20rx%3D%2212%22%2F%3E%3Crect%20x%3D%22172%22%20y%3D%2232%22%20width%3D%22136%22%20height%3D%2280%22%20rx%3D%2210%22%20fill%3D%22rgba%2887%2C108%2C251%2C0.12%29%22%20stroke%3D%22rgba%2887%2C108%2C251%2C0.35%29%22%20stroke-width%3D%221.5%22%2F%3E%3Ctext%20x%3D%22240%22%20y%3D%2262%22%20text-anchor%3D%22middle%22%20fill%3D%22%23a78bfa%22%20font-size%3D%2211%22%20font-weight%3D%22700%22%20font-family%3D%22sans-serif%22%3ECapability%3C%2Ftext%3E%3Ctext%20x%3D%22240%22%20y%3D%2280%22%20text-anchor%3D%22middle%22%20fill%3D%22%23a78bfa%22%20font-size%3D%2211%22%20font-weight%3D%22700%22%20font-family%3D%22sans-serif%22%3ERouting%20Network%3C%2Ftext%3E%3Ctext%20x%3D%22240%22%20y%3D%22100%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3EOne%20Unified%20Protocol%3C%2Ftext%3E%3Crect%20x%3D%2215%22%20y%3D%2218%22%20width%3D%2265%22%20height%3D%2226%22%20rx%3D%225%22%20fill%3D%22rgba%2856%2C182%2C255%2C0.08%29%22%20stroke%3D%22rgba%2856%2C182%2C255%2C0.2%29%22%20stroke-width%3D%220.8%22%2F%3E%3Ctext%20x%3D%2247%22%20y%3D%2235%22%20text-anchor%3D%22middle%22%20fill%3D%22%239aa4b8%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3EFinance%3C%2Ftext%3E%3Crect%20x%3D%2215%22%20y%3D%2252%22%20width%3D%2265%22%20height%3D%2226%22%20rx%3D%225%22%20fill%3D%22rgba%28139%2C92%2C246%2C0.08%29%22%20stroke%3D%22rgba%28139%2C92%2C246%2C0.2%29%22%20stroke-width%3D%220.8%22%2F%3E%3Ctext%20x%3D%2247%22%20y%3D%2269%22%20text-anchor%3D%22middle%22%20fill%3D%22%239aa4b8%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3ECompliance%3C%2Ftext%3E%3Crect%20x%3D%2215%22%20y%3D%2286%22%20width%3D%2265%22%20height%3D%2226%22%20rx%3D%225%22%20fill%3D%22rgba%2834%2C211%2C238%2C0.08%29%22%20stroke%3D%22rgba%2834%2C211%2C238%2C0.2%29%22%20stroke-width%3D%220.8%22%2F%3E%3Ctext%20x%3D%2247%22%20y%3D%22103%22%20text-anchor%3D%22middle%22%20fill%3D%22%239aa4b8%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3ECrypto%3C%2Ftext%3E%3Crect%20x%3D%22400%22%20y%3D%2218%22%20width%3D%2265%22%20height%3D%2226%22%20rx%3D%225%22%20fill%3D%22rgba%2852%2C211%2C153%2C0.08%29%22%20stroke%3D%22rgba%2852%2C211%2C153%2C0.2%29%22%20stroke-width%3D%220.8%22%2F%3E%3Ctext%20x%3D%22432%22%20y%3D%2235%22%20text-anchor%3D%22middle%22%20fill%3D%22%239aa4b8%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3EEnterprise%3C%2Ftext%3E%3Crect%20x%3D%22400%22%20y%3D%2252%22%20width%3D%2265%22%20height%3D%2226%22%20rx%3D%225%22%20fill%3D%22rgba%28251%2C191%2C36%2C0.08%29%22%20stroke%3D%22rgba%28251%2C191%2C36%2C0.2%29%22%20stroke-width%3D%220.8%22%2F%3E%3Ctext%20x%3D%22432%22%20y%3D%2269%22%20text-anchor%3D%22middle%22%20fill%3D%22%239aa4b8%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3EResearch%3C%2Ftext%3E%3Crect%20x%3D%22400%22%20y%3D%2286%22%20width%3D%2265%22%20height%3D%2226%22%20rx%3D%225%22%20fill%3D%22rgba%28244%2C114%2C182%2C0.08%29%22%20stroke%3D%22rgba%28244%2C114%2C182%2C0.2%29%22%20stroke-width%3D%220.8%22%2F%3E%3Ctext%20x%3D%22432%22%20y%3D%22103%22%20text-anchor%3D%22middle%22%20fill%3D%22%239aa4b8%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3ESaaS%3C%2Ftext%3E%3Ctext%20x%3D%22240%22%20y%3D%22135%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3EDiscover%20%C2%B7%20Inspect%20%C2%B7%20Call%20%E2%80%94%20Across%20Every%20Domain%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Capability routing network use cases: Finance, Compliance, Crypto, Enterprise, Research, and SaaS agents all connect through one unified capability routing network for Discover, Inspect, and Call workflows" style="width:100%;max-width:520px;height:auto;" loading="lazy">
+    </div>
+
+    <div class="card-grid-3">
+      <div class="info-card ic-blue">
+        <div class="info-card-icon">📈</div>
+        <h3>Finance AI agents</h3>
+        <p>Access market data, earnings, fundamentals, and macro indicators through verified financial capabilities instead of managing dozens of data provider integrations.</p>
+      </div>
+      <div class="info-card ic-violet">
+        <div class="info-card-icon">📊</div>
+        <h3>Investment research agents</h3>
+        <p>Automate earnings analysis, valuation model data retrieval, and market intelligence — with structured JSON responses ready for downstream analysis and modeling.</p>
+      </div>
+      <div class="info-card ic-cyan">
+        <div class="info-card-icon">🛡️</div>
+        <h3>Compliance and risk workflows</h3>
+        <p>KYC verification, sanctions screening, and regulatory data lookups with full audit trails. Every compliance call produces a unique execution ID for traceability.</p>
+      </div>
+      <div class="info-card ic-green">
+        <div class="info-card-icon">₿</div>
+        <h3>Crypto and on-chain analysis</h3>
+        <p>Blockchain data, DeFi metrics, stablecoin flows, and crypto and on-chain signals — the same unified protocol used for traditional financial data, enabling cross-asset workflows.</p>
+      </div>
+      <div class="info-card ic-amber">
+        <div class="info-card-icon">🏢</div>
+        <h3>Internal enterprise agents</h3>
+        <p>Connect internal AI agents to external data and services for document processing, data enrichment, and compliance checks with RBAC and session-level audit trails.</p>
+      </div>
+      <div class="info-card ic-rose">
+        <div class="info-card-icon">🚀</div>
+        <h3>Agentic SaaS products</h3>
+        <p>Build products where AI agents need dynamic access to external capabilities. One integration point instead of maintaining dozens of third-party API connections.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Best Practices ===== -->
+<section aria-labelledby="best-practices-heading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Guidance</span>
+      <h2 id="best-practices-heading">Best practices for adopting capability routing</h2>
+      <p>Recommendations for integrating capability routing into your AI agent workflow effectively and safely.</p>
+    </div>
+    <div class="card-grid-2 max-w-860">
+      <div class="info-card ic-blue">
+        <div class="info-card-icon">🎯</div>
+        <h3>Start with a defined workflow</h3>
+        <p>Identify the specific tasks your agent needs external capabilities for. Start with 2-3 capability categories that map directly to agent workflows before expanding.</p>
+      </div>
+      <div class="info-card ic-violet">
+        <div class="info-card-icon">🗺️</div>
+        <h3>Map the capabilities your agent needs</h3>
+        <p>Understand which categories your agent will query most frequently. Finance agents may need market data and research; compliance agents may need KYC and sanctions data.</p>
+      </div>
+      <div class="info-card ic-cyan">
+        <div class="info-card-icon">🔍</div>
+        <h3>Inspect schemas before calling tools</h3>
+        <p>Always use the inspection step to review parameter schemas, billing rules, and quality metrics. Inspection is free and prevents costly parameter mismatches.</p>
+      </div>
+      <div class="info-card ic-green">
+        <div class="info-card-icon">📋</div>
+        <h3>Use structured outputs consistently</h3>
+        <p>Design your agent to parse structured JSON responses and use execution IDs for logging. Consistent output handling makes debugging and audit trails far more effective.</p>
+      </div>
+      <div class="info-card ic-amber">
+        <div class="info-card-icon">📊</div>
+        <h3>Track execution behavior</h3>
+        <p>Log execution IDs, session IDs, costs, and latencies for every call. This data helps optimize capability selection, manage credit budgets, and debug production issues.</p>
+      </div>
+      <div class="info-card ic-rose">
+        <div class="info-card-icon">🧪</div>
+        <h3>Separate testing and production</h3>
+        <p>Use separate sessions or API keys for test and production workflows. Test new capability categories and parameter patterns before deploying to production agent workflows.</p>
+      </div>
+      <div class="info-card ic-blue">
+        <div class="info-card-icon">⚠️</div>
+        <h3>Avoid unsupported assumptions</h3>
+        <p>Do not assume a capability exists without discovering it first. Capability availability, schemas, and costs can change — let the agent discover and inspect dynamically rather than hardcoding expectations.</p>
+      </div>
+      <div class="info-card ic-violet">
+        <div class="info-card-icon">✅</div>
+        <h3>Validate high-risk outputs</h3>
+        <p>For finance, compliance, or other regulated workflows, validate structured outputs before using them in downstream decisions. The routing network provides the data — your agent logic should verify results.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" aria-labelledby="faq-heading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">FAQ</span>
+      <h2 id="faq-heading">Frequently asked questions</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>What is a capability routing network?</summary>
+        <div class="faq-answer">
+          A capability routing network is an agent-native infrastructure layer that lets AI agents discover, inspect, and call verified real-world capabilities — tools, APIs, live data, and external services — through one unified protocol. Instead of requiring developers to hardcode each integration, the network dynamically routes agent requests to the best-matching capability based on task, parameters, provider availability, cost, latency, and quality signals. Discovery and inspection are always free; credits are consumed only on successful capability calls.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Why do AI agents need capability routing?</summary>
+        <div class="faq-answer">
+          AI agents need capability routing because manually integrating each external tool or data source does not scale. Each API requires separate authentication, error handling, rate limit management, and ongoing maintenance. A single agent might need dozens of integrations. Static tool directories lack execution context — they list what exists but not which tool is best, what it costs, or how reliable it is. Capability routing solves this by providing dynamic discovery, pre-call inspection (always free), structured execution with audit trails, and one unified protocol for all capabilities.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>How is capability routing different from tool calling?</summary>
+        <div class="faq-answer">
+          Tool calling is the mechanism by which an LLM invokes a pre-registered function — it is one step in a larger workflow. Capability routing is the infrastructure layer that surrounds tool calling: it handles discovery (finding the right tool dynamically at runtime), inspection (reviewing schema, cost, and quality before calling), provider selection (routing to the best available provider based on quality signals), and execution (sandboxed, auditable, with structured output). Think of tool calling as the "call" step; capability routing provides the full discover → inspect → route → call → audit workflow.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>How is capability routing different from an API marketplace?</summary>
+        <div class="faq-answer">
+          An API marketplace lists APIs for human developers to browse, evaluate, and manually integrate — each with its own authentication, documentation, and billing. A capability routing network is agent-native: AI agents discover capabilities using natural language, inspect costs and quality metrics before committing, and execute through one unified protocol. Marketplaces are designed for human developers evaluating APIs; capability routing networks are designed for AI agents calling capabilities dynamically at runtime without human intervention.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Is MCP the same as a capability routing network?</summary>
+        <div class="faq-answer">
+          No. The <a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener noreferrer">Model Context Protocol</a> (MCP) is a protocol standard that defines how AI agents connect to tools. A capability routing network is an infrastructure layer that can use MCP as one of its integration paths — alongside REST API, Python SDK, and CLI. MCP provides the connection protocol; a capability routing network adds discovery, inspection, provider routing, quality signals, structured execution, and audit trails on top. QVeris supports MCP as an integration method through its <a href="../mcp-server-integration-guide/index.html">MCP Server</a>.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>How does QVeris use capability routing?</summary>
+        <div class="faq-answer">
+          QVeris is a capability routing network for AI agents. It provides a three-step workflow: <strong>Discover</strong> — agents find capabilities using natural language queries and receive ranked matches with cost, latency, and success rate (always free). <strong>Inspect</strong> — agents review full parameter schemas, billing rules, and quality metrics before committing (always free). <strong>Call</strong> — agents submit structured parameters, QVeris executes in a sandbox, and returns structured JSON with a unique execution ID, billing details, and remaining credit balance. QVeris supports MCP Server, REST API, Python SDK, and CLI integration paths.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>What kinds of capabilities can be routed?</summary>
+        <div class="faq-answer">
+          A capability routing network can route AI agent requests to a wide range of verified capabilities. QVeris currently spans 15+ categories including: quantitative trading data, macro and fixed income, risk and compliance (KYC, sanctions screening), investment research (earnings, analyst consensus, valuation models), crypto and digital assets (on-chain data, DeFi metrics), alternative signals (news sentiment, event-driven data), PDF parsing, OCR, image generation, weather data, and geolocation services. <a href="/capabilities">Browse all capability categories →</a>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Can capability routing support finance AI agents?</summary>
+        <div class="faq-answer">
+          Yes. Finance is one of the strongest use cases for capability routing because financial workflows require access to diverse, high-quality data sources that would otherwise require dozens of separate integrations. QVeris includes verified capabilities across six finance domains: quantitative trading, macro and fixed income, risk and compliance, investment research, crypto and digital assets, and alternative signals. <a href="../finance-capabilities/index.html">Explore QVeris finance capabilities →</a>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Is a capability routing network useful for production AI agents?</summary>
+        <div class="faq-answer">
+          Yes. Production AI agents benefit from capability routing because it provides structured execution with unique execution IDs, session-level tracing, full audit trails, and consistent JSON output formats for every call. QVeris operates with a 99.99% uptime, sub-500ms p95 latency, RBAC access controls, and sandboxed execution — infrastructure characteristics that production workflows require but that manual API integrations and static tool directories do not provide out of the box.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>How can a team get started with capability routing?</summary>
+        <div class="faq-answer">
+          Teams can get started by exploring the <a href="../platform/index.html">QVeris platform</a>. QVeris offers a free tier with 1,000 credits on signup plus 100 daily credits. The Pro plan at $19/month provides 10,000 credits with access to all 10,000+ verified capabilities. Scale On-Demand credit packages are available from $1 with volume bonuses. For enterprise teams needing dedicated support, custom integrations, volume discounts, or custom SLAs, <a href="/contact">contact QVeris</a> to discuss an Enterprise plan tailored to your workflow.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>EXPLORE</h4>
+      <ul>
+        <li><a href="https://qveris.ai/search" target="_blank" rel="noopener noreferrer">Tool Finder</a></li>
+        <li><a href="https://qveris.ai/capabilities/explore" target="_blank" rel="noopener noreferrer">Capability Map</a></li>
+        <li><a href="https://qveris.ai/providers" target="_blank" rel="noopener noreferrer">Provider Hub</a></li>
+        <li><a href="https://qveris.ai/playground" target="_blank" rel="noopener noreferrer">Live Demo</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>USE</h4>
+      <ul>
+        <li><a href="https://qveris.ai/qverisbot" target="_blank" rel="noopener noreferrer">QVerisBot</a></li>
+        <li><a href="https://qveris.ai/plugins" target="_blank" rel="noopener noreferrer">Agent Setup</a></li>
+        <li><a href="https://qveris.ai/cli" target="_blank" rel="noopener noreferrer">CLI</a></li>
+        <li><a href="https://qveris.ai/skills" target="_blank" rel="noopener noreferrer">Skill Hub</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>DEVELOPERS</h4>
+      <ul>
+        <li><a href="https://qveris.ai/docs/rest-api" target="_blank" rel="noopener noreferrer">API Reference</a></li>
+        <li><a href="https://qveris.ai/docs/mcp-server" target="_blank" rel="noopener noreferrer">MCP Server</a></li>
+        <li><a href="https://qveris.ai/docs/python-sdk" target="_blank" rel="noopener noreferrer">Python SDK</a></li>
+        <li><a href="https://qveris.ai/docs/cli" target="_blank" rel="noopener noreferrer">CLI Reference</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>COMPANY</h4>
+      <ul>
+        <li><a href="https://qveris.ai/help" target="_blank" rel="noopener noreferrer">Help Center</a></li>
+        <li><a href="https://qveris.ai/privacy" target="_blank" rel="noopener noreferrer">Privacy</a></li>
+        <li><a href="https://qveris.ai/ecosystem" target="_blank" rel="noopener noreferrer">Ecosystem</a></li>
+        <li><a href="https://qveris.ai/security" target="_blank" rel="noopener noreferrer">Security</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 QVeris AI, LLC. All rights reserved.</span>
+    <span>Every capability, one call away.</span>
+  </div>
+</footer>
+
+</body>
+</html>

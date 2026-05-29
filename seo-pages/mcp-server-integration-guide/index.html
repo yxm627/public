@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO Primary -->
+<title>How to Use QVeris MCP Server | Integration Guide</title>
+<meta name="description" content="Connect QVeris MCP Server to compatible AI agents to discover, inspect, and call verified tools, APIs, and live data through Model Context Protocol.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://try.qveris.ai/mcp-server-integration-guide/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="How to Use QVeris MCP Server | Integration Guide">
+<meta property="og:description" content="Connect QVeris MCP Server to compatible AI agents to discover, inspect, and call verified tools, APIs, and live data through Model Context Protocol.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://try.qveris.ai/mcp-server-integration-guide/">
+<meta property="og:image" content="https://try.qveris.ai/imgs/og.png">
+<meta property="og:site_name" content="QVeris">
+
+<!-- Favicon & Preconnect -->
+<link rel="icon" type="image/png" href="https://qveris.ai/icon.png">
+<link rel="apple-touch-icon" href="https://qveris.ai/icon.png">
+<link rel="preconnect" href="https://try.qveris.ai">
+<link rel="preconnect" href="https://qveris.ai">
+<link rel="dns-prefetch" href="https://try.qveris.ai">
+<link rel="dns-prefetch" href="https://qveris.ai">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Use QVeris MCP Server | Integration Guide">
+<meta name="twitter:description" content="Connect QVeris MCP Server to compatible AI agents to discover, inspect, and call verified tools, APIs, and live data through Model Context Protocol.">
+<meta name="twitter:image" content="https://try.qveris.ai/imgs/og.png">
+
+<!-- JSON-LD Schema: WebPage + BreadcrumbList + TechArticle + FAQPage + Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "How to Use QVeris MCP Server | Integration Guide",
+  "description": "Connect QVeris MCP Server to Claude Code, Cursor, and compatible AI agents. Set up capability discovery, inspection, and tool calling through the Model Context Protocol.",
+  "url": "https://try.qveris.ai/mcp-server-integration-guide/",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://try.qveris.ai/" },
+      { "@type": "ListItem", "position": 2, "name": "MCP Server", "item": "https://try.qveris.ai/mcp-server-integration-guide/" }
+    ]
+  },
+  "mainEntity": [
+    {
+      "@type": "TechArticle",
+      "headline": "How to Use QVeris MCP Server",
+      "description": "A practical integration guide for connecting QVeris MCP Server to compatible AI agent environments including Claude Code and Cursor.",
+      "proficiencyLevel": "Beginner",
+      "about": {
+        "@type": "Thing",
+        "name": "QVeris MCP Server",
+        "description": "An MCP (Model Context Protocol) server that connects AI agents to QVeris's capability routing network for discovering, inspecting, and calling verified tools, APIs, and live data."
+      },
+      "datePublished": "2026-05-28"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is QVeris MCP Server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "QVeris MCP Server is a native Model Context Protocol server that connects compatible AI agent environments to QVeris's capability routing network. Through the MCP Server, AI agents can discover, inspect, and call 10,000+ verified tools, APIs, and live data sources using the standard MCP protocol."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I use QVeris MCP Server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To use QVeris MCP Server: confirm you have QVeris access and credentials, add the QVeris MCP Server configuration to your MCP-compatible client, connect your AI agent, then use natural language to discover, inspect, and call capabilities through the MCP protocol. Exact configuration values should be obtained from the official QVeris dashboard or documentation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is QVeris MCP Server the same as a generic MCP tool directory?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Unlike a generic MCP tool directory where tools are static listings, QVeris MCP Server is backed by a capability routing network. Agents discover tools dynamically using natural language, inspect cost and quality metrics before calling, and execute through a unified protocol with structured responses, execution IDs, and audit trails."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a QVeris API key to use the MCP Server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you need QVeris credentials to use the MCP Server. QVeris uses API key authentication with Bearer Token. You can obtain credentials by signing up for a free QVeris account, which includes 1,000 credits on signup plus 100 daily credits."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can QVeris MCP Server work with Claude Code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Claude Code is a confirmed compatible MCP client. Once the QVeris MCP Server is configured, Claude Code can discover and call QVeris capabilities through the Model Context Protocol. Check the official QVeris documentation for the exact configuration values needed for your Claude Code setup."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can QVeris MCP Server work with Cursor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Cursor is a confirmed compatible MCP client. When the QVeris MCP Server is configured in your Cursor environment, the AI agent can discover, inspect, and call QVeris capabilities directly within the editor through the Model Context Protocol."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What capabilities can agents access through QVeris MCP Server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Through QVeris MCP Server, agents can access 10,000+ verified capabilities across 15+ categories including: quantitative trading data, macro and fixed income, risk and compliance (KYC, sanctions screening), investment research, crypto and digital assets, alternative signals, PDF parsing, OCR, image generation, weather, geolocation, and more."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is QVeris MCP Server suitable for production AI agents?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. QVeris operates with a 99.99% uptime, sub-500ms p95 latency, RBAC access controls, sandboxed execution, and full audit trails for every call. The MCP Server provides the same production-grade infrastructure as QVeris's REST API, Python SDK, and CLI, making it suitable for production AI agent workflows."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does QVeris MCP Server support tool calling?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "QVeris MCP Server supports a three-step tool calling workflow: Discover — the agent describes what it needs in natural language and receives ranked capability matches. Inspect — the agent reviews schemas, costs, and quality metrics before committing (always free). Call — the agent submits structured parameters and receives a structured JSON response with execution ID, billing details, and remaining credit balance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can I get official setup details for QVeris MCP Server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Official setup details, exact configuration values, and the latest MCP Server command are available through the QVeris dashboard after signing up, or by contacting QVeris directly. Check qveris.ai for the most current documentation and platform updates."
+          }
+        }
+      ]
+    }
+  ],
+  "about": {
+    "@type": "Organization",
+    "name": "QVeris AI, LLC",
+    "url": "https://qveris.ai"
+  }
+}
+</script>
+
+<style>
+  /* ===== CSS Custom Properties ===== */
+  :root {
+    --bg-deep: #06080f;
+    --bg-primary: #0a0e17;
+    --bg-secondary: #0f1420;
+    --bg-card: rgba(15, 20, 35, 0.65);
+    --bg-card-hover: rgba(18, 24, 42, 0.82);
+    --bg-code: rgba(0, 0, 0, 0.45);
+    --border-subtle: rgba(255, 255, 255, 0.06);
+    --border-card: rgba(255, 255, 255, 0.08);
+    --border-accent: rgba(56, 182, 255, 0.18);
+    --text-primary: #e8ecf2;
+    --text-secondary: #9aa4b8;
+    --text-muted: #5f6b80;
+    --accent-blue: #38b6ff;
+    --accent-cyan: #22d3ee;
+    --accent-violet: #8b5cf6;
+    --accent-violet-light: #a78bfa;
+    --accent-green: #34d399;
+    --accent-amber: #fbbf24;
+    --accent-rose: #f472b6;
+    --gradient-hero: radial-gradient(ellipse 70% 60% at 50% 10%, rgba(56, 182, 255, 0.10) 0%, transparent 65%),
+                       radial-gradient(ellipse 50% 60% at 80% 50%, rgba(139, 92, 246, 0.06) 0%, transparent 60%);
+    --glass-blur: blur(24px);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+    --max-width: 1200px;
+    --transition-fast: 160ms ease;
+    --transition-smooth: 280ms ease;
+  }
+
+  /* ===== Reset ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: var(--font-sans);
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* ===== Background Effects ===== */
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: -2;
+    background: var(--bg-deep);
+  }
+  body::after {
+    content: '';
+    position: fixed; top: -40%; left: -20%; width: 140%; height: 140%; z-index: -1;
+    background:
+      radial-gradient(ellipse 50% 40% at 15% 0%, rgba(56, 182, 255, 0.04) 0%, transparent 55%),
+      radial-gradient(ellipse 45% 35% at 85% 20%, rgba(139, 92, 246, 0.04) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 50% at 50% 100%, rgba(34, 211, 238, 0.02) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .grid-bg {
+    position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.028;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  /* ===== Typography ===== */
+  h1, h2, h3, h4 { font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; }
+  h1 { font-size: clamp(2.2rem, 4vw, 3.2rem); letter-spacing: -0.03em; }
+  h2 { font-size: clamp(1.65rem, 2.8vw, 2.25rem); }
+  h3 { font-size: 1.15rem; letter-spacing: -0.01em; }
+  p { color: var(--text-secondary); }
+  a { color: var(--accent-blue); text-decoration: none; transition: color var(--transition-fast); }
+  a:hover { color: var(--accent-cyan); }
+
+  /* ===== Layout ===== */
+  .container { width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+  section { padding: 90px 0; position: relative; }
+  .section-label {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent-blue);
+    margin-bottom: 12px;
+  }
+  .section-header { text-align: center; margin-bottom: 56px; }
+  .section-header h2 { margin-bottom: 12px; }
+  .section-header p { max-width: 620px; margin: 0 auto; font-size: 1.05rem; }
+
+  /* ===== Header / Navigation ===== */
+  .site-header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(6, 8, 15, 0.78);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .header-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    max-width: var(--max-width); margin: 0 auto; padding: 0 24px; height: 60px;
+  }
+  .logo {
+    display: flex; align-items: center; gap: 9px;
+    font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text-primary);
+    text-decoration: none;
+  }
+  .logo-icon {
+    width: 30px; height: 30px; border-radius: 7px;
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-violet) 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.95rem; color: #fff; font-weight: 800;
+  }
+  .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+  .nav-links a {
+    font-size: 0.875rem; font-weight: 500; color: var(--text-secondary);
+    transition: color var(--transition-fast);
+  }
+  .nav-links a:hover { color: var(--text-primary); }
+  .nav-active { color: var(--accent-blue) !important; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 10px 20px; border-radius: 8px; font-size: 0.875rem; font-weight: 600;
+    border: none; cursor: pointer; transition: all var(--transition-fast);
+    text-decoration: none; white-space: nowrap;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--accent-blue) 0%, #2b8fd9 100%);
+    color: #fff; box-shadow: 0 2px 14px rgba(56, 182, 255, 0.25);
+  }
+  .btn-primary:hover { box-shadow: 0 4px 22px rgba(56, 182, 255, 0.40); color: #fff; transform: translateY(-1px); }
+  .btn-secondary {
+    background: rgba(255,255,255,0.05); color: var(--text-primary);
+    border: 1px solid var(--border-card);
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.09); border-color: var(--border-accent); color: #fff; }
+  .btn-large { padding: 14px 28px; font-size: 0.95rem; border-radius: 10px; }
+  .mobile-menu-btn { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.4rem; cursor: pointer; }
+
+  /* ===== Hero ===== */
+  .hero { padding: 140px 0 90px; text-align: center; position: relative; }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 400px;
+    background: var(--gradient-hero);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(56, 182, 255, 0.08); border: 1px solid var(--border-accent);
+    border-radius: 50px; padding: 6px 16px; font-size: 0.8rem; font-weight: 500;
+    color: var(--accent-cyan); margin-bottom: 28px;
+  }
+  .hero h1 { max-width: 780px; margin: 0 auto 18px; }
+  .hero h1 .highlight {
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-cyan) 50%, var(--accent-violet-light) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-subtitle { max-width: 640px; margin: 0 auto 36px; font-size: 1.1rem; }
+  .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  /* ===== Card Grids ===== */
+  .card-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .card-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .card-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+  .info-card {
+    background: var(--bg-card); border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg); padding: 28px 24px;
+    backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+    transition: border-color var(--transition-smooth), transform var(--transition-smooth);
+  }
+  .info-card:hover { border-color: var(--border-accent); transform: translateY(-2px); }
+  .info-card-icon {
+    width: 42px; height: 42px; border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.25rem; margin-bottom: 16px;
+  }
+  .info-card h3 { margin-bottom: 8px; font-size: 1.05rem; }
+  .info-card p { font-size: 0.88rem; }
+
+  .ic-blue .info-card-icon { background: rgba(56,182,255,0.12); color: var(--accent-blue); }
+  .ic-violet .info-card-icon { background: rgba(139,92,246,0.12); color: var(--accent-violet-light); }
+  .ic-cyan .info-card-icon { background: rgba(34,211,238,0.12); color: var(--accent-cyan); }
+  .ic-green .info-card-icon { background: rgba(52,211,153,0.12); color: var(--accent-green); }
+  .ic-amber .info-card-icon { background: rgba(251,191,36,0.12); color: var(--accent-amber); }
+  .ic-rose .info-card-icon { background: rgba(244,114,182,0.12); color: var(--accent-rose); }
+
+  /* ===== Setup Steps ===== */
+  .steps-list { display: flex; flex-direction: column; gap: 28px; max-width: 800px; margin: 0 auto; }
+  .step-item { display: flex; gap: 20px; }
+  .step-number {
+    flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 1.05rem;
+  }
+  .step-item:nth-child(1) .step-number { background: rgba(56,182,255,0.14); color: var(--accent-blue); }
+  .step-item:nth-child(2) .step-number { background: rgba(139,92,246,0.14); color: var(--accent-violet-light); }
+  .step-item:nth-child(3) .step-number { background: rgba(34,211,238,0.14); color: var(--accent-cyan); }
+  .step-item:nth-child(4) .step-number { background: rgba(52,211,153,0.14); color: var(--accent-green); }
+  .step-item:nth-child(5) .step-number { background: rgba(251,191,36,0.14); color: var(--accent-amber); }
+  .step-item:nth-child(6) .step-number { background: rgba(244,114,182,0.14); color: var(--accent-rose); }
+  .step-item:nth-child(7) .step-number { background: rgba(167,139,250,0.14); color: var(--accent-violet-light); }
+  .step-content h3 { margin-bottom: 6px; font-size: 1.05rem; }
+  .step-content p { font-size: 0.9rem; }
+
+  /* ===== Code Block ===== */
+  .code-block {
+    background: var(--bg-code); border: 1px solid var(--border-card);
+    border-radius: var(--radius-md); padding: 20px 22px; overflow-x: auto;
+    font-family: var(--font-mono); font-size: 0.82rem; line-height: 1.7; color: var(--text-secondary);
+    position: relative;
+  }
+  .code-block .kw { color: var(--accent-violet-light); }
+  .code-block .str { color: var(--accent-green); }
+  .code-block .fn { color: var(--accent-cyan); }
+  .code-block .cm { color: var(--text-muted); font-style: italic; }
+  .code-block .placeholder { color: var(--accent-amber); }
+  .code-label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-amber);
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.2);
+    border-radius: 4px;
+    padding: 3px 10px;
+    margin-bottom: 12px;
+  }
+  .caution-note {
+    background: rgba(251, 191, 36, 0.06);
+    border: 1px solid rgba(251, 191, 36, 0.15);
+    border-radius: var(--radius-sm);
+    padding: 14px 18px;
+    margin-top: 12px;
+    font-size: 0.85rem;
+    color: var(--accent-amber);
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+  .caution-note::before { content: '⚠'; flex-shrink: 0; font-size: 1rem; }
+
+  /* ===== Comparison Table ===== */
+  .compare-table-wrap { overflow-x: auto; }
+  .compare-table {
+    width: 100%; border-collapse: separate; border-spacing: 0;
+    border: 1px solid var(--border-card); border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .compare-table thead th {
+    background: rgba(15,20,35,0.9); padding: 18px 20px; text-align: left;
+    font-weight: 600; font-size: 0.88rem; border-bottom: 1px solid var(--border-card);
+  }
+  .compare-table thead th:first-child { border-radius: var(--radius-lg) 0 0 0; }
+  .compare-table thead th:last-child { border-radius: 0 var(--radius-lg) 0 0; }
+  .compare-table tbody td {
+    padding: 16px 20px; font-size: 0.88rem; color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .compare-table tbody tr:last-child td { border-bottom: none; }
+  .compare-table tbody td:first-child { font-weight: 500; color: var(--text-primary); }
+  .compare-table .check { color: var(--accent-green); font-weight: 600; }
+  .compare-table .cross { color: var(--text-muted); }
+  .compare-table .partial { color: var(--accent-amber); }
+  .compare-table .highlight-col { background: rgba(56,182,255,0.03); }
+
+  /* ===== Info Box ===== */
+  .info-box {
+    background: rgba(56, 182, 255, 0.06);
+    border: 1px solid rgba(56, 182, 255, 0.15);
+    border-radius: var(--radius-md);
+    padding: 20px 24px;
+    margin-bottom: 28px;
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .info-box strong { color: var(--accent-blue); }
+
+  /* ===== FAQ ===== */
+  .faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+  details.faq-item {
+    background: var(--bg-card); border: 1px solid var(--border-card);
+    border-radius: var(--radius-md); overflow: hidden;
+    backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+    transition: border-color var(--transition-fast);
+  }
+  details.faq-item:hover { border-color: var(--border-accent); }
+  details.faq-item summary {
+    padding: 18px 22px; font-weight: 600; font-size: 0.95rem;
+    cursor: pointer; list-style: none;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  details.faq-item summary::-webkit-details-marker { display: none; }
+  details.faq-item summary::after {
+    content: '+'; font-size: 1.3rem; font-weight: 300; color: var(--text-muted);
+    transition: transform var(--transition-fast);
+  }
+  details.faq-item[open] summary::after { content: '−'; transform: rotate(180deg); }
+  .faq-answer { padding: 0 22px 20px; font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; }
+  .faq-answer a { color: var(--accent-cyan); }
+
+  /* ===== CTA Section ===== */
+  .cta-section {
+    text-align: center; padding: 100px 0;
+    position: relative;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 300px;
+    background: radial-gradient(ellipse 60% 70% at 50% 20%, rgba(56,182,255,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-card {
+    background: var(--bg-card); border: 1px solid var(--border-card);
+    border-radius: var(--radius-xl); padding: 52px 36px; max-width: 620px; margin: 0 auto;
+    backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+  }
+  .cta-card h2 { margin-bottom: 12px; }
+  .cta-card p { margin-bottom: 28px; font-size: 1.02rem; }
+  .cta-card .btn-group { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  /* ===== Inline Link Card ===== */
+  .link-card {
+    background: var(--bg-card); border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg); padding: 24px 28px;
+    backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+    display: flex; align-items: center; justify-content: space-between;
+    transition: border-color var(--transition-smooth);
+    margin-bottom: 20px;
+  }
+  .link-card:hover { border-color: var(--border-accent); }
+  .link-card-text h3 { margin-bottom: 4px; font-size: 1.05rem; }
+  .link-card-text p { font-size: 0.88rem; }
+  .link-card-arrow { font-size: 1.5rem; color: var(--accent-blue); flex-shrink: 0; }
+
+  /* ===== Footer ===== */
+  .site-footer {
+    border-top: 1px solid var(--border-subtle); padding: 48px 0 32px;
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
+    max-width: var(--max-width); margin: 0 auto; padding: 0 24px;
+  }
+  .footer-col h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 16px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-col a { font-size: 0.875rem; color: var(--text-secondary); }
+  .footer-col a:hover { color: var(--text-primary); }
+  .footer-bottom {
+    max-width: var(--max-width); margin: 36px auto 0; padding: 20px 24px 0;
+    border-top: 1px solid var(--border-subtle);
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 0.8rem; color: var(--text-muted);
+  }
+
+  /* ===== Utility ===== */
+  .text-center { text-align: center; }
+  .mt-12 { margin-top: 12px; }
+  .mt-20 { margin-top: 20px; }
+  .mt-28 { margin-top: 28px; }
+  .mt-40 { margin-top: 40px; }
+  .mb-20 { margin-bottom: 20px; }
+  .mb-40 { margin-bottom: 40px; }
+  .max-w-760 { max-width: 760px; margin-left: auto; margin-right: auto; }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 1024px) {
+    .card-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .mobile-menu-btn { display: block; }
+    .hero { padding: 120px 0 70px; }
+    .card-grid-3, .card-grid-2 { grid-template-columns: 1fr; }
+    .card-grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    section { padding: 60px 0; }
+    .steps-list { gap: 20px; }
+  }
+  @media (max-width: 480px) {
+    .card-grid-4 { grid-template-columns: 1fr; }
+    .hero-actions { flex-direction: column; align-items: center; }
+    .hero-actions .btn { width: 100%; justify-content: center; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+    .compare-table thead th, .compare-table tbody td { padding: 12px 14px; font-size: 0.78rem; }
+    .link-card { flex-direction: column; gap: 12px; text-align: center; }
+  }
+
+  #mobile-menu-toggle { display: none; }
+  @media (max-width: 768px) {
+    #mobile-menu-toggle:checked ~ .nav-links {
+      display: flex; flex-direction: column; position: absolute;
+      top: 60px; left: 0; right: 0;
+      background: rgba(10, 14, 23, 0.96); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle); padding: 20px 24px; gap: 16px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<!-- ===== Header ===== -->
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="https://qveris.ai" class="logo" aria-label="QVeris Home">
+      <img src="https://qveris.ai/logo-color.png" alt="QVeris AI" class="logo-img" width="28" height="28" style="border-radius:6px;vertical-align:middle;display:inline-block">
+      <span>QVeris</span>
+    </a>
+    <input type="checkbox" id="mobile-menu-toggle">
+    <nav aria-label="Main navigation">
+      <ul class="nav-links">
+        <li><a href="../platform/index.html">Platform</a></li>
+        <li><a href="https://qveris.ai/docs/mcp-server" target="_blank" rel="noopener noreferrer" class="nav-active">MCP Server</a></li>
+        <li><a href="../finance-capabilities/index.html">Capabilities</a></li>
+        <li><a href="https://qveris.ai/pricing">Pricing</a></li>
+        <li><a href="#supported-usage-scenarios">Use Cases</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="https://qveris.ai" class="btn btn-primary">Get Started</a></li>
+      </ul>
+    </nav>
+    <label class="mobile-menu-btn" for="mobile-menu-toggle" aria-label="Toggle menu">☰</label>
+  </div>
+</header>
+
+<!-- ===== Breadcrumb ===== -->
+<nav aria-label="Breadcrumb" style="padding-top:72px;background:var(--bg-deep);">
+  <div class="container">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList" style="list-style:none;display:flex;gap:8px;font-size:0.8rem;color:var(--text-muted);padding:12px 0 0;margin:0;">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="https://qveris.ai" style="color:var(--text-muted);"><span itemprop="name">Home</span></a>
+        <meta itemprop="position" content="1">
+        <span style="margin-left:8px;">/</span>
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span itemprop="name" style="color:var(--text-secondary);">MCP Server</span>
+        <meta itemprop="position" content="2">
+      </li>
+    </ol>
+  </div>
+</nav>
+
+<!-- ===== Hero ===== -->
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="container">
+    <span class="hero-badge">Integration Guide</span>
+    <h1 id="hero-heading">How to Use <span class="highlight">QVeris MCP Server</span></h1>
+    <p class="hero-subtitle">
+      Connect compatible AI agent environments — including Claude Code and Cursor — to QVeris capabilities through the Model Context Protocol. Discover, inspect, and call 10,000+ verified tools, APIs, and live data sources from one unified integration point.
+    </p>
+    <div class="hero-actions">
+      <a href="https://qveris.ai/pricing" class="btn btn-primary btn-large">Request Access</a>
+      <a href="https://qveris.ai" class="btn btn-secondary btn-large">Explore Platform</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Why This Guide Exists ===== -->
+<section aria-labelledby="why-heading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Context</span>
+      <h2 id="why-heading">Why this guide exists</h2>
+      <p>QVeris offers multiple integration paths. This guide focuses on the MCP Server path for users who want to connect through the Model Context Protocol.</p>
+    </div>
+    <div class="card-grid-2 max-w-760">
+      <div class="info-card ic-blue">
+        <div class="info-card-icon">📖</div>
+        <h3>Concept page</h3>
+        <p>The <a href="/mcp-server">MCP overview</a> explains what the Model Context Protocol is, why it matters for AI agents, and how it fits into the broader ecosystem. Read it first if you are new to MCP.</p>
+      </div>
+      <div class="info-card ic-violet">
+        <div class="info-card-icon">🔧</div>
+        <h3>This integration guide</h3>
+        <p>This page is the practical companion. It covers setup flow, configuration structure, capability discovery, and how to connect your agent to QVeris through MCP — with placeholder examples that show the integration shape.</p>
+      </div>
+    </div>
+    <div class="text-center mt-28">
+      <p style="font-size:0.9rem;">New to Model Context Protocol? <a href="/mcp-server">Read the MCP concept overview →</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== What QVeris MCP Server Does ===== -->
+<section aria-labelledby="what-heading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Capability</span>
+      <h2 id="what-heading">What QVeris MCP Server does</h2>
+      <p>QVeris MCP Server is an integration layer between compatible MCP clients and QVeris's capability routing network — not a static tool directory.</p>
+    </div>
+
+    <div class="card-grid-3">
+      <div class="info-card ic-blue">
+        <div class="info-card-icon">🔍</div>
+        <h3>Agent-native discovery</h3>
+        <p>AI agents describe what they need in natural language. QVeris returns ranked capability matches with cost, latency, and success rate — no pre-coded endpoints.</p>
+      </div>
+      <div class="info-card ic-violet">
+        <div class="info-card-icon">✅</div>
+        <h3>Verified capabilities</h3>
+        <p>10,000+ pre-verified tools across 15+ categories. Every capability has quality signals: success rate, average execution time, and billing rules.</p>
+      </div>
+      <div class="info-card ic-cyan">
+        <div class="info-card-icon">🔗</div>
+        <h3>Unified protocol access</h3>
+        <p>One MCP Server gives your agent access to market data, investment research, compliance checks, crypto data, and more — all through the standard <a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener noreferrer">Model Context Protocol</a>.</p>
+      </div>
+      <div class="info-card ic-green">
+        <div class="info-card-icon">🛡️</div>
+        <h3>Structured execution</h3>
+        <p>Every call runs in a sandboxed environment with structured JSON responses, unique execution IDs, billing details, and remaining credit balance.</p>
+      </div>
+      <div class="info-card ic-amber">
+        <div class="info-card-icon">📊</div>
+        <h3>Inspect before committing</h3>
+        <p>Discovery and inspection are always free. Agents review schemas, costs, and quality metrics before committing credits to a call.</p>
+      </div>
+      <div class="info-card ic-rose">
+        <div class="info-card-icon">🏭</div>
+        <h3>Production-ready</h3>
+        <p>99.99% uptime, sub-500ms p95 latency, RBAC access controls, and full audit trails — the same infrastructure across all QVeris integration methods.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Integration Flow ===== -->
+<section aria-labelledby="flow-heading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Architecture</span>
+      <h2 id="flow-heading">Integration flow</h2>
+      <p>How your AI agent connects to external capabilities through QVeris MCP Server and the capability routing network.</p>
+    </div>
+
+    <!-- Integration Flow Diagram SVG -->
+    <div style="text-align:center;margin-bottom:36px;">
+      <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20520%20200%22%3E%3Crect%20width%3D%22520%22%20height%3D%22200%22%20fill%3D%22%230a0e17%22%20rx%3D%2214%22%2F%3E%3Crect%20x%3D%2212%22%20y%3D%2260%22%20width%3D%2290%22%20height%3D%2280%22%20rx%3D%2210%22%20fill%3D%22rgba%2856%2C182%2C255%2C0.1%29%22%20stroke%3D%22rgba%2856%2C182%2C255%2C0.25%29%22%20stroke-width%3D%221.5%22%2F%3E%3Ctext%20x%3D%2257%22%20y%3D%2293%22%20text-anchor%3D%22middle%22%20fill%3D%22%2338b6ff%22%20font-size%3D%2211%22%20font-weight%3D%22700%22%20font-family%3D%22sans-serif%22%3EAI%20Agent%3C%2Ftext%3E%3Ctext%20x%3D%2257%22%20y%3D%22110%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3EMCP%20Client%3C%2Ftext%3E%3Ctext%20x%3D%2257%22%20y%3D%22126%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3EClaude%20Code%20%C2%B7%20Cursor%3C%2Ftext%3E%3Cline%20x1%3D%22102%22%20y1%3D%22100%22%20x2%3D%22138%22%20y2%3D%22100%22%20stroke%3D%22rgba%2856%2C182%2C255%2C0.35%29%22%20stroke-width%3D%221.5%22%2F%3E%3Cpolygon%20points%3D%22138%2C95%20146%2C100%20138%2C105%22%20fill%3D%22rgba%2856%2C182%2C255%2C0.4%29%22%2F%3E%3Ctext%20x%3D%22120%22%20y%3D%2290%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%227%22%20font-family%3D%22sans-serif%22%3EMCP%3C%2Ftext%3E%3Crect%20x%3D%22150%22%20y%3D%2255%22%20width%3D%22110%22%20height%3D%2290%22%20rx%3D%2210%22%20fill%3D%22rgba%28139%2C92%2C246%2C0.1%29%22%20stroke%3D%22rgba%28139%2C92%2C246%2C0.3%29%22%20stroke-width%3D%221.5%22%2F%3E%3Ctext%20x%3D%22205%22%20y%3D%2288%22%20text-anchor%3D%22middle%22%20fill%3D%22%23a78bfa%22%20font-size%3D%2211%22%20font-weight%3D%22700%22%20font-family%3D%22sans-serif%22%3EQVeris%3C%2Ftext%3E%3Ctext%20x%3D%22205%22%20y%3D%22106%22%20text-anchor%3D%22middle%22%20fill%3D%22%23a78bfa%22%20font-size%3D%2211%22%20font-weight%3D%22700%22%20font-family%3D%22sans-serif%22%3EMCP%20Server%3C%2Ftext%3E%3Ctext%20x%3D%22205%22%20y%3D%22126%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3EDiscover%20%C2%B7%20Inspect%20%C2%B7%20Call%3C%2Ftext%3E%3Cline%20x1%3D%22260%22%20y1%3D%22100%22%20x2%3D%22296%22%20y2%3D%22100%22%20stroke%3D%22rgba%28139%2C92%2C246%2C0.35%29%22%20stroke-width%3D%221.5%22%2F%3E%3Cpolygon%20points%3D%22296%2C95%20304%2C100%20296%2C105%22%20fill%3D%22rgba%28139%2C92%2C246%2C0.4%29%22%2F%3E%3Ctext%20x%3D%22278%22%20y%3D%2290%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%227%22%20font-family%3D%22sans-serif%22%3ECapability%3C%2Ftext%3E%3Ctext%20x%3D%22278%22%20y%3D%22118%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%227%22%20font-family%3D%22sans-serif%22%3ERouter%3C%2Ftext%3E%3Crect%20x%3D%22308%22%20y%3D%2230%22%20width%3D%2295%22%20height%3D%2235%22%20rx%3D%226%22%20fill%3D%22rgba%2852%2C211%2C153%2C0.1%29%22%20stroke%3D%22rgba%2852%2C211%2C153%2C0.2%29%22%20stroke-width%3D%220.8%22%2F%3E%3Ctext%20x%3D%22355%22%20y%3D%2252%22%20text-anchor%3D%22middle%22%20fill%3D%22%2334d399%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3ETools%20%26%20APIs%3C%2Ftext%3E%3Cline%20x1%3D%22355%22%20y1%3D%2265%22%20x2%3D%22355%22%20y2%3D%2290%22%20stroke%3D%22rgba%2852%2C211%2C153%2C0.25%29%22%20stroke-width%3D%220.8%22%2F%3E%3Cline%20x1%3D%22308%22%20y1%3D%22100%22%20x2%3D%22296%22%20y2%3D%22100%22%20stroke%3D%22rgba%2852%2C211%2C153%2C0.2%29%22%20stroke-width%3D%220.8%22%2F%3E%3Crect%20x%3D%22308%22%20y%3D%2280%22%20width%3D%2295%22%20height%3D%2235%22%20rx%3D%226%22%20fill%3D%22rgba%2834%2C211%2C238%2C0.1%29%22%20stroke%3D%22rgba%2834%2C211%2C238%2C0.2%29%22%20stroke-width%3D%220.8%22%2F%3E%3Ctext%20x%3D%22355%22%20y%3D%22102%22%20text-anchor%3D%22middle%22%20fill%3D%22%2322d3ee%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3ELive%20Data%3C%2Ftext%3E%3Crect%20x%3D%22308%22%20y%3D%22130%22%20width%3D%2295%22%20height%3D%2235%22%20rx%3D%226%22%20fill%3D%22rgba%28251%2C191%2C36%2C0.1%29%22%20stroke%3D%22rgba%28251%2C191%2C36%2C0.2%29%22%20stroke-width%3D%220.8%22%2F%3E%3Ctext%20x%3D%22355%22%20y%3D%22152%22%20text-anchor%3D%22middle%22%20fill%3D%22%23fbbf24%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3EExt%20Services%3C%2Ftext%3E%3Cline%20x1%3D%22355%22%20y1%3D%22115%22%20x2%3D%22355%22%20y2%3D%22130%22%20stroke%3D%22rgba%28251%2C191%2C36%2C0.25%29%22%20stroke-width%3D%220.8%22%2F%3E%3Cline%20x1%3D%22296%22%20y1%3D%22115%22%20x2%3D%22308%22%20y2%3D%22115%22%20stroke%3D%22rgba%28139%2C92%2C246%2C0.15%29%22%20stroke-width%3D%220.8%22%2F%3E%3Crect%20x%3D%22418%22%20y%3D%2260%22%20width%3D%2290%22%20height%3D%2280%22%20rx%3D%2210%22%20fill%3D%22rgba%2852%2C211%2C153%2C0.08%29%22%20stroke%3D%22rgba%2852%2C211%2C153%2C0.2%29%22%20stroke-width%3D%221%22%2F%3E%3Ctext%20x%3D%22463%22%20y%3D%2293%22%20text-anchor%3D%22middle%22%20fill%3D%22%2334d399%22%20font-size%3D%2211%22%20font-weight%3D%22700%22%20font-family%3D%22sans-serif%22%3EStructured%3C%2Ftext%3E%3Ctext%20x%3D%22463%22%20y%3D%22110%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3EResponse%3C%2Ftext%3E%3Ctext%20x%3D%22463%22%20y%3D%22126%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3E%2B%20Audit%20Trail%3C%2Ftext%3E%3Cline%20x1%3D%22403%22%20y1%3D%22100%22%20x2%3D%22418%22%20y2%3D%22100%22%20stroke%3D%22rgba%2852%2C211%2C153%2C0.3%29%22%20stroke-width%3D%221.2%22%2F%3E%3Cpolygon%20points%3D%22403%2C95%20415%2C100%20403%2C105%22%20fill%3D%22rgba%2852%2C211%2C153%2C0.35%29%22%2F%3E%3Ctext%20x%3D%22410%22%20y%3D%2290%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%227%22%20font-family%3D%22sans-serif%22%3EReturn%3C%2Ftext%3E%3Ctext%20x%3D%22260%22%20y%3D%22188%22%20text-anchor%3D%22middle%22%20fill%3D%22%23444f66%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3EOne%20Unified%20Protocol%20%E2%80%94%20Agent-Native%20Capability%20Routing%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Integration flow: AI Agent (MCP Client) connects through Model Context Protocol to QVeris MCP Server, which routes through the Capability Router to Tools, APIs, Live Data, and External Services, returning structured responses back to the agent" style="width:100%;max-width:560px;height:auto;" loading="lazy">
+    </div>
+
+    <div class="flow-description max-w-760">
+      <div class="info-box">
+        <strong>How it works:</strong> Your AI agent (running in Claude Code, Cursor, or another compatible MCP client) communicates with QVeris MCP Server using the standard Model Context Protocol. The MCP Server forwards discovery queries, inspection requests, and tool calls to QVeris's capability routing network. QVeris routes each request to the appropriate verified capability — tools, APIs, live data, or external services — and returns structured JSON responses with execution IDs and billing details back through the same path.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Prerequisites ===== -->
+<section aria-labelledby="prereqs-heading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Before You Start</span>
+      <h2 id="prereqs-heading">Prerequisites</h2>
+      <p>What you need before configuring the QVeris MCP Server integration.</p>
+    </div>
+    <div class="card-grid-3 max-w-760">
+      <div class="info-card ic-blue">
+        <div class="info-card-icon">🔑</div>
+        <h3>QVeris access</h3>
+        <p>A QVeris account with valid API credentials. QVeris uses API key authentication with Bearer Token. A valid QVERIS_API_KEY or QVeris credentials are required. Free accounts include 1,000 credits on signup plus 100 daily credits.</p>
+      </div>
+      <div class="info-card ic-violet">
+        <div class="info-card-icon">💻</div>
+        <h3>Compatible MCP client</h3>
+        <p>An AI agent environment or coding tool that supports the Model Context Protocol. Claude Code and Cursor are confirmed compatible. Other MCP-compatible clients may also work.</p>
+      </div>
+      <div class="info-card ic-cyan">
+        <div class="info-card-icon">📋</div>
+        <h3>Configuration details</h3>
+        <p>The official QVeris MCP Server command and any required arguments. <strong>These values should be obtained from your QVeris dashboard or official documentation.</strong> See the Example Configuration section below for the expected structure.</p>
+      </div>
+    </div>
+    <div class="caution-note max-w-760 mt-28">
+      <span>Some prerequisite details are not yet publicly confirmed. The setup steps below show the expected integration flow and configuration structure — but exact commands, environment variable names, and file paths should be verified against the official QVeris documentation. Placeholder values are clearly marked.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Setup Guide ===== -->
+<section aria-labelledby="setup-heading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Setup</span>
+      <h2 id="setup-heading">Setup guide</h2>
+      <p>A step-by-step walkthrough of the QVeris MCP Server integration process.</p>
+    </div>
+
+    <div class="steps-list">
+      <div class="step-item">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Confirm QVeris access</h3>
+          <p>Sign up for a QVeris account at <a href="https://qveris.ai" target="_blank" rel="noopener noreferrer">qveris.ai</a> if you have not already. Free accounts include 1,000 credits on signup plus 100 daily credits. Obtain your API key from the QVeris dashboard. A valid QVERIS_API_KEY or QVeris credentials are required.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Add the QVeris MCP Server configuration</h3>
+          <p>Add the QVeris MCP Server entry to your MCP client's configuration. The configuration structure follows the standard MCP servers format. See the <a href="#example-config">Example Configuration</a> section below for the expected JSON structure. <strong>Exact command and argument values need confirmation from the official QVeris documentation.</strong></p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Connect your AI agent or MCP-compatible client</h3>
+          <p>Launch or restart your MCP-compatible AI agent environment (Claude Code, Cursor, or another compatible client). The client should detect the QVeris MCP Server from your configuration. Verify the connection is active — your agent should now see QVeris capabilities as available tools.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3>Discover available capabilities</h3>
+          <p>Ask your agent to find capabilities using natural language. For example, your agent can query for "market data for US equities" or "KYC verification tools." QVeris returns ranked capability matches with cost estimates, latency, and success rates. Discovery is always free and does not consume credits.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <h3>Inspect capability schema and requirements</h3>
+          <p>Before calling a capability, your agent can inspect its full parameter schema, billing rules, example usage, and quality metrics. This step is always free. The agent should verify that the input parameters match the expected schema and that the cost fits within the available credit balance.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">6</div>
+        <div class="step-content">
+          <h3>Call a capability with structured parameters</h3>
+          <p>Once the agent has selected and inspected a capability, it submits a structured call with the required parameters. QVeris executes the call in a sandboxed environment and returns a structured JSON response containing the result data, a unique execution ID, billing details, and remaining credit balance.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">7</div>
+        <div class="step-content">
+          <h3>Review response, logs, or execution output</h3>
+          <p>Your agent receives structured JSON output that can be used immediately in downstream workflows. Each call returns an <code style="background:rgba(56,182,255,0.1);padding:1px 6px;border-radius:3px;font-size:0.85rem;">execution_id</code>, <code style="background:rgba(56,182,255,0.1);padding:1px 6px;border-radius:3px;font-size:0.85rem;">search_id</code>, and <code style="background:rgba(56,182,255,0.1);padding:1px 6px;border-radius:3px;font-size:0.85rem;">session_id</code> for full audit trail and debugging.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Example Configuration ===== -->
+<section aria-labelledby="example-config">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Configuration</span>
+      <h2 id="example-config">Example configuration</h2>
+      <p>The expected structure of a QVeris MCP Server configuration entry. Replace placeholder values with your actual QVeris credentials and the official server command.</p>
+    </div>
+
+    <div class="max-w-760">
+      <span class="code-label">Example placeholder configuration — needs confirmation</span>
+      <pre class="code-block"><code><span class="cm">// MCP client configuration — add to your mcpServers config</span>
+<span class="kw">{</span>
+  <span class="str">"mcpServers"</span>: <span class="kw">{</span>
+    <span class="str">"qveris"</span>: <span class="kw">{</span>
+      <span class="str">"command"</span>: <span class="str">"<span class="placeholder">&lt;QVERIS_MCP_SERVER_COMMAND&gt;</span>"</span>,
+      <span class="str">"args"</span>: <span class="kw">[</span><span class="str">"<span class="placeholder">&lt;OPTIONAL_ARGS&gt;</span>"</span><span class="kw">]</span>,
+      <span class="str">"env"</span>: <span class="kw">{</span>
+        <span class="str">"QVERIS_API_KEY"</span>: <span class="str">"<span class="placeholder">&lt;QVERIS_API_KEY&gt;</span>"</span>
+      <span class="kw">}</span>
+    <span class="kw">}</span>
+  <span class="kw">}</span>
+<span class="kw">}</span></code></pre>
+
+      <div class="caution-note">
+        <span>This is a representative structure only. The exact <code>command</code> value, <code>args</code> array, and environment variable names must be confirmed from your QVeris dashboard or the official QVeris documentation. Do not use this placeholder as-is in a production environment. Contact QVeris or check qveris.ai for the latest official configuration values.</span>
+      </div>
+
+      <div class="info-box mt-28">
+        <strong>Where to get the official values:</strong> After signing up at <a href="https://qveris.ai" target="_blank" rel="noopener noreferrer">qveris.ai</a>, your dashboard should display the exact MCP Server command, required environment variables, and any platform-specific configuration instructions for Claude Code, Cursor, or other MCP-compatible clients.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== How Agents Use QVeris Capabilities ===== -->
+<section aria-labelledby="usage-heading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Workflow</span>
+      <h2 id="usage-heading">How agents use QVeris capabilities through MCP</h2>
+      <p>Once connected, your AI agent follows the Discover → Inspect → Call workflow for every capability interaction.</p>
+    </div>
+
+    <div class="card-grid-3">
+      <div class="info-card ic-blue">
+        <div class="info-card-icon">🔍</div>
+        <h3>Discover</h3>
+        <p>Agent describes what it needs in natural language ("earnings data for AAPL this quarter"). QVeris returns ranked matches with tool IDs, expected costs, latency estimates, and success rates. Always free — no credits consumed.</p>
+      </div>
+      <div class="info-card ic-violet">
+        <div class="info-card-icon">🔎</div>
+        <h3>Inspect</h3>
+        <p>Agent reviews the full parameter schema, billing rules, and quality metrics for candidate capabilities. Zero-cost decision point — the agent can compare multiple capabilities before committing to a call.</p>
+      </div>
+      <div class="info-card ic-green">
+        <div class="info-card-icon">⚡</div>
+        <h3>Call</h3>
+        <p>Agent submits structured parameters. QVeris executes in a sandbox, returns structured JSON with the result, a unique <code style="background:rgba(52,211,153,0.1);padding:1px 6px;border-radius:3px;font-size:0.85rem;">execution_id</code>, billing details, and remaining credit balance. Credits are consumed only on successful calls.</p>
+      </div>
+    </div>
+
+    <!-- Workflow Detail SVG -->
+    <div style="text-align:center;margin-top:40px;">
+      <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20480%20130%22%3E%3Crect%20width%3D%22480%22%20height%3D%22130%22%20fill%3D%22%230a0e17%22%20rx%3D%2212%22%2F%3E%3Crect%20x%3D%2220%22%20y%3D%2228%22%20width%3D%22120%22%20height%3D%2274%22%20rx%3D%228%22%20fill%3D%22rgba%2856%2C182%2C255%2C0.1%29%22%20stroke%3D%22rgba%2856%2C182%2C255%2C0.25%29%22%20stroke-width%3D%221%22%2F%3E%3Ctext%20x%3D%2280%22%20y%3D%2258%22%20text-anchor%3D%22middle%22%20fill%3D%22%2338b6ff%22%20font-size%3D%2212%22%20font-weight%3D%22700%22%20font-family%3D%22sans-serif%22%3EDiscover%3C%2Ftext%3E%3Ctext%20x%3D%2280%22%20y%3D%2276%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3ENatural%20language%3C%2Ftext%3E%3Ctext%20x%3D%2280%22%20y%3D%2290%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3EAlways%20free%3C%2Ftext%3E%3Cline%20x1%3D%22140%22%20y1%3D%2265%22%20x2%3D%22166%22%20y2%3D%2265%22%20stroke%3D%22rgba%2856%2C182%2C255%2C0.3%29%22%20stroke-width%3D%221.2%22%2F%3E%3Cpolygon%20points%3D%22166%2C61%20173%2C65%20166%2C69%22%20fill%3D%22rgba%2856%2C182%2C255%2C0.35%29%22%2F%3E%3Crect%20x%3D%22176%22%20y%3D%2228%22%20width%3D%22120%22%20height%3D%2274%22%20rx%3D%228%22%20fill%3D%22rgba%28139%2C92%2C246%2C0.1%29%22%20stroke%3D%22rgba%28139%2C92%2C246%2C0.25%29%22%20stroke-width%3D%221%22%2F%3E%3Ctext%20x%3D%22236%22%20y%3D%2258%22%20text-anchor%3D%22middle%22%20fill%3D%22%23a78bfa%22%20font-size%3D%2212%22%20font-weight%3D%22700%22%20font-family%3D%22sans-serif%22%3EInspect%3C%2Ftext%3E%3Ctext%20x%3D%22236%22%20y%3D%2276%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3ESchema%20%2B%20cost%20preview%3C%2Ftext%3E%3Ctext%20x%3D%22236%22%20y%3D%2290%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3EAlways%20free%3C%2Ftext%3E%3Cline%20x1%3D%22296%22%20y1%3D%2265%22%20x2%3D%22322%22%20y2%3D%2265%22%20stroke%3D%22rgba%28139%2C92%2C246%2C0.3%29%22%20stroke-width%3D%221.2%22%2F%3E%3Cpolygon%20points%3D%22322%2C61%20329%2C65%20322%2C69%22%20fill%3D%22rgba%28139%2C92%2C246%2C0.35%29%22%2F%3E%3Crect%20x%3D%22332%22%20y%3D%2228%22%20width%3D%22120%22%20height%3D%2274%22%20rx%3D%228%22%20fill%3D%22rgba%2852%2C211%2C153%2C0.1%29%22%20stroke%3D%22rgba%2852%2C211%2C153%2C0.25%29%22%20stroke-width%3D%221%22%2F%3E%3Ctext%20x%3D%22392%22%20y%3D%2258%22%20text-anchor%3D%22middle%22%20fill%3D%22%2334d399%22%20font-size%3D%2212%22%20font-weight%3D%22700%22%20font-family%3D%22sans-serif%22%3ECall%3C%2Ftext%3E%3Ctext%20x%3D%22392%22%20y%3D%2276%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3EStructured%20execution%3C%2Ftext%3E%3Ctext%20x%3D%22392%22%20y%3D%2290%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3ECredits%20consumed%3C%2Ftext%3E%3Ctext%20x%3D%22240%22%20y%3D%22120%22%20text-anchor%3D%22middle%22%20fill%3D%22%235f6b80%22%20font-size%3D%228%22%20font-family%3D%22sans-serif%22%3EResult%20%2B%20execution_id%20%2B%20billing%20%2B%20remaining%20credits%3C%2Ftext%3E%3C%2Fsvg%3E" alt="QVeris capability workflow: Discover (natural language query, always free) → Inspect (schema and cost preview, always free) → Call (structured execution, credits consumed) — returns result with execution ID, billing details, and remaining balance" style="width:100%;max-width:520px;height:auto;" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ===== Supported Usage Scenarios ===== -->
+<section id="supported-usage-scenarios" aria-labelledby="scenarios-heading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Use Cases</span>
+      <h2 id="scenarios-heading">Supported usage scenarios</h2>
+      <p>Common environments and workflows where QVeris MCP Server adds value. Platform support should be verified against official QVeris documentation.</p>
+    </div>
+    <div class="card-grid-3">
+      <div class="info-card ic-blue">
+        <div class="info-card-icon">🤖</div>
+        <h3>Claude Code</h3>
+        <p>Anthropic's official CLI agent. Confirmed as a compatible MCP client for QVeris MCP Server. Your Claude Code agent can discover and call QVeris capabilities directly within terminal-based coding workflows.</p>
+      </div>
+      <div class="info-card ic-violet">
+        <div class="info-card-icon">💡</div>
+        <h3>Cursor</h3>
+        <p>AI-first IDE with MCP support. Confirmed as a compatible environment. Connect QVeris MCP Server to give your Cursor agent access to verified tools, APIs, and live data during development sessions.</p>
+      </div>
+      <div class="info-card ic-cyan">
+        <div class="info-card-icon">📈</div>
+        <h3>Finance AI agents</h3>
+        <p>Agents performing investment research, market intelligence, risk assessment, and compliance checks. Access market data, earnings, KYC, sanctions screening, crypto data, and more through MCP.</p>
+      </div>
+      <div class="info-card ic-green">
+        <div class="info-card-icon">📊</div>
+        <h3>Investment research workflows</h3>
+        <p>Automate earnings analysis, valuation model data retrieval, and market intelligence gathering. QVeris routes each research query to verified financial data capabilities.</p>
+      </div>
+      <div class="info-card ic-amber">
+        <div class="info-card-icon">🏢</div>
+        <h3>Internal enterprise agents</h3>
+        <p>Connect internal enterprise AI agents to QVeris capabilities through MCP for document processing, data enrichment, compliance checks, and external API access with full audit trails.</p>
+      </div>
+      <div class="info-card ic-rose">
+        <div class="info-card-icon">🚀</div>
+        <h3>Agentic SaaS products</h3>
+        <p>Build SaaS products where AI agents need dynamic access to external tools and data. QVeris MCP Server provides one integration point instead of managing dozens of third-party API integrations.</p>
+      </div>
+    </div>
+    <div class="text-center mt-28">
+      <p style="font-size:0.9rem;">Compatible MCP clients may include additional platforms beyond those listed. <a href="/use-cases">Explore all use cases →</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Best Practices ===== -->
+<section aria-labelledby="best-practices-heading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Guidance</span>
+      <h2 id="best-practices-heading">Best practices</h2>
+      <p>Recommendations for integrating QVeris MCP Server effectively and safely into your AI agent workflow.</p>
+    </div>
+    <div class="card-grid-2 max-w-760">
+      <div class="info-card ic-blue">
+        <div class="info-card-icon">🎯</div>
+        <h3>Start with a small set of capabilities</h3>
+        <p>Begin with a focused set of capabilities relevant to your agent's primary task. Expand gradually as you understand the cost, latency, and reliability characteristics of each capability domain.</p>
+      </div>
+      <div class="info-card ic-violet">
+        <div class="info-card-icon">🔍</div>
+        <h3>Inspect schemas before execution</h3>
+        <p>Always inspect the parameter schema, billing rules, and quality metrics before calling a capability. Inspection is free and prevents costly mismatches between expected and actual parameters.</p>
+      </div>
+      <div class="info-card ic-cyan">
+        <div class="info-card-icon">🔒</div>
+        <h3>Keep credentials secure</h3>
+        <p>Store your QVeris API key securely. Use environment variables or a secrets manager. Never hardcode credentials in configuration files that may be committed to version control.</p>
+      </div>
+      <div class="info-card ic-green">
+        <div class="info-card-icon">📋</div>
+        <h3>Track execution and outputs</h3>
+        <p>Log <code style="background:rgba(52,211,153,0.1);padding:1px 6px;border-radius:3px;font-size:0.85rem;">execution_id</code>, <code style="background:rgba(52,211,153,0.1);padding:1px 6px;border-radius:3px;font-size:0.85rem;">search_id</code>, and <code style="background:rgba(52,211,153,0.1);padding:1px 6px;border-radius:3px;font-size:0.85rem;">session_id</code> values for every call. These identifiers enable full audit trail reconstruction, cost tracking, and debugging.</p>
+      </div>
+      <div class="info-card ic-amber">
+        <div class="info-card-icon">🧪</div>
+        <h3>Separate test and production workflows</h3>
+        <p>Use separate QVeris sessions or API keys for testing and production. This prevents test calls from consuming production credit budgets and keeps audit trails clean.</p>
+      </div>
+      <div class="info-card ic-rose">
+        <div class="info-card-icon">✅</div>
+        <h3>Validate outputs before use</h3>
+        <p>For finance, compliance, or other regulated workflows, validate structured outputs before using them in downstream decisions. QVeris provides the data and execution trail — your agent logic should still verify results meet your requirements.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Troubleshooting ===== -->
+<section aria-labelledby="troubleshooting-heading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Help</span>
+      <h2 id="troubleshooting-heading">Troubleshooting</h2>
+      <p>Common integration scenarios and resolution paths. Exact error messages and codes should be verified against the official QVeris documentation.</p>
+    </div>
+    <div class="card-grid-2 max-w-760">
+      <div class="info-card ic-amber">
+        <div class="info-card-icon">🔐</div>
+        <h3>Authentication or access issue</h3>
+        <p>Verify your QVeris API key is valid and has not expired. A valid QVERIS_API_KEY or QVeris credentials are required. Check that your account has available credits. Confirm the API key is being passed correctly in the MCP Server environment configuration.</p>
+      </div>
+      <div class="info-card ic-amber">
+        <div class="info-card-icon">🔌</div>
+        <h3>MCP client cannot find the server</h3>
+        <p>Confirm the QVeris MCP Server command is correct and the server process is running. Verify your MCP client configuration file is in the correct location and has valid JSON syntax. Restart your MCP client after making configuration changes.</p>
+      </div>
+      <div class="info-card ic-amber">
+        <div class="info-card-icon">🔍</div>
+        <h3>Capability not discovered</h3>
+        <p>Try a broader or differently worded natural language query. Discovery matches against capability descriptions and metadata — rephrasing the query may surface relevant capabilities. Ensure your account plan includes access to the capability category you are searching for.</p>
+      </div>
+      <div class="info-card ic-amber">
+        <div class="info-card-icon">📐</div>
+        <h3>Schema mismatch</h3>
+        <p>Inspect the capability again to confirm the current parameter schema. Capability schemas may be updated by providers. Ensure your agent is passing all required parameters with correct types before calling.</p>
+      </div>
+      <div class="info-card ic-amber">
+        <div class="info-card-icon">❌</div>
+        <h3>Tool call fails</h3>
+        <p>Check the structured error response for details. Common causes include insufficient credits, rate limiting, invalid parameters, or temporary provider unavailability. Review the execution response for specific error context.</p>
+      </div>
+      <div class="info-card ic-amber">
+        <div class="info-card-icon">⏱️</div>
+        <h3>Rate limit or permission issue</h3>
+        <p>Free accounts have a 10 req/min rate limit; Pro accounts have 100 req/min. If you are hitting rate limits, consider upgrading your plan. For permission issues, verify your account tier includes access to the requested capability.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Comparison Section ===== -->
+<section aria-labelledby="comparison-heading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Comparison</span>
+      <h2 id="comparison-heading">How this guide compares</h2>
+      <p>Understanding the difference between the concept page, this integration guide, and alternative integration approaches.</p>
+    </div>
+
+    <h3 style="margin-bottom:16px;">Concept page vs. Integration guide</h3>
+    <div class="compare-table-wrap mb-40">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>MCP Concept Page</th>
+            <th class="highlight-col">This Integration Guide</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Primary question</td>
+            <td>What is MCP Server?</td>
+            <td class="highlight-col">How do I use QVeris MCP Server?</td>
+          </tr>
+          <tr>
+            <td>Content type</td>
+            <td>Concept explainer</td>
+            <td class="highlight-col">Practical integration guide</td>
+          </tr>
+          <tr>
+            <td>User intent</td>
+            <td>Informational — learning</td>
+            <td class="highlight-col">Implementation — connecting</td>
+          </tr>
+          <tr>
+            <td>Setup steps</td>
+            <td>None or minimal</td>
+            <td class="highlight-col">7-step walkthrough with configuration structure</td>
+          </tr>
+          <tr>
+            <td>Code/config</td>
+            <td>Conceptual examples</td>
+            <td class="highlight-col">Placeholder configuration with clear structure</td>
+          </tr>
+          <tr>
+            <td>Troubleshooting</td>
+            <td>Not included</td>
+            <td class="highlight-col">6 common scenarios with resolution paths</td>
+          </tr>
+          <tr>
+            <td>Best for</td>
+            <td>New MCP users</td>
+            <td class="highlight-col">Users ready to connect QVeris via MCP</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-bottom:16px;">QVeris MCP Server vs. Alternative integration approaches</h3>
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th class="highlight-col">QVeris MCP Server</th>
+            <th>Manual API Integration</th>
+            <th>Static MCP Tool Directory</th>
+            <th>Generic API Marketplace</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Discovery</td>
+            <td class="highlight-col"><span class="check">✓</span> Natural language</td>
+            <td><span class="cross">✗</span> Must pre-code endpoints</td>
+            <td><span class="partial">◐</span> Keyword search only</td>
+            <td><span class="partial">◐</span> Browse by category</td>
+          </tr>
+          <tr>
+            <td>Cost preview</td>
+            <td class="highlight-col"><span class="check">✓</span> Before calling</td>
+            <td><span class="cross">✗</span> No preview</td>
+            <td><span class="cross">✗</span> Pricing page only</td>
+            <td><span class="cross">✗</span> Not available</td>
+          </tr>
+          <tr>
+            <td>Quality signals</td>
+            <td class="highlight-col"><span class="check">✓</span> Success rate, latency</td>
+            <td><span class="cross">✗</span> None</td>
+            <td><span class="cross">✗</span> Provider claims only</td>
+            <td><span class="cross">✗</span> Unverified</td>
+          </tr>
+          <tr>
+            <td>Protocol</td>
+            <td class="highlight-col"><span class="check">✓</span> One unified MCP</td>
+            <td><span class="cross">✗</span> One per API</td>
+            <td><span class="cross">✗</span> Many different APIs</td>
+            <td><span class="cross">✗</span> No unified protocol</td>
+          </tr>
+          <tr>
+            <td>Audit trail</td>
+            <td class="highlight-col"><span class="check">✓</span> execution_id, session tracing</td>
+            <td><span class="partial">◐</span> Provider-dependent</td>
+            <td><span class="cross">✗</span> Limited</td>
+            <td><span class="cross">✗</span> None</td>
+          </tr>
+          <tr>
+            <td>Execution</td>
+            <td class="highlight-col"><span class="check">✓</span> Sandboxed</td>
+            <td><span class="partial">◐</span> Direct call only</td>
+            <td><span class="cross">✗</span> Varies</td>
+            <td><span class="cross">✗</span> None</td>
+          </tr>
+          <tr>
+            <td>Agent-native</td>
+            <td class="highlight-col"><span class="check">✓</span> Built for AI agents</td>
+            <td><span class="cross">✗</span> Built for human devs</td>
+            <td><span class="cross">✗</span> Built for human devs</td>
+            <td><span class="cross">✗</span> Built for human devs</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" aria-labelledby="faq-heading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">FAQ</span>
+      <h2 id="faq-heading">Frequently asked questions</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>What is QVeris MCP Server?</summary>
+        <div class="faq-answer">
+          QVeris MCP Server is a native <a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener noreferrer">Model Context Protocol</a> server that connects compatible AI agent environments to QVeris's capability routing network. Through the MCP Server, AI agents can discover, inspect, and call 10,000+ verified tools, APIs, and live data sources using the standard MCP protocol — without needing to integrate with each data source individually.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>How do I use QVeris MCP Server?</summary>
+        <div class="faq-answer">
+          To use QVeris MCP Server: (1) confirm you have QVeris access and valid API credentials, (2) add the QVeris MCP Server configuration to your MCP-compatible client, (3) connect your AI agent, then (4) use natural language to discover, inspect, and call capabilities through the MCP protocol. Exact configuration values — including the server command and environment variable names — should be obtained from the official QVeris dashboard or documentation after signing up.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Is QVeris MCP Server the same as a generic MCP tool directory?</summary>
+        <div class="faq-answer">
+          No. Unlike a generic MCP tool directory where tools are static listings that agents must browse manually, QVeris MCP Server is backed by a capability routing network. Agents discover tools dynamically using natural language, inspect cost and quality metrics (success rate, latency) before calling, and execute through a unified protocol with structured JSON responses, unique execution IDs, billing details, and full audit trails. Discovery and inspection are always free.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Do I need a QVeris API key to use the MCP Server?</summary>
+        <div class="faq-answer">
+          Yes, you need QVeris credentials to use the MCP Server. A valid QVERIS_API_KEY or QVeris credentials are required. QVeris authenticates using API keys with Bearer Token authentication. You can obtain credentials by signing up for a free QVeris account at qveris.ai, which includes 1,000 credits on signup plus 100 daily credits.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Can QVeris MCP Server work with Claude Code?</summary>
+        <div class="faq-answer">
+          Yes. Claude Code (Anthropic's official CLI agent) is a confirmed compatible MCP client. Once the QVeris MCP Server configuration is added to your Claude Code MCP settings, your Claude Code agent can discover and call QVeris capabilities through the Model Context Protocol. Check the official QVeris documentation for the exact configuration values needed for your Claude Code setup.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Can QVeris MCP Server work with Cursor?</summary>
+        <div class="faq-answer">
+          Yes. Cursor (AI-first IDE) is a confirmed compatible environment for QVeris MCP Server. When configured in your Cursor environment, the AI agent can discover, inspect, and call QVeris capabilities directly within the editor through the Model Context Protocol — giving your coding agent access to verified tools, APIs, and live data during development.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>What capabilities can agents access through QVeris MCP Server?</summary>
+        <div class="faq-answer">
+          Through QVeris MCP Server, agents can access 10,000+ verified capabilities across 15+ categories. Key finance domains include: quantitative trading data, macro and fixed income, risk and compliance (KYC, sanctions screening), investment research (earnings, analyst consensus, valuation models), crypto and digital assets (on-chain data, DeFi metrics), and alternative signals. General capabilities include PDF parsing, OCR, image generation, weather data, and geolocation services. <a href="/capabilities">Browse all capability categories →</a>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Is QVeris MCP Server suitable for production AI agents?</summary>
+        <div class="faq-answer">
+          Yes. QVeris operates with a 99.99% uptime, sub-500ms p95 latency, RBAC access controls, and sandboxed execution with full audit trails on every call. The MCP Server provides the same production-grade infrastructure as QVeris's REST API, Python SDK, and CLI integration methods. Enterprise options may include dedicated support, custom integrations, volume discounts, and custom SLAs.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>How does QVeris MCP Server support tool calling?</summary>
+        <div class="faq-answer">
+          QVeris MCP Server supports a three-step tool calling workflow through the Model Context Protocol: <strong>Discover</strong> — the agent describes what it needs in natural language and receives ranked capability matches with cost estimates, latency, and success rates (always free). <strong>Inspect</strong> — the agent reviews full parameter schemas, billing rules, and quality metrics before committing (always free). <strong>Call</strong> — the agent submits structured parameters, QVeris executes in a sandboxed environment, and returns structured JSON with a unique execution ID, billing details, and remaining credit balance.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Where can I get official setup details for QVeris MCP Server?</summary>
+        <div class="faq-answer">
+          Official setup details — including the exact MCP Server command, required environment variables, and platform-specific configuration instructions for Claude Code, Cursor, and other compatible clients — are available through your QVeris dashboard after signing up. Visit <a href="https://qveris.ai" target="_blank" rel="noopener noreferrer">qveris.ai</a> to create an account, or <a href="/contact">contact QVeris</a> directly for enterprise setup guidance.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>EXPLORE</h4>
+      <ul>
+        <li><a href="https://qveris.ai/tool-finder" target="_blank" rel="noopener noreferrer">Tool Finder</a></li>
+        <li><a href="https://qveris.ai/capability-map" target="_blank" rel="noopener noreferrer">Capability Map</a></li>
+        <li><a href="https://qveris.ai/provider-hub" target="_blank" rel="noopener noreferrer">Provider Hub</a></li>
+        <li><a href="https://qveris.ai/live-demo" target="_blank" rel="noopener noreferrer">Live Demo</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>USE</h4>
+      <ul>
+        <li><a href="https://qveris.ai">QVerisBot</a></li>
+        <li><a href="https://qveris.ai/agent-setup" target="_blank" rel="noopener noreferrer">Agent Setup</a></li>
+        <li><a href="https://qveris.ai/cli" target="_blank" rel="noopener noreferrer">CLI</a></li>
+        <li><a href="https://qveris.ai/skill-hub" target="_blank" rel="noopener noreferrer">Skill Hub</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>DEVELOPERS</h4>
+      <ul>
+        <li><a href="https://qveris.ai/docs/api-reference" target="_blank" rel="noopener noreferrer">API Reference</a></li>
+        <li><a href="https://qveris.ai/docs/mcp-server" target="_blank" rel="noopener noreferrer">MCP Server</a></li>
+        <li><a href="https://qveris.ai/docs/python-sdk" target="_blank" rel="noopener noreferrer">Python SDK</a></li>
+        <li><a href="https://qveris.ai/docs/cli-reference" target="_blank" rel="noopener noreferrer">CLI Reference</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>COMPANY</h4>
+      <ul>
+        <li><a href="https://qveris.ai/help-center" target="_blank" rel="noopener noreferrer">Help Center</a></li>
+        <li><a href="https://qveris.ai/privacy" target="_blank" rel="noopener noreferrer">Privacy</a></li>
+        <li><a href="https://qveris.ai/ecosystem" target="_blank" rel="noopener noreferrer">Ecosystem</a></li>
+        <li><a href="https://qveris.ai/security" target="_blank" rel="noopener noreferrer">Security</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 QVeris AI, LLC. All rights reserved.</span>
+    <span>Capability routing for AI agents.</span>
+  </div>
+</footer>
+
+</body>
+</html>
