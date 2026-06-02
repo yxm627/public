@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agent Cost Calculator: QVeris vs Zapier MCP vs Toolhouse (2026)</title>
+  <meta name="description" content="Compare AI agent tool calling costs across QVeris, Zapier MCP, and Toolhouse. Enter your monthly call volume and see why QVeris saves you the most.">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title" content="AI Agent Cost Calculator: QVeris vs Zapier MCP vs Toolhouse (2026)">
+  <meta property="og:description" content="Compare AI agent tool calling costs across QVeris, Zapier MCP, and Toolhouse. Enter your monthly call volume and see why QVeris saves you the most.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://try.qveris.ai/api-cost-calculator/">
+  <meta property="og:image" content="https://try.qveris.ai/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AI Agent Cost Calculator comparing QVeris, Zapier MCP, and Toolhouse pricing">
+  <meta property="og:site_name" content="QVeris">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Agent Cost Calculator: QVeris vs Zapier MCP vs Toolhouse (2026)">
+  <meta name="twitter:description" content="Compare AI agent tool calling costs across QVeris, Zapier MCP, and Toolhouse. Enter your monthly call volume and see why QVeris saves you the most.">
+  <meta name="twitter:image" content="https://try.qveris.ai/og.png">
+  <meta name="twitter:image:alt" content="AI Agent Tool Call Cost Calculator comparison matrix">
+  <meta name="twitter:site" content="@qveris_ai">
+  <meta name="theme-color" content="#0A0E1A">
+
+  <link rel="canonical" href="https://try.qveris.ai/api-cost-calculator/">
+  <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/245123302?s=200&v=4">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://qveris.ai/icon.png">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://try.qveris.ai">
+  <link rel="preconnect" href="https://try.qveris.ai">
+  <link rel="dns-prefetch" href="https://qveris.ai">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Schema #1: Organization -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"QVeris AI","url":"https://qveris.ai","logo":"https://qveris.ai/logo-color.png","sameAs":["https://www.linkedin.com/company/qveris","https://twitter.com/qveris_ai","https://github.com/qveris"]}</script>
+
+  <!-- Schema #2: BreadcrumbList -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://qveris.ai/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://try.qveris.ai/tools/"},{"@type":"ListItem","position":3,"name":"AI Agent Cost Calculator","item":"https://try.qveris.ai/api-cost-calculator/"}]}</script>
+
+  <!-- Schema #3: Article -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"AI Agent Tool Call Cost Calculator — Find the Cheapest Platform for Your Usage","description":"Compare AI agent tool calling costs across QVeris, Zapier MCP, and Toolhouse. Enter your monthly call volume and see why QVeris saves you the most.","image":["https://try.qveris.ai/og.png"],"datePublished":"2026-05-26","dateModified":"2026-06-01","author":{"@type":"Person","name":"Wang Linfang","url":"https://qveris.ai","jobTitle":"CEO & Founder, QVeris","sameAs":["https://www.linkedin.com/in/wanglinfang"]},"publisher":{"@type":"Organization","name":"QVeris AI","logo":{"@type":"ImageObject","url":"https://qveris.ai/logo-color.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://try.qveris.ai/api-cost-calculator/"}}</script>
+
+  <!-- Schema #4: FAQPage -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does the AI agent cost calculator work?","acceptedAnswer":{"@type":"Answer","text":"Enter your estimated daily tool call volume, select the complexity of capabilities you need (simple/medium/complex), and choose which platforms to compare. The calculator estimates your monthly and annual costs across QVeris, Zapier MCP, and Toolhouse based on each platform's publicly available pricing."}},{"@type":"Question","name":"Which AI agent platform is the cheapest for high-volume usage?","acceptedAnswer":{"@type":"Answer","text":"For high-volume usage (10,000+ calls/month), QVeris is significantly more cost-effective. At 10,000 calls/month: QVeris Pro costs $19, while Zapier MCP costs approximately $600+ due to its 2-tasks-per-call billing model. QVeris also offers a Scale On-Demand option with no monthly commitment and credits that never expire."}},{"@type":"Question","name":"Does QVeris have a free tier?","acceptedAnswer":{"@type":"Answer","text":"Yes. QVeris Free plan offers 1,000 credits on signup plus 100 credits daily for logging in. Discover and Inspect operations are always free — you only pay when you call a capability."}},{"@type":"Question","name":"Why does Zapier MCP cost more per call?","acceptedAnswer":{"@type":"Answer","text":"Zapier MCP consumes 2 tasks per tool call (1 for request + 1 for response). The Professional plan at $19.99/month includes only 750 tasks, meaning you get approximately 375 tool calls per month. Beyond that, overage costs scale quickly. QVeris charges 1-15 credits per call depending on complexity, with Pro plan offering 10,000 credits at $19/month."}}]}</script>
+
+  <!-- Schema #5: SoftwareApplication -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"QVeris","description":"AI-Agent native capability routing network with 10,000+ tools, natural language discovery, and pay-per-call pricing.","applicationCategory":"BusinessApplication","operatingSystem":"Web, CLI","url":"https://qveris.ai","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock"}}</script>
+
+  <style>
+    /* --- RESET & BASE --- */
+    @font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:local('Inter')}
+    @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400 600;font-display:swap;src:local('JetBrains Mono')}
+    *{box-sizing:border-box;margin:0;padding:0}
+    ::selection{background:rgba(124,155,255,0.35)}
+    ::-webkit-scrollbar{width:8px;background:#0A0E1A}
+    ::-webkit-scrollbar-thumb{background:rgba(124,155,255,0.2);border-radius:4px}
+    ::-webkit-scrollbar-thumb:hover{background:rgba(124,155,255,0.35)}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,sans-serif;color:rgba(255,255,255,0.82);background:#0A0E1A;font-size:16.5px;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+    /* --- ANIMATED BACKGROUND --- */
+    .bg-mesh{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:hidden}
+    .bg-mesh .orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.3;animation:orbFloat 20s ease-in-out infinite}
+    .bg-mesh .orb:nth-child(1){width:600px;height:600px;background:radial-gradient(circle,rgba(124,155,255,0.15),transparent);top:-200px;right:-200px;animation-delay:0s}
+    .bg-mesh .orb:nth-child(2){width:500px;height:500px;background:radial-gradient(circle,rgba(61,95,224,0.12),transparent);bottom:-150px;left:-150px;animation-delay:-7s}
+    .bg-mesh .orb:nth-child(3){width:400px;height:400px;background:radial-gradient(circle,rgba(124,155,255,0.08),transparent);top:50%;left:50%;transform:translate(-50%,-50%);animation-delay:-14s}
+    @keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(30px,-40px) scale(1.05)}50%{transform:translate(-20px,20px) scale(0.95)}75%{transform:translate(40px,30px) scale(1.02)}}
+    .content-wrap{position:relative;z-index:1}
+
+    /* --- SKIP --- */
+    .skip-link{position:absolute;left:-9999px;top:0;background:#7C9BFF;color:#0A0E1A;padding:10px 16px;border-radius:0 0 8px 0;font-weight:600;z-index:200}
+    .skip-link:focus{left:0}
+    a{color:#7C9BFF;text-decoration:none;transition:color 0.2s}
+    a:hover{color:#B5C6FF}
+    img{max-width:100%;height:auto;display:block}
+
+    /* --- NAV --- */
+    .nav{position:sticky;top:0;z-index:100;background:rgba(10,14,26,0.75);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);border-bottom:1px solid rgba(255,255,255,0.06);padding:14px 0}
+    .nav-inner{max-width:1024px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .nav-logo-img{width:28px;height:28px;border-radius:6px;display:block}
+    .nav-logo span{font-size:16px;font-weight:600;color:rgba(255,255,255,0.97);letter-spacing:-0.01em}
+    .nav-links{display:flex;align-items:center;gap:22px;font-size:14px}
+    .nav-links a{color:rgba(255,255,255,0.55);transition:color 0.15s}
+    .nav-links a:hover{color:rgba(255,255,255,0.9)}
+    .nav-cta{background:linear-gradient(135deg,#B5C6FF,#7C9BFF);color:#0A0E1A;padding:7px 18px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none;transition:all 0.25s;box-shadow:0 0 20px rgba(124,155,255,0.15)}
+    .nav-cta:hover{opacity:1;color:#0A0E1A;transform:translateY(-1px);box-shadow:0 0 30px rgba(124,155,255,0.3)}
+
+    /* --- LAYOUT --- */
+    .wrap{max-width:1024px;margin:0 auto;padding:48px 24px}
+    h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:600;line-height:1.15;margin-bottom:12px;color:rgba(255,255,255,0.97);letter-spacing:-0.02em}
+    h2{font-size:1.22rem;font-weight:600;margin:48px 0 16px;color:rgba(255,255,255,0.92);border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:10px}
+    h3{font-size:15px;font-weight:600;margin:24px 0 10px;color:rgba(255,255,255,0.85)}
+    p{margin:0 0 18px;color:rgba(255,255,255,0.62)}
+    strong{color:rgba(255,255,255,0.92)}
+    ul,ol{margin:12px 0 14px 24px}
+    li{margin:6px 0;color:rgba(255,255,255,0.62)}
+    code{font-family:'JetBrains Mono',monospace;background:rgba(255,255,255,0.04);padding:2px 8px;border-radius:4px;font-size:0.85em;color:#B5C6FF}
+
+    /* --- REVEAL --- */
+    .reveal{opacity:0;transform:translateY(30px);transition:all 0.7s cubic-bezier(0.16,1,0.3,1)}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    /* --- META --- */
+    .meta-desc{font-size:1rem;color:rgba(255,255,255,0.5);margin-bottom:24px;line-height:1.55;max-width:680px}
+    .breadcrumb{font-size:13px;color:rgba(255,255,255,0.35);margin-bottom:20px}
+    .breadcrumb a{color:#7C9BFF}
+    .breadcrumb span{margin:0 6px}
+    .badge{display:inline-block;font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;margin-right:8px;margin-bottom:14px}
+    .badge-client{background:rgba(124,155,255,0.18);color:#B5C6FF;border:1px solid rgba(124,155,255,0.25)}
+    .badge-cat{background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.55)}
+
+    /* --- AUTHOR --- */
+    .author-meta{display:flex;align-items:center;gap:14px;padding:16px 0;margin:0 0 28px;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);flex-wrap:wrap}
+    .author-meta img{width:44px;height:44px;border-radius:50%;object-fit:cover}
+    .author-info{flex:1;min-width:200px}
+    .author-info a{font-weight:600;color:rgba(255,255,255,0.92)}
+    .author-bio{font-size:13px;color:rgba(255,255,255,0.45);margin:2px 0 0}
+    .dates{font-size:12px;color:rgba(255,255,255,0.4);display:flex;flex-direction:column;gap:2px;text-align:right}
+
+    /* --- TL;DR --- */
+    .tldr{background:linear-gradient(135deg,rgba(124,155,255,0.06),rgba(61,95,224,0.03));border-left:3px solid #7C9BFF;border-radius:0 12px 12px 0;padding:20px 24px;margin:0 0 28px}
+    .tldr-label{font-size:12px;font-weight:600;color:#B5C6FF;margin-bottom:12px;text-transform:uppercase;letter-spacing:1.5px}
+    .tldr ul{margin:0;padding-left:18px;font-size:14.5px}
+    .tldr li{color:rgba(255,255,255,0.7);margin:4px 0}
+
+    /* --- CALCULATOR (tool area) --- */
+    .calc-hero{background:rgba(255,255,255,0.02);border:1px solid rgba(124,155,255,0.12);border-radius:16px;padding:32px;margin:0 0 32px}
+    .calc-hero h2{margin-top:0;border:none;padding:0;font-size:1.05rem;color:rgba(255,255,255,0.85)}
+    .calc-section{margin-bottom:24px}
+    .calc-label{font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.5px}
+    .calc-slider-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+    .calc-slider{flex:1;min-width:200px;-webkit-appearance:none;appearance:none;height:6px;background:rgba(255,255,255,0.08);border-radius:3px;outline:none}
+    .calc-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#7C9BFF,#3D5FE0);cursor:pointer;box-shadow:0 0 12px rgba(124,155,255,0.3)}
+    .calc-slider::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#7C9BFF,#3D5FE0);cursor:pointer;border:none}
+    .calc-input-num{width:100px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:8px 12px;color:rgba(255,255,255,0.85);font-size:14px;font-weight:600;text-align:center;font-family:'JetBrains Mono',monospace}
+    .calc-input-num:focus{outline:none;border-color:#7C9BFF}
+    .preset-btns{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+    .preset-btn{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:500;color:rgba(255,255,255,0.55);cursor:pointer;transition:all 0.2s}
+    .preset-btn:hover{border-color:rgba(124,155,255,0.3);color:#B5C6FF}
+    .preset-btn.active{background:rgba(124,155,255,0.15);border-color:#7C9BFF;color:#B5C6FF}
+
+    .calc-select{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:8px 14px;color:rgba(255,255,255,0.85);font-size:14px;min-width:200px;cursor:pointer}
+    .calc-select:focus{outline:none;border-color:#7C9BFF}
+
+    .check-grid{display:flex;gap:20px;flex-wrap:wrap}
+    .check-item{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px;color:rgba(255,255,255,0.65)}
+    .check-item input[type=checkbox]{width:18px;height:18px;accent-color:#7C9BFF;cursor:pointer}
+
+    /* --- RESULTS --- */
+    .results-box{margin-top:24px;padding:24px;background:rgba(124,155,255,0.04);border:1px solid rgba(124,155,255,0.15);border-radius:12px;display:none}
+    .results-box.active{display:block;animation:fadeSlide 0.4s ease}
+    .results-title{font-size:13px;font-weight:600;color:#B5C6FF;margin-bottom:16px;text-transform:uppercase;letter-spacing:1px}
+    .results-table{width:100%;border-collapse:collapse;margin:0 0 16px;font-size:14px}
+    .results-table th,.results-table td{padding:10px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06)}
+    .results-table th{color:rgba(255,255,255,0.55);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.5px}
+    .results-table td{color:rgba(255,255,255,0.7)}
+    .results-table .winner{color:#22c55e;font-weight:700}
+    .results-table .exp{color:#ef4444;font-weight:600}
+    .savings-banner{background:linear-gradient(135deg,rgba(34,197,94,0.1),rgba(34,197,94,0.04));border:1px solid rgba(34,197,94,0.2);border-radius:10px;padding:14px 18px;margin:12px 0;text-align:center;font-size:15px;color:#22c55e;font-weight:600}
+    .calc-disclaimer{font-size:11px;color:rgba(255,255,255,0.3);margin-top:12px;text-align:center}
+
+    /* --- BAR CHART (results) --- */
+    .bar-chart{display:flex;flex-direction:column;gap:8px;margin:16px 0 20px}
+    .bar-row{display:flex;align-items:center;gap:12px}
+    .bar-label{width:80px;font-size:12px;color:rgba(255,255,255,0.6);text-align:right;flex-shrink:0}
+    .bar-track{flex:1;height:24px;background:rgba(255,255,255,0.04);border-radius:6px;overflow:hidden;position:relative}
+    .bar-fill{height:100%;border-radius:6px;display:flex;align-items:center;padding-left:10px;font-size:11px;font-weight:700;color:#0A0E1A;min-width:40px;transition:width 0.8s cubic-bezier(0.16,1,0.3,1)}
+    .bar-fill.qv{background:linear-gradient(90deg,#7C9BFF,#B5C6FF)}
+    .bar-fill.zp{background:linear-gradient(90deg,rgba(239,68,68,0.6),rgba(239,68,68,0.3))}
+    .bar-fill.th{background:linear-gradient(90deg,rgba(168,85,247,0.6),rgba(168,85,247,0.3))}
+    .bar-value{font-size:11px;color:rgba(255,255,255,0.5);width:60px;flex-shrink:0;font-weight:600}
+
+    /* --- COMPARE TABLE --- */
+    .compare-table{width:100%;border-collapse:separate;border-spacing:0;margin:20px 0;font-size:14px;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.06)}
+    .compare-table th,.compare-table td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.04)}
+    .compare-table thead th{background:rgba(124,155,255,0.06);color:rgba(255,255,255,0.85);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.5px}
+    .compare-table tbody th{background:transparent;color:rgba(255,255,255,0.85);font-weight:500;font-size:13px;border-right:1px solid rgba(255,255,255,0.04)}
+    .compare-table td{color:rgba(255,255,255,0.65)}
+    .compare-table tbody tr:hover{background:rgba(124,155,255,0.03)}
+    .highlight{color:#B5C6FF;font-weight:600}
+
+    /* --- SCENARIO BOX --- */
+    .scenario-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;margin:16px 0;transition:all 0.3s}
+    .scenario-box:hover{border-color:rgba(124,155,255,0.18);transform:translateY(-2px)}
+    .scenario-box h3{margin-top:0}
+
+    /* --- FAQ --- */
+    .faq-item{border-bottom:1px solid rgba(255,255,255,0.06);padding:20px 0;transition:padding 0.3s}
+    .faq-q{font-weight:600;font-size:16px;color:rgba(255,255,255,0.9);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+    .faq-q::after{content:'+';font-size:20px;color:rgba(255,255,255,0.3);transition:transform 0.3s}
+    .faq-q.open::after{transform:rotate(45deg)}
+    .faq-a{margin-top:0;max-height:0;overflow:hidden;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);color:rgba(255,255,255,0.55);font-size:14.5px;line-height:1.65}
+    .faq-a.open{max-height:500px;margin-top:12px}
+
+    /* --- CTA --- */
+    .cta-box{background:linear-gradient(135deg,rgba(124,155,255,0.08),rgba(61,95,224,0.05));border:1px solid rgba(124,155,255,0.15);text-align:center;padding:40px;border-radius:16px;margin:48px 0;position:relative;overflow:hidden}
+    .cta-box::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 50%,rgba(124,155,255,0.04),transparent 50%);pointer-events:none}
+    .cta-box h3{color:rgba(255,255,255,0.95);margin:0 0 8px;font-size:20px;font-weight:600}
+    .cta-box p{color:rgba(255,255,255,0.55);margin:0 0 20px;position:relative}
+    .cta-btn{display:inline-block;background:linear-gradient(135deg,#B5C6FF,#7C9BFF);color:#0A0E1A;padding:12px 32px;border-radius:24px;font-weight:600;font-size:15px;transition:all 0.25s;text-decoration:none;box-shadow:0 0 30px rgba(124,155,255,0.15)}
+    .cta-btn:hover{opacity:1;color:#0A0E1A;transform:translateY(-2px);box-shadow:0 0 40px rgba(124,155,255,0.25)}
+    .cta-btn-outline{display:inline-block;border:1px solid rgba(124,155,255,0.3);color:#7C9BFF;padding:11px 28px;border-radius:24px;font-weight:600;font-size:14px;transition:all 0.2s;margin-left:12px}
+    .cta-btn-outline:hover{background:rgba(124,155,255,0.08);color:#B5C6FF;transform:translateY(-2px)}
+
+    /* --- METHODOLOGY / RELATED / FOOTER --- */
+    .methodology{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:24px;margin:32px 0;font-size:14px;color:rgba(255,255,255,0.55)}
+    .methodology h2{font-size:14px;border:none;padding:0;margin:0 0 12px;color:rgba(255,255,255,0.85);text-transform:uppercase;letter-spacing:1px}
+    .methodology p{margin:6px 0;font-size:13.5px}
+    .related{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+    .related a{display:block;padding:16px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;text-decoration:none;color:#B5C6FF;font-size:14px;font-weight:500;transition:all 0.3s;line-height:1.45}
+    .related a:hover{background:rgba(124,155,255,0.05);border-color:rgba(124,155,255,0.25);transform:translateY(-2px)}
+    .ref-list{font-size:13px;color:rgba(255,255,255,0.55)}
+    .ref-list ol{margin:0;padding-left:22px}
+    .ref-list li{margin:3px 0;font-size:12.5px;word-break:break-all}
+    .ref-list li a{color:#8a8a9a}
+    .ref-list li a:hover{color:#B5C6FF}
+    sup.ref{font-size:11px;color:#8a8a9a}
+    sup.ref a{color:#8a8a9a;text-decoration:none}
+    sup.ref a:hover{color:#B5C6FF}
+
+    .footer{background:rgba(6,9,18,0.8);border-top:1px solid rgba(255,255,255,0.04);padding:48px 24px;backdrop-filter:blur(10px)}
+    .footer-inner{max-width:1024px;margin:0 auto}
+    .footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px}
+    .footer-title{display:block;font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+    .footer-links{display:flex;flex-direction:column;gap:10px;font-size:14px}
+    .footer-links a{color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.15s}
+    .footer-links a:hover{color:rgba(255,255,255,0.75)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.04);padding-top:24px;display:flex;justify-content:space-between;font-size:13px;color:rgba(255,255,255,0.28)}
+    .footer-desc{font-size:14px;color:rgba(255,255,255,0.35);max-width:300px;margin-bottom:16px;line-height:1.6}
+
+    @keyframes fadeSlide{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+    @media(max-width:720px){
+      .related,.footer-grid{grid-template-columns:1fr}
+      h1{font-size:1.5rem}
+      .nav-links a:not(.nav-cta){display:none}
+      .check-grid{flex-direction:column;gap:10px}
+      .calc-hero{padding:20px}
+      .bar-label{width:60px;font-size:11px}
+      .author-meta{flex-direction:column;align-items:flex-start}
+      .dates{text-align:left}
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+  </div>
+
+  <div class="content-wrap">
+
+    <!-- NAV -->
+    <nav class="nav" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="https://qveris.ai" class="nav-logo">
+          <img src="https://avatars.githubusercontent.com/u/245123302?s=200&v=4" alt="QVeris AI" class="nav-logo-img" width="28" height="28">
+          <span>QVeris</span>
+        </a>
+        <div class="nav-links">
+          <a href="https://qveris.ai">Product</a>
+          <a href="https://qveris.ai/pricing">Pricing</a>
+          <a href="https://qveris.ai/docs">Docs</a>
+          <a href="https://qveris.ai" class="nav-cta">Get Started</a>
+        </div>
+      </div>
+    </nav>
+
+    <main id="main-content">
+      <article>
+        <div class="wrap">
+
+          <!-- BLOCK 3: Breadcrumb -->
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="https://qveris.ai">Home</a><span>›</span><span>Tools</span><span>›</span>AI Agent Cost Calculator
+          </nav>
+
+          <!-- BLOCK 4: Badges -->
+          <div class="reveal">
+            <span class="badge badge-client">Updated June 2026</span>
+            <span class="badge badge-cat">Calculator Tool</span>
+          </div>
+
+          <!-- BLOCK 5: H1 -->
+          <h1 class="reveal">AI Agent Tool Call Cost Calculator — Find the Cheapest Platform for Your Usage</h1>
+
+          <!-- BLOCK 6: Meta subtitle -->
+          <p class="meta-desc reveal">Compare <strong>tool call pricing</strong> across QVeris, Zapier MCP, and Toolhouse. Enter your monthly volume, see your savings in seconds.</p>
+
+          <!-- BLOCK 7: Author (removed per request) -->
+
+          <!-- BLOCK 9: TL;DR -->
+          <div class="tldr reveal">
+            <div class="tldr-label">TL;DR</div>
+            <ul>
+              <li><strong>Problem:</strong> AI agent tool calling costs vary wildly between platforms — Zapier MCP can cost 30x more than QVeris for the same call volume, but there's no easy way to compare them.</li>
+              <li><strong>Solution:</strong> This interactive <strong>AI agent cost calculator</strong> lets you enter your monthly usage and instantly compare costs across QVeris, Zapier MCP, and Toolhouse.</li>
+              <li><strong>Result:</strong> At 10,000 calls/month, QVeris costs $19 vs ~$600 for Zapier MCP — a 97% savings. Find your number below.</li>
+            </ul>
+          </div>
+
+          <!-- BLOCK 10: Featured Snippet capture -->
+          <h2 class="reveal">How much do AI agent tool calls cost on each platform?</h2>
+          <p class="snippet-answer reveal" style="border-left:3px solid #7C9BFF;padding:14px 18px;border-radius:0 8px 8px 0;font-size:15px;color:rgba(255,255,255,0.85);background:linear-gradient(135deg,rgba(124,155,255,0.04),rgba(61,95,224,0.02))"><strong>At 10,000 monthly tool calls: QVeris costs $19 (Pro plan, 10K credits included), while Zapier MCP costs ~$600+ (2 tasks per call, Professional plan covers only ~375 calls). QVeris is up to 97% cheaper, with credits that never expire and no subscription lock-in. Use the calculator below for your exact volume.</strong></p>
+
+          <!-- ═══ CALCULATOR HERO (tool area) ═══ -->
+          <div class="calc-hero reveal" id="calculator">
+            <h2>Compare AI Agent Tool Calling Costs Across Platforms</h2>
+            <p style="font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:20px">Enter your usage below to see monthly and annual costs side by side.</p>
+
+            <!-- Step 1: Volume -->
+            <div class="calc-section">
+              <div class="calc-label">Step 1: Daily Tool Calls</div>
+              <div class="calc-slider-row">
+                <input type="range" class="calc-slider" id="calls-slider" min="0" max="10000" value="330" step="10" oninput="syncCalls(this.value)">
+                <input type="number" class="calc-input-num" id="calls-input" value="330" min="0" max="100000" oninput="syncCallsNum(this.value)">
+                <span style="font-size:13px;color:rgba(255,255,255,0.4)">≈ <span id="calls-monthly">10,000</span> / month</span>
+              </div>
+              <div class="preset-btns">
+                <span class="preset-btn" onclick="setPreset(33)">1K/mo</span>
+                <span class="preset-btn" onclick="setPreset(165)">5K/mo</span>
+                <span class="preset-btn active" onclick="setPreset(330)">10K/mo</span>
+                <span class="preset-btn" onclick="setPreset(1650)">50K/mo</span>
+                <span class="preset-btn" onclick="setPreset(3300)">100K/mo</span>
+              </div>
+            </div>
+
+            <!-- Step 2: Complexity -->
+            <div class="calc-section">
+              <div class="calc-label">Step 2: Average Complexity Per Call</div>
+              <select class="calc-select" id="complexity-select" onchange="recalc()">
+                <option value="1" selected>Simple (~1 credit) — real-time quote, weather lookup, basic fetch</option>
+                <option value="5">Medium (~5 credits) — PDF parsing, OCR, sentiment analysis</option>
+                <option value="15">Complex (~15 credits) — financial report analysis, KYC screening</option>
+                <option value="custom">Custom — enter credits per call</option>
+              </select>
+              <div id="custom-credits-wrap" style="display:none;margin-top:8px">
+                <input type="number" class="calc-input-num" id="custom-credits" value="3" min="1" max="100" placeholder="Credits per call" oninput="recalc()" style="width:140px">
+                <span style="font-size:13px;color:rgba(255,255,255,0.4);margin-left:8px">credits per call</span>
+              </div>
+            </div>
+
+            <!-- Step 3: Platforms -->
+            <div class="calc-section" style="margin-bottom:16px">
+              <div class="calc-label">Step 3: Compare These Platforms</div>
+              <div class="check-grid">
+                <label class="check-item"><input type="checkbox" id="cmp-qv" checked onchange="recalc()"> QVeris</label>
+                <label class="check-item"><input type="checkbox" id="cmp-zp" checked onchange="recalc()"> Zapier MCP</label>
+                <label class="check-item"><input type="checkbox" id="cmp-th" onchange="recalc()"> Toolhouse</label>
+              </div>
+            </div>
+
+            <button class="cta-btn" onclick="recalc()" style="font-size:14px;padding:10px 28px">Calculate Costs →</button>
+
+            <!-- RESULTS -->
+            <div class="results-box" id="results-box">
+              <div class="results-title">Results: Estimated Monthly &amp; Annual Costs</div>
+
+              <!-- Bar Chart -->
+              <div class="bar-chart" id="bar-chart"></div>
+
+              <!-- Table -->
+              <table class="results-table" id="results-table">
+                <thead><tr><th>Platform</th><th>Monthly Cost</th><th>Annual Cost</th><th>Per-Call Cost</th></tr></thead>
+                <tbody id="results-body"></tbody>
+              </table>
+
+              <!-- Savings Banner -->
+              <div id="savings-banner"></div>
+
+              <div style="text-align:center;margin-top:16px">
+                <a href="https://qveris.ai/pricing" class="cta-btn">Start with 1,000 Free Credits →</a>
+                <a href="https://qveris.ai/pricing" class="cta-btn-outline">See Detailed Pricing</a>
+              </div>
+
+              <p class="calc-disclaimer">* Estimated based on publicly available pricing as of May 2026. Pricing may change — verify on each provider's site. Zapier MCP consumes 2 tasks per tool call.</p>
+            </div>
+          </div>
+
+          <!-- ═══ STATIC PRICING TABLE ═══ -->
+          <section class="reveal">
+            <h2>Pricing Comparison: QVeris vs Zapier MCP vs Toolhouse</h2>
+            <p>Reference pricing data used by the calculator above. All figures from publicly available sources as of May 2026.<sup class="ref"><a href="#ref-1">[1]</a></sup><sup class="ref"><a href="#ref-2">[2]</a></sup><sup class="ref"><a href="#ref-3">[3]</a></sup></p>
+            <h3>Reference Pricing Table (May 2026)</h3>
+
+            <table class="compare-table">
+              <thead><tr><th>Dimension</th><th>QVeris</th><th>Zapier MCP</th><th>Toolhouse</th></tr></thead>
+              <tbody>
+                <tr><th>Free tier</th><td class="highlight">1,000 + 100/day</td><td>100 tasks/mo</td><td>50 runs/mo</td></tr>
+                <tr><th>Entry paid</th><td class="highlight"><strong>$19/mo</strong></td><td>$19.99/mo</td><td>$10/1K runs</td></tr>
+                <tr><th>Entry includes</th><td>10K credits</td><td>750 tasks (~375 calls)</td><td>1K runs</td></tr>
+                <tr><th>Overage rate</th><td class="highlight">$0.002/credit</td><td>~$0.053/task (1.25x)</td><td>$0.01/run</td></tr>
+                <tr><th>~Cost per simple call</th><td class="highlight"><strong>~$0.0019</strong></td><td>~$0.053</td><td>~$0.01</td></tr>
+                <tr><th>10K calls/mo</th><td class="highlight"><strong>$19</strong></td><td><strong>~$600+</strong></td><td>~$100</td></tr>
+                <tr><th>50K calls/mo</th><td class="highlight">~$99</td><td><strong>~$3,000+</strong></td><td>~$490</td></tr>
+                <tr><th>Monthly lock-in</th><td class="highlight">No (on-demand)</td><td>Yes</td><td>Yes</td></tr>
+                <tr><th>Credits expire?</th><td class="highlight">Never</td><td>Monthly reset</td><td>Monthly reset</td></tr>
+                <tr><th>Free operations</th><td class="highlight">Discover + Inspect</td><td>None</td><td>None</td></tr>
+              </tbody>
+            </table>
+          </section>
+
+          <!-- ═══ SECTION: WHY PRICING DIFFERS ═══ -->
+          <section class="reveal">
+            <h2>Why Pricing Differs Across Platforms</h2>
+            <p>Each platform uses a fundamentally different pricing model. Understanding these differences explains the 30x cost gap you see in the calculator.</p>
+
+            <div class="scenario-box">
+              <h3>QVeris: Per-Credit Model</h3>
+              <p>QVeris charges per credit consumed. Simple capabilities cost 1 credit, medium cost 5, complex cost 15. Discover and Inspect are <strong>always free</strong>. Credits never expire. The Pro plan ($19/mo) covers 10,000 credits — enough for 10,000 simple calls. No subscription lock-in: Scale On-Demand lets you pay as you go.<sup class="ref"><a href="#ref-1">[1]</a></sup></p>
+            </div>
+
+            <div class="scenario-box">
+              <h3>Zapier MCP: Task Pool Model</h3>
+              <p>Zapier MCP charges <strong>2 tasks per tool call</strong> — one for the request, one for the response. The Professional plan ($19.99/mo) includes 750 tasks, which amounts to only ~375 tool calls. At 10,000 calls/month, this means ~$600+. Its strength is SaaS app breadth, not cost efficiency at scale.<sup class="ref"><a href="#ref-2">[2]</a></sup></p>
+            </div>
+
+            <div class="scenario-box">
+              <h3>Toolhouse: Per-Run Model</h3>
+              <p>Toolhouse charges per run, with a free tier of 50 runs/month and paid plans starting at $10 for 1,000 runs. At 10,000 runs/month, this works out to ~$100. Toolhouse is a mid-range option — cheaper than Zapier MCP but more expensive than QVeris at all volumes above 1K calls/month.<sup class="ref"><a href="#ref-3">[3]</a></sup></p>
+            </div>
+
+            <h3>Cost Leader by Volume</h3>
+            <p><strong>Who wins at each volume:</strong> Under 1K calls/month, any free tier works. From 1K to 200K+ calls, <strong>QVeris leads on cost, flexibility, and free discovery</strong>. Zapier MCP is best reserved for low-volume SaaS automation workflows where its 9,000+ integrations justify the premium. Toolhouse fits mid-range needs but costs 5x more than QVeris at 10K calls.</p>
+          </section>
+
+          <!-- ═══ SECTION: TIPS ═══ -->
+          <section class="reveal">
+            <h2>Tips for Reducing AI Agent Tool Call Costs</h2>
+            <h3>Five Key Strategies</h3>
+            <ul>
+              <li><strong>Use Discover and Inspect (free on QVeris):</strong> Before calling any capability, use QVeris's free discovery to preview cost, latency, and success rate. This eliminates wasted calls on capabilities that don't match your needs. Discover and Inspect cost exactly $0.<sup class="ref"><a href="#ref-1">[1]</a></sup></li>
+              <li><strong>Match capability complexity to the task:</strong> Don't use a 15-credit complex capability when a 1-credit simple capability will do. QVeris prices capabilities by complexity — choosing the right tier per task keeps costs linear with value.</li>
+              <li><strong>Batch calls when patterns repeat:</strong> If your agent makes the same type of call repeatedly, batch processing can reduce overhead. QVeris's session-based pricing supports batched workflows.</li>
+              <li><strong>Monitor with session tracking:</strong> QVeris provides full audit trail data via <code>session_id</code>. Use this to identify cost spikes, unused capabilities, and optimization opportunities.</li>
+              <li><strong>Avoid subscription lock-in for variable workloads:</strong> If your call volume fluctuates, QVeris's per-credit model with no monthly commitment is more cost-efficient than fixed subscriptions that bill the same amount regardless of usage.</li>
+            </ul>
+            <p style="margin-top:16px;color:rgba(255,255,255,0.5);font-size:14px"><strong>Bottom line:</strong> Discover and Inspect are always free on QVeris — start with zero risk, and optimize your costs before you write a single line of production code.</p>
+          </section>
+
+          <!-- ═══ FAQ ═══ -->
+          <section class="reveal">
+            <h2>Frequently Asked Questions</h2>
+            <h3>Common Questions About AI Agent Pricing</h3>
+
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">How does the AI agent cost calculator work?</div>
+              <div class="faq-a">Enter your estimated daily tool call volume, select the complexity of capabilities you need (simple/medium/complex), and choose which platforms to compare. The calculator estimates your monthly and annual costs across QVeris, Zapier MCP, and Toolhouse based on each platform's publicly available pricing.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">Which AI agent platform is the cheapest for high-volume usage?</div>
+              <div class="faq-a">For high-volume usage (10,000+ calls/month), QVeris is significantly more cost-effective. At 10,000 calls/month: QVeris Pro costs $19, while Zapier MCP costs approximately $600+ due to its 2-tasks-per-call billing model. QVeris also offers a Scale On-Demand option with no monthly commitment and credits that never expire.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">Does QVeris have a free tier?</div>
+              <div class="faq-a">Yes. QVeris Free plan offers 1,000 credits on signup plus 100 credits daily for logging in. Discover and Inspect operations are always free — you only pay when you call a capability.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">Why does Zapier MCP cost more per call?</div>
+              <div class="faq-a">Zapier MCP consumes 2 tasks per tool call (1 for request + 1 for response). The Professional plan at $19.99/month includes only 750 tasks, meaning you get approximately 375 tool calls per month. Beyond that, overage costs scale quickly. QVeris charges 1-15 credits per call depending on complexity, with Pro plan offering 10,000 credits at $19/month.</div>
+            </div>
+
+          </section>
+
+          <!-- ═══ CTA ═══ -->
+          <div class="cta-box reveal">
+            <h3>Start Free — 1,000 Credits + 100 Daily</h3>
+            <p>Free discovery means you explore 10,000+ capabilities before you commit. Pay only when your agent calls a capability in production. No subscription lock-in, no credit card required.</p>
+            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+              <a href="https://qveris.ai" class="cta-btn">Try QVeris Free →</a>
+              <a href="https://qveris.ai/pricing" class="cta-btn-outline">See Full Pricing</a>
+              <a href="https://qveris.ai/capabilities/explore" class="cta-btn-outline">Explore Capabilities</a>
+            </div>
+          </div>
+
+          <!-- ═══ METHODOLOGY ═══ -->
+          <div class="methodology reveal">
+            <h2>About This Calculator</h2>
+            <p><strong>Last updated:</strong> <time datetime="2026-06-01">June 1, 2026</time></p>
+            <p><strong>Methodology:</strong> Pricing data collected from each platform's publicly available pricing pages (QVeris: qveris.ai/pricing, Zapier MCP: zapier.com/pricing, Toolhouse: toolhouse.ai) and verified against independent third-party analyses. Zapier MCP's 2-tasks-per-call billing confirmed by multiple independent reviews. All data current as of May 2026.</p>
+            <p><strong>Conflict of interest:</strong> QVeris is the publisher's commercial product. Calculator data aims for objectivity — we highlight scenarios where each platform is the most cost-effective choice. Pricing may change; verify on each provider's site before making procurement decisions.</p>
+            <p><strong>Update cadence:</strong> Reviewed quarterly. Pricing data refreshed every 90 days. Last full verification: June 1, 2026.</p>
+
+            <h2 id="references">References</h2>
+            <div class="ref-list">
+              <ol>
+                <li id="ref-1"><a href="https://qveris.ai/pricing" target="_blank" rel="noopener">QVeris Pricing</a> — Free tier (1,000+100/day), Pro ($19/10K credits), Scale On-Demand. Verified May 2026.</li>
+                <li id="ref-2"><a href="https://zapier.com/pricing" target="_blank" rel="nofollow noopener">Zapier Pricing</a> — Professional plan $19.99/mo (750 tasks, ~375 MCP calls). 2 tasks per tool call verified via ColdIQ review and multiple sources. Verified May 2026.</li>
+                <li id="ref-3"><a href="https://toolhouse.ai" target="_blank" rel="nofollow noopener">Toolhouse Pricing</a> — Free (50 runs), $10/1K runs, $50/10K runs. Verified May 2026.</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- ═══ RELATED GUIDES ═══ -->
+          <h2 class="reveal">Related Guides</h2>
+          <div class="related">
+            <a href="../zapier-mcp-vs-qveris/">⚡ Zapier MCP vs QVeris</a>
+            <a href="../function-calling/">⚡ Function Calling: OpenAI vs Anthropic vs Google</a>
+            <a href="../real-time-stock-price-api-for-ai-agents/">📈 Real-Time Stock Price API for AI Agents</a>
+            <a href="../mcp-server/">🔌 MCP Server: 8 Best in 2026</a>
+          </div>
+
+        </div>
+      </article>
+    </main>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div>
+            <div style="font-size:18px;font-weight:600;color:rgba(255,255,255,0.9);margin-bottom:12px">QVeris AI</div>
+            <p class="footer-desc">AI-Agent native capability routing network. Unified protocol accessing 10,000+ capabilities across search, maps, docs, finance, blockchain, healthcare and more.</p>
+            <a href="https://qveris.ai" class="cta-btn" style="padding:8px 20px;font-size:13px">Get Started →</a>
+          </div>
+          <div><span class="footer-title">Products</span><div class="footer-links"><a href="https://qveris.ai/capabilities/explore">Capability Map</a><a href="https://qveris.ai/cli">QVeris CLI</a><a href="https://qveris.ai/qverisbot">QVerisBot</a><a href="https://qveris.ai/skills">Skills</a><a href="https://qveris.ai/playground">Live Demo</a><a href="https://qveris.ai/plugins">Install for Agents</a></div></div>
+          <div><span class="footer-title">Developers</span><div class="footer-links"><a href="https://qveris.ai/docs">Quick Start</a><a href="https://qveris.ai/blog">Blog</a><a href="https://qveris.ai/docs/cli">CLI Docs</a><a href="https://qveris.ai/docs/rest-api">REST API</a><a href="https://qveris.ai/docs/mcp-server">MCP Server</a><a href="https://qveris.ai/docs/python-sdk">Python SDK</a></div></div>
+          <div><span class="footer-title">Ecosystem</span><div class="footer-links"><a href="https://github.com/QVerisAI">GitHub</a><a href="https://www.npmjs.com/org/qverisai">npm Packages</a><a href="https://clawhub.ai/skills?sort=downloads&q=qveris">ClawHub</a><a href="https://qveris.ai/for-agents">Agents Guide</a></div></div>
+          <div><span class="footer-title">Company</span><div class="footer-links"><a href="https://qveris.ai/pricing">Pricing</a><a href="https://qveris.ai/whats-new">What's New</a><a href="https://qveris.ai/help">Help Center</a><a href="https://qveris.ai/ecosystem">Ecosystem</a><a href="https://qveris.ai/security">Security</a><a href="https://qveris.ai/terms">Terms of Service</a><a href="https://qveris.ai/privacy">Privacy Policy</a></div></div>
+        </div>
+        <div class="footer-bottom">
+          <span>&copy; 2026 QVeris AI. All rights reserved.</span>
+          <span>AI-Agent Native &bull; Capability Routing Network &bull; Pay-Per-Call</span>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- /content-wrap -->
+
+  <script>
+    // ── Scroll reveal ──
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    revealEls.forEach(el => observer.observe(el));
+
+    // ── Preset buttons ──
+    function setPreset(daily) {
+      document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+      document.getElementById('calls-slider').value = Math.min(daily, 10000);
+      document.getElementById('calls-input').value = daily;
+      syncCalls(daily);
+      recalc();
+    }
+
+    function syncCalls(val) {
+      document.getElementById('calls-input').value = val;
+      document.getElementById('calls-monthly').textContent = Math.round(val * 30).toLocaleString();
+      recalc();
+    }
+
+    function syncCallsNum(val) {
+      let v = Math.min(Math.max(parseInt(val) || 0, 0), 100000);
+      document.getElementById('calls-slider').value = Math.min(v, 10000);
+      document.getElementById('calls-monthly').textContent = (v * 30).toLocaleString();
+      recalc();
+    }
+
+    // Complexity dropdown
+    document.getElementById('complexity-select').addEventListener('change', function() {
+      document.getElementById('custom-credits-wrap').style.display = this.value === 'custom' ? 'block' : 'none';
+      recalc();
+    });
+
+    // ── Pricing engine ──
+    function recalc() {
+      const daily = parseFloat(document.getElementById('calls-input').value) || 0;
+      const monthly = daily * 30;
+      const complexityEl = document.getElementById('complexity-select');
+      let creditsPerCall = parseFloat(complexityEl.value);
+      if (complexityEl.value === 'custom') {
+        creditsPerCall = parseFloat(document.getElementById('custom-credits').value) || 1;
+      }
+
+      const results = [];
+
+      // QVeris
+      if (document.getElementById('cmp-qv').checked) {
+        const credsNeeded = monthly * creditsPerCall;
+        let monthlyCost = 0;
+        const freeCredits = 1000 + (100 * 30); // 1000 signup + 100/day
+        const remaining = Math.max(0, credsNeeded - freeCredits);
+        // If remaining <= 10000, Pro $19 covers it
+        if (remaining <= 0) { monthlyCost = 0; }
+        else if (remaining <= 10000) { monthlyCost = 19; }
+        else { monthlyCost = 19 + (remaining - 10000) * 0.002; }
+        const perCall = monthly > 0 ? (monthlyCost / monthly) : 0;
+        results.push({ name: 'QVeris', monthly: monthlyCost, annual: monthlyCost * 12, perCall: perCall, cls: 'qv' });
+      }
+
+
+
+      // Zapier MCP
+      if (document.getElementById('cmp-zp').checked) {
+        const tasksNeeded = monthly * 2; // 2 tasks per call
+        let monthlyCost = 0;
+        if (tasksNeeded <= 100) { monthlyCost = 0; }
+        else {
+          const baseTasks = 750; // Professional plan
+          const baseCost = 19.99;
+          if (tasksNeeded <= baseTasks) { monthlyCost = baseCost; }
+          else {
+            const overageTasks = tasksNeeded - baseTasks;
+            const overageCost = (overageTasks / 750) * 19.99 * 1.25;
+            monthlyCost = baseCost + overageCost;
+          }
+        }
+        const perCall = monthly > 0 ? (monthlyCost / monthly) : 0;
+        results.push({ name: 'Zapier MCP', monthly: monthlyCost, annual: monthlyCost * 12, perCall: perCall, cls: 'zp' });
+      }
+
+      // Toolhouse
+      if (document.getElementById('cmp-th').checked) {
+        let monthlyCost = 0;
+        if (monthly <= 50) { monthlyCost = 0; }
+        else { monthlyCost = 10 + Math.ceil(Math.max(0, monthly - 1000) / 1000) * 10; }
+        const perCall = monthly > 0 ? (monthlyCost / monthly) : 0;
+        results.push({ name: 'Toolhouse', monthly: monthlyCost, annual: monthlyCost * 12, perCall: perCall, cls: 'th' });
+      }
+
+      // Render
+      const box = document.getElementById('results-box');
+      if (results.length === 0 || monthly === 0) { box.classList.remove('active'); return; }
+
+      box.classList.add('active');
+
+      // Find winner
+      const best = results.reduce((a, b) => a.monthly < b.monthly ? a : b);
+      const worst = results.reduce((a, b) => a.monthly > b.monthly ? a : b);
+
+      // Bar chart
+      const maxVal = Math.max(...results.map(r => r.monthly), 1);
+      const barHtml = results.map(r => {
+        const pct = Math.min((r.monthly / maxVal) * 100, 100);
+        const label = r.monthly >= 1000 ? '$' + (r.monthly / 1000).toFixed(1) + 'K' : '$' + Math.round(r.monthly);
+        return `<div class="bar-row"><div class="bar-label">${r.name}</div><div class="bar-track"><div class="bar-fill ${r.cls}" style="width:${Math.max(pct, 5)}%">${label}</div></div><div class="bar-value">${r.monthly === best.monthly ? '✓ Best' : ''}</div></div>`;
+      }).join('');
+      document.getElementById('bar-chart').innerHTML = barHtml;
+
+      // Table
+      const tbody = results.map(r => {
+        const isBest = r.monthly === best.monthly;
+        const isWorst = r.monthly === worst.monthly && !isBest && worst.monthly > best.monthly;
+        return `<tr><td>${r.name}</td><td class="${isBest ? 'winner' : isWorst ? 'exp' : ''}">$${r.monthly.toFixed(2)}/mo</td><td>$${r.annual.toFixed(2)}/yr</td><td>$${r.perCall.toFixed(4)}/call</td></tr>`;
+      }).join('');
+      document.getElementById('results-body').innerHTML = tbody;
+
+      // Savings banner
+      const banner = document.getElementById('savings-banner');
+      if (best.name === 'QVeris' && worst.monthly > best.monthly) {
+        const savings = worst.monthly - best.monthly;
+        const pct = Math.round((1 - best.monthly / worst.monthly) * 100);
+        banner.innerHTML = `<div class="savings-banner">QVeris saves you <strong>$${savings.toFixed(2)}/mo (${pct}%)</strong> vs ${worst.name} at ${monthly.toLocaleString()} calls/month</div>`;
+      } else if (best.name !== 'QVeris') {
+        banner.innerHTML = `<div class="savings-banner">⚖️ ${best.name} is the lowest-cost option at this volume. QVeris wins on free discovery, no subscription lock-in, and credits that never expire.</div>`;
+      } else {
+        banner.innerHTML = '';
+      }
+    }
+
+    // Initial calculation
+    recalc();
+  </script>
+</body>
+</html>
