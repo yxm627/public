@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCP vs Function Calling: Key Differences in AI Agents</title>
+  <meta name="description" content="Compare MCP vs Function Calling for AI agents. See how they complement each other and where QVeris fits as an MCP-native capability routing network.">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title" content="MCP vs Function Calling: Key Differences in AI Agents">
+  <meta property="og:description" content="Compare MCP vs Function Calling for AI agents. See how they complement each other and where QVeris fits as an MCP-native capability routing network.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://try.qveris.ai/mcp-vs-function-calling/">
+  <meta property="og:image" content="https://try.qveris.ai/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="MCP vs Function Calling comparison for AI agent development 2026">
+  <meta property="og:site_name" content="QVeris">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MCP vs Function Calling: Key Differences in AI Agents">
+  <meta name="twitter:description" content="Compare MCP vs Function Calling for AI agents. See how they complement each other and where QVeris fits as an MCP-native capability routing network.">
+  <meta name="twitter:image" content="https://try.qveris.ai/og.png">
+  <meta name="twitter:image:alt" content="MCP vs Function Calling comparison matrix">
+  <meta name="twitter:site" content="@qveris_ai">
+  <meta name="theme-color" content="#0A0E1A">
+
+  <link rel="canonical" href="https://try.qveris.ai/mcp-vs-function-calling/">
+  <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/245123302?s=200&v=4">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://qveris.ai/icon.png">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://try.qveris.ai">
+  <link rel="preconnect" href="https://try.qveris.ai">
+  <link rel="dns-prefetch" href="https://qveris.ai">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Schema #1: Organization -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"QVeris AI","url":"https://qveris.ai","logo":"https://qveris.ai/logo-color.png","sameAs":["https://www.linkedin.com/company/qveris","https://twitter.com/qveris_ai","https://github.com/qveris"]}</script>
+
+  <!-- Schema #2: BreadcrumbList -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://qveris.ai/"},{"@type":"ListItem","position":2,"name":"MCP vs Function Calling","item":"https://try.qveris.ai/mcp-vs-function-calling/"}]}</script>
+
+  <!-- Schema #3: Article -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"MCP vs Function Calling: Key Differences in AI Agents","description":"Compare MCP vs Function Calling for AI agents. See how they complement each other and where QVeris fits as an MCP-native capability routing network.","image":["https://try.qveris.ai/og.png"],"datePublished":"2026-05-26","dateModified":"2026-06-01","author":{"@type":"Person","name":"Wang Linfang","url":"https://qveris.ai/authors/wang-linfang","jobTitle":"CEO & Founder, QVeris","sameAs":["https://www.linkedin.com/in/wanglinfang"]},"publisher":{"@type":"Organization","name":"QVeris AI","logo":{"@type":"ImageObject","url":"https://qveris.ai/logo-color.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://try.qveris.ai/mcp-vs-function-calling/"}}</script>
+
+  <!-- Schema #4: FAQPage -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the difference between MCP and Function Calling?","acceptedAnswer":{"@type":"Answer","text":"Function Calling is a model-level capability built into LLMs (GPT, Claude, Gemini) that lets them understand tool schemas and return structured arguments for execution. MCP is an infrastructure-level protocol that standardizes how AI clients discover and call tools through independent servers. Function Calling is how a model speaks tool calls; MCP is the network that connects models to tools. They are complementary."}},{"@type":"Question","name":"Can MCP replace Function Calling?","acceptedAnswer":{"@type":"Answer","text":"No — MCP and Function Calling operate at different layers and are designed to work together. In a typical production architecture, the LLM uses Function Calling to decide when to invoke a tool, and that call is routed through MCP to the appropriate tool server. QVeris embodies this approach: it provides an MCP-compatible server that exposes tools your agent can call via standard Function Calling interfaces."}},{"@type":"Question","name":"Which is better: MCP or Function Calling?","acceptedAnswer":{"@type":"Answer","text":"Neither is universally better — they serve different layers. Function Calling is simpler and works well for app-specific, tight integrations with fewer than 5 tools. MCP is better for cross-system, multi-tool, enterprise-scale deployments where portability and governance matter. The 2026 consensus recommendation is to use both together: Function Calling for the model's execution decision, MCP as the standardized integration substrate."}},{"@type":"Question","name":"How does QVeris use MCP and Function Calling?","acceptedAnswer":{"@type":"Answer","text":"QVeris provides an official MCP Server (@qverisai/mcp) that any MCP-compatible client can connect to. Once connected, AI agents gain access to three tools: discover (natural language capability search), inspect (pre-call cost and quality review), and call (sandboxed execution). This gives developers the standardization of MCP with the ease of Function Calling — all through a single integration."}}]}</script>
+
+  <!-- Schema #5: SoftwareApplication -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"QVeris","description":"AI-Agent native capability routing network with 10,000+ tools, natural language discovery, and pay-per-call pricing.","applicationCategory":"BusinessApplication","operatingSystem":"Web, CLI","url":"https://qveris.ai","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock"}}</script>
+
+  <!-- Schema #6: DefinedTerm -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","name":"MCP (Model Context Protocol)","description":"An open standard protocol created by Anthropic in 2024 (donated to Linux Foundation in 2025) that defines a standardized communication method between AI clients and tool servers, enabling dynamic tool discovery, model-agnostic integration, and centralized governance."}</script>
+
+  <style>
+    @font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:local('Inter')}
+    @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400 600;font-display:swap;src:local('JetBrains Mono')}
+    *{box-sizing:border-box;margin:0;padding:0}
+    ::selection{background:rgba(124,155,255,0.35)}
+    ::-webkit-scrollbar{width:8px;background:#0A0E1A}
+    ::-webkit-scrollbar-thumb{background:rgba(124,155,255,0.2);border-radius:4px}
+    ::-webkit-scrollbar-thumb:hover{background:rgba(124,155,255,0.35)}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,sans-serif;color:rgba(255,255,255,0.82);background:#0A0E1A;font-size:16.5px;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    .bg-mesh{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:hidden}
+    .bg-mesh .orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.3;animation:orbFloat 20s ease-in-out infinite}
+    .bg-mesh .orb:nth-child(1){width:600px;height:600px;background:radial-gradient(circle,rgba(124,155,255,0.15),transparent);top:-200px;right:-200px;animation-delay:0s}
+    .bg-mesh .orb:nth-child(2){width:500px;height:500px;background:radial-gradient(circle,rgba(61,95,224,0.12),transparent);bottom:-150px;left:-150px;animation-delay:-7s}
+    .bg-mesh .orb:nth-child(3){width:400px;height:400px;background:radial-gradient(circle,rgba(124,155,255,0.08),transparent);top:50%;left:50%;transform:translate(-50%,-50%);animation-delay:-14s}
+    @keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(30px,-40px) scale(1.05)}50%{transform:translate(-20px,20px) scale(0.95)}75%{transform:translate(40px,30px) scale(1.02)}}
+    .content-wrap{position:relative;z-index:1}
+    .skip-link{position:absolute;left:-9999px;top:0;background:#7C9BFF;color:#0A0E1A;padding:10px 16px;border-radius:0 0 8px 0;font-weight:600;z-index:200}
+    .skip-link:focus{left:0}
+    a{color:#7C9BFF;text-decoration:none;transition:color 0.2s}
+    a:hover{color:#B5C6FF}
+    img{max-width:100%;height:auto;display:block}
+
+    .nav{position:sticky;top:0;z-index:100;background:rgba(10,14,26,0.75);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);border-bottom:1px solid rgba(255,255,255,0.06);padding:14px 0}
+    .nav-inner{max-width:1024px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .nav-logo-img{width:28px;height:28px;border-radius:6px;display:block}
+    .nav-logo span{font-size:16px;font-weight:600;color:rgba(255,255,255,0.97);letter-spacing:-0.01em}
+    .nav-links{display:flex;align-items:center;gap:22px;font-size:14px}
+    .nav-links a{color:rgba(255,255,255,0.55);transition:color 0.15s}
+    .nav-links a:hover{color:rgba(255,255,255,0.9)}
+    .nav-cta{background:linear-gradient(135deg,#B5C6FF,#7C9BFF);color:#0A0E1A;padding:7px 18px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none;transition:all 0.25s;box-shadow:0 0 20px rgba(124,155,255,0.15)}
+    .nav-cta:hover{opacity:1;color:#0A0E1A;transform:translateY(-1px);box-shadow:0 0 30px rgba(124,155,255,0.3)}
+
+    .wrap{max-width:1024px;margin:0 auto;padding:48px 24px}
+    h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:600;line-height:1.15;margin-bottom:12px;color:rgba(255,255,255,0.97);letter-spacing:-0.02em}
+    h2{font-size:1.22rem;font-weight:600;margin:48px 0 16px;color:rgba(255,255,255,0.92);border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:10px}
+    h3{font-size:15px;font-weight:600;margin:24px 0 10px;color:rgba(255,255,255,0.85)}
+    p{margin:0 0 18px;color:rgba(255,255,255,0.62)}
+    strong{color:rgba(255,255,255,0.92)}
+    ul,ol{margin:12px 0 14px 24px}
+    li{margin:6px 0;color:rgba(255,255,255,0.62)}
+    code{font-family:'JetBrains Mono',monospace;background:rgba(255,255,255,0.04);padding:2px 8px;border-radius:4px;font-size:0.85em;color:#B5C6FF}
+    pre{font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.7;color:rgba(255,255,255,0.85);margin:0}
+
+    .reveal{opacity:0;transform:translateY(30px);transition:all 0.7s cubic-bezier(0.16,1,0.3,1)}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    .meta-desc{font-size:1rem;color:rgba(255,255,255,0.5);margin-bottom:24px;line-height:1.55;max-width:680px}
+    .breadcrumb{font-size:13px;color:rgba(255,255,255,0.35);margin-bottom:20px}
+    .breadcrumb a{color:#7C9BFF}
+    .breadcrumb span{margin:0 6px}
+    .badge{display:inline-block;font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;margin-right:8px;margin-bottom:14px}
+    .badge-client{background:rgba(124,155,255,0.18);color:#B5C6FF;border:1px solid rgba(124,155,255,0.25)}
+    .badge-cat{background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.55)}
+
+    .toc-bar{background:rgba(10,14,26,0.92);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:14px 20px;margin:0 0 28px}
+    .toc-label{font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+    .toc-grid{display:flex;flex-wrap:wrap;gap:4px 14px}
+    .toc-grid a{font-size:13px;color:rgba(255,255,255,0.55);padding:3px 0;transition:color 0.15s;white-space:nowrap}
+    .toc-grid a:hover{color:#B5C6FF}
+
+    .tldr{background:linear-gradient(135deg,rgba(124,155,255,0.06),rgba(61,95,224,0.03));border-left:3px solid #7C9BFF;border-radius:0 12px 12px 0;padding:20px 24px;margin:0 0 28px}
+    .tldr-label{font-size:12px;font-weight:600;color:#B5C6FF;margin-bottom:12px;text-transform:uppercase;letter-spacing:1.5px}
+    .tldr ul{margin:0;padding-left:18px;font-size:14.5px}
+    .tldr li{color:rgba(255,255,255,0.7);margin:4px 0}
+
+    .answer-box{border-left:3px solid #7C9BFF;padding:16px 20px;border-radius:0 10px 10px 0;font-size:15px;color:rgba(255,255,255,0.85);margin-bottom:28px;background:linear-gradient(135deg,rgba(124,155,255,0.04),rgba(61,95,224,0.02))}
+
+    .stats-row{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;padding:24px 0;margin:0 0 28px;border-top:1px solid rgba(124,155,255,0.08);border-bottom:1px solid rgba(124,155,255,0.08);background:rgba(124,155,255,0.02);border-radius:12px}
+    .stats-item{text-align:center;min-width:80px}
+    .stats-num{font-size:24px;font-weight:800;background:linear-gradient(135deg,#B5C6FF,#7C9BFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .stats-label{font-size:11px;color:#6B7280;text-transform:uppercase;letter-spacing:0.5px;margin-top:2px}
+
+    .compare-table{width:100%;border-collapse:separate;border-spacing:0;margin:20px 0;font-size:14px;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.06)}
+    .compare-table th,.compare-table td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.04)}
+    .compare-table thead th{background:rgba(124,155,255,0.06);color:rgba(255,255,255,0.85);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.5px}
+    .compare-table tbody th{background:transparent;color:rgba(255,255,255,0.85);font-weight:500;font-size:13px;border-right:1px solid rgba(255,255,255,0.04)}
+    .compare-table td{color:rgba(255,255,255,0.65)}
+    .compare-table tbody tr:hover{background:rgba(124,155,255,0.03)}
+    .highlight{color:#B5C6FF;font-weight:600}
+
+    .scenario-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;margin:16px 0;transition:all 0.3s}
+    .scenario-box:hover{border-color:rgba(124,155,255,0.18);transform:translateY(-2px)}
+    .scenario-box h3{margin-top:0}
+
+    .code-block{background:rgba(10,14,26,0.6);border:1px solid rgba(124,155,255,0.12);border-radius:10px;padding:20px;margin:16px 0;overflow-x:auto}
+    .code-block .comment{color:rgba(255,255,255,0.35)}
+    .code-block .keyword{color:#7C9BFF}
+    .code-block .string{color:#22c55e}
+    .code-block .func{color:#fbbf24}
+
+    .arch-side{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+    .arch-card{border-radius:14px;padding:20px;border:1px solid rgba(255,255,255,0.06);transition:all 0.4s;position:relative;overflow:hidden}
+    .arch-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+    .arch-card.fc{background:rgba(255,255,255,0.02)}
+    .arch-card.fc::before{background:linear-gradient(90deg,#f59e0b,#fbbf24)}
+    .arch-card.mcp{background:rgba(124,155,255,0.04);border-color:rgba(124,155,255,0.15)}
+    .arch-card.mcp::before{background:linear-gradient(90deg,#7C9BFF,#B5C6FF)}
+    .arch-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
+    .arch-card-title{font-size:14px;font-weight:700;margin-bottom:12px}
+    .arch-card.fc .arch-card-title{color:#fbbf24}
+    .arch-card.mcp .arch-card-title{color:#B5C6FF}
+    .arch-flow{display:flex;flex-direction:column;gap:8px;padding:0;list-style:none}
+    .arch-flow li{display:flex;align-items:center;gap:8px;font-size:12.5px;color:rgba(255,255,255,0.7);margin:0}
+    .arch-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+    .arch-dot.g{background:#22c55e}
+    .arch-dot.y{background:#f59e0b}
+    .arch-dot.b{background:#7C9BFF}
+    .arch-dot.r{background:#ef4444}
+
+    .consensus-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+    .consensus-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:14px 16px}
+    .consensus-card h4{font-size:13px;font-weight:600;color:rgba(255,255,255,0.85);margin-bottom:4px}
+    .consensus-card p{font-size:12.5px;color:rgba(255,255,255,0.55);margin:0}
+
+    .faq-item{border-bottom:1px solid rgba(255,255,255,0.06);padding:20px 0;transition:padding 0.3s}
+    .faq-q{font-weight:600;font-size:16px;color:rgba(255,255,255,0.9);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+    .faq-q::after{content:'+';font-size:20px;color:rgba(255,255,255,0.3);transition:transform 0.3s}
+    .faq-q.open::after{transform:rotate(45deg)}
+    .faq-a{margin-top:0;max-height:0;overflow:hidden;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);color:rgba(255,255,255,0.55);font-size:14.5px;line-height:1.65}
+    .faq-a.open{max-height:500px;margin-top:12px}
+
+    .cta-box{background:linear-gradient(135deg,rgba(124,155,255,0.08),rgba(61,95,224,0.05));border:1px solid rgba(124,155,255,0.15);text-align:center;padding:40px;border-radius:16px;margin:48px 0;position:relative;overflow:hidden}
+    .cta-box::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 50%,rgba(124,155,255,0.04),transparent 50%);pointer-events:none}
+    .cta-box h3{color:rgba(255,255,255,0.95);margin:0 0 8px;font-size:20px;font-weight:600}
+    .cta-box p{color:rgba(255,255,255,0.55);margin:0 0 20px;position:relative}
+    .cta-btn{display:inline-block;background:linear-gradient(135deg,#B5C6FF,#7C9BFF);color:#0A0E1A;padding:12px 32px;border-radius:24px;font-weight:600;font-size:15px;transition:all 0.25s;text-decoration:none;box-shadow:0 0 30px rgba(124,155,255,0.15)}
+    .cta-btn:hover{opacity:1;color:#0A0E1A;transform:translateY(-2px);box-shadow:0 0 40px rgba(124,155,255,0.25)}
+    .cta-btn-outline{display:inline-block;border:1px solid rgba(124,155,255,0.3);color:#7C9BFF;padding:11px 28px;border-radius:24px;font-weight:600;font-size:14px;transition:all 0.2s;margin-left:12px}
+    .cta-btn-outline:hover{background:rgba(124,155,255,0.08);color:#B5C6FF;transform:translateY(-2px)}
+
+    .methodology{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:24px;margin:32px 0;font-size:14px;color:rgba(255,255,255,0.55)}
+    .methodology h2{font-size:14px;border:none;padding:0;margin:0 0 12px;color:rgba(255,255,255,0.85);text-transform:uppercase;letter-spacing:1px}
+    .methodology p{margin:6px 0;font-size:13.5px}
+    .related{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+    .related a{display:block;padding:16px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;text-decoration:none;color:#B5C6FF;font-size:14px;font-weight:500;transition:all 0.3s;line-height:1.45}
+    .related a:hover{background:rgba(124,155,255,0.05);border-color:rgba(124,155,255,0.25);transform:translateY(-2px)}
+    .ref-list{font-size:13px;color:rgba(255,255,255,0.55)}
+    .ref-list ol{margin:0;padding-left:22px}
+    .ref-list li{margin:3px 0;font-size:12.5px;word-break:break-all}
+    .ref-list li a{color:#8a8a9a}
+    .ref-list li a:hover{color:#B5C6FF}
+    sup.ref{font-size:11px;color:#8a8a9a}
+    sup.ref a{color:#8a8a9a;text-decoration:none}
+    sup.ref a:hover{color:#B5C6FF}
+    .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+    .footer{background:rgba(6,9,18,0.8);border-top:1px solid rgba(255,255,255,0.04);padding:48px 24px;backdrop-filter:blur(10px)}
+    .footer-inner{max-width:1024px;margin:0 auto}
+    .footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px}
+    .footer-title{display:block;font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+    .footer-links{display:flex;flex-direction:column;gap:10px;font-size:14px}
+    .footer-links a{color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.15s}
+    .footer-links a:hover{color:rgba(255,255,255,0.75)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.04);padding-top:24px;display:flex;justify-content:space-between;font-size:13px;color:rgba(255,255,255,0.28)}
+    .footer-desc{font-size:14px;color:rgba(255,255,255,0.35);max-width:300px;margin-bottom:16px;line-height:1.6}
+
+    @keyframes fadeSlide{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+    @media(max-width:900px){
+      .arch-side,.consensus-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:720px){
+      .toc-grid a{font-size:12px}
+      .related,.footer-grid{grid-template-columns:1fr}
+      h1{font-size:1.5rem}
+      .nav-links a:not(.nav-cta){display:none}
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="bg-mesh" aria-hidden="true"><div class="orb"></div><div class="orb"></div><div class="orb"></div></div>
+  <div class="content-wrap">
+
+    <!-- NAV -->
+    <nav class="nav" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="https://qveris.ai" class="nav-logo">
+          <img src="https://avatars.githubusercontent.com/u/245123302?s=200&v=4" alt="QVeris AI" class="nav-logo-img" width="28" height="28">
+          <span>QVeris</span>
+        </a>
+        <div class="nav-links">
+          <a href="https://qveris.ai">Product</a>
+          <a href="https://qveris.ai/pricing">Pricing</a>
+          <a href="https://qveris.ai/docs">Docs</a>
+          <a href="https://qveris.ai" class="nav-cta">Get Started</a>
+        </div>
+      </div>
+    </nav>
+
+    <main id="main-content">
+      <article>
+        <div class="wrap">
+
+          <!-- Breadcrumb -->
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="https://qveris.ai">Home</a><span>›</span>MCP vs Function Calling
+          </nav>
+
+          <!-- Badges -->
+          <div class="reveal">
+            <span class="badge badge-client">Updated June 2026</span>
+            <span class="badge badge-cat">Technical Guide</span>
+          </div>
+
+          <!-- H1 -->
+          <h1 class="reveal">MCP vs Function Calling: Understanding the Difference and How They Work Together</h1>
+
+          <!-- Meta subtitle -->
+          <p class="meta-desc reveal">A comprehensive <strong>MCP vs function calling explained</strong> guide for 2026. See how the Model Context Protocol and Function Calling complement each other — and where QVeris fits as the MCP-native capability routing network.</p>
+
+          <!-- Stats Row -->
+          <div class="stats-row reveal">
+            <div class="stats-item"><div class="stats-num">97M+</div><span class="stats-label">MCP Monthly Downloads</span></div>
+            <div class="stats-item"><div class="stats-num">10,000+</div><span class="stats-label">MCP Servers</span></div>
+            <div class="stats-item"><div class="stats-num">14+</div><span class="stats-label">Agent Frameworks</span></div>
+            <div class="stats-item"><div class="stats-num">100+</div><span class="stats-label">LLMs Support MCP</span></div>
+            <div class="stats-item"><div class="stats-num">$0</div><span class="stats-label">QVeris Dev Cost</span></div>
+          </div>
+
+          <!-- TOC -->
+          <nav class="toc-bar reveal" aria-label="Page sections">
+            <div class="toc-label">Jump to</div>
+            <div class="toc-grid">
+              <a href="#function-calling">What Is Function Calling</a>
+              <a href="#mcp">What Is MCP</a>
+              <a href="#differences">7 Key Differences</a>
+              <a href="#consensus">The 2026 Consensus</a>
+              <a href="#when">When to Use What</a>
+              <a href="#qveris">Where QVeris Fits</a>
+              <a href="#faq">FAQ</a>
+            </div>
+          </nav>
+
+          <!-- TL;DR -->
+          <div class="tldr reveal">
+            <div class="tldr-label">TL;DR</div>
+            <ul>
+              <li><strong>Problem:</strong> Developers building AI agents in 2026 face a confusing choice between Function Calling and MCP — two approaches that appear to solve the same problem but actually operate at different layers.</li>
+              <li><strong>Solution:</strong> <strong>MCP vs function calling</strong> is not a binary choice. Function Calling is a model-level execution primitive. MCP is an infrastructure-level standardization protocol. The 2026 consensus: use both together.</li>
+              <li><strong>Result:</strong> QVeris provides an MCP-native capability routing network that gives your agents the best of both — standardized MCP connectivity with Function Calling-level ease of use, all through a single integration.</li>
+            </ul>
+          </div>
+
+          <!-- Featured Snippet -->
+          <h2 class="reveal">What is the difference between MCP and Function Calling?</h2>
+          <div class="answer-box reveal">
+            <strong>Function Calling is a model-level capability built into LLMs (GPT, Claude, Gemini) that lets them understand tool schemas and return structured arguments for execution. MCP is an infrastructure-level protocol that standardizes how AI clients discover and call tools through independent servers. They are complementary: Function Calling handles the model's execution decision; MCP handles the tool discovery and connectivity. Most production systems in 2026 use both together.</strong>
+          </div>
+
+          <!-- ══ SECTION: FUNCTION CALLING ══ -->
+          <section id="function-calling" class="reveal">
+            <h2>What Is Function Calling?</h2>
+            <p>Function Calling (also called Tool Use or Tool Calling) is a <strong>model-level native capability</strong> built into modern LLMs. It allows the model to understand JSON Schema definitions of tools, decide autonomously when to invoke them during a conversation, and return structured parameters that your application can execute.</p>
+
+            <p>Different providers have different names for the same underlying mechanism: OpenAI calls it <strong>Function Calling</strong>, Anthropic calls it <strong>Tool Use</strong>, Google calls it <strong>Function Calling</strong> in Gemini. The core pattern is identical — you define tool schemas, inject them into the model's context, and the model returns a <code>tool_call</code> when it decides a tool is needed.</p>
+
+            <h3>How Function Calling Works</h3>
+            <div class="code-block">
+<pre><span class="comment">// Define a tool schema (OpenAI format example)</span>
+{
+  <span class="string">"type"</span>: <span class="string">"function"</span>,
+  <span class="string">"function"</span>: {
+    <span class="string">"name"</span>: <span class="string">"get_stock_price"</span>,
+    <span class="string">"description"</span>: <span class="string">"Get current stock price"</span>,
+    <span class="string">"parameters"</span>: {
+      <span class="string">"type"</span>: <span class="string">"object"</span>,
+      <span class="string">"properties"</span>: {
+        <span class="string">"symbol"</span>: { <span class="string">"type"</span>: <span class="string">"string"</span> }
+      }
+    }
+  }
+}
+</pre>
+            </div>
+            <p>Tools are defined statically in code, injected into every LLM prompt as part of the system context. The model reads all tool schemas and decides whether to call one — or which one — based on the user's request.</p>
+
+            <h3>The Limits of Function Calling</h3>
+            <ul>
+              <li><strong>Model-specific:</strong> OpenAI's tool schema format is incompatible with Anthropic's and Google's. Porting an agent between providers means rewriting every tool definition.<sup class="ref"><a href="#ref-6">[6]</a></sup></li>
+              <li><strong>Static configuration:</strong> All tools must be defined at development time. There is no mechanism to discover new tools at runtime — you can't ask "what tools are available?" and get a dynamic response.</li>
+              <li><strong>No built-in governance:</strong> Authentication, authorization, audit logging, and rate limiting must all be implemented at the application layer. There is no standardized approach.<sup class="ref"><a href="#ref-5">[5]</a></sup></li>
+              <li><strong>N×M integration problem:</strong> With N agents and M tools, you need N×M tool configurations. Every new agent requires redefining every tool.<sup class="ref"><a href="#ref-2">[2]</a></sup></li>
+              <li><strong>Token overhead:</strong> Every tool's full JSON Schema is injected into every prompt. With 10+ tools, this can consume 2,000-5,000 tokens per request — even for tools that aren't relevant to the current query.</li>
+            </ul>
+          </section>
+
+          <!-- ══ SECTION: MCP ══ -->
+          <section id="mcp" class="reveal">
+            <h2>What Is MCP (Model Context Protocol)?</h2>
+            <p>MCP (Model Context Protocol) is an <strong>open standard protocol</strong> created by Anthropic in November 2024 and donated to the Linux Foundation's Agentic AI Foundation (AAIF) in December 2025.<sup class="ref"><a href="#ref-6">[6]</a></sup> It defines a standardized way for AI clients (Claude Desktop, Cursor, VS Code, Copilot Studio) to discover and call tools through independent servers — think of it as the "USB-C for AI."</p>
+            <p>By mid-2026, MCP has become the industry standard: <strong>97M+ monthly SDK downloads</strong>, <strong>10,000+ public MCP servers</strong>, and adoption by every major AI platform (Anthropic, OpenAI, Google, Microsoft, AWS).<sup class="ref"><a href="#ref-6">[6]</a></sup></p>
+
+            <h3>How MCP Works</h3>
+            <p>MCP follows a <strong>three-layer architecture</strong>:</p>
+            <ul>
+              <li><strong>Host</strong> — The AI application (Claude Desktop, Cursor, VS Code) that needs tool access</li>
+              <li><strong>Client</strong> — A protocol client that maintains a connection to an MCP Server</li>
+              <li><strong>Server</strong> — A standalone server that exposes tools, resources, and prompts through the MCP protocol</li>
+            </ul>
+            <p>When a Host connects to an MCP Server, it can query the server's available tools via the <code>tools/list</code> endpoint at runtime — no hardcoded tool definitions needed. This dynamic discovery is the fundamental difference from Function Calling's static approach.</p>
+
+            <h3>Why MCP Became the Standard</h3>
+            <ul>
+              <li><strong>Model-agnostic:</strong> One MCP Server works with Claude, ChatGPT, Gemini, Cursor, and Copilot Studio — no per-provider tool definitions needed.</li>
+              <li><strong>Dynamic discovery:</strong> Tools are discovered at runtime via <code>tools/list</code>. New tools become available without code changes or redeployment.</li>
+              <li><strong>Centralized governance:</strong> Authentication, RBAC, audit logs, and rate limiting can be managed at the MCP Gateway level — no per-tool implementation.<sup class="ref"><a href="#ref-5">[5]</a></sup></li>
+              <li><strong>Ecosystem momentum:</strong> 97M+ monthly downloads, 10,000+ servers, and backing from every major LLM provider and cloud platform.<sup class="ref"><a href="#ref-6">[6]</a></sup></li>
+            </ul>
+          </section>
+
+          <!-- ══ SECTION: 7 KEY DIFFERENCES ══ -->
+          <section id="differences" class="reveal">
+            <h2>MCP vs Function Calling: 7 Key Differences</h2>
+            <p>Here is the definitive comparison table across seven dimensions that matter for AI agent development.</p>
+            <h3>Comparison Summary Table</h3>
+
+            <div class="arch-side">
+              <div class="arch-card fc">
+                <div class="arch-card-title">⚡ Function Calling</div>
+                <p style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:12px">Model-level execution primitive</p>
+                <ul class="arch-flow">
+                  <li><span class="arch-dot g"></span> Embedded in application code</li>
+                  <li><span class="arch-dot g"></span> Tools defined at compile time</li>
+                  <li><span class="arch-dot y"></span> One LLM provider = one schema format</li>
+                  <li><span class="arch-dot b"></span> N×M integrations (N agents × M tools)</li>
+                  <li><span class="arch-dot b"></span> Per-app auth &amp; governance</li>
+                </ul>
+              </div>
+              <div class="arch-card mcp">
+                <div class="arch-card-title">🔌 MCP (Model Context Protocol)</div>
+                <p style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:12px">Infrastructure-level standardization protocol</p>
+                <ul class="arch-flow">
+                  <li><span class="arch-dot g"></span> Independent server deployment</li>
+                  <li><span class="arch-dot g"></span> Tools discovered at runtime</li>
+                  <li><span class="arch-dot y"></span> One server = all LLM providers</li>
+                  <li><span class="arch-dot b"></span> N+M integrations (one server per tool)</li>
+                  <li><span class="arch-dot b"></span> Centralized auth &amp; RBAC</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="table-scroll">
+            <table class="compare-table">
+              <thead><tr><th>Dimension</th><th>Function Calling</th><th>MCP (Model Context Protocol)</th></tr></thead>
+              <tbody>
+                <tr><th>Layer</th><td>Model-level native capability</td><td class="highlight">Infrastructure-level standardization protocol</td></tr>
+                <tr><th>Architecture</th><td>Embedded — tool schemas hardcoded into application code</td><td class="highlight">Client-server — tools deployed as independent MCP Servers</td></tr>
+                <tr><th>Tool discovery</th><td><strong>Static</strong> — all tools defined at development time, compiled in</td><td class="highlight"><strong>Dynamic</strong> — runtime query via <code>tools/list</code></td></tr>
+                <tr><th>Portability</th><td>❌ Model-specific — OpenAI ≠ Anthropic ≠ Google</td><td class="highlight">✅ Model-agnostic — one Server serves all clients</td></tr>
+                <tr><th>Governance &amp; security</th><td>❌ No built-in — per-app implementation of auth, RBAC, audit</td><td class="highlight">✅ Centralized — Gateway-level auth, RBAC, audit logs, rate limiting</td></tr>
+                <tr><th>Deployment complexity</th><td>Low — define JSON Schema + write handler function</td><td>Medium — deploy MCP Server + client adapter</td></tr>
+                <tr><th>Best for</th><td>Simple integrations (&lt;5 tools), rapid prototyping, in-app calls</td><td class="highlight">Cross-system, multi-tool, enterprise-scale deployments</td></tr>
+              </tbody>
+            </table>
+            </div>
+          </section>
+
+          <!-- ══ SECTION: ARCHITECTURE COMPARISON ══ -->
+          <section class="reveal">
+            <h2>MCP vs Function Calling Explained: Architecture Comparison</h2>
+            <p>The architectural difference becomes clear when you visualize the data flow. In Function Calling, tool definitions live inside the prompt. In MCP, tools live on independent servers that the client queries dynamically.</p>
+
+            <h3>Function Calling Flow</h3>
+            <div class="code-block">
+<pre><span class="comment">// Application code — tools are hardcoded prompt content</span>
+<span class="keyword">const</span> tools = [{ name: <span class="string">"get_stock_price"</span>, ... }];
+
+<span class="comment">// Every request includes ALL tool schemas</span>
+<span class="keyword">const</span> response = <span class="keyword">await</span> openai.chat.completions.create({
+  model: <span class="string">"gpt-4"</span>,
+  tools: tools,  <span class="comment">// static, predefined</span>
+  messages: [{ role: <span class="string">"user"</span>, content: <span class="string">"What's AAPL at?"</span> }]
+});
+</pre>
+            </div>
+
+            <h3>MCP Flow</h3>
+            <div class="code-block">
+<pre><span class="comment"># MCP client dynamically discovers tools at runtime</span>
+<span class="keyword">from</span> mcp <span class="keyword">import</span> ClientSession
+
+<span class="comment"># Connect to any MCP Server</span>
+session = <span class="keyword">await</span> ClientSession.connect(server_url)
+
+<span class="comment"># Discover tools — no hardcoded schemas needed</span>
+tools = <span class="keyword">await</span> session.list_tools()
+<span class="comment"># Returns: dynamic list of available tools with schemas</span>
+
+<span class="comment"># Call a discovered tool</span>
+result = <span class="keyword">await</span> session.call_tool(<span class="string">"get_stock_price"</span>, { <span class="string">"symbol"</span>: <span class="string">"AAPL"</span> })
+</pre>
+            </div>
+            <p>The difference is clear: Function Calling embeds tool knowledge in the application code; MCP externalizes it to discoverable servers. One is static and tight-coupled; the other is dynamic and loose-coupled.</p>
+          </section>
+
+          <!-- ══ SECTION: CONSENSUS ══ -->
+          <section id="consensus" class="reveal">
+            <h2>The 2026 Consensus: They Work Together</h2>
+            <p>Every major analysis in 2026 reaches the same conclusion: <strong>MCP and Function Calling are complementary, not competitive.</strong> Here's what the industry experts say:</p>
+
+            <div class="consensus-grid">
+              <div class="consensus-card">
+                <h4>Atlan</h4>
+                <p>"Function calling executes decisions; MCP standardizes how context and tools are discovered. They serve fundamentally different layers of the stack."<sup class="ref"><a href="#ref-1">[1]</a></sup></p>
+              </div>
+              <div class="consensus-card">
+                <h4>Blaxel</h4>
+                <p>"MCP reduces N×M integrations to N+M. The hybrid approach — using function calling for intent and MCP for execution — is the recommended architecture for 2026."<sup class="ref"><a href="#ref-2">[2]</a></sup></p>
+              </div>
+              <div class="consensus-card">
+                <h4>Obot</h4>
+                <p>"A two-phase model: function calling handles intent generation, MCP handles the execution layer. Using them together eliminates the weaknesses of each."<sup class="ref"><a href="#ref-3">[3]</a></sup></p>
+              </div>
+              <div class="consensus-card">
+                <h4>ClearPeaks</h4>
+                <p>"Our benchmarks show MCP uses 77% more tokens and is 25% slower — but the trade-off buys portability, governance, and dynamic discovery that Function Calling cannot provide."<sup class="ref"><a href="#ref-4">[4]</a></sup></p>
+              </div>
+            </div>
+
+            <div class="scenario-box">
+              <h3>💡 The 2026 Recommended Architecture</h3>
+              <p><strong>Three-layer stack:</strong> Function Calling (model-level execution primitive) → MCP (standardized protocol layer) → QVeris (capability routing network). The LLM uses Function Calling to decide when to call a tool. That call is routed through MCP to the appropriate capability. QVeris provides the actual capabilities — 10,000+ of them — through a single MCP Server connection.</p>
+            </div>
+          </section>
+
+          <!-- ══ SECTION: WHEN TO USE ══ -->
+          <section id="when" class="reveal">
+            <h2>When to Use Function Calling vs MCP</h2>
+            <p>The decision framework is straightforward:</p>
+
+            <div class="table-scroll">
+            <table class="compare-table">
+              <thead><tr><th>Scenario</th><th>Recommendation</th><th>Why</th></tr></thead>
+              <tbody>
+                <tr><th>Rapid prototyping (&lt;5 tools)</th><td>Function Calling</td><td>Quickest path to a working agent. No infrastructure overhead.</td></tr>
+                <tr><th>Single-model application</th><td>Function Calling</td><td>No portability concerns. Simple, direct tool integration.</td></tr>
+                <tr><th>Enterprise multi-agent platform</th><td class="highlight"><strong>MCP</strong></td><td>Standardized governance, cross-team tool sharing, audit compliance.</td></tr>
+                <tr><th>Personal project / side project</th><td>Function Calling</td><td>Low complexity, minimal tool count, fast iteration.</td></tr>
+                <tr><th>Production deployment at scale</th><td class="highlight"><strong>Both together</strong></td><td>FC for model execution decisions, MCP for tool standardization.</td></tr>
+                <tr><th>Agent needs dynamic tool discovery</th><td class="highlight"><strong>MCP</strong></td><td>Runtime <code>tools/list</code> query — no code changes for new tools.</td></tr>
+                <tr><th>Financial data capabilities</th><td class="highlight"><strong>QVeris (MCP-native)</strong></td><td>One MCP connection → 10,000+ financial + general capabilities.</td></tr>
+                <tr><th>Multi-framework agent platform</th><td class="highlight"><strong>MCP</strong></td><td>Model-agnostic — one Server works across Claude, ChatGPT, Gemini.</td></tr>
+              </tbody>
+            </table>
+            </div>
+          </section>
+
+          <!-- ══ SECTION: WHERE QVERIS FITS ══ -->
+          <section id="qveris" class="reveal">
+            <h2>Where QVeris Fits: MCP-Native Capability Routing</h2>
+            <p>QVeris is the embodiment of the 2026 consensus recommendation — a <strong>capability routing network</strong> built natively on MCP that gives developers the benefits of both protocols.</p>
+
+            <div class="scenario-box">
+              <h3>🔀 QVeris MCP Server (@qverisai/mcp)</h3>
+              <p>QVeris provides an official MCP Server that any MCP-compatible client can connect to. Once connected, agents gain access to three core tools — making QVeris the most practical example of "both together" in production:</p>
+              <ul>
+                <li><strong><code>discover</code></strong> — Natural language capability search across 10,000+ tools. Ask "what capabilities do you have for investment research?" and get ranked results with cost, latency, and reliability data.</li>
+                <li><strong><code>inspect</code></strong> — Pre-call cost and quality preview. Zero-cost inspection of any capability before committing credits.</li>
+                <li><strong><code>call</code></strong> — Sandboxed execution returning structured JSON with full audit trail via <code>session_id</code>.</li>
+              </ul>
+              <p style="margin-top:12px"><strong>No per-tool schema configuration needed.</strong> With QVeris, you don't choose between MCP and Function Calling — you get the standardization of MCP with the ease of Function Calling, all through a single MCP connection.</p>
+            </div>
+
+            <h3>Quick Start: Connect QVeris MCP in Claude Code</h3>
+            <div class="code-block">
+<pre><span class="comment"># One command to add QVeris MCP Server to Claude Code</span>
+claude mcp add qveris -s user -- npx @qverisai/mcp
+
+<span class="comment"># Now your Claude Code agent has access to 10,000+ capabilities</span>
+<span class="comment"># Just ask: "find me tools for stock market data"</span>
+<span class="comment"># QVeris discovers, inspects, and calls — all through MCP</span>
+</pre>
+            </div>
+          </section>
+
+          <!-- ══ FAQ ══ -->
+          <section id="faq" class="reveal">
+            <h2>Frequently Asked Questions</h2>
+            <h3>Common Questions About MCP vs Function Calling</h3>
+
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">What is the difference between MCP and Function Calling?</div>
+              <div class="faq-a">Function Calling is a <strong>model-level capability</strong> built into LLMs (GPT, Claude, Gemini) that lets them understand tool schemas and return structured arguments for execution. MCP is an <strong>infrastructure-level protocol</strong> that standardizes how AI clients discover and call tools through independent servers. Think of it this way: Function Calling is how a model "speaks" tool calls; MCP is the "network" that connects models to tools. They are complementary.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">Which is better: MCP or Function Calling?</div>
+              <div class="faq-a">Neither is universally better — they serve different layers. Function Calling is simpler and works well for app-specific, tight integrations with fewer than 5 tools. MCP is better for cross-system, multi-tool, enterprise-scale deployments where portability and governance matter. The 2026 consensus recommendation is to use both together: Function Calling for the model's execution decision, MCP as the standardized integration substrate.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">Can MCP replace Function Calling?</div>
+              <div class="faq-a">No — MCP and Function Calling operate at different layers and are designed to work together. In a typical production architecture, the LLM uses Function Calling to decide when to invoke a tool, and that call is routed through MCP to the appropriate tool server. QVeris embodies this approach: it provides an MCP-compatible server that exposes tools your agent can call via standard Function Calling interfaces.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">How does QVeris use MCP and Function Calling?</div>
+              <div class="faq-a">QVeris provides an official MCP Server (<code>@qverisai/mcp</code>) that any MCP-compatible client can connect to. Once connected, AI agents gain access to three tools: <code>discover</code> (natural language capability search), <code>inspect</code> (pre-call cost and quality review), and <code>call</code> (sandboxed execution). This gives developers the standardization of MCP with the ease of Function Calling — all through a single integration.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">Does QVeris support Function Calling directly?</div>
+              <div class="faq-a">QVeris primarily exposes its capabilities through MCP, which is the native integration method. However, QVeris also offers REST API and Python SDK options that can be integrated into any Function Calling workflow. Developers using OpenAI, Anthropic, or Google's function calling can use QVeris's APIs to give their agents access to 10,000+ capabilities without per-tool schema configuration.</div>
+            </div>
+          </section>
+
+          <!-- ══ CTA ══ -->
+          <div class="cta-box reveal">
+            <h3>Try QVeris MCP Server — Access 10,000+ Capabilities with One Connection</h3>
+            <p>1,000 free credits + 100 daily. No per-tool schema configuration needed. Just one MCP connection and your agent discovers capabilities naturally.</p>
+            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+              <a href="https://qveris.ai/pricing" class="cta-btn">Try QVeris Free →</a>
+              <a href="https://qveris.ai/docs" class="cta-btn-outline">Set Up QVeris MCP</a>
+              <a href="https://qveris.ai/capabilities/explore" class="cta-btn-outline">Explore Capabilities</a>
+            </div>
+          </div>
+
+          <!-- ══ METHODOLOGY ══ -->
+          <div class="methodology reveal">
+            <h2>About This Guide</h2>
+            <p><strong>Last updated:</strong> <time datetime="2026-06-01">June 1, 2026</time></p>
+            <p><strong>Methodology:</strong> This guide synthesizes analysis from Atlan, Blaxel, Obot, ClearPeaks, Portkey, and the official MCP specification. MCP download and adoption statistics sourced from the Agentic AI Foundation (AAIF) and Linux Foundation announcements. Performance benchmarks cited from ClearPeaks' published comparison (April 2026).</p>
+            <p><strong>Positioning note:</strong> QVeris is an MCP-native capability routing network referenced here as a production example of the "both together" architecture. All capability claims verified against internal product specifications.</p>
+            <p><strong>Update cadence:</strong> Reviewed quarterly. MCP ecosystem data refreshed every 90 days.</p>
+
+            <h2 id="references">References</h2>
+            <div class="ref-list">
+              <ol>
+                <li id="ref-1"><a href="https://atlan.com/know/mcp-vs-function-calling/" target="_blank" rel="nofollow noopener">Atlan — MCP vs. Function Calling: Which Should Your AI Agent Use?</a> — Enterprise governance perspective. "Function calling executes decisions; MCP standardizes discovery." Verified May 2026.</li>
+                <li id="ref-2"><a href="https://blaxel.ai/blog/mcp-vs-function-calling" target="_blank" rel="nofollow noopener">Blaxel — MCP vs function calling: how to choose the right protocol</a> — M×N to M+N reduction analysis. Hybrid architecture recommendation. Verified May 2026.</li>
+                <li id="ref-3"><a href="https://obot.ai/resources/learning-center/mcp-vs-function-calling/" target="_blank" rel="nofollow noopener">Obot — MCP vs Function Calling: 7 Key Differences & Using Them Together</a> — Two-phase model (intent + execution). Verified May 2026.</li>
+                <li id="ref-4"><a href="https://www.clearpeaks.com/model-context-protocol-vs-function-calling-a-practical-comparison-for-ai-agents/" target="_blank" rel="nofollow noopener">ClearPeaks — MCP vs Function Calling: A Practical Comparison</a> — Performance benchmarks: +77% tokens, ~25% slower with MCP. Verified April 2026.</li>
+                <li id="ref-5"><a href="https://portkey.ai/blog/mcp-vs-function-calling/" target="_blank" rel="nofollow noopener">Portkey — MCP vs Function Calling: How They Actually Work Together</a> — Security and governance analysis. 43% of MCP servers had injection vulnerabilities. Verified May 2026.</li>
+                <li id="ref-6"><a href="https://modelcontextprotocol.io" target="_blank" rel="nofollow noopener">MCP Official Specification — Model Context Protocol</a> — Protocol specification, 97M+ monthly downloads, donated to Linux Foundation AAIF. Verified May 2026.</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- ══ RELATED ══ -->
+          <h2 class="reveal">Related Guides</h2>
+          <div class="related">
+            <a href="../mcp-server/index.html">🔌 MCP Server: 8 Best in 2026</a>
+            <a href="../mcp-client/index.html">🖥 MCP Client: 9 Best Options in 2026</a>
+            <a href="../zapier-mcp-vs-qveris/index.html">⚡ Zapier MCP vs QVeris</a>
+            <a href="../capability-routing-network/index.html">🔀 What Is Capability Routing?</a>
+            <a href="../api-cost-calculator/index.html">💰 AI Agent Tool Call Cost Calculator</a>
+          </div>
+
+        </div>
+      </article>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div>
+            <div style="font-size:18px;font-weight:600;color:rgba(255,255,255,0.9);margin-bottom:12px">QVeris AI</div>
+            <p class="footer-desc">AI-Agent native capability routing network. Unified protocol accessing 10,000+ capabilities across search, maps, docs, finance, blockchain, healthcare and more.</p>
+            <a href="https://qveris.ai" class="cta-btn" style="padding:8px 20px;font-size:13px">Get Started →</a>
+          </div>
+          <div><span class="footer-title">Products</span><div class="footer-links"><a href="https://qveris.ai/capabilities/explore">Capability Map</a><a href="https://qveris.ai/cli">QVeris CLI</a><a href="https://qveris.ai/qverisbot">QVerisBot</a><a href="https://qveris.ai/skills">Skills</a><a href="https://qveris.ai/playground">Live Demo</a><a href="https://qveris.ai/plugins">Install for Agents</a></div></div>
+          <div><span class="footer-title">Developers</span><div class="footer-links"><a href="https://qveris.ai/docs">Quick Start</a><a href="https://qveris.ai/blog">Blog</a><a href="https://qveris.ai/docs/cli">CLI Docs</a><a href="https://qveris.ai/docs/rest-api">REST API</a><a href="https://qveris.ai/docs/mcp-server">MCP Server</a><a href="https://qveris.ai/docs/python-sdk">Python SDK</a></div></div>
+          <div><span class="footer-title">Ecosystem</span><div class="footer-links"><a href="https://github.com/QVerisAI">GitHub</a><a href="https://www.npmjs.com/org/qverisai">npm Packages</a><a href="https://clawhub.ai/skills?sort=downloads&q=qveris">ClawHub</a><a href="https://qveris.ai/for-agents">Agents Guide</a></div></div>
+          <div><span class="footer-title">Company</span><div class="footer-links"><a href="https://qveris.ai/pricing">Pricing</a><a href="https://qveris.ai/whats-new">What's New</a><a href="https://qveris.ai/help">Help Center</a><a href="https://qveris.ai/ecosystem">Ecosystem</a><a href="https://qveris.ai/security">Security</a><a href="https://qveris.ai/terms">Terms of Service</a><a href="https://qveris.ai/privacy">Privacy Policy</a></div></div>
+        </div>
+        <div class="footer-bottom">
+          <span>&copy; 2026 QVeris AI. All rights reserved.</span>
+          <span>AI-Agent Native &bull; Capability Routing Network &bull; Pay-Per-Call</span>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- /content-wrap -->
+
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    revealEls.forEach(el => observer.observe(el));
+
+    function toggleFaq(el) {
+      el.classList.toggle('open');
+      var answer = el.nextElementSibling;
+      answer.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
