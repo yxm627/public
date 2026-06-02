@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Is MCP? Model Context Protocol Complete Guide 2026</title>
+  <meta name="description" content="Learn what MCP (Model Context Protocol) is, how it works, and why it's called the 'USB-C for AI.' Complete guide with architecture, adoption stats, and enterprise use cases.">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title" content="What Is MCP? Model Context Protocol Complete Guide 2026">
+  <meta property="og:description" content="Learn what MCP (Model Context Protocol) is, how it works, and why it's called the 'USB-C for AI.' Complete guide with architecture, adoption stats, and enterprise use cases.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://try.qveris.ai/what-is-mcp/">
+  <meta property="og:image" content="https://try.qveris.ai/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="What Is MCP (Model Context Protocol) complete guide 2026">
+  <meta property="og:site_name" content="QVeris">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="What Is MCP? Model Context Protocol Complete Guide 2026">
+  <meta name="twitter:description" content="Learn what MCP (Model Context Protocol) is, how it works, and why it's called the 'USB-C for AI.' Complete guide with architecture, adoption stats, and enterprise use cases.">
+  <meta name="twitter:image" content="https://try.qveris.ai/og.png">
+  <meta name="twitter:image:alt" content="What Is MCP guide architecture diagram">
+  <meta name="twitter:site" content="@qveris_ai">
+  <meta name="theme-color" content="#0A0E1A">
+
+  <link rel="canonical" href="https://try.qveris.ai/what-is-mcp/">
+  <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/245123302?s=200&v=4">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://qveris.ai/icon.png">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://try.qveris.ai">
+  <link rel="preconnect" href="https://try.qveris.ai">
+  <link rel="dns-prefetch" href="https://qveris.ai">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Schema: Organization -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"QVeris AI","url":"https://qveris.ai","logo":"https://qveris.ai/logo-color.png","sameAs":["https://www.linkedin.com/company/qveris","https://twitter.com/qveris_ai","https://github.com/qveris"]}</script>
+
+  <!-- Schema: BreadcrumbList -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://qveris.ai/"},{"@type":"ListItem","position":2,"name":"What Is MCP","item":"https://try.qveris.ai/what-is-mcp/"}]}</script>
+
+  <!-- Schema: Article -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What Is MCP? Model Context Protocol Complete Guide 2026","description":"Learn what MCP (Model Context Protocol) is, how it works, and why it's called the 'USB-C for AI.' Complete guide with architecture, adoption stats, and enterprise use cases.","image":["https://try.qveris.ai/og.png"],"datePublished":"2026-05-26","dateModified":"2026-06-01","author":{"@type":"Person","name":"Wang Linfang","url":"https://qveris.ai/authors/wang-linfang","jobTitle":"CEO & Founder, QVeris","sameAs":["https://www.linkedin.com/in/wanglinfang"]},"publisher":{"@type":"Organization","name":"QVeris AI","logo":{"@type":"ImageObject","url":"https://qveris.ai/logo-color.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://try.qveris.ai/what-is-mcp/"}}</script>
+
+  <!-- Schema: FAQPage -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is MCP (Model Context Protocol)?","acceptedAnswer":{"@type":"Answer","text":"MCP (Model Context Protocol) is an open standard created by Anthropic that serves as a universal connector between AI applications and external tools, data sources, and systems. It's often called the 'USB-C for AI.' MCP was donated to the Linux Foundation's Agentic AI Foundation in December 2025 and is now supported by OpenAI, Google, Microsoft, AWS, and others."}},{"@type":"Question","name":"How does MCP work?","acceptedAnswer":{"@type":"Answer","text":"MCP uses a client-server architecture with three layers. The Host (e.g., Claude Desktop, VS Code) contains a Client that maintains a 1:1 connection with a Server. The Server exposes capabilities like Tools (actions the AI can call), Resources (read-only data), and Prompts (reusable templates). Communication happens over JSON-RPC 2.0 via stdio (local) or Streamable HTTP (remote)."}},{"@type":"Question","name":"Why is MCP called 'USB-C for AI'?","acceptedAnswer":{"@type":"Answer","text":"Just as USB-C standardizes how devices connect to peripherals, MCP standardizes how AI applications connect to external tools and data. Without MCP, every AI model needed custom integrations for every tool (the M×N problem). With MCP, each AI client and each data source implements the protocol once, and any client can reach any server — reducing M×N integrations to M+N."}},{"@type":"Question","name":"Who supports MCP in 2026?","acceptedAnswer":{"@type":"Answer","text":"MCP is supported by most major AI platforms: Anthropic (native since Nov 2024), OpenAI (since Mar 2025), Google Gemini and Vertex AI (since Mar 2026), Microsoft Copilot Studio and VS Code (since Jul 2025), and AWS Bedrock (since Nov 2025). The protocol is governed by the Agentic AI Foundation under the Linux Foundation."}},{"@type":"Question","name":"How does QVeris use MCP?","acceptedAnswer":{"@type":"Answer","text":"QVeris provides an official MCP Server (@qverisai/mcp) that any MCP-compatible client can connect to. Once connected, AI agents gain access to 10,000+ capabilities across 15+ categories through three tools: discover (natural language capability search), inspect (pre-call cost and quality review), and call (sandboxed execution). This makes QVeris one of the largest capability providers in the MCP ecosystem."}}]}</script>
+
+  <!-- Schema: SoftwareApplication -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"QVeris","description":"AI-Agent native capability routing network with 10,000+ tools, natural language discovery, and pay-per-call pricing.","applicationCategory":"BusinessApplication","operatingSystem":"Web, CLI","url":"https://qveris.ai","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock"}}</script>
+
+  <!-- Schema: DefinedTerm (definition page specific) -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","name":"MCP (Model Context Protocol)","description":"An open standard protocol created by Anthropic in 2024 (donated to Linux Foundation in 2025) that defines a standardized communication method between AI clients and tool servers, enabling dynamic tool discovery, model-agnostic integration, and centralized governance.","url":"https://try.qveris.ai/what-is-mcp/","inDefinedTermSet":{"@type":"DefinedTermSet","name":"AI Agent Infrastructure Glossary"}}</script>
+
+  <style>
+    @font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:local('Inter')}
+    @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400 600;font-display:swap;src:local('JetBrains Mono')}
+    *{box-sizing:border-box;margin:0;padding:0}
+    ::selection{background:rgba(124,155,255,0.35)}
+    ::-webkit-scrollbar{width:8px;background:#0A0E1A}
+    ::-webkit-scrollbar-thumb{background:rgba(124,155,255,0.2);border-radius:4px}
+    ::-webkit-scrollbar-thumb:hover{background:rgba(124,155,255,0.35)}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,sans-serif;color:rgba(255,255,255,0.82);background:#0A0E1A;font-size:16.5px;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+    .bg-mesh{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:hidden}
+    .bg-mesh .orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.3;animation:orbFloat 20s ease-in-out infinite}
+    .bg-mesh .orb:nth-child(1){width:600px;height:600px;background:radial-gradient(circle,rgba(124,155,255,0.15),transparent);top:-200px;right:-200px;animation-delay:0s}
+    .bg-mesh .orb:nth-child(2){width:500px;height:500px;background:radial-gradient(circle,rgba(61,95,224,0.12),transparent);bottom:-150px;left:-150px;animation-delay:-7s}
+    .bg-mesh .orb:nth-child(3){width:400px;height:400px;background:radial-gradient(circle,rgba(124,155,255,0.08),transparent);top:50%;left:50%;transform:translate(-50%,-50%);animation-delay:-14s}
+    @keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(30px,-40px) scale(1.05)}50%{transform:translate(-20px,20px) scale(0.95)}75%{transform:translate(40px,30px) scale(1.02)}}
+    .content-wrap{position:relative;z-index:1}
+    .skip-link{position:absolute;left:-9999px;top:0;background:#7C9BFF;color:#0A0E1A;padding:10px 16px;border-radius:0 0 8px 0;font-weight:600;z-index:200}
+    .skip-link:focus{left:0}
+    a{color:#7C9BFF;text-decoration:none;transition:color 0.2s}
+    a:hover{color:#B5C6FF}
+    img{max-width:100%;height:auto;display:block}
+
+    .nav{position:sticky;top:0;z-index:100;background:rgba(10,14,26,0.75);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);border-bottom:1px solid rgba(255,255,255,0.06);padding:14px 0}
+    .nav-inner{max-width:1024px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .nav-logo-img{width:28px;height:28px;border-radius:6px;display:block}
+    .nav-logo span{font-size:16px;font-weight:600;color:rgba(255,255,255,0.97);letter-spacing:-0.01em}
+    .nav-links{display:flex;align-items:center;gap:22px;font-size:14px}
+    .nav-links a{color:rgba(255,255,255,0.55);transition:color 0.15s}
+    .nav-links a:hover{color:rgba(255,255,255,0.9)}
+    .nav-cta{background:linear-gradient(135deg,#B5C6FF,#7C9BFF);color:#0A0E1A;padding:7px 18px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none;transition:all 0.25s;box-shadow:0 0 20px rgba(124,155,255,0.15)}
+    .nav-cta:hover{opacity:1;color:#0A0E1A;transform:translateY(-1px);box-shadow:0 0 30px rgba(124,155,255,0.3)}
+
+    .wrap{max-width:1024px;margin:0 auto;padding:48px 24px}
+    h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:600;line-height:1.15;margin-bottom:12px;color:rgba(255,255,255,0.97);letter-spacing:-0.02em}
+    h2{font-size:1.22rem;font-weight:600;margin:48px 0 16px;color:rgba(255,255,255,0.92);border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:10px}
+    h3{font-size:15px;font-weight:600;margin:24px 0 10px;color:rgba(255,255,255,0.85)}
+    p{margin:0 0 18px;color:rgba(255,255,255,0.62)}
+    strong{color:rgba(255,255,255,0.92)}
+    ul,ol{margin:12px 0 14px 24px}
+    li{margin:6px 0;color:rgba(255,255,255,0.62)}
+    code{font-family:'JetBrains Mono',monospace;background:rgba(255,255,255,0.04);padding:2px 8px;border-radius:4px;font-size:0.85em;color:#B5C6FF}
+    pre{font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.7;color:rgba(255,255,255,0.85);margin:0}
+
+    .reveal{opacity:0;transform:translateY(30px);transition:all 0.7s cubic-bezier(0.16,1,0.3,1)}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    .meta-desc{font-size:1rem;color:rgba(255,255,255,0.5);margin-bottom:24px;line-height:1.55;max-width:680px}
+    .breadcrumb{font-size:13px;color:rgba(255,255,255,0.35);margin-bottom:20px}
+    .breadcrumb a{color:#7C9BFF}
+    .breadcrumb span{margin:0 6px}
+    .badge{display:inline-block;font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;margin-right:8px;margin-bottom:14px}
+    .badge-client{background:rgba(124,155,255,0.18);color:#B5C6FF;border:1px solid rgba(124,155,255,0.25)}
+    .badge-cat{background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.55)}
+
+    .toc-bar{background:rgba(10,14,26,0.92);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:14px 20px;margin:0 0 28px}
+    .toc-label{font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+    .toc-grid{display:flex;flex-wrap:wrap;gap:4px 14px}
+    .toc-grid a{font-size:13px;color:rgba(255,255,255,0.55);padding:3px 0;transition:color 0.15s;white-space:nowrap}
+    .toc-grid a:hover{color:#B5C6FF}
+
+    .tldr{background:linear-gradient(135deg,rgba(124,155,255,0.06),rgba(61,95,224,0.03));border-left:3px solid #7C9BFF;border-radius:0 12px 12px 0;padding:20px 24px;margin:0 0 28px}
+    .tldr-label{font-size:12px;font-weight:600;color:#B5C6FF;margin-bottom:12px;text-transform:uppercase;letter-spacing:1.5px}
+    .tldr ul{margin:0;padding-left:18px;font-size:14.5px}
+    .tldr li{color:rgba(255,255,255,0.7);margin:4px 0}
+
+    .answer-box{border-left:3px solid #7C9BFF;padding:16px 20px;border-radius:0 10px 10px 0;font-size:15px;color:rgba(255,255,255,0.85);margin-bottom:28px;background:linear-gradient(135deg,rgba(124,155,255,0.04),rgba(61,95,224,0.02))}
+
+    .stats-row{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;padding:24px 0;margin:0 0 28px;border-top:1px solid rgba(124,155,255,0.08);border-bottom:1px solid rgba(124,155,255,0.08);background:rgba(124,155,255,0.02);border-radius:12px}
+    .stats-item{text-align:center;min-width:80px}
+    .stats-num{font-size:24px;font-weight:800;background:linear-gradient(135deg,#B5C6FF,#7C9BFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .stats-label{font-size:11px;color:#6B7280;text-transform:uppercase;letter-spacing:0.5px;margin-top:2px}
+
+    .compare-table{width:100%;border-collapse:separate;border-spacing:0;margin:20px 0;font-size:14px;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.06)}
+    .compare-table th,.compare-table td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.04)}
+    .compare-table thead th{background:rgba(124,155,255,0.06);color:rgba(255,255,255,0.85);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.5px}
+    .compare-table tbody th{background:transparent;color:rgba(255,255,255,0.85);font-weight:500;font-size:13px;border-right:1px solid rgba(255,255,255,0.04)}
+    .compare-table td{color:rgba(255,255,255,0.65)}
+    .compare-table tbody tr:hover{background:rgba(124,155,255,0.03)}
+    .highlight{color:#B5C6FF;font-weight:600}
+
+    .scenario-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;margin:16px 0;transition:all 0.3s}
+    .scenario-box:hover{border-color:rgba(124,155,255,0.18);transform:translateY(-2px)}
+    .scenario-box h3{margin-top:0}
+
+    .arch-showcase{display:flex;flex-direction:column;gap:12px;padding:24px;margin:20px 0;background:rgba(255,255,255,0.02);border:1px solid rgba(124,155,255,0.12);border-radius:14px}
+    .arch-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .arch-tier{display:flex;align-items:center;gap:10px}
+    .arch-badge{display:inline-block;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px}
+    .arch-badge.host{background:rgba(124,155,255,0.15);color:#B5C6FF;border:1px solid rgba(124,155,255,0.25)}
+    .arch-badge.client{background:rgba(16,185,129,0.15);color:#22c55e;border:1px solid rgba(16,185,129,0.25)}
+    .arch-badge.server{background:rgba(245,158,11,0.15);color:#fbbf24;border:1px solid rgba(245,158,11,0.25)}
+
+    .mnx-viz{display:flex;align-items:center;justify-content:center;gap:10px;padding:20px;margin:16px 0;flex-wrap:wrap}
+    .mnx-box{padding:12px 18px;border-radius:10px;text-align:center;font-size:13px;font-weight:600}
+    .mnx-box.old{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);color:#ef4444}
+    .mnx-box.new{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);color:#22c55e}
+    .mnx-arrow{font-size:18px;color:rgba(255,255,255,0.25)}
+
+    .ecosystem-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+    .eco-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:14px 16px}
+    .eco-card h4{font-size:13px;font-weight:600;color:rgba(255,255,255,0.85);margin-bottom:4px}
+    .eco-card p{font-size:12.5px;color:rgba(255,255,255,0.55);margin:0}
+
+    .faq-item{border-bottom:1px solid rgba(255,255,255,0.06);padding:20px 0;transition:padding 0.3s}
+    .faq-q{font-weight:600;font-size:16px;color:rgba(255,255,255,0.9);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+    .faq-q::after{content:'+';font-size:20px;color:rgba(255,255,255,0.3);transition:transform 0.3s}
+    .faq-q.open::after{transform:rotate(45deg)}
+    .faq-a{margin-top:0;max-height:0;overflow:hidden;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);color:rgba(255,255,255,0.55);font-size:14.5px;line-height:1.65}
+    .faq-a.open{max-height:500px;margin-top:12px}
+
+    .cta-box{background:linear-gradient(135deg,rgba(124,155,255,0.08),rgba(61,95,224,0.05));border:1px solid rgba(124,155,255,0.15);text-align:center;padding:40px;border-radius:16px;margin:48px 0;position:relative;overflow:hidden}
+    .cta-box::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 50%,rgba(124,155,255,0.04),transparent 50%);pointer-events:none}
+    .cta-box h3{color:rgba(255,255,255,0.95);margin:0 0 8px;font-size:20px;font-weight:600}
+    .cta-box p{color:rgba(255,255,255,0.55);margin:0 0 20px;position:relative}
+    .cta-btn{display:inline-block;background:linear-gradient(135deg,#B5C6FF,#7C9BFF);color:#0A0E1A;padding:12px 32px;border-radius:24px;font-weight:600;font-size:15px;transition:all 0.25s;text-decoration:none;box-shadow:0 0 30px rgba(124,155,255,0.15)}
+    .cta-btn:hover{opacity:1;color:#0A0E1A;transform:translateY(-2px);box-shadow:0 0 40px rgba(124,155,255,0.25)}
+    .cta-btn-outline{display:inline-block;border:1px solid rgba(124,155,255,0.3);color:#7C9BFF;padding:11px 28px;border-radius:24px;font-weight:600;font-size:14px;transition:all 0.2s;margin-left:12px}
+    .cta-btn-outline:hover{background:rgba(124,155,255,0.08);color:#B5C6FF;transform:translateY(-2px)}
+
+    .code-block{background:rgba(10,14,26,0.6);border:1px solid rgba(124,155,255,0.12);border-radius:10px;padding:20px;margin:16px 0;overflow-x:auto}
+    .code-block .comment{color:rgba(255,255,255,0.35)}
+    .code-block .keyword{color:#7C9BFF}
+    .code-block .string{color:#22c55e}
+    .code-block .func{color:#fbbf24}
+
+    .methodology{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:24px;margin:32px 0;font-size:14px;color:rgba(255,255,255,0.55)}
+    .methodology h2{font-size:14px;border:none;padding:0;margin:0 0 12px;color:rgba(255,255,255,0.85);text-transform:uppercase;letter-spacing:1px}
+    .methodology p{margin:6px 0;font-size:13.5px}
+    .related{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+    .related a{display:block;padding:16px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;text-decoration:none;color:#B5C6FF;font-size:14px;font-weight:500;transition:all 0.3s;line-height:1.45}
+    .related a:hover{background:rgba(124,155,255,0.05);border-color:rgba(124,155,255,0.25);transform:translateY(-2px)}
+    .ref-list{font-size:13px;color:rgba(255,255,255,0.55)}
+    .ref-list ol{margin:0;padding-left:22px}
+    .ref-list li{margin:3px 0;font-size:12.5px;word-break:break-all}
+    .ref-list li a{color:#8a8a9a}
+    .ref-list li a:hover{color:#B5C6FF}
+    sup.ref{font-size:11px;color:#8a8a9a}
+    sup.ref a{color:#8a8a9a;text-decoration:none}
+    sup.ref a:hover{color:#B5C6FF}
+    .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+    .footer{background:rgba(6,9,18,0.8);border-top:1px solid rgba(255,255,255,0.04);padding:48px 24px;backdrop-filter:blur(10px)}
+    .footer-inner{max-width:1024px;margin:0 auto}
+    .footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px}
+    .footer-title{display:block;font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+    .footer-links{display:flex;flex-direction:column;gap:10px;font-size:14px}
+    .footer-links a{color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.15s}
+    .footer-links a:hover{color:rgba(255,255,255,0.75)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.04);padding-top:24px;display:flex;justify-content:space-between;font-size:13px;color:rgba(255,255,255,0.28)}
+    .footer-desc{font-size:14px;color:rgba(255,255,255,0.35);max-width:300px;margin-bottom:16px;line-height:1.6}
+
+    @keyframes fadeSlide{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+    @media(max-width:720px){
+      .toc-grid a{font-size:12px}
+      .related,.footer-grid{grid-template-columns:1fr}
+      h1{font-size:1.5rem}
+      .nav-links a:not(.nav-cta){display:none}
+      .ecosystem-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="bg-mesh" aria-hidden="true"><div class="orb"></div><div class="orb"></div><div class="orb"></div></div>
+  <div class="content-wrap">
+
+    <!-- NAV -->
+    <nav class="nav" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="https://qveris.ai" class="nav-logo">
+          <img src="https://avatars.githubusercontent.com/u/245123302?s=200&v=4" alt="QVeris AI" class="nav-logo-img" width="28" height="28">
+          <span>QVeris</span>
+        </a>
+        <div class="nav-links">
+          <a href="https://qveris.ai">Product</a>
+          <a href="https://qveris.ai/pricing">Pricing</a>
+          <a href="https://qveris.ai/docs">Docs</a>
+          <a href="https://qveris.ai" class="nav-cta">Get Started</a>
+        </div>
+      </div>
+    </nav>
+
+    <main id="main-content">
+      <article>
+        <div class="wrap">
+
+          <!-- Breadcrumb -->
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="https://qveris.ai">Home</a><span>›</span>What Is MCP
+          </nav>
+
+          <!-- Badges -->
+          <div class="reveal">
+            <span class="badge badge-client">Updated June 2026</span>
+            <span class="badge badge-cat">Definition Guide</span>
+          </div>
+
+          <!-- H1 -->
+          <h1 class="reveal">What Is MCP (Model Context Protocol)? The Complete 2026 Guide</h1>
+
+          <!-- Meta subtitle -->
+          <p class="meta-desc reveal">Learn <strong>what is MCP</strong>, how the Model Context Protocol works, why it's called the "USB-C for AI," and how it's transforming AI agent development in 2026.</p>
+
+          <!-- Stats Row -->
+          <div class="stats-row reveal">
+            <div class="stats-item"><div class="stats-num">97M+</div><span class="stats-label">Monthly SDK Downloads</span></div>
+            <div class="stats-item"><div class="stats-num">17,000+</div><span class="stats-label">MCP Servers</span></div>
+            <div class="stats-item"><div class="stats-num">78%</div><span class="stats-label">Enterprise Adoption</span></div>
+            <div class="stats-item"><div class="stats-num">100+</div><span class="stats-label">LLMs Support MCP</span></div>
+            <div class="stats-item"><div class="stats-num">28%</div><span class="stats-label">Fortune 500 Deployed</span></div>
+          </div>
+
+          <!-- TOC -->
+          <nav class="toc-bar reveal" aria-label="Page sections">
+            <div class="toc-label">Jump to</div>
+            <div class="toc-grid">
+              <a href="#definition">What Is MCP?</a>
+              <a href="#architecture">Architecture</a>
+              <a href="#problem">The M×N Problem</a>
+              <a href="#comparison">MCP vs FC vs REST</a>
+              <a href="#ecosystem">Ecosystem in 2026</a>
+              <a href="#getting-started">Get Started</a>
+              <a href="#faq">FAQ</a>
+            </div>
+          </nav>
+
+          <!-- TL;DR -->
+          <div class="tldr reveal">
+            <div class="tldr-label">TL;DR</div>
+            <ul>
+              <li><strong>Problem:</strong> Connecting M AI models to N tools requires M×N custom integrations — one per model per tool. Every new model or data source means rebuilding the integration.</li>
+              <li><strong>Solution:</strong> <strong>MCP (Model Context Protocol)</strong> standardizes the connection between AI clients and tool servers. Each side implements the protocol once, reducing M×N integrations to M+N.</li>
+              <li><strong>Result:</strong> 97M+ monthly SDK downloads, 17,000+ MCP Servers, and adoption by 78% of enterprise AI teams. MCP is the industry standard for AI-tool connectivity in 2026.</li>
+            </ul>
+          </div>
+
+          <!-- Featured Snippet -->
+          <h2 class="reveal">What is MCP (Model Context Protocol)?</h2>
+          <div class="answer-box reveal">
+            <strong>MCP (Model Context Protocol) is an open standard created by Anthropic that serves as a universal connector between AI applications and external tools, data sources, and systems. It's often called the "USB-C for AI" because it replaces custom point-to-point integrations with one standardized protocol. MCP was donated to the Linux Foundation's Agentic AI Foundation in December 2025 and is now supported by OpenAI, Google, Microsoft, AWS, and others.</strong>
+          </div>
+
+          <!-- ══ SECTION: DEFINITION ══ -->
+          <section id="definition" class="reveal">
+            <h2>What Is MCP? A Simple Definition</h2>
+            <p>MCP stands for <strong>Model Context Protocol</strong> — an open standard protocol created by Anthropic in November 2024 that defines a universal way for AI applications (Claude, ChatGPT, Gemini, and others) to connect to external tools, data sources, and services.<sup class="ref"><a href="#ref-1">[1]</a></sup></p>
+
+            <p>In December 2025, Anthropic donated MCP to the <strong>Linux Foundation's Agentic AI Foundation (AAIF)</strong>, with co-founders including Anthropic, OpenAI, and Block, and platinum sponsors: AWS, Google, Microsoft, Cloudflare, Bloomberg, Salesforce, and Snowflake.<sup class="ref"><a href="#ref-2">[2]</a></sup> This vendor-neutral governance — similar to Kubernetes or Linux — ensures MCP remains an open standard not controlled by any single company.</p>
+
+            <h3>The "USB-C for AI" Analogy</h3>
+            <p>The analogy is fitting: just as USB-C standardizes how devices connect to peripherals (one cable for keyboards, monitors, storage), MCP standardizes how AI applications connect to external tools (one protocol for databases, APIs, file systems, CRMs).</p>
+
+            <p><strong>Without MCP:</strong> Each AI model needs custom code for each tool. 10 models × 100 tools = 1,000 integrations.</p>
+            <p><strong>With MCP:</strong> Each AI client and each tool implements the protocol once. 10 models + 100 tools = 110 implementations.</p>
+
+            <h3>Why MCP Matters</h3>
+            <ul>
+              <li><strong>From chat to action:</strong> Without MCP, AI agents are limited to generating text. With MCP, agents can query databases, file tickets, send emails, and execute code — turning AI from a "chatbot" into an "operator."</li>
+              <li><strong>Vendor neutrality:</strong> MCP is governed by the Linux Foundation AAIF, not by any single AI company. No vendor lock-in, no proprietary formats.</li>
+              <li><strong>Industry consensus:</strong> 78% of enterprise AI teams have at least one MCP-backed agent in production, and 28% of Fortune 500 companies have deployed MCP servers.<sup class="ref"><a href="#ref-3">[3]</a></sup></li>
+            </ul>
+
+            <p><strong>Quick stat:</strong> MCP SDK downloads grew from ~100K/month in November 2024 to <strong>97M+ in March 2026</strong> — a 970x increase in 16 months.<sup class="ref"><a href="#ref-1">[1]</a></sup></p>
+          </section>
+
+          <!-- ══ SECTION: ARCHITECTURE ══ -->
+          <section id="architecture" class="reveal">
+            <h2>How MCP Works: Architecture Explained</h2>
+            <p>MCP follows a <strong>client-server architecture</strong> with three distinct layers. Understanding this architecture is key to understanding <strong>what is MCP</strong> at the technical level.</p>
+
+            <div class="arch-showcase">
+              <div class="arch-row">
+                <span class="arch-badge host">Host</span>
+                <span style="color:rgba(255,255,255,0.6);font-size:13px">AI application — Claude Desktop, VS Code, Cursor, ChatGPT</span>
+              </div>
+              <div class="arch-row">
+                <span class="arch-badge client">Client</span>
+                <span style="color:rgba(255,255,255,0.6);font-size:13px">Protocol client inside the host — 1:1 connection per server</span>
+              </div>
+              <div class="arch-row">
+                <span class="arch-badge server">Server</span>
+                <span style="color:rgba(255,255,255,0.6);font-size:13px">Lightweight program exposing capabilities — Tools, Resources, Prompts</span>
+              </div>
+            </div>
+
+            <h3>The Three Layers: Host, Client, Server</h3>
+            <ul>
+              <li><strong>Host</strong> — The AI application that users interact with directly. Examples: Claude Desktop, VS Code, Cursor, JetBrains, ChatGPT. The Host initiates the connection to MCP Servers.</li>
+              <li><strong>Client</strong> — A protocol client inside the Host that maintains a 1:1 connection with an MCP Server. Each Server gets its own Client instance.</li>
+              <li><strong>Server</strong> — A lightweight program that exposes capabilities through the MCP protocol. Servers can be local (stdio) or remote (Streamable HTTP).</li>
+            </ul>
+
+            <h3>The Three Primitives: Tools, Resources, Prompts</h3>
+            <p>MCP Servers expose three types of capabilities:</p>
+            <ul>
+              <li><strong>Tools</strong> — Model-controlled actions. The LLM decides when to invoke a tool (e.g., "execute SQL query," "create Jira ticket," "send email"). Tools are the most commonly used primitive.</li>
+              <li><strong>Resources</strong> — Application-controlled read-only data. The Host or user decides what data to expose to the model (e.g., file contents, database records, API responses).</li>
+              <li><strong>Prompts</strong> — User-controlled reusable templates. Pre-built prompt patterns for common workflows (e.g., "summarize this PR," "analyze this log file").</li>
+            </ul>
+
+            <h3>Transport: stdio vs Streamable HTTP</h3>
+            <p>MCP supports two transport mechanisms:</p>
+            <ul>
+              <li><strong>stdio</strong> — For local servers running as subprocesses. Simple, fast, single-user. Ideal for development and personal use. Communication happens over standard input/output.</li>
+              <li><strong>Streamable HTTP</strong> — For remote servers. Supports OAuth 2.0 authentication, multi-user access, and enterprise deployment. The primary transport for production MCP deployments as of 2026.</li>
+            </ul>
+          </section>
+
+          <!-- ══ SECTION: THE M×N PROBLEM ══ -->
+          <section id="problem" class="reveal">
+            <h2>The Problem MCP Solves: The M×N Integration Challenge</h2>
+            <p>Before MCP, every AI-to-tool connection required custom integration code. The complexity scales quadratically.</p>
+
+            <div class="mnx-viz">
+              <div class="mnx-box old">❌ Without MCP<br><span style="font-size:11px;font-weight:400">M × N custom integrations</span></div>
+              <span class="mnx-arrow">→</span>
+              <div class="mnx-box new">✅ With MCP<br><span style="font-size:11px;font-weight:400">M + N protocol implementations</span></div>
+            </div>
+
+            <p><strong>The difference in practice:</strong> If your team uses 3 AI models (Claude, ChatGPT, Gemini) and needs to connect 10 data sources (stock prices, weather, CRM, database, etc.), without MCP that's 30 custom integrations. Each integration needs its own authentication, error handling, and maintenance. With MCP, it's 13 protocol implementations — and new tools or models automatically work without additional integration work.</p>
+
+            <p><strong>Enterprise impact:</strong> MCP reduces integration maintenance costs, makes tools reusable across teams, and standardizes governance (auth, RBAC, audit logs) at the protocol level rather than per-integration.<sup class="ref"><a href="#ref-5">[5]</a></sup></p>
+          </section>
+
+          <!-- ══ SECTION: COMPARISON ══ -->
+          <section id="comparison" class="reveal">
+            <h2>MCP vs Function Calling vs REST API</h2>
+            <p>MCP is often compared to Function Calling and REST APIs — but they serve different layers of the AI stack. Here's how they differ:</p>
+
+            <div class="table-scroll">
+            <table class="compare-table">
+              <thead><tr><th>Dimension</th><th>MCP (Model Context Protocol)</th><th>Function Calling</th><th>REST API</th></tr></thead>
+              <tbody>
+                <tr><th>Layer</th><td class="highlight">Infrastructure protocol</td><td>Model-level primitive</td><td>HTTP design style</td></tr>
+                <tr><th>Open standard</th><td class="highlight">✅ Linux Foundation AAIF</td><td>❌ Vendor-specific formats</td><td>❌ No protocol standard</td></tr>
+                <tr><th>Tool discovery</th><td class="highlight"><strong>Dynamic</strong> — runtime <code>tools/list</code></td><td><strong>Static</strong> — hardcoded in prompt</td><td><strong>None</strong> — must know endpoints</td></tr>
+                <tr><th>Cross-client</th><td class="highlight">✅ One Server, all clients</td><td>❌ Not portable</td><td>❌ N/A</td></tr>
+                <tr><th>Auth standardization</th><td class="highlight">✅ OAuth 2.0 built-in</td><td>No built-in</td><td>Per-API varies</td></tr>
+                <tr><th>Audit / governance</th><td class="highlight">✅ Gateway-level centralized</td><td>No built-in</td><td>Via API Gateway</td></tr>
+                <tr><th>Best for</th><td>Enterprise multi-agent, multi-tool</td><td>Simple in-app tool calls</td><td>Traditional API communication</td></tr>
+                <tr><th>Example tools</th><td>MCP Server (QVeris, Filesystem, GitHub)</td><td>LLM-native tool definitions</td><td>Traditional web APIs</td></tr>
+              </tbody>
+            </table>
+            </div>
+
+            <p><strong>Key insight:</strong> MCP doesn't replace Function Calling or REST APIs — it <em>standardizes the interface layer</em> on top of them. MCP Servers call existing APIs under the hood, and Function Calling is used by the LLM to decide when to invoke tools discovered through MCP.</p>
+          </section>
+
+          <!-- ══ SECTION: ECOSYSTEM ══ -->
+          <section id="ecosystem" class="reveal">
+            <h2>MCP Ecosystem in 2026</h2>
+            <p>MCP has grown from an Anthropic experiment to the industry standard in less than 18 months. Here's the current state of the ecosystem.</p>
+
+            <h3>Adoption Statistics</h3>
+            <div class="ecosystem-grid">
+              <div class="eco-card">
+                <h4>📦 97M+ monthly SDK downloads</h4>
+                <p>970x growth from Nov 2024. Python and TypeScript SDKs dominate, with Go, Java, and Rust SDKs in active development.</p>
+              </div>
+              <div class="eco-card">
+                <h4>🔌 17,000+ MCP Servers</h4>
+                <p>Publicly indexed across multiple registries. Covers databases, file systems, APIs, analytics, financial data, and more.</p>
+              </div>
+              <div class="eco-card">
+                <h4>🏢 78% enterprise adoption</h4>
+                <p>78% of enterprise AI teams have at least one MCP-backed agent in production (April 2026 survey). 28% of Fortune 500 companies have MCP servers deployed.</p>
+              </div>
+              <div class="eco-card">
+                <h4>🌍 Global governance</h4>
+                <p>Linux Foundation's Agentic AI Foundation (AAIF). Founding members: Anthropic, OpenAI, Block. Platinum: Google, Microsoft, AWS, Cloudflare, Bloomberg.</p>
+              </div>
+            </div>
+
+            <h3>Major Platform Support</h3>
+            <p>Every major AI platform now supports MCP natively:</p>
+            <ul>
+              <li><strong>Anthropic</strong> — Native MCP support since November 2024 (creator)</li>
+              <li><strong>OpenAI</strong> — Adopted MCP in March 2025</li>
+              <li><strong>Google</strong> — Gemini and Vertex AI added MCP support in March 2026</li>
+              <li><strong>Microsoft</strong> — Copilot Studio and VS Code support since July 2025</li>
+              <li><strong>AWS</strong> — Bedrock support since November 2025</li>
+              <li><strong>IDEs</strong> — VS Code, Cursor, JetBrains, Windsurf, Hugging Face all natively support MCP</li>
+            </ul>
+
+            <h3>Governance: Linux Foundation AAIF</h3>
+            <p>In December 2025, Anthropic donated MCP to the newly formed <strong>Agentic AI Foundation (AAIF)</strong> under the Linux Foundation.<sup class="ref"><a href="#ref-2">[2]</a></sup> This ensures:</p>
+            <ul>
+              <li><strong>Vendor neutrality</strong> — No single company controls the protocol</li>
+              <li><strong>Open governance</strong> — Specification changes go through community review</li>
+              <li><strong>Long-term stability</strong> — Backed by the same foundation as Kubernetes, Linux, and Node.js</li>
+            </ul>
+          </section>
+
+          <!-- ══ SECTION: GETTING STARTED ══ -->
+          <section id="getting-started" class="reveal">
+            <h2>How to Get Started with MCP</h2>
+            <p>There are two ways to start using MCP today: connect to an existing MCP Server, or build your own.</p>
+
+            <h3>Try MCP with QVeris</h3>
+            <p>The fastest way to see MCP in action is to connect to QVeris — one command gives your AI agent access to 10,000+ capabilities.</p>
+            <div class="code-block">
+<pre><span class="comment"># One command — connect QVeris MCP Server to Claude Code</span>
+claude mcp add qveris -s user -- npx @qverisai/mcp
+
+<span class="comment"># Now discover capabilities via natural language</span>
+<span class="comment"># "find me tools for stock market data"</span>
+<span class="comment"># QVeris discovers, inspects, and calls — all through MCP</span>
+</pre>
+            </div>
+            <p style="color:rgba(255,255,255,0.5);font-size:14px"><strong>Try it:</strong> This is the fastest way to see MCP in action — one command, 10,000+ capabilities, zero per-tool configuration. <a href="https://qveris.ai/docs">Set up QVeris MCP →</a></p>
+
+            <h3>Explore MCP Servers</h3>
+            <ul>
+              <li>Browse <a href="../mcp-server/index.html">MCP Server directory</a> — discover the best MCP Servers for your use case</li>
+              <li>Read <a href="../mcp-client/index.html">MCP Client guide</a> — find the right MCP client for your AI application</li>
+              <li><a href="../mcp-vs-function-calling/index.html">MCP vs Function Calling</a> — understand how they work together</li>
+            </ul>
+          </section>
+
+          <!-- ══ SECTION: QVERIS ══ -->
+          <section class="reveal">
+            <h2>QVeris and MCP: Capability Routing on the Protocol</h2>
+            <div class="scenario-box">
+              <h3>🔀 QVeris as an MCP-Native Capability Router</h3>
+              <p>QVeris is a <strong>capability routing network</strong> built natively on the MCP protocol. While most MCP Servers expose 1-5 specific tools, QVeris provides a single MCP Server that routes to <strong>10,000+ capabilities</strong> across 15+ categories — from financial market data to search, maps, crypto, and more.</p>
+              <p>QVeris embodies the philosophy of <strong>what is MCP</strong> at scale: instead of building separate MCP Servers for each data source, QVeris uses MCP's dynamic discovery to let agents find the capability they need through natural language.</p>
+              <p><strong>Three tools, infinite capabilities:</strong></p>
+              <ul>
+                <li><strong><code>discover</code></strong> — Natural language search across 10,000+ capabilities. The agent asks "what capabilities do you have for..." and gets ranked results with cost, latency, and reliability data.</li>
+                <li><strong><code>inspect</code></strong> — Pre-call cost and quality preview. Always free, zero credits consumed.</li>
+                <li><strong><code>call</code></strong> — Sandboxed execution returning structured JSON with full audit trail.</li>
+              </ul>
+              <p style="margin-top:12px"><strong>MCP is the standard. QVeris makes it practical.</strong> One MCP connection, 10,000+ capabilities, zero per-tool configuration.</p>
+            </div>
+          </section>
+
+          <!-- ══ FAQ ══ -->
+          <section id="faq" class="reveal">
+            <h2>Frequently Asked Questions About MCP</h2>
+
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">What is MCP (Model Context Protocol)?</div>
+              <div class="faq-a">MCP (Model Context Protocol) is an open standard created by Anthropic that serves as a universal connector between AI applications and external tools, data sources, and systems. It's often called the "USB-C for AI" because it replaces custom point-to-point integrations with one standardized protocol. MCP was donated to the Linux Foundation's Agentic AI Foundation in December 2025 and is now supported by OpenAI, Google, Microsoft, AWS, and others.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">How does MCP work?</div>
+              <div class="faq-a">MCP uses a client-server architecture with three layers. The Host (e.g., Claude Desktop, VS Code) contains a Client that maintains a 1:1 connection with a Server. The Server exposes capabilities like Tools (actions the AI can call), Resources (read-only data), and Prompts (reusable templates). Communication happens over JSON-RPC 2.0 via stdio (local) or Streamable HTTP (remote).</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">Why is MCP called "USB-C for AI"?</div>
+              <div class="faq-a">Just as USB-C standardizes how devices connect to peripherals, MCP standardizes how AI applications connect to external tools and data. Without MCP, every AI model needed custom integrations for every tool (the M×N problem). With MCP, each AI client and each data source implements the protocol once, and any client can reach any server — reducing M×N integrations to M+N.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">Who supports MCP in 2026?</div>
+              <div class="faq-a">MCP is supported by most major AI platforms as of 2026: Anthropic (native since Nov 2024), OpenAI (since Mar 2025), Google Gemini and Vertex AI (since Mar 2026), Microsoft Copilot Studio and VS Code (since Jul 2025), and AWS Bedrock (since Nov 2025). The protocol is governed by the Agentic AI Foundation under the Linux Foundation, with Anthropic, OpenAI, Block as founding members.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">How does QVeris use MCP?</div>
+              <div class="faq-a">QVeris provides an official MCP Server (<code>@qverisai/mcp</code>) that any MCP-compatible client can connect to. Once connected, AI agents gain access to 10,000+ capabilities across 15+ categories through three tools: <code>discover</code> (natural language capability search), <code>inspect</code> (pre-call cost and quality review), and <code>call</code> (sandboxed execution). This makes QVeris one of the largest capability providers in the MCP ecosystem.</div>
+            </div>
+          </section>
+
+          <!-- ══ CTA ══ -->
+          <div class="cta-box reveal">
+            <h3>Try MCP — Connect QVeris to Your AI Agent in 1 Command</h3>
+            <p>1,000 free credits + 100 daily. The fastest way to see MCP in action. One command, 10,000+ capabilities, zero per-tool configuration.</p>
+            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+              <a href="https://qveris.ai/pricing" class="cta-btn">Try QVeris Free →</a>
+              <a href="https://qveris.ai/docs" class="cta-btn-outline">Set Up QVeris MCP</a>
+              <a href="https://qveris.ai/capabilities/explore" class="cta-btn-outline">Browse MCP Ecosystem</a>
+            </div>
+          </div>
+
+          <!-- ══ METHODOLOGY ══ -->
+          <div class="methodology reveal">
+            <h2>About This Guide</h2>
+            <p><strong>Last updated:</strong> <time datetime="2026-06-01">June 1, 2026</time></p>
+            <p><strong>Methodology:</strong> This guide synthesizes information from Anthropic's official MCP documentation, the Linux Foundation AAIF announcements, and independent analysis from Atlan, Gravitee, SitePoint, and Oracle. MCP adoption statistics sourced from Atlan's 2026 MCP ecosystem report and the official MCP specification.</p>
+            <p><strong>Update cadence:</strong> Reviewed quarterly. MCP ecosystem data refreshed every 90 days.</p>
+
+            <h2 id="references">References</h2>
+            <div class="ref-list">
+              <ol>
+                <li id="ref-1"><a href="https://modelcontextprotocol.io" target="_blank" rel="nofollow noopener">MCP Official Specification</a> — Protocol specification, architecture documentation, and SDK reference. 97M+ monthly downloads verified. Accessed May 2026.</li>
+                <li id="ref-2"><a href="https://agentic-ai-foundation.org" target="_blank" rel="nofollow noopener">Agentic AI Foundation (AAIF) — Linux Foundation</a> — MCP governance structure, founding members, and platinum sponsors. Announced December 2025. Verified May 2026.</li>
+                <li id="ref-3"><a href="https://atlan.com/know/what-is-model-context-protocol/" target="_blank" rel="nofollow noopener">Atlan — What Is MCP (Model Context Protocol)?</a> — Enterprise adoption data (78%), Fortune 500 deployment data (28%), market size estimates. Verified May 2026.</li>
+                <li id="ref-4"><a href="https://www.gravitee.io/blog/mcp-ai-explained" target="_blank" rel="nofollow noopener">Gravitee — MCP AI Explained</a> — Technical architecture analysis, transport layer comparison. Verified May 2026.</li>
+                <li id="ref-5"><a href="https://portkey.ai/blog/mcp-vs-function-calling/" target="_blank" rel="nofollow noopener">Portkey — MCP vs Function Calling</a> — Enterprise governance analysis. M×N integration reduction framework. Verified May 2026.</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- ══ RELATED ══ -->
+          <h2 class="reveal">Related Guides</h2>
+          <div class="related">
+            <a href="../mcp-server/index.html">🔌 MCP Server: 8 Best in 2026</a>
+            <a href="../mcp-client/index.html">🖥 MCP Client: 9 Best Options in 2026</a>
+            <a href="../mcp-tools/index.html">🧰 MCP Tools: How Discovery Works</a>
+            <a href="../mcp-vs-function-calling/index.html">⚡ MCP vs Function Calling: Key Differences</a>
+            <a href="../capability-routing-network/index.html">🔀 What Is Capability Routing?</a>
+          </div>
+
+        </div>
+      </article>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div>
+            <div style="font-size:18px;font-weight:600;color:rgba(255,255,255,0.9);margin-bottom:12px">QVeris AI</div>
+            <p class="footer-desc">AI-Agent native capability routing network. Unified protocol accessing 10,000+ capabilities across search, maps, docs, finance, blockchain, healthcare and more.</p>
+            <a href="https://qveris.ai" class="cta-btn" style="padding:8px 20px;font-size:13px">Get Started →</a>
+          </div>
+          <div><span class="footer-title">Products</span><div class="footer-links"><a href="https://qveris.ai/capabilities/explore">Capability Map</a><a href="https://qveris.ai/cli">QVeris CLI</a><a href="https://qveris.ai/qverisbot">QVerisBot</a><a href="https://qveris.ai/skills">Skills</a><a href="https://qveris.ai/playground">Live Demo</a><a href="https://qveris.ai/plugins">Install for Agents</a></div></div>
+          <div><span class="footer-title">Developers</span><div class="footer-links"><a href="https://qveris.ai/docs">Quick Start</a><a href="https://qveris.ai/blog">Blog</a><a href="https://qveris.ai/docs/cli">CLI Docs</a><a href="https://qveris.ai/docs/rest-api">REST API</a><a href="https://qveris.ai/docs/mcp-server">MCP Server</a><a href="https://qveris.ai/docs/python-sdk">Python SDK</a></div></div>
+          <div><span class="footer-title">Ecosystem</span><div class="footer-links"><a href="https://github.com/QVerisAI">GitHub</a><a href="https://www.npmjs.com/org/qverisai">npm Packages</a><a href="https://clawhub.ai/skills?sort=downloads&q=qveris">ClawHub</a><a href="https://qveris.ai/for-agents">Agents Guide</a></div></div>
+          <div><span class="footer-title">Company</span><div class="footer-links"><a href="https://qveris.ai/pricing">Pricing</a><a href="https://qveris.ai/whats-new">What's New</a><a href="https://qveris.ai/help">Help Center</a><a href="https://qveris.ai/ecosystem">Ecosystem</a><a href="https://qveris.ai/security">Security</a><a href="https://qveris.ai/terms">Terms of Service</a><a href="https://qveris.ai/privacy">Privacy Policy</a></div></div>
+        </div>
+        <div class="footer-bottom">
+          <span>&copy; 2026 QVeris AI. All rights reserved.</span>
+          <span>AI-Agent Native &bull; Capability Routing Network &bull; Pay-Per-Call</span>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- /content-wrap -->
+
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    revealEls.forEach(el => observer.observe(el));
+
+    function toggleFaq(el) {
+      el.classList.toggle('open');
+      var answer = el.nextElementSibling;
+      answer.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
