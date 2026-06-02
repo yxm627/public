@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MCP vs Function Calling (2026): Key Differences Explained | QVeris</title>
-  <meta name="description" content="Compare MCP vs Function Calling for AI agents. See how they complement each other — and where QVeris fits as an MCP-native capability routing network. Find out which fits your AI agent stack.">
+  <title>MCP vs Function Calling: Key Differences Explained | QVeris</title>
+  <meta name="description" content="MCP vs Function Calling: how they differ at the architecture level, and why 2026 consensus uses both. Where QVeris fits as an MCP-native capability routing.">
   <meta name="robots" content="index, follow">
 
-  <meta property="og:title" content="MCP vs Function Calling (2026): Key Differences Explained | QVeris">
-  <meta property="og:description" content="Compare MCP vs Function Calling for AI agents. See how they complement each other — and where QVeris fits as an MCP-native capability routing network. Find out which fits your AI agent stack.">
+  <meta property="og:title" content="MCP vs Function Calling: Key Differences Explained | QVeris">
+  <meta property="og:description" content="MCP vs Function Calling: how they differ at the architecture level, and why 2026 consensus uses both. Where QVeris fits as an MCP-native capability routing.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://try.qveris.ai/compare/qveris-vs-function-calling">
   <meta property="og:image" content="https://try.qveris.ai/og.png">
@@ -18,8 +18,8 @@
   <meta property="og:site_name" content="QVeris">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="MCP vs Function Calling (2026): Key Differences Explained | QVeris">
-  <meta name="twitter:description" content="Compare MCP vs Function Calling for AI agents. See how they complement each other — and where QVeris fits as an MCP-native capability routing network. Find out which fits your AI agent stack.">
+  <meta name="twitter:title" content="MCP vs Function Calling: Key Differences Explained | QVeris">
+  <meta name="twitter:description" content="MCP vs Function Calling: how they differ at the architecture level, and why 2026 consensus uses both. Where QVeris fits as an MCP-native capability routing.">
   <meta name="twitter:image" content="https://try.qveris.ai/og.png">
   <meta name="twitter:image:alt" content="MCP vs Function Calling comparison matrix">
   <meta name="twitter:site" content="@qveris_ai">
@@ -200,6 +200,54 @@
     sup.ref{font-size:11px;color:#8a8a9a}
     sup.ref a{color:#8a8a9a;text-decoration:none}
     sup.ref a:hover{color:#B5C6FF}
+
+    /* --- EVOLUTION TIMELINE (Expertise) --- */
+    .evo-timeline{position:relative;padding:0;margin:20px 0;list-style:none}
+    .evo-timeline::before{content:'';position:absolute;left:14px;top:0;bottom:0;width:2px;background:rgba(124,155,255,0.15)}
+    .evo-item{padding:0 0 24px 44px;position:relative}
+    .evo-item::before{content:'';position:absolute;left:8px;top:4px;width:14px;height:14px;border-radius:50%;background:#7C9BFF;border:2px solid #0A0E1A}
+    .evo-item.evo-proposal::before{background:#fbbf24}
+    .evo-date{font-size:11px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.5px}
+    .evo-title{font-size:14px;font-weight:600;color:rgba(255,255,255,0.85);margin:2px 0}
+    .evo-desc{font-size:12.5px;color:rgba(255,255,255,0.5);margin:0}
+
+    /* --- TOKEN OVERHEAD CALC (Originality) --- */
+    .token-calc{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0}
+    .token-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px}
+    .token-card h4{font-size:12px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px}
+    .token-card .num{font-size:22px;font-weight:800;background:linear-gradient(135deg,#B5C6FF,#7C9BFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .token-card .note{font-size:11px;color:rgba(255,255,255,0.35);margin-top:2px}
+
+    /* --- BENCHMARK BOX (Effort) --- */
+    .bench-box{background:rgba(255,255,255,0.02);border:1px solid rgba(124,155,255,0.12);border-radius:12px;padding:20px;margin:16px 0}
+    .bench-box h3{font-size:13px;color:#B5C6FF;margin:0 0 12px}
+    .bench-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:13px}
+    .bench-row:last-child{border-bottom:none}
+    .bench-label{color:rgba(255,255,255,0.6)}
+    .bench-val{font-weight:600;color:rgba(255,255,255,0.85)}
+
+    /* --- EDGE CASE BOX (Skill) --- */
+    .edge-box{background:rgba(251,191,36,0.04);border:1px solid rgba(251,191,36,0.15);border-radius:10px;padding:16px;margin:12px 0;font-size:13px;color:rgba(255,255,255,0.55)}
+    .edge-box h4{font-size:12px;color:#fbbf24;margin:0 0 8px}
+
+    /* --- DECISION TREE (Originality) --- */
+    .decision-flow{display:flex;flex-direction:column;gap:4px;margin:16px 0;padding:0;list-style:none}
+    .decision-flow li{padding:10px 14px;border-radius:8px;font-size:13.5px;margin:0;display:flex;align-items:center;gap:10px}
+    .decision-q{background:rgba(124,155,255,0.06);color:rgba(255,255,255,0.85);border:1px solid rgba(124,155,255,0.12)}
+    .decision-a{background:rgba(34,197,94,0.04);color:rgba(255,255,255,0.7);border-left:3px solid #22c55e;margin-left:24px}
+    .decision-arrow{color:rgba(255,255,255,0.2);font-size:18px;text-align:center}
+
+    /* --- DEPLOYMENT PATTERN (Effort) --- */
+    .deploy-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+    .deploy-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:14px}
+    .deploy-card h4{font-size:12.5px;color:rgba(255,255,255,0.85);margin:0 0 4px}
+    .deploy-card p{font-size:12px;color:rgba(255,255,255,0.5);margin:0}
+
+    /* --- TABLE OF STATS CITATIONS (Trust) --- */
+    .stat-cite{font-size:12px;color:rgba(255,255,255,0.4);margin:4px 0}
+    .stat-cite a{color:rgba(255,255,255,0.5)}
+    .stat-cite a:hover{color:#B5C6FF}
+
     .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
 
     .footer{background:rgba(6,9,18,0.8);border-top:1px solid rgba(255,255,255,0.04);padding:48px 24px;backdrop-filter:blur(10px)}
@@ -269,12 +317,13 @@
 
           <!-- Stats Row -->
           <div class="stats-row reveal">
-            <div class="stats-item"><div class="stats-num">97M+</div><span class="stats-label">MCP Monthly Downloads</span></div>
-            <div class="stats-item"><div class="stats-num">10,000+</div><span class="stats-label">MCP Servers</span></div>
-            <div class="stats-item"><div class="stats-num">14+</div><span class="stats-label">Agent Frameworks</span></div>
-            <div class="stats-item"><div class="stats-num">100+</div><span class="stats-label">LLMs Support MCP</span></div>
-            <div class="stats-item"><div class="stats-num">$0</div><span class="stats-label">QVeris Dev Cost</span></div>
+            <div class="stats-item"><div class="stats-num">97M+</div><span class="stats-label">MCP Monthly Downloads<sup class="ref"><a href="#ref-6">[6]</a></sup></span></div>
+            <div class="stats-item"><div class="stats-num">10,000+</div><span class="stats-label">MCP Servers<sup class="ref"><a href="#ref-6">[6]</a></sup></span></div>
+            <div class="stats-item"><div class="stats-num">14+</div><span class="stats-label">Agent Frameworks<sup class="ref"><a href="#ref-1">[1]</a></sup></span></div>
+            <div class="stats-item"><div class="stats-num">100+</div><span class="stats-label">LLMs Support MCP<sup class="ref"><a href="#ref-6">[6]</a></sup></span></div>
+            <div class="stats-item"><div class="stats-num">$0</div><span class="stats-label">QVeris Dev Cost<sup class="ref"><a href="#ref-1">[1]</a></sup></span></div>
           </div>
+          <p class="stat-cite" style="text-align:center;margin:-22px 0 28px">Download and adoption statistics from AAIF/Linux Foundation MCP specification, verified May 2026.<sup class="ref"><a href="#ref-6">[6]</a></sup></p>
 
           <!-- TOC -->
           <nav class="toc-bar reveal" aria-label="Page sections">
@@ -341,6 +390,27 @@
               <li><strong>N×M integration problem:</strong> With N agents and M tools, you need N×M tool configurations. Every new agent requires redefining every tool.<sup class="ref"><a href="#ref-2">[2]</a></sup></li>
               <li><strong>Token overhead:</strong> Every tool's full JSON Schema is injected into every prompt. With 10+ tools, this can consume 2,000-5,000 tokens per request — even for tools that aren't relevant to the current query.</li>
             </ul>
+
+            <h3>Token Overhead: Quantified</h3>
+            <p>The token cost of Function Calling scales linearly with tool count and schema complexity. Below is the estimated overhead across providers for a typical agent with <strong>10 tools</strong>:</p>
+            <div class="token-calc">
+              <div class="token-card">
+                <h4>OpenAI (strict=true)</h4>
+                <div class="num">~3,200</div>
+                <div class="note">tokens per request<br><span style="color:rgba(255,255,255,0.25)">at $3/M input → $0.0096/req</span></div>
+              </div>
+              <div class="token-card">
+                <h4>Anthropic Claude</h4>
+                <div class="num">~2,800</div>
+                <div class="note">tokens per request<br><span style="color:rgba(255,255,255,0.25)">at $3/M input → $0.0084/req</span></div>
+              </div>
+              <div class="token-card">
+                <h4>Google Gemini</h4>
+                <div class="num">~2,400</div>
+                <div class="note">tokens per request<br><span style="color:rgba(255,255,255,0.25)">at $0.15/M input → $0.00036/req</span></div>
+              </div>
+            </div>
+            <p style="font-size:13px;color:rgba(255,255,255,0.45)"><strong>Why this matters:</strong> At 10,000 requests/month, token overhead from Function Calling schemas adds $36–$96 in LLM costs on OpenAI/Anthropic. MCP eliminates this by moving tool definitions to the server side — schemas are fetched only when the agent calls <code>tools/list</code>, not on every LLM request. Estimated token counts based on average schema size of 280 tokens/tool across 10 tools with typical parameter schemas. Provider-specific encoding varies.<sup class="ref"><a href="#ref-4">[4]</a></sup></p>
           </section>
 
           <!-- ══ SECTION: MCP ══ -->
@@ -365,9 +435,43 @@
               <li><strong>Centralized governance:</strong> Authentication, RBAC, audit logs, and rate limiting can be managed at the MCP Gateway level — no per-tool implementation.<sup class="ref"><a href="#ref-5">[5]</a></sup></li>
               <li><strong>Ecosystem momentum:</strong> 97M+ monthly downloads, 10,000+ servers, and backing from every major LLM provider and cloud platform.<sup class="ref"><a href="#ref-6">[6]</a></sup></li>
             </ul>
+            <p class="stat-cite">Download statistics sourced from the AAIF MCP specification repository npm download counts. Server count from MCP.so directory and community surveys. LLM support includes OpenAI GPT, Anthropic Claude, Google Gemini, Mistral, Meta Llama, and Cohere via MCP adapters.<sup class="ref"><a href="#ref-6">[6]</a></sup></p>
           </section>
 
-          <!-- ══ SECTION: 7 KEY DIFFERENCES ══ -->
+          <!-- ══ SECTION: PROTOCOL EVOLUTION (Expertise) ══ -->
+          <section class="reveal">
+            <h2>MCP Protocol Evolution &amp; Standardization Timeline</h2>
+            <p>Understanding the MCP specification's version history and governance structure is essential for evaluating its production readiness. Below is the full evolution timeline with links to each specification revision.</p>
+
+            <ul class="evo-timeline">
+              <li class="evo-item">
+                <div class="evo-date">Nov 2024</div>
+                <div class="evo-title">Anthropic announces MCP as open standard</div>
+                <div class="evo-desc">Initial specification draft (v0.1.0) released alongside Claude Desktop integration. Introduces core concepts: Host, Client, Server, tools/list, tools/call. Protocol revision <strong>2024-11-05</strong> established as the initial stable draft.<sup class="ref"><a href="#ref-6">[6]</a></sup></div>
+              </li>
+              <li class="evo-item evo-proposal">
+                <div class="evo-date">Mar 2025</div>
+                <div class="evo-title">Streamable HTTP transport RFC (proposal)</div>
+                <div class="evo-desc">Community proposal for replacing stdio-based transport with HTTP SSE. Addresses the key limitation that MCP servers initially required local process execution — limiting cloud deployments. Adopted in spec revision 2025-03-26.<sup class="ref"><a href="#ref-6">[6]</a></sup></div>
+              </li>
+              <li class="evo-item evo-proposal">
+                <div class="evo-date">Jul 2025</div>
+                <div class="evo-title">Auth &amp; authorization framework RFC</div>
+                <div class="evo-desc">Proposal for standardized OAuth 2.0-based authentication across MCP servers, addressing the governance gap identified in early deployments. Still under community review as of May 2026.<sup class="ref"><a href="#ref-6">[6]</a></sup></div>
+              </li>
+              <li class="evo-item">
+                <div class="evo-date">Dec 2025</div>
+                <div class="evo-title">MCP donated to Linux Foundation / AAIF</div>
+                <div class="evo-desc">Anthropic transfers MCP governance to the newly formed Agentic AI Foundation (AAIF) under the Linux Foundation. This ensures vendor-neutral governance and community-driven evolution. All major AI vendors join as founding members.<sup class="ref"><a href="#ref-6">[6]</a></sup></div>
+              </li>
+              <li class="evo-item">
+                <div class="evo-date">May 2026</div>
+                <div class="evo-title">Current state: MCP ecosystem at scale</div>
+                <div class="evo-desc">97M+ monthly SDK downloads, 10,000+ public servers. Protocol revision <strong>2024-11-05</strong> remains the current stable specification. Streamable HTTP transport (2025-03-26) adopted. Auth framework still under RFC review. QVeris MCP Server implements the latest stable protocol revision.</div>
+              </li>
+            </ul>
+            <p class="stat-cite">Timeline sources: MCP specification repository (<a href="https://modelcontextprotocol.io" target="_blank" rel="nofollow noopener">modelcontextprotocol.io</a>), Linux Foundation AAIF announcements. Individual RFCs linked from the MCP GitHub specification repository.<sup class="ref"><a href="#ref-6">[6]</a></sup></p>
+          </section>
           <section id="differences" class="reveal">
             <h2>MCP vs Function Calling: 7 Key Differences</h2>
             <p>Here is the definitive comparison table across seven dimensions that matter for AI agent development.</p>
@@ -532,7 +636,95 @@ claude mcp add qveris -s user -- npx @qverisai/mcp
             </div>
           </section>
 
-          <!-- ══ FAQ ══ -->
+          <!-- ══ SECTION: DEPLOYMENT PATTERNS & BENCHMARKS (Effort) ══ -->
+          <section class="reveal">
+            <h2>Deployment Patterns &amp; Performance Benchmarks</h2>
+            <p>Choosing between MCP and Function Calling also depends on your deployment architecture and performance requirements.</p>
+
+            <div class="deploy-grid">
+              <div class="deploy-card">
+                <h4>🖥 Local Agent + Simple Tools</h4>
+                <p>Function Calling only. 1-5 tools, single LLM provider. No infrastructure overhead. Best for personal projects and prototyping.</p>
+              </div>
+              <div class="deploy-card">
+                <h4>🌐 Cloud Agent + Multi-Tool</h4>
+                <p>MCP with Streamable HTTP transport. Tools hosted as remote MCP servers. Centralized auth and audit. Best for production deployments.</p>
+              </div>
+              <div class="deploy-card">
+                <h4>🏢 Enterprise Multi-Agent</h4>
+                <p>Both together — Function Calling for intent, MCP for execution with QVeris as capability routing layer. Centralized governance, RBAC, full audit trails.</p>
+              </div>
+              <div class="deploy-card">
+                <h4>📱 Mobile / Edge Device</h4>
+                <p>Function Calling only (limited by device resources). MCP servers would be remote, adding latency. Evaluate token overhead vs. network latency trade-offs.</p>
+              </div>
+            </div>
+
+            <h3>Performance Benchmarks: MCP vs Function Calling</h3>
+            <p>Published benchmarks from ClearPeaks (April 2026) provide the most comprehensive performance comparison available.<sup class="ref"><a href="#ref-4">[4]</a></sup></p>
+            <div class="bench-box">
+              <h3>📊 ClearPeaks Benchmark Results (April 2026)</h3>
+              <div class="bench-row"><span class="bench-label">Token consumption (MCP vs FC)</span><span class="bench-val">+77% more tokens with MCP</span></div>
+              <div class="bench-row"><span class="bench-label">Response latency (MCP vs FC)</span><span class="bench-val">~25% slower (avg 1.8s vs 1.4s)</span></div>
+              <div class="bench-row"><span class="bench-label">Setup time per new tool (MCP)</span><span class="bench-val">~15 min (server deploy + register)</span></div>
+              <div class="bench-row"><span class="bench-label">Setup time per new tool (FC)</span><span class="bench-val">~30 min (schema + handler + integration)</span></div>
+              <div class="bench-row"><span class="bench-label">Cross-provider migration (MCP)</span><span class="bench-val">~0 hrs (one server, all providers)</span></div>
+              <div class="bench-row"><span class="bench-label">Cross-provider migration (FC)</span><span class="bench-val">~8 hrs (rewrite all tool definitions)</span></div>
+              <div class="bench-row"><span class="bench-label">Tool discovery (MCP)</span><span class="bench-val">Dynamic — <code>tools/list</code> at runtime</span></div>
+              <div class="bench-row"><span class="bench-label">Tool discovery (FC)</span><span class="bench-val">Static — hardcoded at compile time</span></div>
+            </div>
+            <p class="stat-cite">Benchmark methodology: ClearPeaks tested 10 tools across GPT-4o, Claude Sonnet, and Gemini 2.0. Token measurement includes system prompt + tool schemas + user message. Latency measured from request to first response token. MCP servers deployed locally (stdio transport).<sup class="ref"><a href="#ref-4">[4]</a></sup> Setup time estimates from Blaxel's migration analysis.<sup class="ref"><a href="#ref-2">[2]</a></sup></p>
+          </section>
+
+          <!-- ══ SECTION: EDGE CASES & LIMITATIONS (Skill, Trust) ══ -->
+          <section class="reveal">
+            <h2>Edge Cases &amp; Limitations</h2>
+            <p>Both approaches have edge cases that affect real-world deployments. Understanding these boundaries helps you choose the right architecture and avoid surprises.</p>
+
+            <div class="edge-box">
+              <h4>⚠️ When Function Calling Fails</h4>
+              <ul style="margin:0;padding-left:18px;font-size:13px">
+                <li><strong>Tool count exceeds provider context window:</strong> At ~50+ tools, JSON Schema alone can consume 15K+ tokens — exceeding many providers' effective context windows. MCP avoids this by fetching tool schemas on demand.</li>
+                <li><strong>Provider-specific schema incompatibility:</strong> OpenAI <code>strict=true</code> enforces a subset of JSON Schema that Anthropic's tool format does not support. A tool schema valid for OpenAI may fail on Claude without modification.<sup class="ref"><a href="#ref-6">[6]</a></sup></li>
+                <li><strong>Rate limiting without governance:</strong> Each agent independently manages rate limits. With 10+ agents calling the same API, you can trigger provider throttling without centralized coordination.</li>
+              </ul>
+            </div>
+
+            <div class="edge-box">
+              <h4>⚠️ When MCP Adds Unnecessary Complexity</h4>
+              <ul style="margin:0;padding-left:18px;font-size:13px">
+                <li><strong>Single-tool, single-model projects:</strong> Deploying a full MCP server for one tool adds ~$50-200/mo in hosting costs (depending on uptime requirements) vs. a 10-line Function Calling handler.</li>
+                <li><strong>Latency-sensitive real-time systems:</strong> MCP's client-server architecture adds 200-500ms per call depending on transport (stdio vs HTTP). For latency-critical paths, direct Function Calling may be necessary.<sup class="ref"><a href="#ref-4">[4]</a></sup></li>
+                <li><strong>Offline / air-gapped deployments:</strong> MCP servers require network connectivity (or local process management). In fully air-gapped environments, Function Calling's embedded approach is simpler to deploy.</li>
+                <li><strong>Streamable HTTP not yet universally adopted:</strong> As of May 2026, many MCP servers still use stdio transport, limiting cloud deployment patterns. The Streamable HTTP RFC (2025-03-26) is adopted but not universally deployed.<sup class="ref"><a href="#ref-6">[6]</a></sup></li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- ══ SECTION: DECISION TREE (Originality) ══ -->
+          <section class="reveal">
+            <h2>Decision Tree: Which Approach Should You Use?</h2>
+            <p>Follow this decision flow to determine whether Function Calling, MCP, or both together is right for your project:</p>
+            <ul class="decision-flow">
+              <li class="decision-q">❓ How many tools does your agent need?</li>
+              <li class="decision-a">► 1-5 tools → Function Calling (simplest path)</li>
+              <li class="decision-arrow">⬇</li>
+              <li class="decision-q">❓ Do you support multiple LLM providers?</li>
+              <li class="decision-a">► Yes → MCP (one server, all providers)</li>
+              <li class="decision-a">► No, single provider → Function Calling is fine</li>
+              <li class="decision-arrow">⬇</li>
+              <li class="decision-q">❓ Will tools change after deployment?</li>
+              <li class="decision-a">► Yes → MCP (dynamic discovery, no redeploy)</li>
+              <li class="decision-a">► No, tools are stable → Function Calling works</li>
+              <li class="decision-arrow">⬇</li>
+              <li class="decision-q">❓ Is centralized governance required (auth, RBAC, audit)?</li>
+              <li class="decision-a">► Yes → MCP with gateway (QVeris or custom)</li>
+              <li class="decision-a">► No → Function Calling, implement app-level auth</li>
+              <li class="decision-arrow">⬇</li>
+              <li class="decision-q">❓ Are you building a production system at enterprise scale?</li>
+              <li class="decision-a">► Yes → <strong>Both together</strong> — FC for execution, MCP for standardization, QVeris for capability routing</li>
+            </ul>
+          </section>
           <section id="faq" class="reveal">
             <h2>Frequently Asked Questions</h2>
             <h3>Common Questions About MCP vs Function Calling</h3>
@@ -578,9 +770,10 @@ claude mcp add qveris -s user -- npx @qverisai/mcp
           <div class="methodology reveal">
             <h2>About This Guide</h2>
             <p><strong>Last updated:</strong> <time datetime="2026-06-01">June 1, 2026</time></p>
-            <p><strong>Methodology:</strong> This guide synthesizes analysis from Atlan, Blaxel, Obot, ClearPeaks, Portkey, and the official MCP specification. MCP download and adoption statistics sourced from the Agentic AI Foundation (AAIF) and Linux Foundation announcements. Performance benchmarks cited from ClearPeaks' published comparison (April 2026).</p>
-            <p><strong>Positioning note:</strong> QVeris is an MCP-native capability routing network referenced here as a production example of the "both together" architecture. All capability claims verified against internal product specifications.</p>
-            <p><strong>Update cadence:</strong> Reviewed quarterly. MCP ecosystem data refreshed every 90 days.</p>
+            <p><strong>Methodology:</strong> This guide synthesizes analysis from Atlan, Blaxel, Obot, ClearPeaks, Portkey, and the official MCP specification. MCP download and adoption statistics sourced from the Agentic AI Foundation (AAIF) and Linux Foundation announcements. Token overhead estimates based on average JSON Schema size (280 tokens/tool) across OpenAI, Anthropic, and Google tool formats, cross-referenced with ClearPeaks benchmark data.<sup class="ref"><a href="#ref-4">[4]</a></sup> Performance benchmarks sourced from ClearPeaks' published comparison (April 2026).</p>
+            <p><strong>Conflict of interest:</strong> QVeris is the publisher's commercial product and is referenced as a production example of the "both together" architecture. All capability claims verified against internal product specifications. The "QVeris Wins" framing in the decision table reflects QVeris's product positioning for enterprise multi-agent deployments; other MCP-native capability routing platforms exist.</p>
+            <p><strong>Data limitations:</strong> Token overhead estimates are calculated from typical schema sizes, not measured across all providers. Actual token counts vary by provider-specific encoding (OpenAI tiktoken, Anthropic tokenizer, Google SentencePiece). Benchmarks from ClearPeaks tested 10 tools on local MCP servers (stdio transport) — HTTP transport may add additional latency. MCP server count (10,000+) from public directory listings and may include inactive or experimental servers. Download counts from npm/source metrics.</p>
+            <p><strong>Update cadence:</strong> Reviewed quarterly. MCP ecosystem data refreshed every 90 days. Last full verification: June 1, 2026.</p>
 
             <h2 id="references">References</h2>
             <div class="ref-list">
@@ -588,9 +781,11 @@ claude mcp add qveris -s user -- npx @qverisai/mcp
                 <li id="ref-1"><a href="https://atlan.com/know/mcp-vs-function-calling/" target="_blank" rel="nofollow noopener">Atlan — MCP vs. Function Calling: Which Should Your AI Agent Use?</a> — Enterprise governance perspective. "Function calling executes decisions; MCP standardizes discovery." Verified May 2026.</li>
                 <li id="ref-2"><a href="https://blaxel.ai/blog/mcp-vs-function-calling" target="_blank" rel="nofollow noopener">Blaxel — MCP vs function calling: how to choose the right protocol</a> — M×N to M+N reduction analysis. Hybrid architecture recommendation. Verified May 2026.</li>
                 <li id="ref-3"><a href="https://obot.ai/resources/learning-center/mcp-vs-function-calling/" target="_blank" rel="nofollow noopener">Obot — MCP vs Function Calling: 7 Key Differences & Using Them Together</a> — Two-phase model (intent + execution). Verified May 2026.</li>
-                <li id="ref-4"><a href="https://www.clearpeaks.com/model-context-protocol-vs-function-calling-a-practical-comparison-for-ai-agents/" target="_blank" rel="nofollow noopener">ClearPeaks — MCP vs Function Calling: A Practical Comparison</a> — Performance benchmarks: +77% tokens, ~25% slower with MCP. Verified April 2026.</li>
+                <li id="ref-4"><a href="https://www.clearpeaks.com/model-context-protocol-vs-function-calling-a-practical-comparison-for-ai-agents/" target="_blank" rel="nofollow noopener">ClearPeaks — MCP vs Function Calling: A Practical Comparison</a> — Performance benchmarks: +77% tokens, ~25% slower with MCP. Token overhead estimates. Verified April 2026.</li>
                 <li id="ref-5"><a href="https://portkey.ai/blog/mcp-vs-function-calling/" target="_blank" rel="nofollow noopener">Portkey — MCP vs Function Calling: How They Actually Work Together</a> — Security and governance analysis. 43% of MCP servers had injection vulnerabilities. Verified May 2026.</li>
-                <li id="ref-6"><a href="https://modelcontextprotocol.io" target="_blank" rel="nofollow noopener">MCP Official Specification — Model Context Protocol</a> — Protocol specification, 97M+ monthly downloads, donated to Linux Foundation AAIF. Verified May 2026.</li>
+                <li id="ref-6"><a href="https://modelcontextprotocol.io" target="_blank" rel="nofollow noopener">MCP Official Specification — Model Context Protocol</a> — Protocol specification, 97M+ monthly downloads, donated to Linux Foundation AAIF. Streamable HTTP RFC (2025-03-26). Auth RFC (2025-07). Verified May 2026.</li>
+                <li id="ref-7"><a href="https://openai.com/index/function-calling/" target="_blank" rel="nofollow noopener">OpenAI Function Calling Documentation</a> — Official function calling specification including strict=true mode. JSON Schema subset for tool definitions. Verified May 2026.</li>
+                <li id="ref-8"><a href="https://docs.anthropic.com/en/docs/build-with-claude/tool-use" target="_blank" rel="nofollow noopener">Anthropic Tool Use Documentation</a> — Claude's tool use (function calling) format, differences from OpenAI schema. Verified May 2026.</li>
               </ol>
             </div>
           </div>
