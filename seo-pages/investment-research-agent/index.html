@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Best AI for Investment Research: Build an AI Agent in 2026</title>
+  <meta name="description" content="Build an AI investment research agent that discovers and calls financial data autonomously. QVeris provides the data infrastructure layer for automated investment research — no per-API integration needed.">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title" content="Best AI for Investment Research: Build an AI Agent in 2026">
+  <meta property="og:description" content="Build an AI investment research agent that discovers and calls financial data autonomously. QVeris provides the data infrastructure layer for automated investment research — no per-API integration needed.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://try.qveris.ai/investment-research-agent/">
+  <meta property="og:image" content="https://try.qveris.ai/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AI investment research agent architecture using QVeris capability routing network">
+  <meta property="og:site_name" content="QVeris">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Best AI for Investment Research: Build an AI Agent in 2026">
+  <meta name="twitter:description" content="Build an AI investment research agent that discovers and calls financial data autonomously. QVeris provides the data infrastructure layer for automated investment research — no per-API integration needed.">
+  <meta name="twitter:image" content="https://try.qveris.ai/og.png">
+  <meta name="twitter:image:alt" content="AI investment research agent architecture diagram">
+  <meta name="twitter:site" content="@qveris_ai">
+  <meta name="theme-color" content="#0A0E1A">
+
+  <link rel="canonical" href="https://try.qveris.ai/investment-research-agent/">
+  <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/245123302?s=200&v=4">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://qveris.ai/icon.png">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://try.qveris.ai">
+  <link rel="preconnect" href="https://try.qveris.ai">
+  <link rel="dns-prefetch" href="https://qveris.ai">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Schema #1: Organization -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"QVeris AI","url":"https://qveris.ai","logo":"https://qveris.ai/logo-color.png","sameAs":["https://www.linkedin.com/company/qveris","https://twitter.com/qveris_ai","https://github.com/qveris"]}</script>
+
+  <!-- Schema #2: BreadcrumbList -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://qveris.ai/"},{"@type":"ListItem","position":2,"name":"Use Cases","item":"https://try.qveris.ai/use-cases/"},{"@type":"ListItem","position":3,"name":"Investment Research Agent","item":"https://try.qveris.ai/investment-research-agent/"}]}</script>
+
+  <!-- Schema #3: Article -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Best AI for Investment Research: How to Build an AI Investment Research Agent in 2026","description":"Build an AI investment research agent that discovers and calls financial data autonomously. See how QVeris provides the data infrastructure layer for automated investment research.","image":["https://try.qveris.ai/og.png"],"datePublished":"2026-05-26","dateModified":"2026-06-01","author":{"@type":"Person","name":"Wang Linfang","url":"https://qveris.ai","jobTitle":"CEO & Founder, QVeris","sameAs":["https://www.linkedin.com/in/wanglinfang"]},"publisher":{"@type":"Organization","name":"QVeris AI","logo":{"@type":"ImageObject","url":"https://qveris.ai/logo-color.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://try.qveris.ai/investment-research-agent/"}}</script>
+
+  <!-- Schema #4: FAQPage -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the best AI for investment research in 2026?","acceptedAnswer":{"@type":"Answer","text":"The best AI for investment research depends on your use case. For analyst-facing tools, Perplexity Finance and AlphaSense lead with licensed data and AI-powered search. For building autonomous investment research agents that fetch and analyze data programmatically, QVeris provides the data infrastructure layer — 10,000+ capabilities across market data, fundamentals, analyst consensus, crypto, and alternative signals, all accessible through a single API with natural language discovery."}},{"@type":"Question","name":"How do you build an AI investment research agent?","acceptedAnswer":{"@type":"Answer","text":"Building an AI investment research agent requires three layers: (1) data sources — real-time prices, fundamentals, news, filings, (2) AI model — for analysis and reasoning, (3) tool calling infrastructure — for agents to discover and call data sources. QVeris provides layer 3 as a capability routing network: agents discover data via natural language, inspect costs before calling, and execute through a sandboxed environment. No per-API integration needed."}},{"@type":"Question","name":"How is QVeris different from Perplexity Finance or AlphaSense for investment research?","acceptedAnswer":{"@type":"Answer","text":"Perplexity Finance and AlphaSense are app-layer AI tools designed for human analysts to query and explore financial data. QVeris is an infrastructure-layer capability routing network designed for AI agents to autonomously discover, inspect, and call financial data. They serve different layers of the stack: QVeris powers the agent that could feed into tools like Perplexity or AlphaSense. They are complementary, not competitive."}},{"@type":"Question","name":"What financial data sources does QVeris cover for investment research?","acceptedAnswer":{"@type":"Answer","text":"QVeris covers 6 financial domains: quantitative trading (market data, factor data), macro and fixed income (interest rates, yield curves, inflation), risk and compliance (KYC, sanctions screening), investment research (earnings data, analyst consensus, valuation models), crypto and digital assets (on-chain data, DeFi metrics), and alternative signals (news sentiment, social data, event-driven signals)."}}]}</script>
+
+  <!-- Schema #5: SoftwareApplication -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"QVeris","description":"AI-Agent native capability routing network with 10,000+ tools, natural language discovery, and pay-per-call pricing.","applicationCategory":"BusinessApplication","operatingSystem":"Web, CLI","url":"https://qveris.ai","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock"}}</script>
+
+  <!-- Schema #6: DefinedTerm -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","name":"AI Investment Research Agent","description":"An autonomous AI agent that discovers, calls, and analyzes financial data through a capability routing network to produce investment research, without requiring per-API integrations for each data source.","inDefinedTermSet":{"@type":"DefinedTermSet","name":"AI Agent Infrastructure Glossary"}}</script>
+
+  <style>
+    /* --- RESET & BASE --- */
+    @font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:local('Inter')}
+    @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400 600;font-display:swap;src:local('JetBrains Mono')}
+    *{box-sizing:border-box;margin:0;padding:0}
+    ::selection{background:rgba(124,155,255,0.35)}
+    ::-webkit-scrollbar{width:8px;background:#0A0E1A}
+    ::-webkit-scrollbar-thumb{background:rgba(124,155,255,0.2);border-radius:4px}
+    ::-webkit-scrollbar-thumb:hover{background:rgba(124,155,255,0.35)}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,sans-serif;color:rgba(255,255,255,0.82);background:#0A0E1A;font-size:16.5px;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+    /* --- ANIMATED BACKGROUND --- */
+    .bg-mesh{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:hidden}
+    .bg-mesh .orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.3;animation:orbFloat 20s ease-in-out infinite}
+    .bg-mesh .orb:nth-child(1){width:600px;height:600px;background:radial-gradient(circle,rgba(124,155,255,0.15),transparent);top:-200px;right:-200px;animation-delay:0s}
+    .bg-mesh .orb:nth-child(2){width:500px;height:500px;background:radial-gradient(circle,rgba(61,95,224,0.12),transparent);bottom:-150px;left:-150px;animation-delay:-7s}
+    .bg-mesh .orb:nth-child(3){width:400px;height:400px;background:radial-gradient(circle,rgba(124,155,255,0.08),transparent);top:50%;left:50%;transform:translate(-50%,-50%);animation-delay:-14s}
+    @keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(30px,-40px) scale(1.05)}50%{transform:translate(-20px,20px) scale(0.95)}75%{transform:translate(40px,30px) scale(1.02)}}
+    .content-wrap{position:relative;z-index:1}
+
+    /* --- SKIP / BASE --- */
+    .skip-link{position:absolute;left:-9999px;top:0;background:#7C9BFF;color:#0A0E1A;padding:10px 16px;border-radius:0 0 8px 0;font-weight:600;z-index:200}
+    .skip-link:focus{left:0}
+    a{color:#7C9BFF;text-decoration:none;transition:color 0.2s}
+    a:hover{color:#B5C6FF}
+    img{max-width:100%;height:auto;display:block}
+
+    /* --- NAV --- */
+    .nav{position:sticky;top:0;z-index:100;background:rgba(10,14,26,0.75);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);border-bottom:1px solid rgba(255,255,255,0.06);padding:14px 0}
+    .nav-inner{max-width:1024px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .nav-logo-img{width:28px;height:28px;border-radius:6px;display:block}
+    .nav-logo span{font-size:16px;font-weight:600;color:rgba(255,255,255,0.97);letter-spacing:-0.01em}
+    .nav-links{display:flex;align-items:center;gap:22px;font-size:14px}
+    .nav-links a{color:rgba(255,255,255,0.55);transition:color 0.15s}
+    .nav-links a:hover{color:rgba(255,255,255,0.9)}
+    .nav-cta{background:linear-gradient(135deg,#B5C6FF,#7C9BFF);color:#0A0E1A;padding:7px 18px;border-radius:20px;font-size:13px;font-weight:600;text-decoration:none;transition:all 0.25s;box-shadow:0 0 20px rgba(124,155,255,0.15)}
+    .nav-cta:hover{opacity:1;color:#0A0E1A;transform:translateY(-1px);box-shadow:0 0 30px rgba(124,155,255,0.3)}
+
+    /* --- LAYOUT --- */
+    .wrap{max-width:1024px;margin:0 auto;padding:48px 24px}
+    h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:600;line-height:1.15;margin-bottom:12px;color:rgba(255,255,255,0.97);letter-spacing:-0.02em}
+    h2{font-size:1.22rem;font-weight:600;margin:48px 0 16px;color:rgba(255,255,255,0.92);border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:10px}
+    h3{font-size:15px;font-weight:600;margin:24px 0 10px;color:rgba(255,255,255,0.85)}
+    p{margin:0 0 18px;color:rgba(255,255,255,0.62)}
+    strong{color:rgba(255,255,255,0.92)}
+    ul,ol{margin:12px 0 14px 24px}
+    li{margin:6px 0;color:rgba(255,255,255,0.62)}
+    code{font-family:'JetBrains Mono',monospace;background:rgba(255,255,255,0.04);padding:2px 8px;border-radius:4px;font-size:0.85em;color:#B5C6FF}
+
+    /* --- REVEAL --- */
+    .reveal{opacity:0;transform:translateY(30px);transition:all 0.7s cubic-bezier(0.16,1,0.3,1)}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    /* --- META --- */
+    .meta-desc{font-size:1rem;color:rgba(255,255,255,0.5);margin-bottom:24px;line-height:1.55;max-width:680px}
+    .breadcrumb{font-size:13px;color:rgba(255,255,255,0.35);margin-bottom:20px}
+    .breadcrumb a{color:#7C9BFF}
+    .breadcrumb span{margin:0 6px}
+    .badge{display:inline-block;font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;margin-right:8px;margin-bottom:14px}
+    .badge-client{background:rgba(124,155,255,0.18);color:#B5C6FF;border:1px solid rgba(124,155,255,0.25)}
+    .badge-cat{background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.55)}
+
+    /* --- TOC BAR --- */
+    .toc-bar{background:rgba(10,14,26,0.92);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:14px 20px;margin:0 0 28px}
+    .toc-label{font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+    .toc-grid{display:flex;flex-wrap:wrap;gap:4px 14px}
+    .toc-grid a{font-size:13px;color:rgba(255,255,255,0.55);padding:3px 0;transition:color 0.15s;white-space:nowrap}
+    .toc-grid a:hover{color:#B5C6FF}
+
+    /* --- TL;DR --- */
+    .tldr{background:linear-gradient(135deg,rgba(124,155,255,0.06),rgba(61,95,224,0.03));border-left:3px solid #7C9BFF;border-radius:0 12px 12px 0;padding:20px 24px;margin:0 0 28px}
+    .tldr-label{font-size:12px;font-weight:600;color:#B5C6FF;margin-bottom:12px;text-transform:uppercase;letter-spacing:1.5px}
+    .tldr ul{margin:0;padding-left:18px;font-size:14.5px}
+    .tldr li{color:rgba(255,255,255,0.7);margin:4px 0}
+
+    /* --- ANSWER BOX --- */
+    .answer-box{border-left:3px solid #7C9BFF;padding:16px 20px;border-radius:0 10px 10px 0;font-size:15px;color:rgba(255,255,255,0.85);margin-bottom:28px;background:linear-gradient(135deg,rgba(124,155,255,0.04),rgba(61,95,224,0.02))}
+
+    /* --- STATS ROW --- */
+    .stats-row{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;padding:24px 0;margin:0 0 28px;border-top:1px solid rgba(124,155,255,0.08);border-bottom:1px solid rgba(124,155,255,0.08);background:rgba(124,155,255,0.02);border-radius:12px}
+    .stats-item{text-align:center;min-width:80px}
+    .stats-num{font-size:24px;font-weight:800;background:linear-gradient(135deg,#B5C6FF,#7C9BFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .stats-label{font-size:11px;color:#6B7280;text-transform:uppercase;letter-spacing:0.5px;margin-top:2px}
+
+    /* --- COMPARE TABLE --- */
+    .compare-table{width:100%;border-collapse:separate;border-spacing:0;margin:20px 0;font-size:14px;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.06)}
+    .compare-table th,.compare-table td{padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.04)}
+    .compare-table thead th{background:rgba(124,155,255,0.06);color:rgba(255,255,255,0.85);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.5px}
+    .compare-table tbody th{background:transparent;color:rgba(255,255,255,0.85);font-weight:500;font-size:13px;border-right:1px solid rgba(255,255,255,0.04)}
+    .compare-table td{color:rgba(255,255,255,0.65)}
+    .compare-table tbody tr:hover{background:rgba(124,155,255,0.03)}
+    .highlight{color:#B5C6FF;font-weight:600}
+
+    /* --- SCENARIO BOX --- */
+    .scenario-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;margin:16px 0;transition:all 0.3s}
+    .scenario-box:hover{border-color:rgba(124,155,255,0.18);transform:translateY(-2px)}
+    .scenario-box h3{margin-top:0;display:flex;align-items:center;gap:8px}
+
+    /* --- STEP BOX --- */
+    .step-box{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:18px;margin:14px 0;transition:all 0.3s}
+    .step-box:hover{border-color:rgba(124,155,255,0.2);transform:translateX(4px)}
+    .step-num{display:inline-flex;width:28px;height:28px;background:linear-gradient(135deg,#7C9BFF,#3D5FE0);color:#0A0E1A;border-radius:50%;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-right:10px;vertical-align:middle;flex-shrink:0}
+    .step-box strong{display:inline;vertical-align:middle}
+
+    /* --- AGENT WORKFLOW CARDS --- */
+    .agent-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:20px 0}
+    .agent-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:24px;transition:all 0.3s;position:relative;overflow:hidden}
+    .agent-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#7C9BFF,#B5C6FF);border-radius:14px 14px 0 0}
+    .agent-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(124,155,255,0.08);border-color:rgba(124,155,255,0.15)}
+    .agent-card h3{margin-top:0;font-size:14px;color:#B5C6FF;margin-bottom:8px}
+    .agent-card .time{font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:12px;display:block}
+    .agent-card p{font-size:13.5px;color:rgba(255,255,255,0.6);margin-bottom:12px}
+    .agent-card ul{margin:0;padding-left:14px;font-size:13px}
+    .agent-card li{color:rgba(255,255,255,0.55);margin:4px 0}
+
+    /* --- CODE BLOCK --- */
+    .code-block{background:rgba(10,14,26,0.6);border:1px solid rgba(124,155,255,0.12);border-radius:10px;padding:20px;margin:16px 0;overflow-x:auto}
+    .code-block .comment{color:rgba(255,255,255,0.35)}
+    .code-block .keyword{color:#7C9BFF}
+    .code-block .string{color:#22c55e}
+    .code-block .func{color:#fbbf24}
+    .code-block .num{color:#f87171}
+    pre{font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.7;color:rgba(255,255,255,0.85);margin:0}
+
+    /* --- ARCHITECTURE FLOW --- */
+    .arch-viz{display:flex;align-items:center;justify-content:center;gap:12px;padding:24px;margin:20px 0;background:rgba(255,255,255,0.02);border:1px solid rgba(124,155,255,0.12);border-radius:14px;flex-wrap:wrap}
+    .arch-box{padding:14px 22px;border-radius:10px;font-weight:600;font-size:13px;text-align:center;min-width:120px}
+    .arch-box.agent{background:rgba(124,155,255,0.12);border:1px solid rgba(124,155,255,0.25);color:#B5C6FF}
+    .arch-box.qv{background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.25);color:#22c55e}
+    .arch-box.data{background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.25);color:#fbbf24}
+    .arch-arrow{font-size:18px;color:rgba(255,255,255,0.25)}
+
+    /* --- CRITERIA GRID --- */
+    .criteria-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+    .criteria-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px}
+    .criteria-card h4{font-size:13px;font-weight:600;color:rgba(255,255,255,0.85);margin-bottom:6px}
+    .criteria-card p{font-size:13px;color:rgba(255,255,255,0.55);margin:0}
+
+    /* --- FAQ --- */
+    .faq-item{border-bottom:1px solid rgba(255,255,255,0.06);padding:20px 0;transition:padding 0.3s}
+    .faq-q{font-weight:600;font-size:16px;color:rgba(255,255,255,0.9);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+    .faq-q::after{content:'+';font-size:20px;color:rgba(255,255,255,0.3);transition:transform 0.3s}
+    .faq-q.open::after{transform:rotate(45deg)}
+    .faq-a{margin-top:0;max-height:0;overflow:hidden;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);color:rgba(255,255,255,0.55);font-size:14.5px;line-height:1.65}
+    .faq-a.open{max-height:500px;margin-top:12px}
+
+    /* --- CTA --- */
+    .cta-box{background:linear-gradient(135deg,rgba(124,155,255,0.08),rgba(61,95,224,0.05));border:1px solid rgba(124,155,255,0.15);text-align:center;padding:40px;border-radius:16px;margin:48px 0;position:relative;overflow:hidden}
+    .cta-box::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 50%,rgba(124,155,255,0.04),transparent 50%);pointer-events:none}
+    .cta-box h3{color:rgba(255,255,255,0.95);margin:0 0 8px;font-size:20px;font-weight:600}
+    .cta-box p{color:rgba(255,255,255,0.55);margin:0 0 20px;position:relative}
+    .cta-btn{display:inline-block;background:linear-gradient(135deg,#B5C6FF,#7C9BFF);color:#0A0E1A;padding:12px 32px;border-radius:24px;font-weight:600;font-size:15px;transition:all 0.25s;text-decoration:none;box-shadow:0 0 30px rgba(124,155,255,0.15)}
+    .cta-btn:hover{opacity:1;color:#0A0E1A;transform:translateY(-2px);box-shadow:0 0 40px rgba(124,155,255,0.25)}
+    .cta-btn-outline{display:inline-block;border:1px solid rgba(124,155,255,0.3);color:#7C9BFF;padding:11px 28px;border-radius:24px;font-weight:600;font-size:14px;transition:all 0.2s;margin-left:12px}
+    .cta-btn-outline:hover{background:rgba(124,155,255,0.08);color:#B5C6FF;transform:translateY(-2px)}
+
+    /* --- METHODOLOGY / RELATED / FOOTER --- */
+    .methodology{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:24px;margin:32px 0;font-size:14px;color:rgba(255,255,255,0.55)}
+    .methodology h2{font-size:14px;border:none;padding:0;margin:0 0 12px;color:rgba(255,255,255,0.85);text-transform:uppercase;letter-spacing:1px}
+    .methodology p{margin:6px 0;font-size:13.5px}
+    .related{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+    .related a{display:block;padding:16px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;text-decoration:none;color:#B5C6FF;font-size:14px;font-weight:500;transition:all 0.3s;line-height:1.45}
+    .related a:hover{background:rgba(124,155,255,0.05);border-color:rgba(124,155,255,0.25);transform:translateY(-2px)}
+    .ref-list{font-size:13px;color:rgba(255,255,255,0.55)}
+    .ref-list ol{margin:0;padding-left:22px}
+    .ref-list li{margin:3px 0;font-size:12.5px;word-break:break-all}
+    .ref-list li a{color:#8a8a9a}
+    .ref-list li a:hover{color:#B5C6FF}
+    sup.ref{font-size:11px;color:#8a8a9a}
+    sup.ref a{color:#8a8a9a;text-decoration:none}
+    sup.ref a:hover{color:#B5C6FF}
+    .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+    .footer{background:rgba(6,9,18,0.8);border-top:1px solid rgba(255,255,255,0.04);padding:48px 24px;backdrop-filter:blur(10px)}
+    .footer-inner{max-width:1024px;margin:0 auto}
+    .footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px}
+    .footer-title{display:block;font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+    .footer-links{display:flex;flex-direction:column;gap:10px;font-size:14px}
+    .footer-links a{color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.15s}
+    .footer-links a:hover{color:rgba(255,255,255,0.75)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.04);padding-top:24px;display:flex;justify-content:space-between;font-size:13px;color:rgba(255,255,255,0.28)}
+    .footer-desc{font-size:14px;color:rgba(255,255,255,0.35);max-width:300px;margin-bottom:16px;line-height:1.6}
+
+    @keyframes fadeSlide{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+    @media(max-width:900px){
+      .agent-grid,.criteria-grid{grid-template-columns:1fr}
+      .arch-viz{flex-direction:column}
+      .arch-arrow{transform:rotate(90deg)}
+    }
+    @media(max-width:720px){
+      .toc-grid a{font-size:12px}
+      .related,.footer-grid{grid-template-columns:1fr}
+      h1{font-size:1.5rem}
+      .nav-links a:not(.nav-cta){display:none}
+      .calc-hero{padding:20px}
+      .bar-label{width:60px;font-size:11px}
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+  </div>
+
+  <div class="content-wrap">
+
+    <!-- NAV -->
+    <nav class="nav" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="https://qveris.ai" class="nav-logo">
+          <img src="https://avatars.githubusercontent.com/u/245123302?s=200&v=4" alt="QVeris AI" class="nav-logo-img" width="28" height="28">
+          <span>QVeris</span>
+        </a>
+        <div class="nav-links">
+          <a href="https://qveris.ai">Product</a>
+          <a href="https://qveris.ai/pricing">Pricing</a>
+          <a href="https://qveris.ai/docs">Docs</a>
+          <a href="https://qveris.ai" class="nav-cta">Get Started</a>
+        </div>
+      </div>
+    </nav>
+
+    <main id="main-content">
+      <article>
+        <div class="wrap">
+
+          <!-- Breadcrumb -->
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="https://qveris.ai">Home</a><span>›</span><span>Use Cases</span><span>›</span>Investment Research Agent
+          </nav>
+
+          <!-- Badges -->
+          <div class="reveal">
+            <span class="badge badge-client">Updated June 2026</span>
+            <span class="badge badge-cat">Use Case</span>
+          </div>
+
+          <!-- H1 -->
+          <h1 class="reveal">Best AI for Investment Research: How to Build an AI Investment Research Agent in 2026</h1>
+
+          <!-- Meta subtitle -->
+          <p class="meta-desc reveal">The <strong>best AI for investment research</strong> in 2026 isn't another analyst tool — it's the data infrastructure layer that powers autonomous research agents. QVeris gives your agents unified access to 10,000+ financial capabilities through a single API, with natural language discovery and no per-source integration.</p>
+
+          <!-- Stats Row -->
+          <div class="stats-row reveal">
+            <div class="stats-item"><div class="stats-num">10,000+</div><span class="stats-label">Capabilities</span></div>
+            <div class="stats-item"><div class="stats-num">6</div><span class="stats-label">Financial Domains</span></div>
+            <div class="stats-item"><div class="stats-num">14+</div><span class="stats-label">Agent Frameworks</span></div>
+            <div class="stats-item"><div class="stats-num">4</div><span class="stats-label">Integration Paths</span></div>
+            <div class="stats-item"><div class="stats-num">$19</div><span class="stats-label">Pro Plan /mo</span></div>
+          </div>
+
+          <!-- TOC -->
+          <nav class="toc-bar reveal" aria-label="Page sections">
+            <div class="toc-label">Jump to</div>
+            <div class="toc-grid">
+              <a href="#problem">The Problem</a>
+              <a href="#criteria">What to Look For</a>
+              <a href="#how">How QVeris Works</a>
+              <a href="#workflows">Agent Workflows</a>
+              <a href="#compare">Comparison</a>
+              <a href="#code">Code Example</a>
+              <a href="#faq">FAQ</a>
+            </div>
+          </nav>
+
+          <!-- TL;DR -->
+          <div class="tldr reveal">
+            <div class="tldr-label">TL;DR</div>
+            <ul>
+              <li><strong>Problem:</strong> Investment research teams spend 60% of their time integrating and maintaining data sources instead of analyzing data. The <strong>best AI for investment research</strong> tools (Perplexity Finance, AlphaSense, Bloomberg) solve the analyst-facing layer, not the agent infrastructure layer.</li>
+              <li><strong>Solution:</strong> QVeris is a capability routing network that lets AI agents discover, inspect, and call 10,000+ financial capabilities through a single API — no per-source integration, no fragmented maintenance.</li>
+              <li><strong>Result:</strong> Build an <strong>AI investment research agent</strong> in minutes instead of months. One integration gives your agent access to market data, fundamentals, analyst consensus, crypto, and alternative signals — across 14+ agent frameworks.</li>
+            </ul>
+          </div>
+
+          <!-- Featured Snippet box -->
+          <h2 class="reveal">What is the best AI for investment research in 2026?</h2>
+          <div class="answer-box reveal">
+            <strong>The best AI for investment research depends on your layer. For analyst-facing tools, Perplexity Finance and AlphaSense lead with licensed data and AI-powered search. For building autonomous investment research agents that fetch and analyze data programmatically, QVeris provides the data infrastructure layer — 10,000+ capabilities across market data, fundamentals, analyst consensus, crypto, and alternative signals, all accessible through a single API with natural language discovery. QVeris is not an application-layer tool — it's the capability routing network that powers the agents.</strong>
+          </div>
+
+          <!-- ═══ SECTION: PROBLEM ═══ -->
+          <section id="problem" class="reveal">
+            <h2>The Investment Research Data Problem</h2>
+
+            <h3>Why Traditional Investment Research Is Broken</h3>
+            <p>Investment research has a dirty secret: <strong>analysts spend 60% of their time finding and integrating data, and only 40% actually analyzing it</strong>.<sup class="ref"><a href="#ref-3">[3]</a></sup> Every data source — real-time prices, SEC filings, earnings transcripts, analyst consensus, news sentiment — requires its own API key, its own SDK, its own authentication, and its own maintenance contract. A typical research team maintains 5-10 separate data integrations. When an API changes or a new source becomes relevant, it's days of engineering work to adapt.</p>
+
+            <h3>The Rise of Agentic Investment Research</h3>
+            <p>2026 has seen an explosion of AI-powered investment research tools. KX + NVIDIA launched Agentic AI Blueprints for capital markets at GTC 2026, compressing research cycles from hours to minutes.<sup class="ref"><a href="#ref-1">[1]</a></sup> Perplexity Finance now integrates Morningstar, PitchBook, and Daloopa data with 40+ live finance tools.<sup class="ref"><a href="#ref-2">[2]</a></sup> RBC Capital Markets deployed "Aiden Quick Takes" — 14 specialized agents that reduce research time from hours to minutes.<sup class="ref"><a href="#ref-1">[1]</a></sup></p>
+
+            <p>But every one of these tools solves the <strong>application layer</strong> — they're designed for human analysts to use through a GUI. None of them address the <strong>infrastructure layer</strong> that AI agents need to autonomously discover and call financial data. That's where QVeris fits.</p>
+          </section>
+
+          <!-- ═══ SECTION: CRITERIA ═══ -->
+          <section id="criteria" class="reveal">
+            <h2>What to Look for in an AI Investment Research Platform</h2>
+            <p>Before evaluating any platform, define what your <strong>AI investment research agent</strong> actually needs. Here are the five criteria that separate infrastructure from applications:</p>
+
+            <div class="criteria-grid">
+              <div class="criteria-card">
+                <h4>📊 Data Coverage Breadth</h4>
+                <p>Real-time prices, fundamentals, filings, analyst consensus, news sentiment, crypto, macro — your agent should reach any financial data through one interface.</p>
+              </div>
+              <div class="criteria-card">
+                <h4>🔌 Integration Simplicity</h4>
+                <p>One API key, one SDK, one authentication model. Not 5-10 separate integrations. The <strong>best AI for investment research</strong> infrastructure eliminates integration overhead entirely.</p>
+              </div>
+              <div class="criteria-card">
+                <h4>🤖 Agent-Native Architecture</h4>
+                <p>Built for AI agents, not retrofitted. Natural language capability discovery, not dashboard configuration. Your agent should discover data by describing what it needs.</p>
+              </div>
+              <div class="criteria-card">
+                <h4>🔍 Call Transparency</h4>
+                <p>Agents should preview cost, latency, and success rate before every call. No blind API calls, no surprise bills.</p>
+              </div>
+              <div class="criteria-card" style="grid-column:1/-1">
+                <h4>🛠 Developer Experience</h4>
+                <p>SDK, REST API, MCP Server, and CLI — your team chooses the integration path that fits your architecture, across 14+ agent frameworks.</p>
+              </div>
+            </div>
+
+            <p>QVeris was designed from day one to meet all five criteria. Application-layer tools (Perplexity Finance, AlphaSense, Bloomberg) were designed for human analysts. They're complementary, not competitive — QVeris is the infrastructure layer beneath them.</p>
+          </section>
+
+          <!-- ═══ SECTION: HOW QVERIS WORKS ═══ -->
+          <section id="how" class="reveal">
+            <h2>How QVeris Powers AI Investment Research Agents</h2>
+            <p>QVeris is a <strong>capability routing network</strong> that sits between your AI agent and the financial data it needs. Instead of integrating 10 separate APIs, you integrate one — and your agent discovers the capabilities it needs conversationally.</p>
+
+            <!-- Architecture visualization -->
+            <div class="arch-viz">
+              <div class="arch-box agent">🤖 AI Agent</div>
+              <span class="arch-arrow">→ discovers →</span>
+              <div class="arch-box qv">🔀 QVeris Router</div>
+              <span class="arch-arrow">→ routes →</span>
+              <div class="arch-box data">📊 Financial Data</div>
+            </div>
+
+            <div class="step-box">
+              <span class="step-num">1</span>
+              <strong>Discover — Find the Right Data with Natural Language</strong>
+              <p>Your agent sends a natural language query — <em>"get S&P 500 current performance and top movers"</em> — and QVeris returns the best matching capabilities, ranked by relevance, with expected cost (~1 Credit), average latency (~180ms), and success rate (99.8%). No pre-configuration required.<sup class="ref"><a href="#ref-4">[4]</a></sup></p>
+            </div>
+
+            <div class="step-box">
+              <span class="step-num">2</span>
+              <strong>Inspect — Review Cost and Quality Before You Call</strong>
+              <p>Before executing, your agent previews the complete capability profile: parameter schema, credit consumption, latency, and reliability metrics. This pre-call inspection is <strong>always free</strong> — your agent makes informed decisions without spending a single credit.</p>
+            </div>
+
+            <div class="step-box">
+              <span class="step-num">3</span>
+              <strong>Call — Execute and Get Structured Data</strong>
+              <p>Sandboxed execution returns structured JSON. Every call is tracked via <code>session_id</code> for full audit trail. Credits are consumed based on the capability's complexity — simple data fetches cost as little as 1 credit.</p>
+            </div>
+          </section>
+
+          <!-- ═══ SECTION: WORKFLOWS ═══ -->
+          <section id="workflows" class="reveal">
+            <h2>Investment Research Agent: Real-World Workflows</h2>
+            <p>Here are three concrete agent workflows you can build with QVeris today. Each demonstrates how the <strong>AI investment research agent</strong> pattern works in practice.</p>
+
+            <div class="agent-grid">
+              <div class="agent-card">
+                <h3>🌅 Morning Briefing Agent</h3>
+                <span class="time">⏱ Runs daily at 8:00 AM</span>
+                <p>Automatically aggregates overnight price changes, key news, earnings calendar events, and macro indicators for your portfolio holdings — delivered as a structured briefing.</p>
+                <ul>
+                  <li><strong>Traditional way:</strong> 5 APIs (market data + news + earnings + calendar + macro), each with separate auth</li>
+                  <li><strong>QVeris way:</strong> 1 Discover query → unified response</li>
+                </ul>
+              </div>
+
+              <div class="agent-card">
+                <h3>📊 Earnings Analysis Agent</h3>
+                <span class="time">⏱ Triggered by earnings calendar</span>
+                <p>After an earnings release, this agent automatically compares actual EPS vs. analyst consensus vs. year-ago results, fetches real-time price reaction, and summarizes key takeaways.</p>
+                <ul>
+                  <li><strong>Data needed:</strong> Earnings data + analyst consensus + real-time price + news sentiment</li>
+                  <li><strong>QVeris way:</strong> One routing call to the investment research domain</li>
+                </ul>
+              </div>
+
+              <div class="agent-card">
+                <h3>🛡 Portfolio Risk Monitoring Agent</h3>
+                <span class="time">⏱ Continuous monitoring</span>
+                <p>Real-time tracking of portfolio VaR, max drawdown, sector concentration, and correlation shifts. Automatically alerts when risk metrics breach thresholds.</p>
+                <ul>
+                  <li><strong>Data needed:</strong> Market data + risk &amp; compliance domain + alternative signals</li>
+                  <li><strong>QVeris way:</strong> Risk domain capabilities via QVeris routing</li>
+                </ul>
+              </div>
+            </div>
+
+            <p style="font-size:14px;color:rgba(255,255,255,0.5)"><strong>Try it yourself:</strong> Any of these workflows can be built in under 30 minutes with a free QVeris account. No per-API contracts, no negotiations with data vendors — just one API key and natural language discovery.</p>
+          </section>
+
+          <!-- ═══ SECTION: COMPARE ═══ -->
+          <section id="compare" class="reveal">
+            <h2>QVeris vs Traditional Investment Research Tools</h2>
+            <p>The key insight: QVeris does not compete with application-layer tools. It powers the layer beneath them. Here's how the stacks compare:</p>
+            <h3>Infrastructure Layer vs Application Layer</h3>
+
+            <div class="table-scroll">
+            <table class="compare-table">
+              <thead><tr><th>Dimension</th><th>Traditional Tools (Bloomberg / AlphaSense / Perplexity Finance)</th><th>QVeris</th></tr></thead>
+              <tbody>
+                <tr><th>Stack layer</th><td>Application layer — human analyst tools</td><td class="highlight">Infrastructure layer — agent capability routing</td></tr>
+                <tr><th>Data access</th><td>Built-in fixed data sources</td><td class="highlight">Natural language Discover → optimal source found automatically</td></tr>
+                <tr><th>Agent support</th><td>BYO Agent or built-in Chat UI</td><td class="highlight">Agent-native, 14+ framework compatibility</td></tr>
+                <tr><th>Call transparency</th><td>Not applicable (UI-based)</td><td class="highlight">Inspect: preview cost/latency/success before each call</td></tr>
+                <tr><th>Data coverage</th><td>Specific integrated sources</td><td class="highlight">10,000+ capabilities, 15+ categories, 6 financial domains</td></tr>
+                <tr><th>Integration effort</th><td>Low (out of the box)</td><td class="highlight">Medium (one integration → all capabilities)</td></tr>
+                <tr><th>Programmatic control</th><td>Low (GUI-focused)</td><td class="highlight">High (REST / SDK / MCP / CLI — all API-first)</td></tr>
+                <tr><th>Pricing</th><td>$20K+/yr (Bloomberg) to $50-200/mo (Perplexity Pro)</td><td class="highlight">Free tier (1,000+100/day) / Pro $19/mo / usage-based</td></tr>
+                <tr><th>Building autonomous agents</th><td>Not suited</td><td class="highlight">Core design goal</td></tr>
+              </tbody>
+            </table>
+            </div>
+
+            <div class="scenario-box">
+              <h3>💡 The Complementary Stack</h3>
+              <p>The most powerful setup is not QVeris <em>vs</em> these tools — it's QVeris <strong>+</strong> these tools. Use QVeris as the agent data routing layer to autonomously gather and structure financial data, then feed the results into Perplexity Finance, AlphaSense, or OpenBB for human analysis and visualization. QVeris powers the agent; these tools empower the analyst.</p>
+            </div>
+          </section>
+
+          <!-- ═══ SECTION: CODE ═══ -->
+          <section id="code" class="reveal">
+            <h2>Getting Started: Build Your First Investment Research Agent</h2>
+            <p>Here's how to build a simple <strong>AI investment research agent</strong> in Python using QVeris. This agent discovers and fetches S&P 500 market data with about 20 lines of code.</p>
+
+            <h3>Prerequisites</h3>
+            <ul>
+              <li>Python 3.9+</li>
+              <li>QVeris API Key (free from <a href="https://qveris.ai">qveris.ai</a>)</li>
+              <li>QVeris Python SDK: <code>pip install qveris-sdk</code></li>
+            </ul>
+
+            <h3>Code Example</h3>
+            <div class="code-block">
+<pre><span class="comment"># Step 1: Initialize the QVeris client</span>
+<span class="keyword">from</span> qveris <span class="keyword">import</span> QVerisClient
+client = QVerisClient(api_key=<span class="string">"your-api-key"</span>)
+
+<span class="comment"># Step 2: Discover financial capabilities</span>
+capabilities = client.discover(
+    query=<span class="string">"S&P 500 current market data top movers"</span>
+)
+<span class="comment"># Returns: ranked capabilities with cost (~1 credit), </span>
+<span class="comment"># latency (~180ms), and success rate (99.8%)</span>
+
+<span class="comment"># Step 3: Inspect the best match</span>
+sp500_cap = capabilities[<span class="num">0</span>]
+inspection = client.inspect(sp500_cap.id)
+<span class="comment"># Preview: schema, cost, latency, reliability — always free</span>
+
+<span class="comment"># Step 4: Call and get structured data</span>
+result = client.call(sp500_cap.id, params={
+    <span class="string">"symbols"</span>: [<span class="string">"SPY"</span>, <span class="string">"QQQ"</span>, <span class="string">"IWM"</span>],
+    <span class="string">"fields"</span>: [<span class="string">"price"</span>, <span class="string">"change"</span>, <span class="string">"volume"</span>]
+})
+<span class="comment"># Returns: structured JSON with full audit trail</span>
+<span class="keyword">print</span>(result.data)
+</pre>
+            </div>
+
+            <p style="margin-top:12px;color:rgba(255,255,255,0.5)"><strong>Copy this code, paste it into your editor, and run it.</strong> Your first <strong>AI investment research agent</strong> starts here. For the full agent workflow (morning briefing, earnings analysis, risk monitoring), check the <a href="https://qveris.ai/docs">QVeris documentation</a>.</p>
+          </section>
+
+          <!-- ═══ FAQ ═══ -->
+          <section id="faq" class="reveal">
+            <h2>Frequently Asked Questions</h2>
+            <h3>Common Questions About AI for Investment Research</h3>
+
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">What is the best AI for investment research in 2026?</div>
+              <div class="faq-a">The <strong>best AI for investment research</strong> depends on your use case. For analyst-facing tools, Perplexity Finance and AlphaSense lead with licensed data and AI-powered search. For building <strong>autonomous investment research agents</strong> that fetch and analyze data programmatically, QVeris provides the data infrastructure layer — 10,000+ capabilities across market data, fundamentals, analyst consensus, crypto, and alternative signals, all accessible through a single API with natural language discovery.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">How do you build an AI investment research agent?</div>
+              <div class="faq-a">Building an AI investment research agent requires three layers: (1) data sources — real-time prices, fundamentals, news, filings, (2) AI model — for analysis and reasoning, (3) tool calling infrastructure — for agents to discover and call data sources. QVeris provides layer 3 as a capability routing network: agents discover data via natural language, inspect costs before calling, and execute through a sandboxed environment. No per-API integration needed.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">How is QVeris different from Perplexity Finance or AlphaSense?</div>
+              <div class="faq-a">Perplexity Finance and AlphaSense are <strong>app-layer AI tools</strong> designed for human analysts to query and explore financial data. QVeris is an <strong>infrastructure-layer capability routing network</strong> designed for AI agents to autonomously discover, inspect, and call financial data. They serve different layers of the stack: QVeris powers the agent that could feed into tools like Perplexity or AlphaSense. They are complementary, not competitive.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">What financial data does QVeris cover for investment research?</div>
+              <div class="faq-a">QVeris covers 6 financial domains: quantitative trading (market data, factor data), macro &amp; fixed income (interest rates, yield curves, inflation), risk &amp; compliance (KYC, sanctions screening), <strong>investment research (earnings data, analyst consensus, valuation models)</strong>, crypto &amp; digital assets (on-chain data, DeFi metrics), and alternative signals (news sentiment, social data, event-driven signals).</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">Can QVeris replace Bloomberg Terminal for investment research?</div>
+              <div class="faq-a">QVeris is not a Bloomberg Terminal replacement — it's a different paradigm. Instead of a dedicated terminal with a GUI, QVeris provides an API-first capability routing network that AI agents call programmatically. For teams building automated investment research pipelines, QVeris provides unified access to 10,000+ capabilities without per-API integration. For human analysts needing a visual terminal, Bloomberg, Perplexity Finance, or OpenBB may be more appropriate.</div>
+            </div>
+          </section>
+
+          <!-- ═══ CTA ═══ -->
+          <div class="cta-box reveal">
+            <h3>Build Your Investment Research Agent — Try QVeris Free</h3>
+            <p>1,000 free credits + 100 daily. Free discovery means your agent explores capabilities before you commit. No subscription lock-in, no per-API contracts, no credit card required.</p>
+            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+              <a href="https://qveris.ai/pricing" class="cta-btn">Try QVeris Free →</a>
+              <a href="https://qveris.ai/capabilities/explore" class="cta-btn-outline">Explore Financial Capabilities</a>
+              <a href="https://qveris.ai/pricing" class="cta-btn-outline">View Pricing</a>
+            </div>
+          </div>
+
+          <!-- ═══ METHODOLOGY ═══ -->
+          <div class="methodology reveal">
+            <h2>About This Guide</h2>
+            <p><strong>Last updated:</strong> <time datetime="2026-06-01">June 1, 2026</time></p>
+            <p><strong>Methodology:</strong> This guide positions QVeris within the 2026 AI investment research landscape. Competitor information sourced from publicly available product pages, press releases, and independent analyses. Market trends sourced from industry reports (KX, NVIDIA GTC 2026, Perplexity Finance announcements, AWS Bedrock AgentCore).</p>
+            <p><strong>Positioning note:</strong> QVeris is not an application-layer AI investment research tool. It is an infrastructure-layer capability routing network for AI agents. This guide is designed to help developers and engineering teams understand when and why to use QVeris as the data infrastructure layer for autonomous investment research agents.</p>
+            <p><strong>Conflict of interest:</strong> QVeris is the publisher's commercial product. All capability claims verified against internal product specifications.</p>
+
+            <h2 id="references">References</h2>
+            <div class="ref-list">
+              <ol>
+                <li id="ref-1"><a href="https://kx.com/news-room/kx-launches-agentic-ai-blueprints-powered-by-nvidia-at-gtc-2026" target="_blank" rel="nofollow noopener">KX Launches Agentic AI Blueprints Powered by NVIDIA at GTC 2026</a> — Capital Markets Research Assistant and Trading Signal Agents. RBC Capital Markets "Aiden Quick Takes" deployment referenced. Verified May 2026.</li>
+                <li id="ref-2"><a href="https://www.perplexity.ai" target="_blank" rel="nofollow noopener">Perplexity Finance</a> — AI-powered financial search platform with Morningstar, PitchBook, Daloopa integrations. 75% of users ask finance questions monthly. Verified May 2026.</li>
+                <li id="ref-3"><a href="https://aws.amazon.com/blogs/industries/automate-investment-research-using-strands-agents-on-bedrock-agentcore/" target="_blank" rel="nofollow noopener">AWS — Automate Investment Research Using Strands Agents on Bedrock AgentCore</a> — Multi-agent system compressing days of manual work into minutes. Verified May 2026.</li>
+                <li id="ref-4"><a href="https://qveris.ai/docs" target="_blank" rel="noopener">QVeris Documentation</a> — Capability catalog (10,000+ capabilities, 6 financial domains), pricing, and SLA details. Verified May 2026.</li>
+                <li id="ref-5"><a href="https://github.com/RUC-NLPIR/FinSight" target="_blank" rel="nofollow noopener">FinSight — ACL 2026 Main Conference Paper</a> — Multi-agent system for automated financial deep research. 20,000+ word reports. Verified May 2026.</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- ═══ RELATED ═══ -->
+          <h2 class="reveal">Related Guides</h2>
+          <div class="related">
+            <a href="../real-time-stock-price-api-for-ai-agents/">📈 Real-Time Stock Price API for AI Agents</a>
+            <a href="../composio-vs-qveris/">✕ Composio vs QVeris</a>
+            <a href="../capability-routing-network/">🔀 What Is Capability Routing?</a>
+            <a href="../api-cost-calculator/">💰 AI Agent Tool Call Cost Calculator</a>
+            <a href="../function-calling/">⚡ Function Calling: OpenAI vs Anthropic vs Google</a>
+          </div>
+
+        </div>
+      </article>
+    </main>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div>
+            <div style="font-size:18px;font-weight:600;color:rgba(255,255,255,0.9);margin-bottom:12px">QVeris AI</div>
+            <p class="footer-desc">AI-Agent native capability routing network. Unified protocol accessing 10,000+ capabilities across search, maps, docs, finance, blockchain, healthcare and more.</p>
+            <a href="https://qveris.ai" class="cta-btn" style="padding:8px 20px;font-size:13px">Get Started →</a>
+          </div>
+          <div><span class="footer-title">Products</span><div class="footer-links"><a href="https://qveris.ai/capabilities/explore">Capability Map</a><a href="https://qveris.ai/cli">QVeris CLI</a><a href="https://qveris.ai/qverisbot">QVerisBot</a><a href="https://qveris.ai/skills">Skills</a><a href="https://qveris.ai/playground">Live Demo</a><a href="https://qveris.ai/plugins">Install for Agents</a></div></div>
+          <div><span class="footer-title">Developers</span><div class="footer-links"><a href="https://qveris.ai/docs">Quick Start</a><a href="https://qveris.ai/blog">Blog</a><a href="https://qveris.ai/docs/cli">CLI Docs</a><a href="https://qveris.ai/docs/rest-api">REST API</a><a href="https://qveris.ai/docs/mcp-server">MCP Server</a><a href="https://qveris.ai/docs/python-sdk">Python SDK</a></div></div>
+          <div><span class="footer-title">Ecosystem</span><div class="footer-links"><a href="https://github.com/QVerisAI">GitHub</a><a href="https://www.npmjs.com/org/qverisai">npm Packages</a><a href="https://clawhub.ai/skills?sort=downloads&q=qveris">ClawHub</a><a href="https://qveris.ai/for-agents">Agents Guide</a></div></div>
+          <div><span class="footer-title">Company</span><div class="footer-links"><a href="https://qveris.ai/pricing">Pricing</a><a href="https://qveris.ai/whats-new">What's New</a><a href="https://qveris.ai/help">Help Center</a><a href="https://qveris.ai/ecosystem">Ecosystem</a><a href="https://qveris.ai/security">Security</a><a href="https://qveris.ai/terms">Terms of Service</a><a href="https://qveris.ai/privacy">Privacy Policy</a></div></div>
+        </div>
+        <div class="footer-bottom">
+          <span>&copy; 2026 QVeris AI. All rights reserved.</span>
+          <span>AI-Agent Native &bull; Capability Routing Network &bull; Pay-Per-Call</span>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- /content-wrap -->
+
+  <script>
+    // ── Scroll reveal ──
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    revealEls.forEach(el => observer.observe(el));
+
+    // ── FAQ Toggle ──
+    function toggleFaq(el) {
+      el.classList.toggle('open');
+      var answer = el.nextElementSibling;
+      answer.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
