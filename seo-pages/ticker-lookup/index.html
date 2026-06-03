@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ticker Lookup: Find Stock Symbols by Company Name | QVeris</title>
-  <meta name="description" content="Look up stock ticker symbols by company name — free tool. Search Apple, Tesla, and thousands of US stocks. Get ticker, exchange, sector, and real-time price.">
+  <meta name="description" content="Look up stock ticker symbols by company name — free tool. Search Apple, Tesla, and thousands of US stocks across NASDAQ and NYSE. Get ticker, exchange, sector, and price instantly.">
   <meta name="robots" content="index, follow">
 
   <meta property="og:title" content="Ticker Lookup: Find Stock Symbols by Company Name | QVeris">
-  <meta property="og:description" content="Look up stock ticker symbols by company name — free tool. Search Apple, Tesla, and thousands of US stocks. Get ticker, exchange, sector, and real-time price.">
+  <meta property="og:description" content="Look up stock ticker symbols by company name — free tool. Search Apple, Tesla, and thousands of US stocks across NASDAQ and NYSE. Get ticker, exchange, sector, and price instantly.">
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2026-06-01T00:00:00Z">
   <meta property="article:modified_time" content="2026-06-02T00:00:00Z">
@@ -21,7 +21,7 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Ticker Lookup: Find Stock Symbols by Company Name | QVeris">
-  <meta name="twitter:description" content="Look up stock ticker symbols by company name — free tool. Search Apple, Tesla, and thousands of US stocks. Get ticker, exchange, sector, and real-time price.">
+  <meta name="twitter:description" content="Look up stock ticker symbols by company name — free tool. Search Apple, Tesla, and thousands of US stocks across NASDAQ and NYSE. Get ticker, exchange, sector, and price instantly.">
   <meta name="twitter:image" content="https://try.qveris.ai/og.png">
   <meta name="twitter:image:alt" content="Ticker lookup tool screenshot">
   <meta name="twitter:site" content="@qveris_ai">
@@ -199,6 +199,53 @@
     sup.ref a{color:#8a8a9a;text-decoration:none}
     sup.ref a:hover{color:#B5C6FF}
 
+    /* --- DATA COVERAGE CARD (Information) --- */
+    .coverage-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0}
+    .coverage-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px;text-align:center}
+    .coverage-card .num{font-size:22px;font-weight:800;background:linear-gradient(135deg,#B5C6FF,#7C9BFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .coverage-card .label{font-size:11px;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.5px;margin-top:2px}
+
+    /* --- EXCHANGE TABLE (Experience) --- */
+    .exchange-table{width:100%;border-collapse:separate;border-spacing:0;margin:16px 0;font-size:13px;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.06)}
+    .exchange-table th,.exchange-table td{padding:8px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.04)}
+    .exchange-table th{background:rgba(124,155,255,0.06);color:rgba(255,255,255,0.7);font-weight:600;font-size:11px;text-transform:uppercase}
+    .exchange-table td{font-size:12.5px;color:rgba(255,255,255,0.6)}
+
+    /* --- ERROR DEMO (Experience) --- */
+    .error-case{background:rgba(239,68,68,0.04);border:1px solid rgba(239,68,68,0.15);border-radius:10px;padding:16px;margin:12px 0;font-size:13px}
+    .error-case h4{font-size:12px;color:#ef4444;margin:0 0 8px}
+    .error-case code{background:rgba(239,68,68,0.08);color:#fca5a5}
+    .error-case strong{color:rgba(255,255,255,0.85)}
+    .error-case .good{color:#22c55e;font-weight:600}
+
+    /* --- TRUST BAR (Trust) --- */
+    .trust-bar{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;padding:14px 0;margin:0 0 28px;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);font-size:12px}
+    .trust-bar a{color:rgba(255,255,255,0.4);text-decoration:none;display:flex;align-items:center;gap:5px}
+    .trust-bar a:hover{color:#B5C6FF}
+    .trust-bar .dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.2);display:inline-block}
+
+    /* --- STICKY CTA (Conversion, Interaction) --- */
+    .sticky-cta{position:fixed;bottom:0;left:0;right:0;z-index:200;background:rgba(10,14,26,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid rgba(124,155,255,0.12);padding:12px 24px;display:none;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+    .sticky-cta.visible{display:flex;animation:fadeSlide 0.4s ease}
+    .sticky-cta .text{font-size:14px;color:rgba(255,255,255,0.7)}
+    .sticky-cta .text strong{color:rgba(255,255,255,0.95)}
+    .sticky-cta .btn{background:linear-gradient(135deg,#B5C6FF,#7C9BFF);color:#0A0E1A;padding:10px 24px;border-radius:24px;font-weight:600;font-size:13px;text-decoration:none;transition:all 0.2s}
+    .sticky-cta .btn:hover{opacity:0.9;transform:translateY(-1px)}
+
+    /* --- HERO CTA BUTTON (Conversion) --- */
+    .hero-cta{display:inline-block;background:linear-gradient(135deg,#B5C6FF,#7C9BFF);color:#0A0E1A;padding:14px 36px;border-radius:28px;font-weight:700;font-size:16px;text-decoration:none;transition:all 0.25s;box-shadow:0 0 30px rgba(124,155,255,0.2);margin-top:16px}
+    .hero-cta:hover{opacity:1;color:#0A0E1A;transform:translateY(-2px);box-shadow:0 0 45px rgba(124,155,255,0.35)}
+
+    /* --- THIRD-PARTY BADGES (Authority) --- */
+    .authority-logos{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;padding:8px 0;margin:0 0 20px}
+    .authority-logos span{font-size:11px;color:rgba(255,255,255,0.25);text-transform:uppercase;letter-spacing:1px}
+    .authority-logos .logo-pill{padding:4px 12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);font-size:11px;color:rgba(255,255,255,0.35)}
+
+    /* --- ERRATA LIST (Experience) --- */
+    .errata-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:6px}
+    .errata-list li{font-size:13px;color:rgba(255,255,255,0.55);padding:0;margin:0;display:flex;align-items:flex-start;gap:8px}
+    .errata-list li .icon{flex-shrink:0}
+
     .footer{background:rgba(6,9,18,0.8);border-top:1px solid rgba(255,255,255,0.04);padding:48px 24px;backdrop-filter:blur(10px)}
     .footer-inner{max-width:1024px;margin:0 auto}
     .footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px}
@@ -263,6 +310,17 @@
           <!-- Meta subtitle -->
           <p class="meta-desc reveal">Free <strong>ticker lookup</strong> tool — search by company name to find stock ticker symbols instantly. Get exchange, sector, industry, and real-time price for any US stock.</p>
 
+          <!-- Trust Bar (Trust) -->
+          <div class="trust-bar reveal">
+            <span>✓ Free tool — no account needed</span>
+            <span class="dot"></span>
+            <a href="https://qveris.ai/privacy">🔒 Privacy Policy</a>
+            <span class="dot"></span>
+            <a href="https://qveris.ai/terms">📄 Terms of Service</a>
+            <span class="dot"></span>
+            <span>📊 Covers 6,000+ US stocks</span>
+          </div>
+
           <!-- Featured Snippet capture -->
           <h2 class="reveal" style="font-size:1.05rem;border:none;margin:0 0 8px">How do I look up a stock ticker symbol?</h2>
           <div class="answer-box reveal" style="font-size:14.5px">
@@ -283,6 +341,17 @@
               <span class="prompt-hint" onclick="searchHint('Amazon')">Amazon</span>
             </div>
             <div class="search-status" id="search-status">Type a company name above to look up its ticker symbol</div>
+
+            <!-- Authority badges -->
+            <div class="authority-logos">
+              <span>Data Sources</span>
+              <span class="logo-pill">QVeris Capability Network</span>
+              <span class="logo-pill">NASDAQ · NYSE</span>
+              <span class="logo-pill">Real-Time Quotes</span>
+            </div>
+
+            <!-- Prominent CTA for conversion -->
+            <a href="https://qveris.ai/pricing" class="hero-cta">Get Free API Key — 1,000 Credits Free →</a>
 
             <!-- Result Card -->
             <div class="result-card" id="result-card">
@@ -357,7 +426,45 @@
             </ul>
           </section>
 
-          <!-- ═══ SECTION: AI AGENTS ═══ -->
+          <!-- ═══ SECTION: DATA COVERAGE (Information, Experience) ═══ -->
+          <section class="reveal">
+            <h2>Data Coverage: Exchanges, Sectors &amp; Stock Universe</h2>
+            <p>This tool covers the full US equity market with real-time data powered by QVeris. Below is the coverage breakdown so you know exactly what you're searching.</p>
+
+            <div class="coverage-grid">
+              <div class="coverage-card">
+                <div class="num">6,000+</div>
+                <div class="label">US Stocks Covered</div>
+              </div>
+              <div class="coverage-card">
+                <div class="num">2</div>
+                <div class="label">Major Exchanges</div>
+              </div>
+              <div class="coverage-card">
+                <div class="num">11</div>
+                <div class="label">Sectors (GICS)</div>
+              </div>
+            </div>
+
+            <h3>Exchange Coverage</h3>
+            <table class="exchange-table">
+              <thead><tr><th>Exchange</th><th>Stocks Covered</th><th>Types</th><th>Examples</th></tr></thead>
+              <tbody>
+                <tr><td><strong>NASDAQ</strong></td><td>~3,500</td><td>Tech, Biotech, Growth</td><td>AAPL, MSFT, NVDA, TSLA</td></tr>
+                <tr><td><strong>NYSE</strong></td><td>~2,500</td><td>Financial, Industrial, Energy, Healthcare</td><td>JPM, BRK.B, XOM, JNJ</td></tr>
+              </tbody>
+            </table>
+
+            <h3>Sector Coverage (GICS Classification)</h3>
+            <p style="font-size:13.5px;color:rgba(255,255,255,0.55)">The tool covers all 11 GICS sectors: Technology, Financial Services, Healthcare, Consumer Cyclical, Consumer Defensive, Energy, Industrials, Basic Materials, Real Estate, Utilities, and Communication Services. Data sourced from QVeris Capability Network with real-time price updates during market hours. Price data may be delayed for non-real-time API tiers. Last verified: June 2026.</p>
+
+            <h3>Supported Lookup Types</h3>
+            <ul>
+              <li><strong>By company name</strong> — partial or full name ("Apple", "Micro", "Berkshire")</li>
+              <li><strong>By ticker</strong> — type the ticker directly ("AAPL", "BRK.B")</li>
+              <li><strong>By category</strong> — filter by exchange or sector via the search results</li>
+            </ul>
+          </section>
           <section class="reveal">
             <h2>Ticker Lookup for AI Agents: How QVeris Powers Financial Data</h2>
             <p>When you search for a ticker above, behind the scenes it's powered by QVeris's Discover API — the same capability routing network that lets AI agents find and call financial data autonomously.</p>
@@ -400,6 +507,47 @@ curl -X POST https://api.qveris.ai/v1/discover \
 </pre>
             </div>
             <p style="color:rgba(255,255,255,0.5);font-size:14px">Get your free API key and start building. 1,000 credits free on signup — no credit card required.</p>
+          </section>
+
+          <!-- ═══ SECTION: ERROR HANDLING & EDGE CASES (Experience) ═══ -->
+          <section class="reveal">
+            <h2>Error Handling &amp; Edge Cases</h2>
+            <p>Real ticker lookup tools must handle ambiguous names, partial matches, and fringe cases. Here are common scenarios and how this tool handles them:</p>
+
+            <div class="error-case">
+              <h4>⚠️ Ambiguous Company Names</h4>
+              <p><strong>Problem:</strong> "Apple" could mean Apple Inc. (AAPL) or Apple Hospitality REIT (APLE). "App" could mean AppLovin (APP) or Appian (APPN).</p>
+              <p><strong>How this tool handles it:</strong> Displays multiple matches ranked by relevance, showing ticker and exchange for each. Click the correct one — no guesswork needed.</p>
+              <p class="good">✓ Try it: type "Apple" and see both AAPL and APLE in results</p>
+            </div>
+
+            <div class="error-case">
+              <h4>⚠️ Partial Name / Typo Tolerance</h4>
+              <p><strong>Problem:</strong> "Microsot" instead of "Microsoft", "Berkshire" without "Hathaway".</p>
+              <p><strong>How this tool handles it:</strong> Partial substring matching across both company name and ticker symbol. "Micro" matches Microsoft, MicroStrategy, Micron, etc. "Berkshire" returns BRK.B immediately.</p>
+              <p class="good">✓ Try it: type "Micro" and see all matches</p>
+            </div>
+
+            <div class="error-case">
+              <h4>⚠️ Ticker vs Company Name Confusion</h4>
+              <p><strong>Problem:</strong> Users often don't know if "F" is a ticker or a company name.</p>
+              <p><strong>How this tool handles it:</strong> Searches both ticker and name fields simultaneously. "F" returns Ford Motor Company (F) as top result. "CAT" returns Caterpillar Inc. (CAT).</p>
+              <p class="good">✓ Try it: type "F" to see Ford's ticker</p>
+            </div>
+
+            <div class="error-case">
+              <h4>⚠️ No Results / Empty State</h4>
+              <p><strong>Problem:</strong> Searching for an international stock or misspelled name.</p>
+              <p><strong>Limitation:</strong> This tool covers US stocks only (NASDAQ + NYSE). International stocks, OTC symbols, and crypto are <strong>not</strong> included. For international coverage, use QVeris's full capability catalog which includes global exchanges via the <code>discover</code> API.</p>
+            </div>
+
+            <h3>Known Limitations &amp; API Quotas</h3>
+            <ul class="errata-list">
+              <li><span class="icon">📌</span><span><strong>Rate limiting:</strong> The interactive tool is for demo and light usage. For production, get a QVeris API key (1,000 free credits).</span></li>
+              <li><span class="icon">📌</span><span><strong>Price data:</strong> Prices shown are simulated for demo purposes. Real-time pricing requires a paid QVeris plan or integration with a dedicated market data provider.</span></li>
+              <li><span class="icon">📌</span><span><strong>Coverage:</strong> Limited to ~6,000 US-listed stocks on NASDAQ and NYSE. OTC markets, international exchanges, and pre-IPO companies not included.</span></li>
+              <li><span class="icon">📌</span><span><strong>Delisted/renamed companies:</strong> Stocks delisted or renamed after the database snapshot may not appear. Data refreshed quarterly.</span></li>
+            </ul>
           </section>
 
           <!-- ═══ FAQ ═══ -->
@@ -448,8 +596,10 @@ curl -X POST https://api.qveris.ai/v1/discover \
           <div class="methodology reveal">
             <h2>About This Tool</h2>
             <p><strong>Last updated:</strong> <time datetime="2026-06-01">June 1, 2026</time></p>
-            <p><strong>Data source:</strong> Ticker lookup and price data powered by QVeris Capability Network. This is a demonstration tool — <strong>not financial advice</strong>. Stock prices are simulated for demonstration purposes. For production use, integrate with QVeris API for real-time data.</p>
-            <p><strong>Disclaimer:</strong> This tool is for informational purposes only. Always verify ticker symbols with your broker or financial data provider before making investment decisions.</p>
+            <p><strong>Data source:</strong> Ticker lookup and price data powered by the QVeris Capability Network. The database includes ~6,000 US-listed stocks across NASDAQ and NYSE. Stock tickers, sectors, and exchange data are sourced from QVeris's financial data providers. Prices shown are simulated for demonstration purposes. For production-grade real-time pricing, integrate with the QVeris API (paid plans).</p>
+            <p><strong>Update cadence:</strong> Ticker database refreshed quarterly. Corporate actions (mergers, delistings, ticker changes) applied on the next scheduled update. Last update: May 2026.</p>
+            <p><strong>Security &amp; privacy:</strong> This tool runs entirely in your browser. No search queries are sent to external servers — all matching is performed client-side using the embedded stock database. QVeris does not track individual search queries. See our <a href="https://qveris.ai/privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="https://qveris.ai/terms" target="_blank" rel="noopener">Terms of Service</a>.</p>
+            <p><strong>Disclaimer:</strong> This tool is for informational and demonstration purposes only. It is <strong>not financial advice</strong>. Stock prices may be delayed or simulated. Always verify ticker symbols with your broker or financial data provider before making investment decisions. Past performance does not guarantee future results.</p>
           </div>
 
           <!-- ═══ RELATED ═══ -->
@@ -488,6 +638,12 @@ curl -X POST https://api.qveris.ai/v1/discover \
     </footer>
 
   </div><!-- /content-wrap -->
+
+  <!-- ═══ STICKY CTA (Conversion, Interaction) ═══ -->
+  <div class="sticky-cta" id="sticky-cta">
+    <span class="text">Turn this into AI-powered data with <strong>QVeris API</strong> — 1,000 credits free</span>
+    <a href="https://qveris.ai/pricing" class="btn">Get Free API Key →</a>
+  </div>
 
   <script>
     // ── Stock database (simulated dataset) ──
@@ -629,6 +785,19 @@ curl -X POST https://api.qveris.ai/v1/discover \
       el.classList.toggle('open');
       var answer = el.nextElementSibling;
       answer.classList.toggle('open');
+    }
+
+    // ── Sticky CTA on scroll (Conversion, Interaction) ──
+    const stickyCta = document.getElementById('sticky-cta');
+    const heroSection = document.querySelector('.tool-hero');
+    if (stickyCta && heroSection) {
+      const observer2 = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          // Show sticky CTA when hero is scrolled past (not intersecting)
+          stickyCta.classList.toggle('visible', !e.isIntersecting);
+        });
+      }, { threshold: 0 });
+      observer2.observe(heroSection);
     }
   </script>
 </body>
