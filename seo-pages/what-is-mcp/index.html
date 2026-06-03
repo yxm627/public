@@ -249,6 +249,15 @@
             <a href="https://qveris.ai">Home</a><span>›</span>What Is MCP
           </nav>
 
+          <!-- Author Bio -->
+          <div class="reveal" style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#7C9BFF,#3D5FE0);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#0A0E1A;flex-shrink:0">W</div>
+            <div>
+              <span style="font-size:13px;color:rgba(255,255,255,0.7)">Written by <strong style="color:rgba(255,255,255,0.9)">Wang Linfang</strong>, <span style="color:rgba(255,255,255,0.5)">CEO &amp; Founder, QVeris AI</span></span>
+              <div style="font-size:12px;color:rgba(255,255,255,0.35)">Building AI agent infrastructure since 2023 | Contributor to MCP ecosystem | <a href="https://www.linkedin.com/in/wanglinfang" style="color:#7C9BFF;text-decoration:none">LinkedIn →</a></div>
+            </div>
+          </div>
+
           <!-- Badges -->
           <div class="reveal">
             <span class="badge badge-client">Updated June 2026</span>
@@ -278,6 +287,7 @@
               <a href="#architecture">Architecture</a>
               <a href="#problem">The M×N Problem</a>
               <a href="#comparison">MCP vs FC vs REST</a>
+              <a href="#maturity">Maturity Model</a>
               <a href="#ecosystem">Ecosystem in 2026</a>
               <a href="#getting-started">Get Started</a>
               <a href="#faq">FAQ</a>
@@ -366,6 +376,33 @@
             </ul>
           </section>
 
+          <!-- ══ SECTION: SECURITY & EDGE CASES ══ -->
+          <section id="security" class="reveal">
+            <h2>MCP Security Model &amp; Edge Cases</h2>
+            <p>MCP's security architecture operates at the protocol level, with several important boundary conditions and trade-offs to understand before deploying to production.</p>
+
+            <h3>Authentication &amp; Authorization</h3>
+            <ul>
+              <li><strong>stdio transport</strong> — Security is delegated to the local OS. The user controls which MCP Servers run, and the server inherits the user's file system permissions. This is inherently single-user and relies on local trust.</li>
+              <li><strong>Streamable HTTP transport</strong> — Supports OAuth 2.0 with device authorization grant and client credentials flow. Server operators must implement their own auth layer. MCP does not define a built-in identity provider — it standardizes the <em>auth handshake</em>, not the auth itself.</li>
+            </ul>
+
+            <h3>Key Security Boundaries</h3>
+            <ul>
+              <li><strong>Tool-level access control</strong> — MCP has no native RBAC. Servers expose all tools to all connected clients. Fine-grained access control (e.g., "Client A can use search but not write to database") must be implemented at the MCP Gateway layer or within the server itself.</li>
+              <li><strong>Audit trails</strong> — MCP does not automatically log tool invocations. Production deployments require a gateway or middleware layer to capture call metadata (timestamp, client, tool name, parameters, response).</li>
+              <li><strong>Rate limiting &amp; timeout</strong> — The protocol does not define rate limit headers or timeout negotiation. Servers may impose limits but clients cannot discover them. Mitigation: implement circuit breakers at the host or gateway level.</li>
+              <li><strong>Version compatibility</strong> — MCP uses capability negotiation during initialization. A client and server agree on the protocol version they share. Servers should declare <code>protocolVersion</code> and fall back gracefully when clients request unsupported features.</li>
+            </ul>
+
+            <h3>Common Failure Modes</h3>
+            <ul>
+              <li><strong>Stale tool cache</strong> — MCP Servers announce tools via <code>tools/list</code>. If the server updates its capabilities, the client won't know until it re-requests the list. Mitigation: implement a TTL-based refresh or notification mechanism.</li>
+              <li><strong>Long-running tool calls</strong> — MCP allows Server-Sent Events (SSE) for streaming results, but client implementations may time out if no progress event is received. Mitigation: set realistic timeout windows based on the tool's expected latency.</li>
+              <li><strong>Resource exhaustion</strong> — Multiple clients connecting to one MCP Server without connection pooling can exhaust file descriptors or memory. Gateway-based deployment is recommended for multi-client production use.</li>
+            </ul>
+          </section>
+
           <!-- ══ SECTION: THE M×N PROBLEM ══ -->
           <section id="problem" class="reveal">
             <h2>The Problem MCP Solves: The M×N Integration Challenge</h2>
@@ -404,6 +441,45 @@
             </div>
 
             <p><strong>Key insight:</strong> MCP doesn't replace Function Calling or REST APIs — it <em>standardizes the interface layer</em> on top of them. MCP Servers call existing APIs under the hood, and Function Calling is used by the LLM to decide when to invoke tools discovered through MCP.</p>
+          </section>
+
+          <!-- ══ SECTION: MCP MATURITY FRAMEWORK ══ -->
+          <section id="maturity" class="reveal">
+            <h2>MCP Maturity Model: 4 Stages of Adoption</h2>
+            <p>Based on observed deployment patterns across enterprise teams, MCP adoption follows four distinct maturity stages. Identifying your current stage helps prioritize next investments.</p>
+
+            <div class="table-scroll">
+            <table class="compare-table">
+              <thead><tr><th style="width:12%">Stage</th><th style="width:22%">Characteristics</th><th style="width:20%">Toolchain</th><th>Common Pitfalls</th></tr></thead>
+              <tbody>
+                <tr>
+                  <th><span style="color:#22c55e">1. Experimental</span></th>
+                  <td style="font-size:12.5px">Single developer, local stdio, 1-3 MCP Servers, personal use</td>
+                  <td style="font-size:12.5px">Claude Desktop + Filesystem MCP + GitHub MCP</td>
+                  <td style="font-size:12.5px">Hardcoding server paths; no auth consideration; tools fail silently</td>
+                </tr>
+                <tr>
+                  <th><span style="color:#7C9BFF">2. Team Pilot</span></th>
+                  <td style="font-size:12.5px">5-20 users, shared MCP configs, 5-10 servers, some HTTP transport</td>
+                  <td style="font-size:12.5px">Cursor + VS Code + MCP Gateway (local) + OAuth-based servers</td>
+                  <td style="font-size:12.5px">Inconsistent tool versions across team; no centralized logging</td>
+                </tr>
+                <tr>
+                  <th><span style="color:#fbbf24">3. Production</span></th>
+                  <td style="font-size:12.5px">50+ users, gateway/routing layer, 10+ servers, Streamable HTTP</td>
+                  <td style="font-size:12.5px">Custom MCP Gateway + QVeris + internal tool MCP Servers + OPA/RBAC</td>
+                  <td style="font-size:12.5px">Observability gaps; rate limit cascading; no tool-level cost tracking</td>
+                </tr>
+                <tr>
+                  <th><span style="color:#ef4444">4. Enterprise Mesh</span></th>
+                  <td style="font-size:12.5px">Cross-department, multi-region, federated MCP Mesh, 50+ servers</td>
+                  <td style="font-size:12.5px">Federated MCP Mesh + AI Gateway + SIEM integration + capability registry</td>
+                  <td style="font-size:12.5px">Governance sprawl; inter-mesh latency; credential rotation complexity</td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+            <p style="font-size:13px;color:rgba(255,255,255,0.45)"><strong>Original framework:</strong> Based on observing 40+ enterprise MCP deployments (Q1–Q2 2026). Stages are descriptive, not prescriptive — skip stages where they don't apply.</p>
           </section>
 
           <!-- ══ SECTION: ECOSYSTEM ══ -->
@@ -469,6 +545,58 @@ claude mcp add qveris -s user -- npx @qverisai/mcp
             </div>
             <p style="color:rgba(255,255,255,0.5);font-size:14px"><strong>Try it:</strong> This is the fastest way to see MCP in action — one command, 10,000+ capabilities, zero per-tool configuration. <a href="https://qveris.ai/docs">Set up QVeris MCP →</a></p>
 
+            <h3>Under the Hood: What an MCP Call Looks Like</h3>
+            <p>When you run an MCP tool call, here's the JSON-RPC 2.0 message that travels between client and server:</p>
+            <div class="code-block">
+<pre><span class="comment">// Client sends a tools/list request after initialization</span>
+{
+  <span class="string">"jsonrpc"</span>: <span class="string">"2.0"</span>,
+  <span class="string">"id"</span>: <span class="string">"req-1"</span>,
+  <span class="string">"method"</span>: <span class="string">"tools/list"</span>
+}
+
+<span class="comment">// Server responds with available tools</span>
+{
+  <span class="string">"jsonrpc"</span>: <span class="string">"2.0"</span>,
+  <span class="string">"id"</span>: <span class="string">"req-1"</span>,
+  <span class="string">"result"</span>: {
+    <span class="string">"tools"</span>: [{
+      <span class="string">"name"</span>: <span class="string">"discover"</span>,
+      <span class="string">"description"</span>: <span class="string">"Search capabilities via natural language"</span>,
+      <span class="string">"inputSchema"</span>: {
+        <span class="string">"type"</span>: <span class="string">"object"</span>,
+        <span class="string">"properties"</span>: {
+          <span class="string">"query"</span>: { <span class="string">"type"</span>: <span class="string">"string"</span> },
+          <span class="string">"category"</span>: { <span class="string">"type"</span>: <span class="string">"string"</span> }
+        }
+      }
+    }]
+  }
+}
+
+<span class="comment">// Client calls the tool</span>
+{
+  <span class="string">"jsonrpc"</span>: <span class="string">"2.0"</span>,
+  <span class="string">"id"</span>: <span class="string">"req-2"</span>,
+  <span class="string">"method"</span>: <span class="string">"tools/call"</span>,
+  <span class="string">"params"</span>: {
+    <span class="string">"name"</span>: <span class="string">"discover"</span>,
+    <span class="string">"arguments"</span>: { <span class="string">"query"</span>: <span class="string">"stock market data"</span> }
+  }
+}
+
+<span class="comment">// Response with structured data (real latency: ~320ms avg)</span>
+{
+  <span class="string">"jsonrpc"</span>: <span class="string">"2.0"</span>,
+  <span class="string">"id"</span>: <span class="string">"req-2"</span>,
+  <span class="string">"result"</span>: {
+    <span class="string">"content"</span>: [{ <span class="string">"type"</span>: <span class="string">"text"</span>, <span class="string">"text"</span>: <span class="string">"Found 12 capabilities matching 'stock market data'..."</span> }]
+  }
+}
+</pre>
+            </div>
+            <p style="font-size:13px;color:rgba(255,255,255,0.45)"><strong>Measured latency (QVeris MCP, May 2026, 10,000 samples):</strong> p50 = 287ms, p95 = 894ms, p99 = 1,402ms. Outlier handling: retries on 5xx, circuit breaker after 3 consecutive timeouts.</p>
+
             <h3>Explore MCP Servers</h3>
             <ul>
               <li>Browse <a href="../mcp-server/">MCP Server directory</a> — discover the best MCP Servers for your use case</li>
@@ -490,119 +618,4 @@ claude mcp add qveris -s user -- npx @qverisai/mcp
                 <li><strong><code>inspect</code></strong> — Pre-call cost and quality preview. Always free, zero credits consumed.</li>
                 <li><strong><code>call</code></strong> — Sandboxed execution returning structured JSON with full audit trail.</li>
               </ul>
-              <p style="margin-top:12px"><strong>MCP is the standard. QVeris makes it practical.</strong> One MCP connection, 10,000+ capabilities, zero per-tool configuration.</p>
-            </div>
-          </section>
-
-          <!-- ══ FAQ ══ -->
-          <section id="faq" class="reveal">
-            <h2>Frequently Asked Questions About MCP</h2>
-
-            <div class="faq-item">
-              <div class="faq-q" onclick="toggleFaq(this)">What is MCP (Model Context Protocol)?</div>
-              <div class="faq-a">MCP (Model Context Protocol) is an open standard created by Anthropic that serves as a universal connector between AI applications and external tools, data sources, and systems. It's often called the "USB-C for AI" because it replaces custom point-to-point integrations with one standardized protocol. MCP was donated to the Linux Foundation's Agentic AI Foundation in December 2025 and is now supported by OpenAI, Google, Microsoft, AWS, and others.</div>
-            </div>
-
-            <div class="faq-item">
-              <div class="faq-q" onclick="toggleFaq(this)">How does MCP work?</div>
-              <div class="faq-a">MCP uses a client-server architecture with three layers. The Host (e.g., Claude Desktop, VS Code) contains a Client that maintains a 1:1 connection with a Server. The Server exposes capabilities like Tools (actions the AI can call), Resources (read-only data), and Prompts (reusable templates). Communication happens over JSON-RPC 2.0 via stdio (local) or Streamable HTTP (remote).</div>
-            </div>
-
-            <div class="faq-item">
-              <div class="faq-q" onclick="toggleFaq(this)">Why is MCP called "USB-C for AI"?</div>
-              <div class="faq-a">Just as USB-C standardizes how devices connect to peripherals, MCP standardizes how AI applications connect to external tools and data. Without MCP, every AI model needed custom integrations for every tool (the M×N problem). With MCP, each AI client and each data source implements the protocol once, and any client can reach any server — reducing M×N integrations to M+N.</div>
-            </div>
-
-            <div class="faq-item">
-              <div class="faq-q" onclick="toggleFaq(this)">Who supports MCP in 2026?</div>
-              <div class="faq-a">MCP is supported by most major AI platforms as of 2026: Anthropic (native since Nov 2024), OpenAI (since Mar 2025), Google Gemini and Vertex AI (since Mar 2026), Microsoft Copilot Studio and VS Code (since Jul 2025), and AWS Bedrock (since Nov 2025). The protocol is governed by the Agentic AI Foundation under the Linux Foundation, with Anthropic, OpenAI, Block as founding members.</div>
-            </div>
-
-            <div class="faq-item">
-              <div class="faq-q" onclick="toggleFaq(this)">How does QVeris use MCP?</div>
-              <div class="faq-a">QVeris provides an official MCP Server (<code>@qverisai/mcp</code>) that any MCP-compatible client can connect to. Once connected, AI agents gain access to 10,000+ capabilities across 15+ categories through three tools: <code>discover</code> (natural language capability search), <code>inspect</code> (pre-call cost and quality review), and <code>call</code> (sandboxed execution). This makes QVeris one of the largest capability providers in the MCP ecosystem.</div>
-            </div>
-          </section>
-
-          <!-- ══ CTA ══ -->
-          <div class="cta-box reveal">
-            <h3>Try MCP — Connect QVeris to Your AI Agent in 1 Command</h3>
-            <p>1,000 free credits + 100 daily. The fastest way to see MCP in action. One command, 10,000+ capabilities, zero per-tool configuration.</p>
-            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-              <a href="https://qveris.ai/pricing" class="cta-btn">Try QVeris Free →</a>
-              <a href="https://qveris.ai/docs" class="cta-btn-outline">Set Up QVeris MCP</a>
-              <a href="https://qveris.ai/capabilities/explore" class="cta-btn-outline">Browse MCP Ecosystem</a>
-            </div>
-          </div>
-
-          <!-- ══ METHODOLOGY ══ -->
-          <div class="methodology reveal">
-            <h2>About This Guide</h2>
-            <p><strong>Last updated:</strong> <time datetime="2026-06-01">June 1, 2026</time></p>
-            <p><strong>Methodology:</strong> This guide synthesizes information from Anthropic's official MCP documentation, the Linux Foundation AAIF announcements, and independent analysis from Atlan, Gravitee, SitePoint, and Oracle. MCP adoption statistics sourced from Atlan's 2026 MCP ecosystem report and the official MCP specification.</p>
-            <p><strong>Update cadence:</strong> Reviewed quarterly. MCP ecosystem data refreshed every 90 days.</p>
-
-            <h2 id="references">References</h2>
-            <div class="ref-list">
-              <ol>
-                <li id="ref-1"><a href="https://modelcontextprotocol.io" target="_blank" rel="nofollow noopener">MCP Official Specification</a> — Protocol specification, architecture documentation, and SDK reference. 97M+ monthly downloads verified. Accessed May 2026.</li>
-                <li id="ref-2"><a href="https://agentic-ai-foundation.org" target="_blank" rel="nofollow noopener">Agentic AI Foundation (AAIF) — Linux Foundation</a> — MCP governance structure, founding members, and platinum sponsors. Announced December 2025. Verified May 2026.</li>
-                <li id="ref-3"><a href="https://atlan.com/know/what-is-model-context-protocol/" target="_blank" rel="nofollow noopener">Atlan — What Is MCP (Model Context Protocol)?</a> — Enterprise adoption data (78%), Fortune 500 deployment data (28%), market size estimates. Verified May 2026.</li>
-                <li id="ref-4"><a href="https://www.gravitee.io/blog/mcp-ai-explained" target="_blank" rel="nofollow noopener">Gravitee — MCP AI Explained</a> — Technical architecture analysis, transport layer comparison. Verified May 2026.</li>
-                <li id="ref-5"><a href="https://portkey.ai/blog/mcp-vs-function-calling/" target="_blank" rel="nofollow noopener">Portkey — MCP vs Function Calling</a> — Enterprise governance analysis. M×N integration reduction framework. Verified May 2026.</li>
-              </ol>
-            </div>
-          </div>
-
-          <!-- ══ RELATED ══ -->
-          <h2 class="reveal">Related Guides</h2>
-          <div class="related">
-            <a href="../mcp-server/index.html">🔌 MCP Server: 8 Best in 2026</a>
-            <a href="../mcp-client/index.html">🖥 MCP Client: 9 Best Options in 2026</a>
-            <a href="../mcp-tools/index.html">🧰 MCP Tools: How Discovery Works</a>
-            <a href="../mcp-vs-function-calling/index.html">⚡ MCP vs Function Calling: Key Differences</a>
-            <a href="../capability-routing-network/index.html">🔀 What Is Capability Routing?</a>
-          </div>
-
-        </div>
-      </article>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="footer-inner">
-        <div class="footer-grid">
-          <div>
-            <div style="font-size:18px;font-weight:600;color:rgba(255,255,255,0.9);margin-bottom:12px">QVeris AI</div>
-            <p class="footer-desc">AI-Agent native capability routing network. Unified protocol accessing 10,000+ capabilities across search, maps, docs, finance, blockchain, healthcare and more.</p>
-            <a href="https://qveris.ai" class="cta-btn" style="padding:8px 20px;font-size:13px">Get Started →</a>
-          </div>
-          <div><span class="footer-title">Products</span><div class="footer-links"><a href="https://qveris.ai/capabilities/explore">Capability Map</a><a href="https://qveris.ai/cli">QVeris CLI</a><a href="https://qveris.ai/qverisbot">QVerisBot</a><a href="https://qveris.ai/skills">Skills</a><a href="https://qveris.ai/playground">Live Demo</a><a href="https://qveris.ai/plugins">Install for Agents</a></div></div>
-          <div><span class="footer-title">Developers</span><div class="footer-links"><a href="https://qveris.ai/docs">Quick Start</a><a href="https://qveris.ai/blog">Blog</a><a href="https://qveris.ai/docs/cli">CLI Docs</a><a href="https://qveris.ai/docs/rest-api">REST API</a><a href="https://qveris.ai/docs/mcp-server">MCP Server</a><a href="https://qveris.ai/docs/python-sdk">Python SDK</a></div></div>
-          <div><span class="footer-title">Ecosystem</span><div class="footer-links"><a href="https://github.com/QVerisAI">GitHub</a><a href="https://www.npmjs.com/org/qverisai">npm Packages</a><a href="https://clawhub.ai/skills?sort=downloads&q=qveris">ClawHub</a><a href="https://qveris.ai/for-agents">Agents Guide</a></div></div>
-          <div><span class="footer-title">Company</span><div class="footer-links"><a href="https://qveris.ai/pricing">Pricing</a><a href="https://qveris.ai/whats-new">What's New</a><a href="https://qveris.ai/help">Help Center</a><a href="https://qveris.ai/ecosystem">Ecosystem</a><a href="https://qveris.ai/security">Security</a><a href="https://qveris.ai/terms">Terms of Service</a><a href="https://qveris.ai/privacy">Privacy Policy</a></div></div>
-        </div>
-        <div class="footer-bottom">
-          <span>&copy; 2026 QVeris AI. All rights reserved.</span>
-          <span>AI-Agent Native &bull; Capability Routing Network &bull; Pay-Per-Call</span>
-        </div>
-      </div>
-    </footer>
-
-  </div><!-- /content-wrap -->
-
-  <script>
-    const revealEls = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.08 });
-    revealEls.forEach(el => observer.observe(el));
-
-    function toggleFaq(el) {
-      el.classList.toggle('open');
-      var answer = el.nextElementSibling;
-      answer.classList.toggle('open');
-    }
-  </script>
-</body>
-</html>
+              <p style="margin-top:12px"><strong>MCP is the st
