@@ -619,4 +619,140 @@ claude mcp add qveris -s user -- npx @qverisai/mcp
 
             <div class="faq-item">
               <div class="faq-q" onclick="toggleFaq(this)">What is MCP (Model Context Protocol)?</div>
-              <div class="faq-a">MCP (Model Context Protocol) is an open standard created by Anthropic that serves as a universal connector between AI applications and external tools, data sources, and systems. It's often called the "USB-C for AI" because it replaces custom point-to-point integrations with one standardized protocol. MCP was donated to the Linux Foundation's Agentic AI Foundation in December 2025 and is now supported by OpenAI, Google, Microsoft, AWS, and others.
+              <div class="faq-a">MCP (Model Context Protocol) is an open standard created by Anthropic that serves as a universal connector between AI applications and external tools, data sources, and systems. It's often called the "USB-C for AI" because it replaces custom point-to-point integrations with one standardized protocol. MCP was donated to the Linux Foundation's Agentic AI Foundation in December 2025 and is now supported by OpenAI, Google, Microsoft, AWS, and others.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">How does MCP work?</div>
+              <div class="faq-a">MCP uses a client-server architecture with three layers. The Host (e.g., Claude Desktop, VS Code) contains a Client that maintains a 1:1 connection with a Server. The Server exposes capabilities like Tools (actions the AI can call), Resources (read-only data), and Prompts (reusable templates). Communication happens over JSON-RPC 2.0 via stdio (local) or Streamable HTTP (remote).</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">Why is MCP called "USB-C for AI"?</div>
+              <div class="faq-a">Just as USB-C standardizes how devices connect to peripherals, MCP standardizes how AI applications connect to external tools and data. Without MCP, every AI model needed custom integrations for every tool (the M×N problem). With MCP, each AI client and each data source implements the protocol once, and any client can reach any server — reducing M×N integrations to M+N.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">Who supports MCP in 2026?</div>
+              <div class="faq-a">MCP is supported by most major AI platforms: Anthropic (native since Nov 2024), OpenAI (since Mar 2025), Google Gemini and Vertex AI (since Mar 2026), Microsoft Copilot Studio and VS Code (since Jul 2025), and AWS Bedrock (since Nov 2025). The protocol is governed by the Agentic AI Foundation under the Linux Foundation.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">How does QVeris use MCP?</div>
+              <div class="faq-a">QVeris provides an official MCP Server (@qverisai/mcp) that any MCP-compatible client can connect to. Once connected, AI agents gain access to 10,000+ capabilities across 15+ categories through three tools: discover (natural language capability search), inspect (pre-call cost and quality review), and call (sandboxed execution). This makes QVeris one of the largest capability providers in the MCP ecosystem.</div>
+            </div>
+          </section>
+
+          <!-- ══ CTA ══ -->
+          <div class="cta-box">
+            <h3>Explore 10,000+ Capabilities Through MCP</h3>
+            <p>One command connects your AI agent to a universe of tools. Free discovery, pay-per-call in production.</p>
+            <a href="https://qveris.ai" class="cta-btn">Get Started →</a>
+            <a href="https://qveris.ai/docs" class="cta-btn-outline">Read the Docs</a>
+          </div>
+
+        </div>
+
+        <!-- ══ METHODOLOGY ══ -->
+        <aside class="methodology" style="max-width:1024px;margin:0 auto;padding:24px">
+          <h2>About This Guide</h2>
+          <p><strong>Last updated:</strong> <time datetime="2026-06-01">June 1, 2026</time></p>
+          <p><strong>Methodology:</strong> This guide synthesizes information from the official MCP specification, the Linux Foundation Agentic AI Foundation documentation, published industry surveys, and hands-on testing of QVeris MCP Server performance. Ecosystem statistics are sourced from the MCP SDK download registry and the AAIF community survey (April 2026).</p>
+          <p><strong>Key sources:</strong></p>
+          <ol>
+            <li id="ref-1"><a href="https://modelcontextprotocol.io" rel="nofollow noopener" target="_blank">Official MCP Specification</a> — modelcontextprotocol.io</li>
+            <li id="ref-2"><a href="https://agenticai-foundation.org" rel="nofollow noopener" target="_blank">Agentic AI Foundation (Linux Foundation)</a></li>
+            <li id="ref-3"><a href="https://www.mcpsurvey.com" rel="nofollow noopener" target="_blank">Enterprise MCP Adoption Survey, April 2026</a></li>
+            <li id="ref-5">Anthropic MCP Announcement (Nov 2024, Mar 2025)</li>
+          </ol>
+          <p><strong>Conflict of interest:</strong> QVeris is an MCP-native platform. This guide aims for objective technical accuracy — we have highlighted MCP's security boundaries, governance model, and competitive alternatives throughout.</p>
+          <p><strong>Update cadence:</strong> Reviewed monthly. The MCP ecosystem evolves rapidly — SDK versions, platform support, and adoption metrics change weekly.</p>
+        </aside>
+
+        <!-- ══ RELATED GUIDES ══ -->
+        <section style="max-width:1024px;margin:0 auto;padding:0 24px 48px">
+          <h2>Related Guides</h2>
+          <div class="related">
+            <a href="../mcp-gateway/index.html">MCP Gateway: Complete Guide to AI Agent Tool Routing in 2026</a>
+            <a href="../mcp-server/index.html">MCP Server Directory: Best MCP Servers for 2026</a>
+            <a href="../mcp-client/index.html">MCP Client Guide: Find the Right Client for Your AI Application</a>
+            <a href="../mcp-tools/index.html">MCP Tools: Complete Guide to the Model Context Protocol Ecosystem</a>
+            <a href="../mcp-integration/index.html">MCP Integration: How to Connect AI Agents to Tools</a>
+          </div>
+        </section>
+
+      </article>
+    </main>
+
+    <!-- ══ FOOTER ══ -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div>
+            <span class="footer-title">QVeris</span>
+            <p class="footer-desc">AI-Agent native capability routing network. Unified protocol accessing 10,000+ financial capabilities. Free discovery. Pay-per-call in production.</p>
+            <a href="https://qveris.ai" class="cta-btn" style="padding:8px 20px;font-size:13px">Get Started →</a>
+          </div>
+          <div>
+            <span class="footer-title">Products</span>
+            <div class="footer-links">
+              <a href="https://qveris.ai/capabilities/explore">Capability Map</a>
+              <a href="https://qveris.ai/cli">QVeris CLI</a>
+              <a href="https://qveris.ai/playground">Live Demo</a>
+              <a href="https://qveris.ai/plugins">Install for Agents</a>
+            </div>
+          </div>
+          <div>
+            <span class="footer-title">Developers</span>
+            <div class="footer-links">
+              <a href="https://qveris.ai/docs">Quick Start</a>
+              <a href="https://qveris.ai/blog">Blog</a>
+              <a href="https://qveris.ai/docs/rest-api">REST API</a>
+              <a href="https://qveris.ai/docs/mcp-server">MCP Server</a>
+              <a href="https://qveris.ai/docs/python-sdk">Python SDK</a>
+            </div>
+          </div>
+          <div>
+            <span class="footer-title">Ecosystem</span>
+            <div class="footer-links">
+              <a href="https://github.com/QVerisAI">GitHub</a>
+              <a href="https://qveris.ai/for-agents">Agents Guide</a>
+              <a href="https://qveris.ai/ecosystem">Ecosystem</a>
+            </div>
+          </div>
+          <div>
+            <span class="footer-title">Company</span>
+            <div class="footer-links">
+              <a href="https://qveris.ai/pricing">Pricing</a>
+              <a href="https://qveris.ai/help">Help Center</a>
+              <a href="https://qveris.ai/security">Security</a>
+              <a href="https://qveris.ai/terms">Terms of Service</a>
+              <a href="https://qveris.ai/privacy">Privacy Policy</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>&copy; 2026 QVeris. All rights reserved.</span>
+          <span>AI-Agent Native &#8226; Capability Routing Network &#8226; Pay-Per-Call</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    function toggleFaq(el) {
+      el.classList.toggle('open');
+      const answer = el.nextElementSibling;
+      answer.classList.toggle('open');
+    }
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
